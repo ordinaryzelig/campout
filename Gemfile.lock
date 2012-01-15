@@ -1,0 +1,26 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    awesome_print (1.0.2)
+    builder (3.0.0)
+    camping (2.1.467)
+      rack (>= 1.0)
+    fakeweb (1.3.0)
+    markaby (0.7.2)
+      builder (>= 2.0.0)
+    minitest (2.10.0)
+    nokogiri (1.5.0)
+    rack (1.4.0)
+    vcr (1.11.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  awesome_print
+  camping (= 2.1.467)
+  fakeweb (= 1.3.0)
+  markaby (= 0.7.2)
+  minitest (= 2.10.0)
+  nokogiri (= 1.5.0)
+  vcr (= 1.11.3)
