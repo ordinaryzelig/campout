@@ -1,0 +1,6 @@
+work flow
+  follow TDKRcampout
+  use last tweet location for theater listings
+  when available, DM link to ticket sales
+
+Follow me and I'll Direct Message you when tickets for "The Dark Knight Rises" go on sale in your area.
