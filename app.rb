@@ -10,18 +10,6 @@ module Campout::Controllers
     end
   end
 
-  #class Testmail
-    #def get
-      #@message = Pony.mail(
-        #to: 'jared@redningja.com',
-        #from: 'pony@redningja.com',
-        #subject: 'test',
-        #body: 'this is a test',
-      #)
-      #render :testmail
-    #end
-  #end
-
   class Movietickets < R '/movietickets/(.*)'
     def get(date)
       @date = Chronic.parse(date).to_date

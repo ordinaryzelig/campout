@@ -7,7 +7,7 @@ task :diagnostics do
     MovieTickets.diagnostics
     puts 'OK'
   rescue
-    Pony.mail(to: 'jared@redningja.com', subject: 'Campout diagnostics failure', body: $!.backtrace.join("\n"))
+    Pony.mail(to: 'ningja@me.com', subject: 'Campout diagnostics failure', body: $!.backtrace.join("\n"))
     puts 'failed. email sent'
   end
 end
@@ -32,7 +32,7 @@ task :list, [:date] do |t, args|
         end
       end
     end
-    Pony.mail(to: 'jared@redningja.com', html_body: html)
+    Pony.mail(to: 'ningja@me.com', subject: "Movies for #{date}", html_body: html)
     puts 'email sent'
   end
 end
