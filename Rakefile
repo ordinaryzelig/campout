@@ -12,27 +12,18 @@ task :diagnostics do
   end
 end
 
-desc 'Email movies showing on given date at each theater'
-task :list, [:date] do |t, args|
+desc 'Check for movie on specific day'
+task :check, [:pattern, :date] do |t, args|
+  pattern = args.pattern
   date = Chronic.parse(args.date).to_date
-  theaters = MovieTickets::Theater.all.each_with_object({}) do |theater, hash|
+  theaters = MovieTickets::Theater.all.each_with_object([]) do |theater, array|
     movies = MovieTickets.scour(theater: theater, date: date).uniq(&:title)
-    hash[theater] = movies unless movies.empty?
+    array << theater if movies.any? { |movie| movie.title =~ Regexp.new(pattern, 'i') }
   end
-  unless theaters.empty?
-    h = Markaby::Builder.new
-    html = h.html do
-      h1 date
-      theaters.each do |theater, movies|
-        h2 theater.name
-        ul do
-          movies.each do |movie|
-            li movie.title
-          end
-        end
-      end
-    end
-    Pony.mail(to: 'ningja@me.com', subject: "Movies for #{date}", html_body: html)
+  if theaters.empty?
+    puts 'no go'
+  else
+    Pony.mail(to: 'ningja@me.com', subject: "#{pattern} is on sale!!!", body: theaters.map(&:name).join("\n"))
     puts 'email sent'
   end
 end
