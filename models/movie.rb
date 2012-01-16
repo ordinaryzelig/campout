@@ -1,6 +1,6 @@
 class Movie
 
-  include RailsStyleInitialization
+  include Scourable
 
   attr_accessor :title
 
