@@ -8,6 +8,12 @@ module Scourable
 
   module ClassMethods
 
+    # Make request, parse, return movies.
+    def scour(options)
+      html = get '', query: query_options(options)
+      parse html
+    end
+
     def load_from_yaml
       db_yml_file = File.open(db_yml_file_path)
       yaml = YAML.load(db_yml_file.read)

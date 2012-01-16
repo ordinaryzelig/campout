@@ -17,14 +17,13 @@ task :diagnostics do
   end
 end
 
-desc 'Check for movie on specific day'
-task :check, [:pattern, :date] do |t, args|
+desc 'Check for movie on specific day in zipcode'
+task :check, [:pattern, :date, :zipcode] do |t, args|
   pattern = args.pattern
   date = Chronic.parse(args.date).to_date
-  theaters = MovieTickets::Theater.all.each_with_object([]) do |theater, array|
-    movies = MovieTickets::Theater.scour(theater: theater, date: date).uniq(&:title)
-    array << theater if movies.any? { |movie| movie.title =~ Regexp.new(pattern, 'i') }
-  end
+  zipcode = args.zipcode
+  movie = MovieTickets::Movie.search(pattern)
+  theaters = movie.on_sale_at_theaters(date, zipcode)
   if theaters.empty?
     puts 'no go'
   else
