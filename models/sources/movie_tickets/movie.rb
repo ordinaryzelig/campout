@@ -2,5 +2,8 @@
 
 module MovieTickets
   class Movie < ::Movie
+
+    include HTTParty
+
   end
 end
