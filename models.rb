@@ -7,5 +7,10 @@
   autoload const, "./models/#{const.to_s.downcase}"
 end
 
-# Require sources.
-Dir['./models/sources/**/*.rb'].each { |f| require f }
+# Require everything else.
+[
+  './models/sources/**/*.rb',
+  './models/social/**/*.rb',
+].each do |glob|
+  Dir[glob].each { |f| require f }
+end

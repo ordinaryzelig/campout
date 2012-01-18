@@ -1,0 +1,182 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://api.twitter.com:443/1/direct_messages.json
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      user-agent:
+      - Twitter Ruby Gem 2.0.2
+      authorization:
+      - OAuth oauth_consumer_key="<FILTERED>", oauth_nonce="f394b32026eb437e845f7b4e28f3da45",
+        oauth_signature="lMBk1BXzSSUBSyJEPm4%2FCYeaMtU%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1326932487", oauth_token="<FILTERED>", oauth_version="1.0"
+      accept-encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 19 Jan 2012 00:21:27 GMT
+      status:
+      - 200 OK
+      x-transaction:
+      - fddc102d5719e896
+      x-ratelimit-limit:
+      - '350'
+      etag:
+      - ! '"3b237cd648279dfe5c843cd0253e19df"'
+      x-frame-options:
+      - SAMEORIGIN
+      last-modified:
+      - Thu, 19 Jan 2012 00:21:27 GMT
+      x-ratelimit-remaining:
+      - '347'
+      x-runtime:
+      - '0.02765'
+      x-transaction-mask:
+      - a6183ffa5f8ca943ff1b53b5644ef114a1bb0a7b
+      content-type:
+      - application/json; charset=utf-8
+      pragma:
+      - no-cache
+      x-access-level:
+      - read-write-directmessages
+      x-ratelimit-class:
+      - api_identified
+      x-revision:
+      - DEV
+      expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      cache-control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      x-mid:
+      - d2cd88f20ce9670ed4b872d2406f8b87f201d1f7
+      x-ratelimit-reset:
+      - '1326935914'
+      set-cookie:
+      - k=10.35.19.120.1326932487944349; path=/; expires=Thu, 26-Jan-12 00:21:27 GMT;
+        domain=.twitter.com
+      - guest_id=v1%3A132693248794665440; domain=.twitter.com; path=/; expires=Sat,
+        18-Jan-2014 12:21:27 GMT
+      - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
+      - lang=en; path=/
+      - twid=u%3D464833719%7CzHB27zDs0f20aF6p1X6URLGNd2w%3D; domain=.twitter.com;
+        path=/
+      - _twitter_sess=BAh7CjoPY3JlYXRlZF9hdGwrCBbvVvM0AToMY3NyZl9pZCIlYzM1MzdlOTA5%250AMzJlODlmNTU5ODYxN2U4ZTMyMWRiNTc6B2lkIiU2ZGYwYTFmNGYyYTVkNDNm%250AOWNlZWIwODg5M2I3M2EyMyIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%250ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoHdWEw--5dc2e0b6d6133438a4120dbb69954cb7ad4d53f6;
+        domain=.twitter.com; path=/; HttpOnly
+      vary:
+      - Accept-Encoding
+      content-encoding:
+      - gzip
+      content-length:
+      - '860'
+      server:
+      - tfe
+    body: !binary |-
+      H4sIAAAAAAAAA7WWUZPaNhDHv4rGD51mej1k2cbYbwnkHpq35Dp9KB2NsGXQ
+      IUtEknNNM/nuXRnwYePjSm+iFwZbu6v9718/+PNbUBjOHC8pc0Ee/MFL9BtT
+      KJwhQnIyy8MI/YJhIYJDEtwEoqTWGdgZJlk6jXESxVk4S0IyTeCt4YXYCa4g
+      1bdACuvzFrrx3/FNIJlaQyRXsHPNNeWKrSQvg7xi0vKbYGd0JSSnVpR8xQyF
+      LxLCpfb1Fov37++mEFlpKfUjN/aYOWwjHS/cSC5RszWnjZGQYuPcLl9OlhMW
+      3bpHUa9vC10vJ9aJYvt1OSl5xRrpaC/Unj/HVGlTM3m7g3ZuAuuYayw/PU5P
+      0k+N2kuaoDDNY5zHA0kVq7lvkJkt+qDEeuPQRwEJ4dWgdJA700BzdqMfKQNx
+      hJJCcVrzUrCu9b1A1PDPDbeO2nYcz0i80qbkphN5jkHlxemY42k8i6I0zPxB
+      tROVKJgTWtkuZeMKqqvKcqiiGin9qW1hxM5vgwxeIhCEK3po9H7x4WPB6p1u
+      HLz7wg0kHZkcaEpXrNiuDeha7qdxFMCJmtN/tOLHkpUB15XdDAjMQCtnxKpx
+      GpwydNpeIuHtOKjq+N+ukyNq1/kc+oc5Phwe9sx1+NR1R3e5Da+7z3A5Wa0P
+      vpJ6r/RewktFqC9hD6VsW8uK64pV7ItujHBPNsZPNcFj204TjGfxu9hbxFJn
+      mLKSOf/i6IZ+z4c532640dvGHyYYuZsvN/DKOzqi3ojlg7xz+2iIa69g2+j3
+      E9bRQSRcOH+n+qY3vFTgtwcWdBt8GMniGcEkO0136bb4mHPyHlOeU5dcoG7f
+      vaPQvUsXb7NoDLpRdD11exMdTjAkaYhnKUlho3Qc9HoBs3GSDEh733D0dmcQ
+      TlE4zck0j0hHWpw9kfaBQXbkxzGG2EMrP4yxd+06ZezRBP8Jsb+ScIrxi5A9
+      9dtrERvMoT3DJLqHZ+jn3z+hn9CcKVayN8EZeuMr2Nt3YA+9uF3Po3fQyXXs
+      fS7K2zBKE5JlCW7h+LAbkFhvJdvomqFCuK+vxvKV5ziHdPgMpOfzKGrVuwDp
+      /Q/n/2DxtTf3Any7KfdZ+CJ7vVUg3JaV3D6gR47SKIwJgn9W8Cj4/te/1L+X
+      3tcKAAA=
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :delete
+    uri: https://api.twitter.com:443/1/direct_messages/destroy/159764053491851265.json
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      user-agent:
+      - Twitter Ruby Gem 2.0.2
+      authorization:
+      - OAuth oauth_consumer_key="<FILTERED>", oauth_nonce="fee42d4f8cd1fb919e876f6bbbf3df06",
+        oauth_signature="IdiHQGgRNfl%2Fh%2Bm%2FS86bdNOo1Gc%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1326932488", oauth_token="<FILTERED>", oauth_version="1.0"
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 19 Jan 2012 00:21:28 GMT
+      status:
+      - 200 OK
+      x-transaction:
+      - ff9eb131b4b28dd5
+      x-ratelimit-limit:
+      - '350'
+      etag:
+      - ! '"7a7dfc46e916817b2ebc91a3044aa7d2"'
+      x-frame-options:
+      - SAMEORIGIN
+      last-modified:
+      - Thu, 19 Jan 2012 00:21:28 GMT
+      x-ratelimit-remaining:
+      - '346'
+      x-runtime:
+      - '0.08877'
+      x-transaction-mask:
+      - a6183ffa5f8ca943ff1b53b5644ef114a1bb0a7b
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '2773'
+      pragma:
+      - no-cache
+      x-access-level:
+      - read-write-directmessages
+      x-ratelimit-class:
+      - api_identified
+      x-revision:
+      - DEV
+      expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      cache-control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      x-mid:
+      - fc696cb4b50e985ffb46fdce7d37b46592a2ecc0
+      x-ratelimit-reset:
+      - '1326935914'
+      set-cookie:
+      - k=10.35.63.137.1326932488494885; path=/; expires=Thu, 26-Jan-12 00:21:28 GMT;
+        domain=.twitter.com
+      - guest_id=v1%3A132693248849780506; domain=.twitter.com; path=/; expires=Sat,
+        18-Jan-2014 12:21:28 GMT
+      - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
+      - lang=en; path=/
+      - twid=u%3D464833719%7CzHB27zDs0f20aF6p1X6URLGNd2w%3D; domain=.twitter.com;
+        path=/
+      - _twitter_sess=BAh7CjoPY3JlYXRlZF9hdGwrCDzxVvM0AToMY3NyZl9pZCIlODI1OTYyYzRk%250AYzYwZDgwNDM0N2YyNWM4YzUzNzA0OGY6B2lkIiU1N2RmNWZlYWU4YTAzMTNk%250ANjM4YjBiNjA2Y2YwNzY3ZSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%250ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoHdWEw--7fdf9188f8c751e4c3d6ca4702b44c40aa171c95;
+        domain=.twitter.com; path=/; HttpOnly
+      vary:
+      - Accept-Encoding
+      server:
+      - tfe
+    body: ! '{"created_at":"Wed Jan 18 22:28:13 +0000 2012","id_str":"159764053491851265","recipient":{"listed_count":0,"lang":"en","geo_enabled":false,"profile_sidebar_fill_color":"DDEEF6","followers_count":1,"protected":false,"profile_image_url":"http:\/\/a3.twimg.com\/sticky\/default_profile_images\/default_profile_0_normal.png","statuses_count":1,"created_at":"Sun
+      Jan 15 17:40:43 +0000 2012","name":"Dark Knight Rises","default_profile":true,"show_all_inline_media":false,"follow_request_sent":false,"profile_sidebar_border_color":"C0DEED","id_str":"464833719","notifications":false,"utc_offset":null,"description":"","screen_name":"TDKRcampout","verified":false,"profile_use_background_image":true,"time_zone":null,"friends_count":2,"contributors_enabled":false,"following":false,"profile_text_color":"333333","default_profile_image":true,"profile_background_image_url":"http:\/\/a0.twimg.com\/images\/themes\/theme1\/bg.png","location":"","profile_background_image_url_https":"https:\/\/si0.twimg.com\/images\/themes\/theme1\/bg.png","favourites_count":0,"profile_link_color":"0084B4","is_translator":false,"url":"http:\/\/campout.heroku.com","profile_image_url_https":"https:\/\/si0.twimg.com\/sticky\/default_profile_images\/default_profile_0_normal.png","profile_background_color":"C0DEED","id":464833719,"profile_background_tile":false},"recipient_id":464833719,"sender_screen_name":"redningja","sender_id":29482029,"recipient_screen_name":"TDKRcampout","id":159764053491851265,"sender":{"listed_count":2,"lang":"en","geo_enabled":true,"profile_sidebar_fill_color":"F7DA93","followers_count":33,"protected":false,"profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/127108727\/altered_normal.png","statuses_count":1455,"created_at":"Tue
+      Apr 07 16:26:32 +0000 2009","name":"jared ning","default_profile":false,"show_all_inline_media":false,"follow_request_sent":false,"profile_sidebar_border_color":"FFFFFF","id_str":"29482029","notifications":false,"utc_offset":-21600,"description":"","screen_name":"redningja","verified":false,"profile_use_background_image":true,"time_zone":"Central
+      Time (US & Canada)","friends_count":42,"contributors_enabled":false,"following":true,"profile_text_color":"000000","default_profile_image":false,"profile_background_image_url":"http:\/\/a0.twimg.com\/profile_background_images\/137529950\/bg.jpg","location":"oklahoma
+      city","profile_background_image_url_https":"https:\/\/si0.twimg.com\/profile_background_images\/137529950\/bg.jpg","favourites_count":1,"profile_link_color":"CC3300","is_translator":false,"url":null,"profile_image_url_https":"https:\/\/si0.twimg.com\/profile_images\/127108727\/altered_normal.png","profile_background_color":"000000","id":29482029,"profile_background_tile":false},"text":"sdflkj
+      we 73142 43 sdf"}'
+    http_version: '1.1'

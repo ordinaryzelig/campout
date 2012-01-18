@@ -1,6 +1,32 @@
-work flow
-  follow TDKRcampout
-  use last tweet location for theater listings
-  when available, DM link to ticket sales
+Follow me and I'll Direct Message you when tickets for "The Dark Knight Rises" go on sale in your area. (US only)
 
-Follow me and I'll Direct Message you when tickets for "The Dark Knight Rises" go on sale in your area.
+work flow
+  user followes TDKRcampout
+  campout creates twitter account object
+  campout follows user back
+  campout determines zipcode from profile location
+  if zipcode determined
+    campout finds and assigns theaters
+  else
+    campout DMs user asking for zipcode
+    user DMs zipcode
+    repeat determining zipcode but with DM this time
+  when tickets go on sale, DM user
+
+scheduled tasks
+
+  Assign theaters
+    for each twitter account
+      search for theaters using zipcode
+      find_or_create
+      add to twitter account's theaters
+
+  Check for movies
+    1 zipcode at a time...
+      check if all matching theaters already searched
+      if not, search for zipcode and update theater last searched date
+
+  Notify of ticket sales
+    for each account not yet notified and with theaters selling tickets...
+      DM list of theaters selling tickets
+      mark as notified

@@ -1,0 +1,101 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://api.twitter.com:443/1/direct_messages.json
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      user-agent:
+      - Twitter Ruby Gem 2.0.2
+      authorization:
+      - OAuth oauth_consumer_key="<FILTERED>", oauth_nonce="8f41d92df2daf31d88071b04f1c0e3f0",
+        oauth_signature="cGSetuR5K8rjH2Wzo5%2FGdMWhP7E%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1326932313", oauth_token="<FILTERED>", oauth_version="1.0"
+      accept-encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 19 Jan 2012 00:18:34 GMT
+      status:
+      - 200 OK
+      x-transaction:
+      - 41420b7554f65300
+      x-ratelimit-limit:
+      - '350'
+      etag:
+      - ! '"3b237cd648279dfe5c843cd0253e19df"'
+      x-frame-options:
+      - SAMEORIGIN
+      last-modified:
+      - Thu, 19 Jan 2012 00:18:34 GMT
+      x-ratelimit-remaining:
+      - '349'
+      x-runtime:
+      - '0.61331'
+      x-transaction-mask:
+      - a6183ffa5f8ca943ff1b53b5644ef114a1bb0a7b
+      content-type:
+      - application/json; charset=utf-8
+      pragma:
+      - no-cache
+      x-access-level:
+      - read-write-directmessages
+      x-ratelimit-class:
+      - api_identified
+      x-revision:
+      - DEV
+      expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      cache-control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      x-mid:
+      - 6074d3e9f25dfcfe9104fe58dd397763b13c9f27
+      x-ratelimit-reset:
+      - '1326935914'
+      set-cookie:
+      - k=10.34.250.116.1326932314192381; path=/; expires=Thu, 26-Jan-12 00:18:34
+        GMT; domain=.twitter.com
+      - guest_id=v1%3A132693231419558023; domain=.twitter.com; path=/; expires=Sat,
+        18-Jan-2014 12:18:34 GMT
+      - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
+      - lang=en; path=/
+      - twid=u%3D464833719%7CzHB27zDs0f20aF6p1X6URLGNd2w%3D; domain=.twitter.com;
+        path=/
+      - _twitter_sess=BAh7CjoPY3JlYXRlZF9hdGwrCHpKVPM0AToMY3NyZl9pZCIlOTEwNmE4OWI2%250ANmU1YmJjMzNhMTBhNWE5Mjg2MDhhZDg6B2lkIiUyZjc1ZDMyYTQ1ZTcwMGYw%250AMzM1YWQzZjg5ZjhkYzBlNSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%250ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoHdWEw--010995f6fc3d5f57f76f80518a74a85031cd19c9;
+        domain=.twitter.com; path=/; HttpOnly
+      vary:
+      - Accept-Encoding
+      content-encoding:
+      - gzip
+      content-length:
+      - '860'
+      server:
+      - tfe
+    body: !binary |-
+      H4sIAAAAAAAAA7WWUZPaNhDHv4rGD51mej1k2cbYbwnkHpq35Dp9KB2NsGXQ
+      IUtEknNNM/nuXRnwYePjSm+iFwZbu6v9718/+PNbUBjOHC8pc0Ee/MFL9BtT
+      KJwhQnIyy8MI/YJhIYJDEtwEoqTWGdgZJlk6jXESxVk4S0IyTeCt4YXYCa4g
+      1bdACuvzFrrx3/FNIJlaQyRXsHPNNeWKrSQvg7xi0vKbYGd0JSSnVpR8xQyF
+      LxLCpfb1Fov37++mEFlpKfUjN/aYOWwjHS/cSC5RszWnjZGQYuPcLl9OlhMW
+      3bpHUa9vC10vJ9aJYvt1OSl5xRrpaC/Unj/HVGlTM3m7g3ZuAuuYayw/PU5P
+      0k+N2kuaoDDNY5zHA0kVq7lvkJkt+qDEeuPQRwEJ4dWgdJA700BzdqMfKQNx
+      hJJCcVrzUrCu9b1A1PDPDbeO2nYcz0i80qbkphN5jkHlxemY42k8i6I0zPxB
+      tROVKJgTWtkuZeMKqqvKcqiiGin9qW1hxM5vgwxeIhCEK3po9H7x4WPB6p1u
+      HLz7wg0kHZkcaEpXrNiuDeha7qdxFMCJmtN/tOLHkpUB15XdDAjMQCtnxKpx
+      GpwydNpeIuHtOKjq+N+ukyNq1/kc+oc5Phwe9sx1+NR1R3e5Da+7z3A5Wa0P
+      vpJ6r/RewktFqC9hD6VsW8uK64pV7ItujHBPNsZPNcFj204TjGfxu9hbxFJn
+      mLKSOf/i6IZ+z4c532640dvGHyYYuZsvN/DKOzqi3ojlg7xz+2iIa69g2+j3
+      E9bRQSRcOH+n+qY3vFTgtwcWdBt8GMniGcEkO0136bb4mHPyHlOeU5dcoG7f
+      vaPQvUsXb7NoDLpRdD11exMdTjAkaYhnKUlho3Qc9HoBs3GSDEh733D0dmcQ
+      TlE4zck0j0hHWpw9kfaBQXbkxzGG2EMrP4yxd+06ZezRBP8Jsb+ScIrxi5A9
+      9dtrERvMoT3DJLqHZ+jn3z+hn9CcKVayN8EZeuMr2Nt3YA+9uF3Po3fQyXXs
+      fS7K2zBKE5JlCW7h+LAbkFhvJdvomqFCuK+vxvKV5ziHdPgMpOfzKGrVuwDp
+      /Q/n/2DxtTf3Any7KfdZ+CJ7vVUg3JaV3D6gR47SKIwJgn9W8Cj4/te/1L+X
+      3tcKAAA=
+    http_version: '1.1'

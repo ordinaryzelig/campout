@@ -1,5 +1,6 @@
 source :rubygems
 
+gem 'activerecord', '3.1.3'
 gem 'activesupport', '3.1.3'
 gem 'awesome_print'
 gem 'camping', '2.1.467'
@@ -9,9 +10,20 @@ gem 'markaby', '0.7.2'
 gem 'nokogiri', '1.5.0'
 gem 'pony', '1.4'
 gem 'rake', '0.9.2.2'
+gem 'state_machine', '1.1.1'
+gem 'twitter', '2.0.2'
 
 group :test do
+  gem 'database_cleaner', '0.7.1'
+  gem 'factory_girl', '2.4.0'
   gem 'fakeweb', '1.3.0'
   gem 'minitest', '2.10.0'
+  gem 'mocha', '0.10.2'
+  gem 'timecop', '0.3.5'
   gem 'vcr', '1.11.3'
 end
+
+group :development, :test do
+  gem 'sqlite3', '1.3.5'
+end
+

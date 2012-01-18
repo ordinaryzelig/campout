@@ -6,6 +6,8 @@ require 'open-uri'
 require 'active_support/inflector'
 require 'active_support/string_inquirer'
 
+require 'active_record'
+
 # Require config and lib files.
 [
   './config/*.rb',
@@ -17,3 +19,5 @@ require 'active_support/string_inquirer'
 end
 
 require './models'
+
+require './twitter'

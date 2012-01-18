@@ -1,0 +1,83 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: https://api.twitter.com:443/1/friendships/create.json
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      user-agent:
+      - Twitter Ruby Gem 2.0.2
+      authorization:
+      - OAuth oauth_consumer_key="<FILTERED>", oauth_nonce="1b7fe15666de5392f4dfbdf6a732477e",
+        oauth_signature="vvvLCdSTDmICaPl6Ggn9FmABsaw%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1326930900", oauth_token="<FILTERED>", oauth_version="1.0"
+      content-type:
+      - application/x-www-form-urlencoded
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Wed, 18 Jan 2012 23:55:02 GMT
+      status:
+      - 200 OK
+      x-transaction:
+      - e0a8b3948d5b1bfe
+      etag:
+      - ! '"a034a05c41a44340d449ee6dc99eb7d1"'
+      x-frame-options:
+      - SAMEORIGIN
+      last-modified:
+      - Wed, 18 Jan 2012 23:55:01 GMT
+      x-runtime:
+      - '1.77355'
+      x-transaction-mask:
+      - a6183ffa5f8ca943ff1b53b5644ef114a1bb0a7b
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '2601'
+      pragma:
+      - no-cache
+      x-access-level:
+      - read-write-directmessages
+      x-revision:
+      - DEV
+      expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      cache-control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      x-mid:
+      - b4489b85c41d988fdde640c4d98db4a0234096c7
+      set-cookie:
+      - k=10.35.66.138.1326930901034588; path=/; expires=Wed, 25-Jan-12 23:55:01 GMT;
+        domain=.twitter.com
+      - guest_id=v1%3A132693090103787528; domain=.twitter.com; path=/; expires=Sat,
+        18-Jan-2014 11:55:01 GMT
+      - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
+      - lang=en; path=/
+      - twid=u%3D464833719%7CzHB27zDs0f20aF6p1X6URLGNd2w%3D; domain=.twitter.com;
+        path=/
+      - _twitter_sess=BAh7CjoPY3JlYXRlZF9hdGwrCDi4PvM0AToMY3NyZl9pZCIlYzE4ZWMwNmVk%250AM2JlYjQ5MGVjODZlZmZiZTg2ZDY2NDI6B2lkIiVmNzZiM2I3MDY3MTdhZGRl%250AMmJjZDA5NDRjNDIxOTkwOSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%250ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoHdWEw--27cf0496df6017d236f443df6ba13fc42d5df942;
+        domain=.twitter.com; path=/; HttpOnly
+      vary:
+      - Accept-Encoding
+      server:
+      - tfe
+    body: ! '{"listed_count":2,"lang":"en","geo_enabled":true,"profile_sidebar_fill_color":"F7DA93","followers_count":33,"protected":false,"profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/127108727\/altered_normal.png","statuses_count":1455,"created_at":"Tue
+      Apr 07 16:26:32 +0000 2009","name":"jared ning","default_profile":false,"show_all_inline_media":false,"follow_request_sent":false,"profile_sidebar_border_color":"FFFFFF","id_str":"29482029","notifications":false,"utc_offset":-21600,"description":"","screen_name":"redningja","verified":false,"profile_use_background_image":true,"time_zone":"Central
+      Time (US & Canada)","friends_count":42,"contributors_enabled":false,"following":true,"profile_text_color":"000000","status":{"place":null,"created_at":"Wed
+      Jan 18 16:45:58 +0000 2012","retweet_count":1,"favorited":false,"in_reply_to_status_id_str":null,"id_str":"159677923257892864","in_reply_to_screen_name":null,"in_reply_to_status_id":null,"in_reply_to_user_id_str":null,"coordinates":null,"retweeted":false,"truncated":true,"contributors":null,"in_reply_to_user_id":null,"source":"\u003Ca
+      href=\"http:\/\/www.apparentsoft.com\/socialite\" rel=\"nofollow\"\u003ESocialite.app\u003C\/a\u003E","geo":null,"id":159677923257892864,"retweeted_status":{"place":null,"created_at":"Wed
+      Jan 18 16:15:48 +0000 2012","retweet_count":1,"favorited":false,"in_reply_to_status_id_str":null,"id_str":"159670331013988355","in_reply_to_screen_name":null,"in_reply_to_status_id":null,"in_reply_to_user_id_str":null,"coordinates":null,"retweeted":false,"truncated":false,"contributors":null,"in_reply_to_user_id":null,"source":"\u003Ca
+      href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003ETwitter
+      for Android\u003C\/a\u003E","geo":null,"id":159670331013988355,"text":"#FactsWithoutWikipedia
+      Despite country, religion, income level, sexual orientation, gender, we have
+      much more that unites us than divides us"},"text":"RT @venturajm: #FactsWithoutWikipedia
+      Despite country, religion, income level, sexual orientation, gender, we have
+      much more that unites ..."},"default_profile_image":false,"profile_background_image_url":"http:\/\/a0.twimg.com\/profile_background_images\/137529950\/bg.jpg","location":"oklahoma
+      city","profile_background_image_url_https":"https:\/\/si0.twimg.com\/profile_background_images\/137529950\/bg.jpg","favourites_count":1,"profile_link_color":"CC3300","is_translator":false,"url":null,"profile_image_url_https":"https:\/\/si0.twimg.com\/profile_images\/127108727\/altered_normal.png","profile_background_color":"000000","id":29482029,"profile_background_tile":false}'
+    http_version: '1.1'

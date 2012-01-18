@@ -36,6 +36,11 @@ task :check, [:pattern, :date, :zipcode] do |t, args|
   end
 end
 
+desc 'Run cron.rb'
+task :cron do
+  load Campout.root_dir + 'cron.rb'
+end
+
 # ====================================
 # Testing.
 
