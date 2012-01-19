@@ -13,6 +13,10 @@ gem 'rake', '0.9.2.2'
 gem 'state_machine', '1.1.1'
 gem 'twitter', '2.0.2'
 
+group :production do
+  gem 'pg'
+end
+
 group :test do
   gem 'database_cleaner', '0.7.1'
   gem 'factory_girl', '2.4.0'
@@ -26,4 +30,3 @@ end
 group :development, :test do
   gem 'sqlite3', '1.3.5'
 end
-
