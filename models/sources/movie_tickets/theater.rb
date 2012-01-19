@@ -2,12 +2,11 @@
 
 class MovieTicketsTheater < ActiveRecord::Base
 
-  include Scourable
-
   include HTTParty
   base_uri 'http://www.movietickets.com/house_detail.asp'
 
   validates :name, presence: true
+  validates :house_id, numericality: {greater_than: 0}
 
   class << self
 
@@ -15,6 +14,12 @@ class MovieTicketsTheater < ActiveRecord::Base
     def diagnostics
       movies = scour theater: MovieTicketsTheater.first
       raise "No movies found at #{url}" if movies.empty?
+    end
+
+    # Make request, parse, return movies.
+    def scour(options)
+      html = get '', query: query_options(options)
+      parse html
     end
 
     private

@@ -2,15 +2,10 @@
 
 class MovieTicketsMovie < ActiveRecord::Base
 
-  include Scourable
-
   include HTTParty
   base_uri 'http://www.movietickets.com/movie_detail.asp'
-  default_params(
-    SearchRadius: 40, # miles.
-  )
 
-  def on_sale_at_theaters(date, zipcode)
+  def find_theaters_selling(date, zipcode)
     self.class.scour(
       movie:   self,
       date:    date,
@@ -19,6 +14,12 @@ class MovieTicketsMovie < ActiveRecord::Base
   end
 
   class << self
+
+    # Make request, parse, return theaters.
+    def scour(options)
+      html = get '', query: query_options(options)
+      parse html
+    end
 
     private
 

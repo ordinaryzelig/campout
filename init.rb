@@ -20,6 +20,8 @@ require 'active_record'
   end
 end
 
-require './models'
+# Require models.
+Dir['./models/**/*.rb'].each { |f| require f }
 
+# TODO: move this to config.
 require './twitter'

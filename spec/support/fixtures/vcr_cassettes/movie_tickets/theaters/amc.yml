@@ -2,7 +2,7 @@
 - !ruby/struct:VCR::HTTPInteraction
   request: !ruby/struct:VCR::Request
     method: :get
-    uri: http://www.movietickets.com:80/house_detail.asp?house_id=5902&rdate=01%2F16%2F12
+    uri: http://www.movietickets.com:80/house_detail.asp?house_id=5902&rdate=01%2F18%2F12
     body: !!null 
     headers: !!null 
   response: !ruby/struct:VCR::Response
@@ -13,23 +13,19 @@
       cache-control:
       - private
       content-length:
-      - '92333'
+      - '86969'
       content-type:
       - text/html
-      server:
-      - Microsoft-IIS/7.5
       set-cookie:
-      - session=VX=363671326&VID=2814656245; path=/
-      - persist=CX=743331364127437&CID=1284926545; expires=Wed, 16-Jan-2013 05:00:00
+      - session=VX=1647485247&VID=2816289107; path=/
+      - persist=CX=455359882513738&CID=1286229120; expires=Sat, 19-Jan-2013 05:00:00
         GMT; path=/
-      - ASPSESSIONIDQCDSQSQD=PCBIBMLBNGMIDPDPHLJBBCOA; path=/
-      - session=VX=363671326&VID=2814656245; path=/; path=/
-      - persist=CX=743331364127437&CID=1284926545; expires=Wed, 16-Jan-2013 05:00:00
-        GMT; path=/; path=/
+      - session=VX=1647485247&VID=2816289107; path=/; path=/
+      - TS5d4549=8c9e1ea749c23fa854f4476caaa186baed72c44348e1b0784f17acae; Path=/
       x-powered-by:
       - ASP.NET
       date:
-      - Mon, 16 Jan 2012 17:22:28 GMT
+      - Thu, 19 Jan 2012 05:39:57 GMT
     body: ! "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html
       id=\"html\" xml:lang=\"en-us\" lang=\"en-us\" xmlns=\"http://www.w3.org/1999/xhtml\"
       xmlns:og=\"http://ogp.me/ns#\" xmlns:fb=\"http://www.facebook.com/2008/fbml\">\r\n<head>\r\n<title>AMC
@@ -40,18 +36,18 @@
       MovieTickets.com\" />\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=8\"
       />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"
       />\r\n<meta property=\"fb:app_id\" content=\"111814275500067\"/>\r\n\r\n\r\n\r\n<link
-      rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/style/site.css\"
-      />\r\n\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/style/color_black.css\"
+      rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/style/site.css\"
+      />\r\n\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/style/color_black.css\"
       />\r\n<!--[if gt IE 6]>\r\n<link rel=\"stylesheet\" type=\"text/css\" media=\"screen\"
-      href=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/style/ie.css\">\r\n<![endif]-->\r\n<!--
+      href=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/style/ie.css\">\r\n<![endif]-->\r\n<!--
       localized stylesheets -->\r\n\r\n<!-- end localized stylesheets -->\r\n\r\n<link
-      rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/style/add_this.css\"
-      />\r\n\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/style/printing.css\"
-      media=\"print\" />\r\n<script type=\"text/javascript\" src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/scripts/scripts.min.pack.js\"></script>\r\n<!--
-      script type=\"text/javascript\" src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/scripts/scripts.source.js\"></script
+      rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/style/add_this.css\"
+      />\r\n\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/style/printing.css\"
+      media=\"print\" />\r\n<script type=\"text/javascript\" src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/scripts/scripts.min.pack.js\"></script>\r\n<!--
+      script type=\"text/javascript\" src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/scripts/scripts.source.js\"></script
       -->\n<script type=\"text/javascript\">\n    // DART ordinal seed\n    var ord
       = Math.random() * 10000000000000000;\n</script>\n\n\n<style type=\"text/css\">\n\t#bod1
-      {background: url(http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/back_mid_default4_black.png)
+      {background: url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/back_mid_default4_black.png)
       top center repeat-y; color: #000}\n</style>\n\n\r\n<script type=\"text/javascript\"
       src=\"http://www.movietickets.com/polls/poll.js\"></script>\r\n<script type=\"text/javascript\">\r\nvar
       http = 'http://www.movietickets.com/';\r\nfunction enableVote(pollID, answerID){\r\n\tdocument.frmPoll.vote.disabled
@@ -70,7 +66,7 @@
       target=\"_blank\" ><img src=\"http://ad.doubleclick.net/ad/hwd.movietickets/house_detail;lang=0;movie=house_detail;zip=null;age=null;gender=null;afid=null;genre=null;rating=null;companion=yes;site=live;house=5902;edit=null;purchase=no;visit=no;tab=null;pos=top;sz=728x90,954x250,960x119;tile=1;ord=123456789?\"
       border=\"0\" alt=\"\" /></a></noscript>\n\n            </span>\n        \n    </div>\n</div>\n<!--
       END 728x90 position Top leaderboard -->\n\n<div id=\"outerBod\">\n<div id=\"endcapTop\"
-      style=\"\n    \n        background: url(http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/back_topcap_black4.png)
+      style=\"\n    \n        background: url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/back_topcap_black4.png)
       no-repeat\"></div>\r\n<div id=\"bod1\">\r\n\t<div id=\"headerHP\">\r\n\t\t\r\n
       \       <p id=\"access\"><a href=\"#body\" accesskey=\"2\" title=\"Skip navigation\">Skip
       navigation</a> - <a href=\"#srch\" accesskey=\"4\" title=\"Skip to Search\">Skip
@@ -81,7 +77,7 @@
       holiday logo below.\n    \n\t    document.getElementById(\"logos\").style.height
       = \"69px\";\n\t    document.getElementById(\"logos\").style.background = \"url(http://a1608.g.akamai.net/7/1608/1174/200971618955/www.movietickets.com/images/common/site_images3.png)
       no-repeat\";\n\tdocument.getElementById(\"logos\").style.background = \"none\";\n
-      \   $MTj(\"#mtlogo\").html(\"<img style=\\\"margin: 9px 0 0 6px\\\" src=\\\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/en/logo_mt_new.png\\\"
+      \   $MTj(\"#mtlogo\").html(\"<img style=\\\"margin: 9px 0 0 6px\\\" src=\\\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/en/logo_mt_new.png\\\"
       title=\\\"MovieTickets.com\\\" alt=\\\"MovieTickets.com\\\" />\");document.getElementById(\"logos\").style.background
       = \"none\";\t// Override repeating gradiant\n    //]]>\n    </script>\n    \n<script
       type=\"text/javascript\">\n    //<![CDATA[\n    //ord = Math.random() * 10000000000000000;\n
@@ -181,7 +177,7 @@
       \                           //alert(\"6\");\n                                $MTj('#adPosFrame1',
       frames['adFrameMovieDropDown'].document).append('<a style=\"position: absolute;
       z-index: 9999\" href=\"http://www.movietickets.com/redir.asp?uid=390\" target=\"_blank\"><img
-      src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/panels/728x90_facebook_house_ad.jpg?pn=house_detail.asp\"
+      src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/panels/728x90_facebook_house_ad.jpg?pn=house_detail.asp\"
       width=\"728\" height=\"90\" border=\"0\" title=\"Check out MovieTickets.com
       on Facebook\" alt=\"Check out MovieTickets.com on Facebook\" /></a>');\n                            //hideAd
       = true;\n                        }\n                        else {\n                            //alert(\"7\");\n
@@ -204,63 +200,64 @@
       a movie');\">GO</a>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t\t<p
       id=\"moviedropAdvSrch\"><a href=\"http://www.movietickets.com/advanced_search.asp\">More
       Movies? Go to Advanced Search</a></p>\n\t\t\t\t\t\t\t\t<div class=\"clr\"></div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div
-      id=\"moviedropMid\">\r\n<!-- Now Playing -->\r\n<div id=\"col-1\"><h3>NOW PLAYING</h3></div>\r\n<div
-      class=\"droplistback1 mgnt36\">\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=128141\">Contraband</a>\r\n
+      id=\"moviedropMid\">\n<!-- Now Playing -->\n<div id=\"col-1\"><h3>NOW PLAYING</h3></div>\n<div
+      class=\"droplistback1 mgnt36\">\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=128141\">Contraband</a>\n
       \   <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=29331\">Beauty
-      and the Beast</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=74162\">Beauty
-      and the Beast 3D</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=88936\">Mission:
-      Impossible - Ghost Protocol</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=110140\">Mission:
-      Impossible - Ghost Protocol: The IMAX Experience</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=102330\">Joyful
+      and the Beast</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=74162\">Beauty
+      and the Beast 3D</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=88936\">Mission:
+      Impossible - Ghost Protocol</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=110140\">Mission:
+      Impossible - Ghost Protocol: The IMAX Experience</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=102330\">Joyful
       Noise</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=96370\">Sherlock
-      Holmes: A Game of Shadows</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=115651\">The
-      Devil Inside</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=118022\">The
-      Girl with the Dragon Tattoo</a> \r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=90389\">Alvin
-      and the Chipmunks: Chipwrecked</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=94735\">War
-      Horse</a> \r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=116928\">The
-      Iron Lady</a> \n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=95204\">We
-      Bought a Zoo</a> \r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=78005\">The
-      Adventures of Tintin</a> \r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=110178\">The
-      Adventures of Tintin 3D</a> \r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=128813\">The
-      Adventures of Tintin: The IMAX Experience</a> \r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=110141\">The
-      Adventures of Tintin: An IMAX 3D Experience</a> \r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=113595\">The
-      Descendants</a>\r\n</div>\r\n\r\n<!-- Opening This Week -->\r\n<div id=\"col-2\"><h3>OPENING
-      THIS WEEK</h3></div>\r\n<div class=\"droplistback1 mgnt36 mgnl10\">\r\n    <a
-      href=\"http://www.movietickets.com/movie_detail.asp?movie_id=118784\">Coriolanus</a>\r\n
+      Holmes: A Game of Shadows</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=115651\">The
+      Devil Inside</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=118022\">The
+      Girl with the Dragon Tattoo</a> \n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=90389\">Alvin
+      and the Chipmunks: Chipwrecked</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=95204\">We
+      Bought a Zoo</a> \n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=94735\">War
+      Horse</a> \n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=116928\">The
+      Iron Lady</a> \n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=78005\">The
+      Adventures of Tintin</a> \n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=110178\">The
+      Adventures of Tintin 3D</a> \n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=128813\">The
+      Adventures of Tintin: The IMAX Experience</a> \n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=110141\">The
+      Adventures of Tintin: An IMAX 3D Experience</a> \n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=118005\">Tinker
+      Tailor Soldier Spy</a> \n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=113595\">The
+      Descendants</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=115405\">The
+      Artist</a>\n</div>\n\n<!-- Opening This Week -->\n<div id=\"col-2\"><h3>OPENING
+      THIS WEEK</h3></div>\n<div class=\"droplistback1 mgnt36 mgnl10\">\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=118784\">Coriolanus</a>\n
       \   <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=119251\">Extremely
-      Loud & Incredibly Close</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=94822\">Haywire</a>\r\n
+      Loud & Incredibly Close</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=94822\">Haywire</a>\n
       \   <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=120472\">Red
-      Tails</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=121630\">Underworld:
-      Awakening</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=79550\">Underworld:
-      Awakening 3D</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=129479\">Underworld:
-      Awakening: An IMAX Experience</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=122754\">Underworld:
-      Awakening: An IMAX 3D Experience</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=109648\">Atlas
-      Shrugged: Part 1</a>  \r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=127896\">Ayn
-      Rand & The Prophecy of Atlas Shrugged</a>  \r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=122308\">Fullmetal
-      Alchemist: The Sacred Star of Milos</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=123503\">The
-      Front Line (Go-ji-jeon)</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=128730\">16-Love</a>\r\n
+      Tails</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=121630\">Underworld:
+      Awakening</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=79550\">Underworld:
+      Awakening 3D</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=129479\">Underworld:
+      Awakening: An IMAX Experience</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=122754\">Underworld:
+      Awakening: An IMAX 3D Experience</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=109648\">Atlas
+      Shrugged: Part 1</a>  \n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=127896\">Ayn
+      Rand & The Prophecy of Atlas Shrugged</a>  \n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=122308\">Fullmetal
+      Alchemist: The Sacred Star of Milos</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=123503\">The
+      Front Line (Go-ji-jeon)</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=128730\">16-Love</a>\n
       \   <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=128819\">Viral
-      Factor</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=82126\">The
-      Red Machine</a>  \r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=112941\">Pina</a>\r\n
+      Factor</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=82126\">The
+      Red Machine</a>  \n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=112941\">Pina</a>\n
       \   <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=111673\">Pina
-      3D</a>  \r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=112514\">Young
-      Goethe in Love</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=125622\">Watching
-      TV with the Red Chinese</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=116390\">We
-      Need to Talk About Kevin</a>  \r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=91945\">Ultrasuede:
-      In Search of Halston</a> \r\n</div>\r\n\r\n<!--Comimg Soon -->\r\n<div id=\"col-3\"><h3>COMING
-      SOON</h3></div>\r\n<div class=\"droplistback1 mgnl10 mgnt36\">\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=112146\">Albert
-      Nobbs</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=100268\">Big
-      Miracle</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=125799\">Chronicle</a>\r\n
+      3D</a>  \n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=112514\">Young
+      Goethe in Love</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=125622\">Watching
+      TV with the Red Chinese</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=116390\">We
+      Need to Talk About Kevin</a>  \n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=91945\">Ultrasuede:
+      In Search of Halston</a> \n</div>\n\n<!--Comimg Soon -->\n<div id=\"col-3\"><h3>COMING
+      SOON</h3></div>\n<div class=\"droplistback1 mgnl10 mgnt36\">\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=112146\">Albert
+      Nobbs</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=100268\">Big
+      Miracle</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=125799\">Chronicle</a>\n
       \   <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=113595\">The
-      Descendants</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=120260\">The
-      Grey</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=108084\">Journey
-      2: The Mysterious Island</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=128734\">Journey
-      2: The Mysterious Island 3D</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=115996\">Man
-      on a Ledge</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=99936\">One
-      for the Money</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=105936\">Safe
-      House</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=112428\">Star
-      Wars: Episode I - The Phantom Menace 3D</a>\r\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=119486\">Undefeated</a>\r\n
+      Descendants</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=120260\">The
+      Grey</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=108084\">Journey
+      2: The Mysterious Island</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=128734\">Journey
+      2: The Mysterious Island 3D</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=115996\">Man
+      on a Ledge</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=99936\">One
+      for the Money</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=105936\">Safe
+      House</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=112428\">Star
+      Wars: Episode I - The Phantom Menace 3D</a>\n    <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=119486\">Undefeated</a>\n
       \   <a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=105931\">The
-      Vow</a>\r\n</div><div class=\"clr\"></div></div>\n\t\t\t\t\t\t\t<div id=\"moviedrop1Bottom\">&nbsp;</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div
+      Vow</a>\n</div><div class=\"clr\"></div></div>\n\t\t\t\t\t\t\t<div id=\"moviedrop1Bottom\">&nbsp;</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div
       class=\"dropLargeBottom1\">&nbsp;</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<p
       id=\"moremovies\" class=\"tal bld\"><a class=\"clr13\" href=\"http://www.movietickets.com/advanced_search.asp\">More
       Movies? Go to Advanced Search</a></p>\n\t\t</div>\n\t\t<form id=\"frmLogin\"
@@ -290,7 +287,7 @@
       \       // execute contents of function on every page that does NOT have purchase
       in the name except for pre_purchase.asp\n        function showEditorialTop1()
       {\n            \n            $MTj(\"#ad960x119span\").hide();\n                $MTj(\"#ad960x119span\").prepend('<a
-      href=\"http://www.movietickets.com/3d.asp\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/panels/960x119_3dhouse_ad_rr.jpg?pn=house_detail.asp\"
+      href=\"http://www.movietickets.com/3d.asp\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/panels/960x119_3dhouse_ad_rr.jpg?pn=house_detail.asp\"
       width=\"960\" height=\"119\" title=\"MovieTickets.com - 3D MOVIES: now playing
       and coming soon\" alt=\"MovieTickets.com - 3D MOVIES: now playing and coming
       soon\" /></a>');\n                window.setTimeout(function() {\n                    if
@@ -302,13 +299,13 @@
       Mall 24</h1>\r\n\t\t<div id=\"bod5HP\">\r\n\t\t\t<div id=\"mid\" style=\"padding:
       0 0 10px 10px\">\r\n\t\t\t\t<!-- BEGIN Body -->\r\n\t\t\t\t<div class=\"hd4\">\r\n\t\t\t\t\t<h3
       class=\"sc8 mgnb5 tac ft4\">Theater Information</h3>\r\n\t\t\t\t\t<a href=\"http://www.amctheatres.com\"
-      target=\"_blank\" class=\"db tac\"><img id=\"logoHouse\" src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/en/cb/amc2.png\"
+      target=\"_blank\" class=\"db tac\"><img id=\"logoHouse\" src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/en/cb/amc2.png\"
       title=\"AMC Quail Springs Mall 24\" alt=\"AMC Quail Springs Mall 24\" /></a>\r\n
       \               <span class=\"button print\"><input type=\"button\" value=\"Print
       Showtimes\" name=\"print_showtimes\" /></span>\r\n\t\t\t\t\r\n\t\t\t\t\t<!--a
       class=\"db mgnt3 brd3 pd3 ft8 bld\" href=\"< %=gsHTTPS% >sign_in.asp?return=http://<
       %=Request.ServerVariables(\"SERVER_NAME\")% >< %=siReturn% >\">< %=aPageContent(0,64)%
-      ></a-->\r\n\t\t\t\t\t<a class=\"db mgnt3 brd3 pd3 ft8 bld\" href=\"https://www.movietickets.com/sign_in.asp?return=house_detail.asp,house_id=5902&rdate=01%2F16%2F12\">Log
+      ></a-->\r\n\t\t\t\t\t<a class=\"db mgnt3 brd3 pd3 ft8 bld\" href=\"https://www.movietickets.com/sign_in.asp?return=house_detail.asp,house_id=5902&rdate=01%2F18%2F12\">Log
       in to enable Favorites</a>\r\n\r\n\t\t\t\t\t<p class=\"mgnt10 no_print\">\r\n\t\t\t\t\t\t<b>Address</b><br
       />\r\n\t\t\t\t\t\t<span class=\"ft2\">\r\n\t\t\t\t\t\t\t2501 West Memorial<br
       />Oklahoma City, OK&nbsp;73134<br />1-888-AMC-4FUN\r\n\t\t\t\t\t\t</span>\r\n\t\t\t\t\t</p><form
@@ -316,19 +313,19 @@
       type=\"hidden\" name=\"house_id\" value=\"5902\" /><span class=\"button2\"><input
       type=\"submit\" value=\"MAP\" /></span></form>\r\n\t\t\t\t\t<h3 class=\"sc8
       mgnt15 tac ft4\">This Theater Offers</h3>\r\n\t\t\t\t\t<div class=\"icons\"><div><img
-      src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_access.gif\"
+      src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_access.gif\"
       width=\"22\" height=\"22\" align=\"left\" title=\"Handicap Access\" alt=\"Handicap
-      Access\" />Handicap Access</div>\n<div><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      Access\" />Handicap Access</div>\n<div><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" align=\"left\" title=\"Stadium Seating\" alt=\"Stadium
-      Seating\" />Stadium Seating</div>\n<div><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_listening.gif\"
+      Seating\" />Stadium Seating</div>\n<div><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_listening.gif\"
       width=\"22\" height=\"22\" align=\"left\" title=\"Listening Devices\" alt=\"Listening
-      Devices\" />Listening<br />Devices</div>\n<div><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_digital.gif\"
+      Devices\" />Listening<br />Devices</div>\n<div><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_digital.gif\"
       width=\"22\" height=\"22\" align=\"left\" title=\"Digital Sound\" alt=\"Digital
-      Sound\" />Digital<br />Sound</div>\n<div><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_promocodes.gif\"
+      Sound\" />Digital<br />Sound</div>\n<div><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_promocodes.gif\"
       width=\"22\" height=\"22\" align=\"left\" title=\"Promo Code Acceptance\" alt=\"Promo
       Code Acceptance\" />Promo Code Acceptance</div>\n</div>\r\n\t\t\t\t\t<div class=\"clr\"></div>\r\n\t\t\t\t\t<h3
       class=\"sc8 mgnt10 tac ft4\">Showtimes Legend</h3>\r\n\t\t\t\t\t<div class=\"icons\">\r\n\t\t\t\t\t\t<div><img
-      src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_nopassesmd2.gif\"
+      src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_nopassesmd2.gif\"
       width=\"20\" height=\"22\" align=\"left\" title=\"No Passes\" alt=\"No Passes\"
       />No<br />Passes</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<p class=\"clr pd5 tal
       ft1 lh11\"><b>Showtimes available for purchase (clickable) are blue</b><br />example:
@@ -357,75 +354,75 @@
       label {display:block;padding-bottom:3px;}\r\n\t\t\t\t\t\t#frmHouseDetail select
       {width:12em;}\r\n\t\t\t\t\t\th4 small {margin:0 1em;color:#f00;font-size:.8em;}\r\n\t\t\t\t\t\t</style>\r\n\t\t\t\t\t<div><a
       id=\"mtTrialPay\" class=\"fl\" href=\"http://www.trialpay.com/custom/movietickets\"
-      target=\"_blank\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/button_gettickets2.png\"
+      target=\"_blank\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/button_gettickets2.png\"
       title=\"get ticket free - see details\" alt=\"get ticket free - see details\"
       /></a>\r\n\t\t\t\t\t    <form class=\"pdb5 tar\" name=\"frmHouseDetail\" id=\"frmHouseDetail\"
       method=\"get\" action=\"http://www.movietickets.com/house_detail.asp\">\r\n\t\t\t\t\t\t
       \   <input type=\"hidden\" name=\"house_id\" value=\"5902\" />\r\n\t\t\t\t\t\t
       \   <label class=\"hl3 bld Pf2\">Showing On\r\n\t\t\t\t\t\t        <span class=\"dn
-      Pshow Pf2\">1/16/2012</span>\r\n\t\t\t\t\t\t        <select id=\"rdate\" class=\"ft11\"
-      name=\"rdate\" onchange='document.frmHouseDetail.submit()'><option value=\"1/16/2012\"
-      selected=\"selected\">Mon, Jan. 16, 2012</option><option value=\"1/17/2012\">Tue,
-      Jan. 17, 2012</option><option value=\"1/18/2012\">Wed, Jan. 18, 2012</option><option
-      value=\"1/19/2012\">Thu, Jan. 19, 2012</option><option value=\"1/20/2012\">Fri,
-      Jan. 20, 2012</option><option value=\"1/21/2012\">Sat, Jan. 21, 2012</option><option
-      value=\"1/22/2012\">Sun, Jan. 22, 2012</option><option value=\"1/23/2012\">Mon,
-      Jan. 23, 2012</option><option value=\"1/24/2012\">Tue, Jan. 24, 2012</option><option
-      value=\"1/25/2012\">Wed, Jan. 25, 2012</option><option value=\"1/26/2012\">Thu,
-      Jan. 26, 2012</option><option value=\"1/27/2012\">Fri, Jan. 27, 2012</option><option
-      value=\"1/28/2012\">Sat, Jan. 28, 2012</option><option value=\"1/29/2012\">Sun,
-      Jan. 29, 2012</option><option value=\"1/30/2012\">Mon, Jan. 30, 2012</option><option
-      value=\"1/31/2012\">Tue, Jan. 31, 2012</option><option value=\"2/1/2012\">Wed,
-      Feb. 1, 2012</option><option value=\"2/2/2012\">Thu, Feb. 2, 2012</option><option
-      value=\"2/3/2012\">Fri, Feb. 3, 2012</option><option value=\"2/4/2012\">Sat,
-      Feb. 4, 2012</option><option value=\"2/5/2012\">Sun, Feb. 5, 2012</option><option
-      value=\"2/6/2012\">Mon, Feb. 6, 2012</option><option value=\"2/7/2012\">Tue,
-      Feb. 7, 2012</option><option value=\"2/8/2012\">Wed, Feb. 8, 2012</option><option
-      value=\"2/9/2012\">Thu, Feb. 9, 2012</option><option value=\"2/10/2012\">Fri,
-      Feb. 10, 2012</option><option value=\"2/11/2012\">Sat, Feb. 11, 2012</option><option
-      value=\"2/12/2012\">Sun, Feb. 12, 2012</option><option value=\"2/13/2012\">Mon,
-      Feb. 13, 2012</option><option value=\"2/14/2012\">Tue, Feb. 14, 2012</option><option
-      value=\"2/15/2012\">Wed, Feb. 15, 2012</option><option value=\"2/16/2012\">Thu,
-      Feb. 16, 2012</option><option value=\"2/17/2012\">Fri, Feb. 17, 2012</option><option
-      value=\"2/18/2012\">Sat, Feb. 18, 2012</option><option value=\"2/19/2012\">Sun,
-      Feb. 19, 2012</option><option value=\"2/20/2012\">Mon, Feb. 20, 2012</option><option
-      value=\"2/21/2012\">Tue, Feb. 21, 2012</option><option value=\"2/22/2012\">Wed,
-      Feb. 22, 2012</option><option value=\"2/23/2012\">Thu, Feb. 23, 2012</option><option
-      value=\"2/24/2012\">Fri, Feb. 24, 2012</option><option value=\"2/25/2012\">Sat,
-      Feb. 25, 2012</option><option value=\"2/26/2012\">Sun, Feb. 26, 2012</option><option
-      value=\"2/27/2012\">Mon, Feb. 27, 2012</option><option value=\"2/28/2012\">Tue,
-      Feb. 28, 2012</option><option value=\"2/29/2012\">Wed, Feb. 29, 2012</option><option
-      value=\"3/1/2012\">Thu, Mar. 1, 2012</option><option value=\"3/2/2012\">Fri,
-      Mar. 2, 2012</option><option value=\"3/3/2012\">Sat, Mar. 3, 2012</option><option
-      value=\"3/4/2012\">Sun, Mar. 4, 2012</option><option value=\"3/5/2012\">Mon,
-      Mar. 5, 2012</option><option value=\"3/6/2012\">Tue, Mar. 6, 2012</option><option
-      value=\"3/7/2012\">Wed, Mar. 7, 2012</option><option value=\"3/8/2012\">Thu,
-      Mar. 8, 2012</option><option value=\"3/9/2012\">Fri, Mar. 9, 2012</option><option
-      value=\"3/10/2012\">Sat, Mar. 10, 2012</option><option value=\"3/11/2012\">Sun,
-      Mar. 11, 2012</option><option value=\"3/12/2012\">Mon, Mar. 12, 2012</option><option
-      value=\"3/13/2012\">Tue, Mar. 13, 2012</option><option value=\"3/14/2012\">Wed,
-      Mar. 14, 2012</option><option value=\"3/15/2012\">Thu, Mar. 15, 2012</option><option
-      value=\"3/16/2012\">Fri, Mar. 16, 2012</option><option value=\"3/17/2012\">Sat,
-      Mar. 17, 2012</option><option value=\"3/18/2012\">Sun, Mar. 18, 2012</option><option
-      value=\"3/19/2012\">Mon, Mar. 19, 2012</option><option value=\"3/20/2012\">Tue,
-      Mar. 20, 2012</option><option value=\"3/21/2012\">Wed, Mar. 21, 2012</option><option
-      value=\"3/22/2012\">Thu, Mar. 22, 2012</option><option value=\"3/23/2012\">Fri,
-      Mar. 23, 2012</option><option value=\"3/24/2012\">Sat, Mar. 24, 2012</option><option
-      value=\"3/25/2012\">Sun, Mar. 25, 2012</option><option value=\"3/26/2012\">Mon,
-      Mar. 26, 2012</option><option value=\"3/27/2012\">Tue, Mar. 27, 2012</option><option
-      value=\"3/28/2012\">Wed, Mar. 28, 2012</option><option value=\"3/29/2012\">Thu,
-      Mar. 29, 2012</option><option value=\"3/30/2012\">Fri, Mar. 30, 2012</option><option
-      value=\"3/31/2012\">Sat, Mar. 31, 2012</option><option value=\"4/1/2012\">Sun,
-      Apr. 1, 2012</option><option value=\"4/2/2012\">Mon, Apr. 2, 2012</option><option
-      value=\"4/3/2012\">Tue, Apr. 3, 2012</option><option value=\"4/4/2012\">Wed,
-      Apr. 4, 2012</option><option value=\"4/5/2012\">Thu, Apr. 5, 2012</option><option
-      value=\"4/6/2012\">Fri, Apr. 6, 2012</option><option value=\"4/7/2012\">Sat,
-      Apr. 7, 2012</option><option value=\"4/8/2012\">Sun, Apr. 8, 2012</option><option
-      value=\"4/9/2012\">Mon, Apr. 9, 2012</option><option value=\"4/10/2012\">Tue,
-      Apr. 10, 2012</option><option value=\"4/11/2012\">Wed, Apr. 11, 2012</option><option
-      value=\"4/12/2012\">Thu, Apr. 12, 2012</option><option value=\"4/13/2012\">Fri,
-      Apr. 13, 2012</option><option value=\"4/14/2012\">Sat, Apr. 14, 2012</option><option
-      value=\"4/15/2012\">Sun, Apr. 15, 2012</option></select>\r\n\t\t\t\t\t\t    </label>\r\n\t\t\t\t\t\t
+      Pshow Pf2\">1/19/2012</span>\r\n\t\t\t\t\t\t        <select id=\"rdate\" class=\"ft11\"
+      name=\"rdate\" onchange='document.frmHouseDetail.submit()'><option value=\"1/18/2012\"
+      selected=\"selected\">Wed, Jan. 18, 2012</option><option value=\"1/19/2012\">Thu,
+      Jan. 19, 2012</option><option value=\"1/20/2012\">Fri, Jan. 20, 2012</option><option
+      value=\"1/21/2012\">Sat, Jan. 21, 2012</option><option value=\"1/22/2012\">Sun,
+      Jan. 22, 2012</option><option value=\"1/23/2012\">Mon, Jan. 23, 2012</option><option
+      value=\"1/24/2012\">Tue, Jan. 24, 2012</option><option value=\"1/25/2012\">Wed,
+      Jan. 25, 2012</option><option value=\"1/26/2012\">Thu, Jan. 26, 2012</option><option
+      value=\"1/27/2012\">Fri, Jan. 27, 2012</option><option value=\"1/28/2012\">Sat,
+      Jan. 28, 2012</option><option value=\"1/29/2012\">Sun, Jan. 29, 2012</option><option
+      value=\"1/30/2012\">Mon, Jan. 30, 2012</option><option value=\"1/31/2012\">Tue,
+      Jan. 31, 2012</option><option value=\"2/1/2012\">Wed, Feb. 1, 2012</option><option
+      value=\"2/2/2012\">Thu, Feb. 2, 2012</option><option value=\"2/3/2012\">Fri,
+      Feb. 3, 2012</option><option value=\"2/4/2012\">Sat, Feb. 4, 2012</option><option
+      value=\"2/5/2012\">Sun, Feb. 5, 2012</option><option value=\"2/6/2012\">Mon,
+      Feb. 6, 2012</option><option value=\"2/7/2012\">Tue, Feb. 7, 2012</option><option
+      value=\"2/8/2012\">Wed, Feb. 8, 2012</option><option value=\"2/9/2012\">Thu,
+      Feb. 9, 2012</option><option value=\"2/10/2012\">Fri, Feb. 10, 2012</option><option
+      value=\"2/11/2012\">Sat, Feb. 11, 2012</option><option value=\"2/12/2012\">Sun,
+      Feb. 12, 2012</option><option value=\"2/13/2012\">Mon, Feb. 13, 2012</option><option
+      value=\"2/14/2012\">Tue, Feb. 14, 2012</option><option value=\"2/15/2012\">Wed,
+      Feb. 15, 2012</option><option value=\"2/16/2012\">Thu, Feb. 16, 2012</option><option
+      value=\"2/17/2012\">Fri, Feb. 17, 2012</option><option value=\"2/18/2012\">Sat,
+      Feb. 18, 2012</option><option value=\"2/19/2012\">Sun, Feb. 19, 2012</option><option
+      value=\"2/20/2012\">Mon, Feb. 20, 2012</option><option value=\"2/21/2012\">Tue,
+      Feb. 21, 2012</option><option value=\"2/22/2012\">Wed, Feb. 22, 2012</option><option
+      value=\"2/23/2012\">Thu, Feb. 23, 2012</option><option value=\"2/24/2012\">Fri,
+      Feb. 24, 2012</option><option value=\"2/25/2012\">Sat, Feb. 25, 2012</option><option
+      value=\"2/26/2012\">Sun, Feb. 26, 2012</option><option value=\"2/27/2012\">Mon,
+      Feb. 27, 2012</option><option value=\"2/28/2012\">Tue, Feb. 28, 2012</option><option
+      value=\"2/29/2012\">Wed, Feb. 29, 2012</option><option value=\"3/1/2012\">Thu,
+      Mar. 1, 2012</option><option value=\"3/2/2012\">Fri, Mar. 2, 2012</option><option
+      value=\"3/3/2012\">Sat, Mar. 3, 2012</option><option value=\"3/4/2012\">Sun,
+      Mar. 4, 2012</option><option value=\"3/5/2012\">Mon, Mar. 5, 2012</option><option
+      value=\"3/6/2012\">Tue, Mar. 6, 2012</option><option value=\"3/7/2012\">Wed,
+      Mar. 7, 2012</option><option value=\"3/8/2012\">Thu, Mar. 8, 2012</option><option
+      value=\"3/9/2012\">Fri, Mar. 9, 2012</option><option value=\"3/10/2012\">Sat,
+      Mar. 10, 2012</option><option value=\"3/11/2012\">Sun, Mar. 11, 2012</option><option
+      value=\"3/12/2012\">Mon, Mar. 12, 2012</option><option value=\"3/13/2012\">Tue,
+      Mar. 13, 2012</option><option value=\"3/14/2012\">Wed, Mar. 14, 2012</option><option
+      value=\"3/15/2012\">Thu, Mar. 15, 2012</option><option value=\"3/16/2012\">Fri,
+      Mar. 16, 2012</option><option value=\"3/17/2012\">Sat, Mar. 17, 2012</option><option
+      value=\"3/18/2012\">Sun, Mar. 18, 2012</option><option value=\"3/19/2012\">Mon,
+      Mar. 19, 2012</option><option value=\"3/20/2012\">Tue, Mar. 20, 2012</option><option
+      value=\"3/21/2012\">Wed, Mar. 21, 2012</option><option value=\"3/22/2012\">Thu,
+      Mar. 22, 2012</option><option value=\"3/23/2012\">Fri, Mar. 23, 2012</option><option
+      value=\"3/24/2012\">Sat, Mar. 24, 2012</option><option value=\"3/25/2012\">Sun,
+      Mar. 25, 2012</option><option value=\"3/26/2012\">Mon, Mar. 26, 2012</option><option
+      value=\"3/27/2012\">Tue, Mar. 27, 2012</option><option value=\"3/28/2012\">Wed,
+      Mar. 28, 2012</option><option value=\"3/29/2012\">Thu, Mar. 29, 2012</option><option
+      value=\"3/30/2012\">Fri, Mar. 30, 2012</option><option value=\"3/31/2012\">Sat,
+      Mar. 31, 2012</option><option value=\"4/1/2012\">Sun, Apr. 1, 2012</option><option
+      value=\"4/2/2012\">Mon, Apr. 2, 2012</option><option value=\"4/3/2012\">Tue,
+      Apr. 3, 2012</option><option value=\"4/4/2012\">Wed, Apr. 4, 2012</option><option
+      value=\"4/5/2012\">Thu, Apr. 5, 2012</option><option value=\"4/6/2012\">Fri,
+      Apr. 6, 2012</option><option value=\"4/7/2012\">Sat, Apr. 7, 2012</option><option
+      value=\"4/8/2012\">Sun, Apr. 8, 2012</option><option value=\"4/9/2012\">Mon,
+      Apr. 9, 2012</option><option value=\"4/10/2012\">Tue, Apr. 10, 2012</option><option
+      value=\"4/11/2012\">Wed, Apr. 11, 2012</option><option value=\"4/12/2012\">Thu,
+      Apr. 12, 2012</option><option value=\"4/13/2012\">Fri, Apr. 13, 2012</option><option
+      value=\"4/14/2012\">Sat, Apr. 14, 2012</option><option value=\"4/15/2012\">Sun,
+      Apr. 15, 2012</option><option value=\"4/16/2012\">Mon, Apr. 16, 2012</option><option
+      value=\"4/17/2012\">Tue, Apr. 17, 2012</option></select>\r\n\t\t\t\t\t\t    </label>\r\n\t\t\t\t\t\t
       \   <label class=\"hl3 bld Pf2\">Sort by\r\n\t\t\t\t\t\t        <select id=\"sortid\"
       class=\"ft11\" name=\"sortid\" onchange=\"document.frmHouseDetail.submit();\">\r\n\t\t\t\t\t\t
       \           <option value=\"1\">Alphabetical</option>\r\n\t\t\t\t\t\t            <option
@@ -433,293 +430,228 @@
       \   </label>\r\n\t\t\t\t\t\t</form>\r\n\t\t\t\t\t\t<div class=\"clr pdt3\"></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<ul
       id=\"rw3\">\r\n\t\t\t\t\t\t<li class=\"hide\"><h3 class=\"mgn3030 pd5 sc8 clr5\">Online
       ticketing is available for showtimes in blue.</h3></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li class=\"hl5\"><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      \       <li class=\"hl5\"><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
       /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=110178\">The
       Adventures of Tintin 3D</a>\r\n\t\t\t\t\t\t\t\t        </h4><span title=\"RealD
-      3D\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/logos/logo_reald3.png\"
+      3D\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/logos/logo_reald3.png\"
       width=\"66\" height=\"20\" title=\"RealD 3D\" alt=\"RealD 3D\" /></span><span>Rated
       (PG) &bull; 1 hr. 41 min.</span><p class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=110178&#038;showdate=0\">BUY
-      TICKETS</a> - <a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446258\">1:45pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446259\">7:15pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 1:45pm, &nbsp;7:15pm</p></li>\r\n\t\t\t\t\t\t\t\t        <li><div
+      class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
       /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=78005\">The
       Adventures of Tintin</a>\r\n\t\t\t\t\t\t\t\t        </h4><span><span title=\"Digital
       Presentation\">Digital Presentation</span></span><span>Rated (PG) &bull; 1 hr.
       41 min.</span><p class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=78005&#038;showdate=0\">BUY
-      TICKETS</a> - 11:05am, &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446257\">4:35pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li class=\"hl5\"><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 4:35pm</p></li>\r\n\t\t\t\t\t\t\t\t        <li class=\"hl5\"><div
+      class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
-      /><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_film.gif\"
+      /><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_film.gif\"
       width=\"22\" height=\"22\" alt=\"35mm Film Format\" title=\"35mm Film Format\"
       /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=90389\">Alvin
       and the Chipmunks: Chipwrecked</a>\r\n\t\t\t\t\t\t\t\t        </h4><span>Rated
       (G) &bull; 1 hr. 27 min.</span><p class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=90389&#038;showdate=0\">BUY
-      TICKETS</a> - <a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446251\">11:35am</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446252\">1:55pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446253\">4:40pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446254\">7:10pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446255\">9:35pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_nopassesmd2.gif\"
-      width=\"20\" height=\"22\" alt=\"No Passes\" title=\"No Passes\" /><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 1:55pm, &nbsp;4:40pm, &nbsp;7:10pm, &nbsp;9:35pm</p></li>\r\n\t\t\t\t\t\t\t\t
+      \       <li><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_nopassesmd2.gif\"
+      width=\"20\" height=\"22\" alt=\"No Passes\" title=\"No Passes\" /><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
       /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=29331\">Beauty
       and the Beast</a>\r\n\t\t\t\t\t\t\t\t        </h4><span><span title=\"Digital
       Presentation\">Digital Presentation</span></span><span>Rated (G) &bull; 1 hr.
       24 min.</span><p class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=29331&#038;showdate=0\">BUY
-      TICKETS</a> - <a href=\"https://www.movietickets.com/purchase.asp?perf_id=668537785\">12:15pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446198\">1:00pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668435446\">5:00pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598357\">10:15pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li class=\"hl5\"><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_nopassesmd2.gif\"
-      width=\"20\" height=\"22\" alt=\"No Passes\" title=\"No Passes\" /><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 5:00pm, &nbsp;10:15pm</p></li>\r\n\t\t\t\t\t\t\t\t        <li
+      class=\"hl5\"><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_nopassesmd2.gif\"
+      width=\"20\" height=\"22\" alt=\"No Passes\" title=\"No Passes\" /><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
       /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=74162\">Beauty
       and the Beast 3D</a>\r\n\t\t\t\t\t\t\t\t        </h4><span title=\"RealD 3D\"><img
-      src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/logos/logo_reald3.png\"
+      src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/logos/logo_reald3.png\"
       width=\"66\" height=\"20\" title=\"RealD 3D\" alt=\"RealD 3D\" /></span><span>Rated
       (G) &bull; 1 hr. 24 min.</span><p class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=74162&#038;showdate=0\">BUY
-      TICKETS</a> - <a href=\"https://www.movietickets.com/purchase.asp?perf_id=668548588\">11:30am</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668548589\">2:00pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668548590\">2:45pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668548591\">4:30pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668548592\">7:00pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598358\">7:45pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668548594\">9:30pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 2:00pm, &nbsp;2:45pm, &nbsp;4:30pm, &nbsp;7:00pm, &nbsp;7:45pm,
+      &nbsp;9:30pm</p></li>\r\n\t\t\t\t\t\t\t\t        <li><div class=\"fr pd10\"><img
+      src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
       /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=120030\">Carnage</a>\r\n\t\t\t\t\t\t\t\t
       \       </h4><span><span title=\"AMC INDEPENDENT\">AMC INDEPENDENT</span></span><span>Rated
       (R) &bull; 1 hr. 19 min.</span><p class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=120030&#038;showdate=0\">BUY
-      TICKETS</a> - <a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598351\">11:25am</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598352\">1:50pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598353\">4:00pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598354\">6:15pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598355\">8:30pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598356\">10:45pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li class=\"hl5\"><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_nopassesmd2.gif\"
-      width=\"20\" height=\"22\" alt=\"No Passes\" title=\"No Passes\" /><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 1:50pm, &nbsp;4:00pm, &nbsp;6:15pm, &nbsp;8:30pm, &nbsp;10:45pm</p></li>\r\n\t\t\t\t\t\t\t\t
+      \       <li class=\"hl5\"><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_nopassesmd2.gif\"
+      width=\"20\" height=\"22\" alt=\"No Passes\" title=\"No Passes\" /><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
       /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=128141\">Contraband</a>\r\n\t\t\t\t\t\t\t\t
       \       </h4><span>Rated (R) &bull; 1 hr. 50 min.</span><p class=\"ft3\"><a
       class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=128141&#038;showdate=0\">BUY
-      TICKETS</a> - <a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598336\">1:25pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598337\">4:15pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598338\">7:15pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598339\">10:00pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_nopassesmd2.gif\"
-      width=\"20\" height=\"22\" alt=\"No Passes\" title=\"No Passes\" /><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 1:25pm, &nbsp;4:15pm, &nbsp;7:15pm, &nbsp;10:00pm</p></li>\r\n\t\t\t\t\t\t\t\t
+      \       <li><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_nopassesmd2.gif\"
+      width=\"20\" height=\"22\" alt=\"No Passes\" title=\"No Passes\" /><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
       /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=128141\">Contraband</a>\r\n\t\t\t\t\t\t\t\t
       \       </h4><span><span title=\"Digital Presentation\">Digital Presentation</span></span><span>Rated
       (R) &bull; 1 hr. 50 min.</span><p class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=128141&#038;showdate=0\">BUY
-      TICKETS</a> - <a href=\"https://www.movietickets.com/purchase.asp?perf_id=668537780\">11:30am</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668537781\">2:15pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668537782\">5:10pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598340\">8:00pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598341\">11:00pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li class=\"hl5\"><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 2:15pm, &nbsp;5:10pm, &nbsp;8:00pm, &nbsp;11:00pm</p></li>\r\n\t\t\t\t\t\t\t\t
+      \       <li class=\"hl5\"><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
       /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=98932\">The
       Darkest Hour</a>\r\n\t\t\t\t\t\t\t\t        </h4><span><span title=\"Digital
       Presentation\">Digital Presentation</span></span><span>Rated (PG-13) &bull;
       1 hr. 29 min.</span><p class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=98932&#038;showdate=0\">BUY
-      TICKETS</a> - <a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446208\">10:25pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 10:25pm</p></li>\r\n\t\t\t\t\t\t\t\t        <li><div class=\"fr
+      pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
       /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=113595\">The
       Descendants</a>\r\n\t\t\t\t\t\t\t\t                    <small class=\"new\">NEW</small>\r\n\t\t\t\t\t\t\t\t
       \       </h4><span><span title=\"AMC INDEPENDENT\">AMC INDEPENDENT</span></span><span>Rated
       (R) &bull; 1 hr. 55 min.</span><p class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=113595&#038;showdate=0\">BUY
-      TICKETS</a> - 11:10am, &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446240\">1:55pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446241\">4:40pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446242\">7:40pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446243\">10:35pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li class=\"hl5\"><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 1:55pm, &nbsp;4:40pm, &nbsp;7:40pm, &nbsp;10:35pm</p></li>\r\n\t\t\t\t\t\t\t\t
+      \       <li class=\"hl5\"><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
       /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=115651\">The
       Devil Inside</a>\r\n\t\t\t\t\t\t\t\t        </h4><span><span title=\"Digital
       Presentation\">Digital Presentation</span></span><span>Rated (R) &bull; 1 hr.
       27 min.</span><p class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=115651&#038;showdate=0\">BUY
-      TICKETS</a> - <a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446260\">11:50am</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446261\">2:25pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446262\">4:50pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446263\">7:25pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446264\">9:50pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 2:25pm, &nbsp;4:50pm, &nbsp;7:25pm, &nbsp;9:50pm</p></li>\r\n\t\t\t\t\t\t\t\t
+      \       <li><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
       /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=118022\">The
       Girl With the Dragon Tattoo</a>\r\n\t\t\t\t\t\t\t\t        </h4><span>Rated
       (R) &bull; 2 hrs. 40 min.</span><p class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=118022&#038;showdate=0\">BUY
-      TICKETS</a> - 11:05am, &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446203\">2:35pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446204\">6:00pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446205\">9:35pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li class=\"hl5\"><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 2:35pm, &nbsp;6:00pm, &nbsp;9:35pm</p></li>\r\n\t\t\t\t\t\t\t\t
+      \       <li class=\"hl5\"><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
       /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=118022\">The
       Girl With the Dragon Tattoo</a>\r\n\t\t\t\t\t\t\t\t        </h4><span><span
       title=\"Digital Presentation\">Digital Presentation</span></span><span>Rated
       (R) &bull; 2 hrs. 40 min.</span><p class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=118022&#038;showdate=0\">BUY
-      TICKETS</a> - <a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446206\">3:45pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446207\">10:15pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_nopassesmd2.gif\"
-      width=\"20\" height=\"22\" alt=\"No Passes\" title=\"No Passes\" /><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 3:45pm, &nbsp;10:15pm</p></li>\r\n\t\t\t\t\t\t\t\t        <li><div
+      class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_nopassesmd2.gif\"
+      width=\"20\" height=\"22\" alt=\"No Passes\" title=\"No Passes\" /><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
       /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=116928\">The
       Iron Lady</a>\r\n\t\t\t\t\t\t\t\t        </h4><span><span title=\"Digital Presentation;
       AMC INDEPE\">Digital Presentation; AMC INDEPE</span></span><span>Rated (PG-13)
       &bull; 1 hr. 45 min.</span><p class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=116928&#038;showdate=0\">BUY
-      TICKETS</a> - <a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598346\">11:40am</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598347\">2:20pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598348\">5:00pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598349\">7:50pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598350\">10:35pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li class=\"hl5\"><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_nopassesmd2.gif\"
-      width=\"20\" height=\"22\" alt=\"No Passes\" title=\"No Passes\" /><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 2:20pm, &nbsp;5:00pm, &nbsp;7:50pm, &nbsp;10:35pm</p></li>\r\n\t\t\t\t\t\t\t\t
+      \       <li class=\"hl5\"><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_nopassesmd2.gif\"
+      width=\"20\" height=\"22\" alt=\"No Passes\" title=\"No Passes\" /><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
       /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=102330\">Joyful
       Noise</a>\r\n\t\t\t\t\t\t\t\t        </h4><span><span title=\"CC/DVS-Closed
       Captions & Descrip\">CC/DVS-Closed Captions & Descrip</span></span><span>Rated
       (PG-13) &bull; 1 hr. 58 min.</span><p class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=102330&#038;showdate=0\">BUY
-      TICKETS</a> - <a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598342\">1:00pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598343\">4:00pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598344\">7:00pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598345\">9:55pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_nopassesmd2.gif\"
-      width=\"20\" height=\"22\" alt=\"No Passes\" title=\"No Passes\" /><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 1:00pm, &nbsp;4:00pm, &nbsp;7:00pm, &nbsp;9:55pm</p></li>\r\n\t\t\t\t\t\t\t\t
+      \       <li><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
       /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=102330\">Joyful
       Noise</a>\r\n\t\t\t\t\t\t\t\t        </h4><span><span title=\"Digital Presentation\">Digital
       Presentation</span></span><span>Rated (PG-13) &bull; 1 hr. 58 min.</span><p
       class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=102330&#038;showdate=0\">BUY
-      TICKETS</a> - 11:00am, &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598332\">1:50pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598333\">4:45pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598334\">7:40pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598335\">10:30pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li class=\"hl5\"><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 10:30pm</p></li>\r\n\t\t\t\t\t\t\t\t        <li class=\"hl5\"><div
+      class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_nopassesmd2.gif\"
+      width=\"20\" height=\"22\" alt=\"No Passes\" title=\"No Passes\" /><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
-      /><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_film.gif\"
+      /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=102330\">Joyful
+      Noise</a>\r\n\t\t\t\t\t\t\t\t        </h4><span><span title=\"Digital Presentation\">Digital
+      Presentation</span></span><span>Rated (PG-13) &bull; 1 hr. 58 min.</span><p
+      class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=102330&#038;showdate=0\">BUY
+      TICKETS</a> - 1:50pm, &nbsp;4:45pm, &nbsp;7:40pm</p></li>\r\n\t\t\t\t\t\t\t\t
+      \       <li><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
+      /><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_film.gif\"
       width=\"22\" height=\"22\" alt=\"Digital Film Format\" title=\"Digital Film
       Format\" /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a
       href=\"movie_detail.asp?movie_id=88936\">Mission: Impossible - Ghost Protocol</a>\r\n\t\t\t\t\t\t\t\t
       \       </h4><span><span title=\"Digital Presentation\">Digital Presentation</span></span><span>Rated
       (PG-13) &bull; 2 hrs. 12 min.</span><p class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=88936&#038;showdate=0\">BUY
-      TICKETS</a> - <a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446174\">11:30am</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446175\">12:15pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446176\">2:45pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446177\">3:30pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446178\">6:00pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446179\">9:15pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 2:45pm, &nbsp;3:30pm, &nbsp;6:00pm, &nbsp;9:15pm</p></li>\r\n\t\t\t\t\t\t\t\t
+      \       <li class=\"hl5\"><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
-      /><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_film.gif\"
+      /><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_film.gif\"
       width=\"22\" height=\"22\" alt=\"Digital Film Format\" title=\"Digital Film
       Format\" /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a
       href=\"movie_detail.asp?movie_id=110140\">Mission: Impossible - Ghost Protocol:
       The IMAX Experience</a>\r\n\t\t\t\t\t\t\t\t        </h4><span title=\"IMAX\"><img
-      src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/logos/logo_imax_icon1.png\"
+      src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/logos/logo_imax_icon1.png\"
       width=\"52\" height=\"10\" title=\"IMAX\" alt=\"IMAX\" /></span><span>Rated
       (PG-13) &bull; 2 hrs. 12 min.</span><p class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=110140&#038;showdate=0\">BUY
-      TICKETS</a> - <a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446247\">1:45pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446248\">4:45pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446249\">7:50pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446250\">10:55pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li class=\"hl5\"><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 1:45pm, &nbsp;4:45pm, &nbsp;7:50pm, &nbsp;10:55pm</p></li>\r\n\t\t\t\t\t\t\t\t
+      \       <li><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
       /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=96888\">The
       Muppets</a>\r\n\t\t\t\t\t\t\t\t        </h4><span>Rated (PG) &bull; 1 hr. 38
       min.</span><p class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=96888&#038;showdate=0\">BUY
-      TICKETS</a> - 11:15am, &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446201\">2:10pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 2:10pm</p></li>\r\n\t\t\t\t\t\t\t\t        <li class=\"hl5\"><div
+      class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
-      /><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_film.gif\"
+      /><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_film.gif\"
       width=\"22\" height=\"22\" alt=\"35mm Film Format\" title=\"35mm Film Format\"
       /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=95203\">New
       Year's Eve</a>\r\n\t\t\t\t\t\t\t\t        </h4><span>Rated (PG-13) &bull; 1
       hr. 57 min.</span><p class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=95203&#038;showdate=0\">BUY
-      TICKETS</a> - 11:15am, &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668537772\">1:50pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668537773\">4:30pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598326\">7:45pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668537774\">10:40pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li class=\"hl5\"><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 2:05pm, &nbsp;4:55pm, &nbsp;7:45pm, &nbsp;10:40pm</p></li>\r\n\t\t\t\t\t\t\t\t
+      \       <li><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
       /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=96370\">Sherlock
       Holmes: A Game of Shadows</a>\r\n\t\t\t\t\t\t\t\t        </h4><span>Rated (PG-13)
       &bull; 2 hrs. 8 min.</span><p class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=96370&#038;showdate=0\">BUY
-      TICKETS</a> - <a href=\"https://www.movietickets.com/purchase.asp?perf_id=668537775\">12:15pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668537776\">3:20pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668537777\">6:25pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668537778\">9:35pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 3:20pm, &nbsp;6:25pm, &nbsp;9:35pm</p></li>\r\n\t\t\t\t\t\t\t\t
+      \       <li class=\"hl5\"><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
-      /><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_film.gif\"
+      /><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_film.gif\"
       width=\"22\" height=\"22\" alt=\"Digital Film Format\" title=\"Digital Film
       Format\" /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a
       href=\"movie_detail.asp?movie_id=96370\">Sherlock Holmes: A Game of Shadows</a>\r\n\t\t\t\t\t\t\t\t
       \       </h4><span><span title=\"Digital Presentation\">Digital Presentation</span></span><span>Rated
       (PG-13) &bull; 2 hrs. 8 min.</span><p class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=96370&#038;showdate=0\">BUY
-      TICKETS</a> - <a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446199\">7:20pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li class=\"hl5\"><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 1:00pm, &nbsp;7:20pm</p></li>\r\n\t\t\t\t\t\t\t\t        <li><div
+      class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
-      /><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_film.gif\"
+      /><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_film.gif\"
       width=\"22\" height=\"22\" alt=\"35mm Film Format\" title=\"35mm Film Format\"
       /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=95205\">The
       Sitter</a>\r\n\t\t\t\t\t\t\t\t        </h4><span>Rated (R) &bull; 1 hr. 40 min.</span><p
       class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=95205&#038;showdate=0\">BUY
-      TICKETS</a> - <a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598325\">11:00pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 11:00pm</p></li>\r\n\t\t\t\t\t\t\t\t        <li class=\"hl5\"><div
+      class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
       /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=118005\">Tinker
       Tailor Soldier Spy</a>\r\n\t\t\t\t\t\t\t\t        </h4><span><span title=\"Digital
       Presentation; AMC INDEPE\">Digital Presentation; AMC INDEPE</span></span><span>Rated
       (R) &bull; 2 hrs. 7 min.</span><p class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=118005&#038;showdate=0\">BUY
-      TICKETS</a> - 11:10am, &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446224\">2:10pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446225\">5:10pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446226\">8:10pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446227\">11:00pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li class=\"hl5\"><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 2:10pm, &nbsp;5:10pm, &nbsp;8:10pm, &nbsp;11:00pm</p></li>\r\n\t\t\t\t\t\t\t\t
+      \       <li><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
       /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=94731\">The
       Twilight Saga: Breaking Dawn - Part 1</a>\r\n\t\t\t\t\t\t\t\t        </h4><span><span
       title=\"Digital Presentation\">Digital Presentation</span></span><span>Rated
       (PG-13) &bull; 1 hr. 48 min.</span><p class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=94731&#038;showdate=0\">BUY
-      TICKETS</a> - <a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446172\">6:50pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446173\">9:45pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 6:50pm, &nbsp;9:45pm</p></li>\r\n\t\t\t\t\t\t\t\t        <li class=\"hl5\"><div
+      class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
-      /><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_film.gif\"
+      /><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_film.gif\"
       width=\"22\" height=\"22\" alt=\"Digital Film Format\" title=\"Digital Film
       Format\" /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a
       href=\"movie_detail.asp?movie_id=94735\">War Horse</a>\r\n\t\t\t\t\t\t\t\t        </h4><span><span
       title=\"Digital Presentation\">Digital Presentation</span></span><span>Rated
       (PG-13) &bull; 2 hrs. 26 min.</span><p class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=94735&#038;showdate=0\">BUY
-      TICKETS</a> - 11:05am, &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446169\">2:30pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446170\">6:15pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446171\">9:45pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li class=\"hl5\"><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 2:30pm, &nbsp;6:15pm, &nbsp;9:45pm</p></li>\r\n\t\t\t\t\t\t\t\t
+      \       <li><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
       /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=95204\">We
       Bought a Zoo</a>\r\n\t\t\t\t\t\t\t\t        </h4><span>Rated (PG) &bull; 2 hrs.
       4 min.</span><p class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=95204&#038;showdate=0\">BUY
-      TICKETS</a> - 11:10am, &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446187\">12:10pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598328\">2:10pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446189\">3:15pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598329\">5:15pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446191\">6:35pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668598330\">8:10pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446193\">9:40pm</a></p></li>\r\n\t\t\t\t\t\t\t\t
-      \       <li><div class=\"fr pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
+      TICKETS</a> - 2:10pm, &nbsp;3:15pm, &nbsp;5:15pm, &nbsp;6:35pm, &nbsp;8:10pm,
+      &nbsp;9:40pm</p></li>\r\n\t\t\t\t\t\t\t\t        <li class=\"hl5\"><div class=\"fr
+      pd10\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/icons/iconw_stadium.gif\"
       width=\"22\" height=\"22\" alt=\"Stadium Seating\" title=\"Stadium Seating\"
       /></div>\r\n\t\t\t\t\t\t\t\t        <h4>\r\n\t\t\t\t\t\t\t\t            <a href=\"movie_detail.asp?movie_id=104203\">Young
       Adult</a>\r\n\t\t\t\t\t\t\t\t        </h4><span>Rated (R) &bull; 1 hr. 34 min.</span><p
       class=\"ft3\"><a class=\"bld\" href=\"pre_purchase.asp?house_id=5902&#038;movie_id=104203&#038;showdate=0\">BUY
-      TICKETS</a> - <a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446244\">4:55pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446245\">7:30pm</a>,
-      &nbsp;<a href=\"https://www.movietickets.com/purchase.asp?perf_id=668446246\">10:05pm</a></p></li>\r\n\t\t\t\t\t\t
-      \   <li></li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t\r\n\t\t\t\t\t<!--table cellpadding=\"0\"
-      cellspacing=\"5\" border=\"0\" align=\"center\" class=\"hide w2 sc8\">\r\n\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t<td
-      valign=\"middle\" class=\"pd0505 tac ft7 clr1\">&nbsp;</td>\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t</table-->\r\n\r\n\t\t\t\t\t<div
+      TICKETS</a> - 4:55pm, &nbsp;7:30pm, &nbsp;10:05pm</p></li>\r\n\t\t\t\t\t\t    <li></li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t\r\n\t\t\t\t\t<!--table
+      cellpadding=\"0\" cellspacing=\"5\" border=\"0\" align=\"center\" class=\"hide
+      w2 sc8\">\r\n\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t<td valign=\"middle\"
+      class=\"pd0505 tac ft7 clr1\">&nbsp;</td>\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t</table-->\r\n\r\n\t\t\t\t\t<div
       id=\"adTrailerContainer\" class=\"mgnt10 pd10 tac\" style=\"background: #ddd\"><div
       class=\"w300 mAuto tac\">\n<span id=\"adTrailer\"><span id=\"adTrailerspan\">\n
       \   \n<script type=\"text/javascript\">\n    //<![CDATA[\n    //ord = Math.random()
@@ -746,23 +678,44 @@
       \               $MTj(\"#ad120x600span\").css({'background':'#fff none','display':'block'});\n
       \           }, 1500);\n            */\n        }\n        //]]>\n    </script><div
       class=\"s_box_4 d_box_5\"><h3>Movie Focus</h3>\n   <div class=\"details\">\n<a
-      href=\"http://www.movietickets.com/movie_detail.asp?movie_id=128141&showdate=0&tstate=4&vid=2150&vxr=115251\"><img
-      src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/homepage/mih_contraband_292x125_rr.jpg\"
-      width=\"292\" height=\"125\" title=\"Contraband\" alt=\"Contraband\" /></a>\n\t<p>More
-      Movie Features</p>\n\t<ol class=\"reset\">\n\t<li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=128141&showdate=0&tstate=4&vid=2150&vxr=115251\"
-      style=\"width:300px\">ONE-ON-ONE: Contraband Star Mark Wahlberg</a></li>\n\t<li><a
-      href=\"http://www.movietickets.com/movie_detail.asp?movie_id=94822&showdate=0&tstate=4&vid=2152&vxr=287005\"
-      style=\"width:300px\">EXCLUSIVE: Meet Haywire's Paul the Assassin</a></li>\n\t<li><a
-      href=\"http://www.movietickets.com/movie_detail.asp?movie_id=102330&showdate=0&tstate=4&vid=2151&vxr=73550\"
-      style=\"width:300px\">MADE IN HOLLYWOOD: Joyful Noise Interviews</a></li>\n\t<li><a
-      href=\"http://www.movietickets.com/editorial.asp?eid=1273&exr=5553\" style=\"width:300px\">EXCLUSIVE:
-      The Divide's Your Face Will Melt Off</a></li>\n\t<li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=118786&showdate=0&tstate=4&vid=2044&vxr=356581\"
-      style=\"width:300px\">INTERVIEW: Michelle Williams on Marilyn Monroe</a></li>\n
-      \     \t</ol>\n   </div>\n</div>\n<!--answerID=0--><!--oRS.EOF=True--><!--bShowPoll=False-->\r\n\t\t</div>\r\n\t\t<div
-      class=\"clr\"></div>\r\n    </div>\r\n\t<div id=\"footHP\">\r\n\t\t<div id=\"bod2bBottom\"></div>\r\n\t\t<div
-      class=\"bod2bTop\" style=\"margin-top: 10px\"></div>\r\n\t\t<div style=\"background:
-      #fff\">\n\t\t<div id=\"footerExtend\">\n\t\t\n\t\t\t<div class=\"footerList1\"
-      style=\"background: url(http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/footer_vertline1.png)
+      href=\"http://www.movietickets.com/movie_detail.asp?movie_id=120472&showdate=0&tstate=4&vid=2156&vxr=828772\"><img
+      src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/homepage/mih_redtails_292x125_rr.jpg\"
+      width=\"292\" height=\"125\" title=\"Red Tails\" alt=\"Red Tails\" /></a>\n\t<p>More
+      Movie Features</p>\n\t<ol class=\"reset\">\n\t<li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=120472&showdate=0&tstate=4&vid=2156&vxr=828772\"
+      style=\"width:300px\">MADE IN HOLLYWOOD: Red Tails Interviews</a></li>\n\t<li><a
+      href=\"http://www.movietickets.com/movie_detail.asp?movie_id=121630&showdate=0&tstate=4&vid=2159&vxr=51868\"
+      style=\"width:300px\">MADE IN HOLLYWOOD: Underworld 4 Interviews</a></li>\n\t<li><a
+      href=\"http://www.movietickets.com/movie_detail.asp?movie_id=94822&showdate=0&tstate=4&vid=2158&vxr=151448\"
+      style=\"width:300px\">MADE IN HOLLYWOOD: Haywire Interviews</a></li><li><a href=\"http://www.movietickets.com/editorial.asp?eid=1274&exr=9987\"
+      style=\"width:300px\">THE HOLLYWOOD REPORT: Glittering Globes</a></li>\n\t<li><a
+      href=\"http://www.movietickets.com/movie_detail.asp?movie_id=112428&rdate=02/10/2012\"
+      style=\"width:300px\">ADVANCE TICKETS: Star Wars - Phantom Menace 3D</a></li>\n
+      \     \t</ol>\n   </div>\n</div>\n<!--answerID=0--><!--oRS.EOF=False--><!--bShowPoll=True-->\n\t\t\t\t<div
+      class=\"s_box_4 d_box_5\"><h3>Movie Poll</h3>\n\t\t\t\t<div class=\"details\"
+      style=\"border-bottom: 0; padding-bottom: 5px\">\n                <div id=\"poll\"><div
+      id=pollQ class=\"mgnt3 pd3535 tal sc8 bld\">Red Tails centers on the Tuskegee
+      Airmen, an all-black World War II fighter pilot squad. What is the movie's biggest
+      draw?</div><form method=\"get\" action=\"\" name=\"frmPoll\"><li class=\"pd5
+      tal\"><label for=\"answer769\"><input id=\"answer769\" type=\"radio\" name=\"answer\"
+      value=\"769\" onclick=\"enableVote(190, this.value)\" />&nbsp; <span class=\"ft8\">The
+      film's historical aspect</span></label></li><li class=\"pd5 tal hl5\"><label
+      for=\"answer770\"><input id=\"answer770\" type=\"radio\" name=\"answer\" value=\"770\"
+      onclick=\"enableVote(190, this.value)\" />&nbsp; <span class=\"ft8\">Stars Terrence
+      Howard & Cuba Gooding Jr.</span></label></li><li class=\"pd5 tal\"><label for=\"answer771\"><input
+      id=\"answer771\" type=\"radio\" name=\"answer\" value=\"771\" onclick=\"enableVote(190,
+      this.value)\" />&nbsp; <span class=\"ft8\">Producer George Lucas</span></label></li><li
+      class=\"pd5 tal hl5\"><label for=\"answer772\"><input id=\"answer772\" type=\"radio\"
+      name=\"answer\" value=\"772\" onclick=\"enableVote(190, this.value)\" />&nbsp;
+      <span class=\"ft8\">The action and cinematography</span></label></li>\n                            <div
+      class=\"mgnt10 tar\"><span class=\"button\"><input id=\"vote\" name=\"vote\"
+      type=\"button\" value=\"Submit your Vote\" onclick=\"\" disabled /></span></div>\n
+      \               </form>\n            </div>\n            </div> \n           </div>\n
+      \           <div style=\"width: 300px; height: 4px; margin-bottom: 15px; font:
+      0\"></div>\r\n\t\t</div>\r\n\t\t<div class=\"clr\"></div>\r\n    </div>\r\n\t<div
+      id=\"footHP\">\r\n\t\t<div id=\"bod2bBottom\"></div>\r\n\t\t<div class=\"bod2bTop\"
+      style=\"margin-top: 10px\"></div>\r\n\t\t<div style=\"background: #fff\">\n\t\t<div
+      id=\"footerExtend\">\n\t\t\n\t\t\t<div class=\"footerList1\" style=\"background:
+      url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/footer_vertline1.png)
       164px 0 no-repeat\">\n\t\t\t\t<div class=\"footerExtendHd\">top&nbsp;movies</div>\n\t\t\t\t<ul>\n\t\t\t\t\t\n\t\t\t\t\t<li><a
       href=\"http://www.movietickets.com/movie_detail.asp?movie_id=88936\">Mission:
       Impossible - Ghost Protocol</a></li>\n\t\t\t\t\t<li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=74162\">Beauty
@@ -775,7 +728,7 @@
       Girl With the Dragon Tattoo</a></li>\n\t\t\t\t\t<li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=94735\">War
       Horse</a></li>\n\t\t\t\t\t<li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=95204\">We
       Bought a Zoo</a></li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"footerList1\"
-      style=\"background: url(http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/footer_vertline1.png)
+      style=\"background: url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/footer_vertline1.png)
       164px 0 no-repeat\">\n\t\t\t\t<div class=\"footerExtendHd\">top&nbsp;videos</div>\n\t\t\t\t<ul>\n\t\t\t\t\t\n\t\t\t\t\t<li><a
       href=\"http://www.movietickets.com/movie_detail.asp?movie_id=110574&tstate=4\">Prometheus</a></li>\n\t\t\t\t\t<li><a
       href=\"http://www.movietickets.com/movie_detail.asp?movie_id=118045&tstate=4\">Wrath
@@ -788,7 +741,7 @@
       Rider: Spirit of Vengeance</a></li>\n\t\t\t\t\t<li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=110552&tstate=4\">The
       Dictator</a></li>\n                  \t<li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=113759&tstate=4\">Rock
       of Ages</a></li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"footerList1\"
-      style=\"background: url(http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/footer_vertline1.png)
+      style=\"background: url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/footer_vertline1.png)
       164px 0 no-repeat\">\n\t\t\t\t<div class=\"footerExtendHd\">most anticipated</div>\n\t\t\t\t<ul>\n\t\t\t\t\t\n\t\t\t\t\t<li><a
       href=\"http://www.movietickets.com/movie_detail.asp?movie_id=78775\">Dr. Seuss'
       The Lorax</a></li>\n\t\t\t\t\t<li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=100061\">John
@@ -800,7 +753,7 @@
       Three Stooges</a></li>\n                   \t<li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=118787\">Scary
       Movie 5</a></li>\n                    <li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=67625\">The
       Avengers</a></li>\n\t\t\t\t\t<li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=81321\">Battleship</a></li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t\t<div
-      class=\"footerList2\" style=\"background: url(http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/footer_vertline1.png)
+      class=\"footerList2\" style=\"background: url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/footer_vertline1.png)
       164px 0 no-repeat\">\n\t\t\t\t<div class=\"footerExtendHd\" style=\"padding-bottom:
       0 !important\">explore</div>\n\t\t\t\t<span>&nbsp;<b>&#8226;</b>&nbsp;<a href=\"http://www.movietickets.com/movie_trailers.asp\">Movie&nbsp;Trailers</a>&nbsp;
       &nbsp;<b>&#8226;</b>&nbsp;<a href=\"http://www.movietickets.com/news.asp\">News</a>&nbsp;
@@ -823,7 +776,7 @@
       (Carib.)</a></li>\n\t\t\t\t\t\t<li><a href=\"http://www.movietickets.com/default.asp?language=11\">MovieTickets.com.es</a></li>\n
       \                       <li><a href=\"http://www.movietickets.com/default.asp?language=13\">MovieTickets.cl</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t\n\t\t\t<div
       class=\"fl w260\">\n\t\t\t\t<div id=\"iconMT\">\n\t\t\t\t\t<a style=\"background:
-      url(http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/site_images3.png)
+      url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/site_images3.png)
       -331px -338px no-repeat\" title=\"MovieTickets.com\" href=\"http://www.movietickets.com/default.asp\">&nbsp;</a>\n\t\t\t\t\t<p
       class=\"mgnt3 tal ft8\">MovieTickets.com, the worldwide leader in advance movie
       ticketing, offers moviegoers one of the leading destinations for buying movie
@@ -831,16 +784,16 @@
       view trailers and video clips, write your own reviews and much more.</p>\n\t\t\t\t\t<div
       class=\"clr\"></div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"footerExtendHd3\">stay&nbsp;connected&nbsp;with&nbsp;us</div>\n\t\t\t\t<div
       id=\"socialIcons\">\n\t\t\t\t\t<a href=\"http://www.movietickets.com/redir.asp?uid=390\"
-      target=\"_blank\" style=\"background: url(http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/site_images3.png)
+      target=\"_blank\" style=\"background: url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/site_images3.png)
       0 -338px no-repeat;\" title=\"Facebook\" id=\"soc_facebook\">Facebook</a>\n\t\t\t\t\t<a
       href=\"http://www.movietickets.com/redir.asp?uid=392\" target=\"_blank\" style=\"background:
-      url(http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/site_images3.png)
+      url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/site_images3.png)
       -124px -338px no-repeat;\" title=\"Twitter\" id=\"soc_twitter\">Twitter</a>\n\t\t\t\t\t<a
       href=\"http://www.movietickets.com/redir.asp?uid=393\" target=\"_blank\" style=\"background:
-      url(http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/site_images3.png)
+      url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/site_images3.png)
       -186px -338px no-repeat\" title=\"YouTube\" id=\"soc_youtube\">YouTube</a>\n\t\t\t\t</div>\n\t\t\t\t<a
       id=\"footerSubscribe\" href=\"https://www.movietickets.com/sign_in.asp?s=1\">\n\t\t\t\t\t<div
-      id=\"iconMail\" style=\"background: url(http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/site_images3.png)
+      id=\"iconMail\" style=\"background: url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/site_images3.png)
       -242px -338px no-repeat\">&nbsp;</div>\n\t\t\t\t\t<div id=\"footerSubscribeTxt\">\n\t\t\t\t\t\t<p>Get
       the MovieTickets.com newsletter for all the latest movie info!</p>\n\t\t\t\t\t\t<span>subscribe&nbsp;now</span>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
       class=\"clr\"></div>\n\t\t\t\t</a>\n\t\t\t</div>\n            \n\t\t\t<div class=\"clr\"></div>\n\t\t</div></div>\r\n\t\t<div
@@ -890,25 +843,25 @@
       = new Option(display, value);\r\n                }\r\n            }                                    \r\n
       \       </script>\r\n    \t\r\n</div>\r\n</div>\n\n<script type=\"text/javascript\">\n\n
       \   if((screen.width>=2560)){document.getElementById(\"html\").style.background=\"#afb8c3
-      url(http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/wp_2560.jpg)
+      url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/wp_2560.jpg)
       repeat-x\"}else{if((screen.width>=1920)){document.getElementById(\"html\").style.background=\"#afb8c3
-      url(http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/wp_1920.jpg)
+      url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/wp_1920.jpg)
       repeat-x\"}else{if((screen.width>=1600)){document.getElementById(\"html\").style.background=\"#afb8c3
-      url(http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/wp_1680.jpg)
+      url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/wp_1680.jpg)
       repeat-x\"}else{if((screen.width>=1440)){document.getElementById(\"html\").style.background=\"#afb8c3
-      url(http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/wp_1440.jpg)
+      url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/wp_1440.jpg)
       repeat-x\"}else{if((screen.width>=1152)){document.getElementById(\"html\").style.background=\"#afb8c3
-      url(http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/wp_1152.jpg)
+      url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/wp_1152.jpg)
       repeat-x\"}else{if((screen.width>=1024)){document.getElementById(\"html\").style.background=\"#afb8c3
-      url(http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/wp_1024.jpg)
+      url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/wp_1024.jpg)
       repeat-x\"}else{document.getElementById(\"html\").style.background=\"#afb8c3
-      url(http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/images/common/wp_1280.jpg)
+      url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/wp_1280.jpg)
       repeat-x\"}}}}}};\n\n</script>\n\n\n<script type=\"text/javascript\">\n    //<![CDATA[\n
       \   //ord = Math.random() * 10000000000000000;\n    document.write('<scr' +
       'ipt type=\"text/javascript\" src=\"http://ad.doubleclick.net/adj/hwd.movietickets/house_detail;lang=0;movie=house_detail;zip=null;age=null;gender=null;afid=null;genre=null;rating=null;companion=yes;site=live;house=5902;edit=null;purchase=no;visit=no;tab=null;pos=middle3;sz=1x1;tile=7;ord='
       + ord + '?\"><\\/scr' + 'ipt>');\n    //]]>\n</script>\n<noscript><a href=\"http://ad.doubleclick.net/jump/hwd.movietickets/house_detail;lang=0;movie=house_detail;zip=null;age=null;gender=null;afid=null;genre=null;rating=null;companion=yes;site=live;house=5902;edit=null;purchase=no;visit=no;tab=null;pos=middle3;sz=1x1;tile=7;ord=123456789?\"
       target=\"_blank\" ><img src=\"http://ad.doubleclick.net/ad/hwd.movietickets/house_detail;lang=0;movie=house_detail;zip=null;age=null;gender=null;afid=null;genre=null;rating=null;companion=yes;site=live;house=5902;edit=null;purchase=no;visit=no;tab=null;pos=middle3;sz=1x1;tile=7;ord=123456789?\"
-      border=\"0\" alt=\"\" /></a></noscript>\n\n</script>\n\n<script src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/scripts/jquery.prettyPhoto.js\"
+      border=\"0\" alt=\"\" /></a></noscript>\n\n</script>\n\n<script src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/scripts/jquery.prettyPhoto.js\"
       type=\"text/javascript\"></script>\n<script type=\"text/javascript\">\n//<![CDATA[\n
       \   //sadjustAds();\n$MTj(document).ready(function(){\n$MTj(\".gallery a[rel^='prettyPhoto']\").prettyPhoto({
       theme: 'facebook' });\n$MTj(\".jq_btn_promo_warning\").click(function() {\n
@@ -916,11 +869,11 @@
       \   autoOpen:false,\n    modal:true,\n    closeText:\"\",\n    hide:\"fade\",\n
       \   dialogClass:\"purchase_review\",\n    resizable:false,\n    width:'350px'\n});\n$MTj(\".cancel_promo\").click(function(){\n
       \   $MTj(\".chase_promo\").dialog('close');\n});\n    \n    // global print
-      function\n    $MTj(\".print\").click(function() {\n        print()\n    });\n});\n//]]>\n</script>\n\n<!--web5--><script
+      function\n    $MTj(\".print\").click(function() {\n        print()\n    });\n});\n//]]>\n</script>\n\n<!--web2--><script
       type=\"text/javascript\" src=\"http://s7.addthis.com/js/250/addthis_widget.js#pub=MovieTickets\"></script><!--
       SiteCatalyst code version: H.19.4.\r\nCopyright 1997-2009 Omniture, Inc. More
       info available at\r\nhttp://www.omniture.com -->\r\n<script language=\"JavaScript\"
-      type=\"text/javascript\" src=\"http://a1608.g.akamai.net/7/1608/1174/2012116901/www.movietickets.com/scripts/s_code.js\"></script>\r\n<script
+      type=\"text/javascript\" src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/scripts/s_code.js\"></script>\r\n<script
       language=\"JavaScript\" type=\"text/javascript\"><!--\r\n/* You may give each
       page an identifying name, server, and channel on\r\nthe next lines. */\r\ns.pageName=\"house_detail.asp\"\r\ns.server=\"\"\r\ns.channel=\"\"\r\ns.pageType=\"\"\r\ns.prop1=\"\"\r\ns.prop2=\"\"\r\ns.prop3=\"\"\r\ns.prop4=\"\"\r\ns.prop5=\"\"\r\n/*
       Conversion Variables */\r\ns.campaign=\"\"\r\ns.state=\"\"\r\ns.zip=\"\"\r\ns.events=\"\"\r\ns.products=\"\"\r\ns.purchaseID=\"\"\r\ns.eVar1=\"\"\r\ns.eVar2=\"\"\r\ns.eVar3=\"\"\r\ns.eVar4=\"\"\r\ns.eVar5=\"\"\r\n\r\n\r\ns.events=\"event3\"\r\ns.prop1=\"5902

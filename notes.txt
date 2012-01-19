@@ -4,13 +4,9 @@ work flow
   user followes TDKRcampout
   campout creates twitter account object
   campout follows user back
-  campout determines zipcode from profile location
-  if zipcode determined
-    campout finds and assigns theaters
-  else
-    campout DMs user asking for zipcode
-    user DMs zipcode
-    repeat determining zipcode but with DM this time
+  campout DMs user asking for zipcode
+  user DMs zipcode
+  campout finds, creates, and assigns theaters
   when tickets go on sale, DM user
 
 scheduled tasks

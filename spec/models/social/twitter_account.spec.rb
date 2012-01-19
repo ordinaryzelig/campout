@@ -38,6 +38,15 @@ describe TwitterAccount do
     end
   end
 
+  it '.assign_theaters searches for theaters, creates theaters, and assigns them to twitter account'
+
+  #it '.determine_zipcodes uses location to find zipcodes' do
+    #VCR.use_cassette('movie_tickets/search_zipcode_73142') do
+      #TwitterAccount.searchable
+      #TwitterAccount.determine_zipcodes
+    #end
+  #end
+
   it '.process_DMs_for_zipcodes sends follow up confirmation DM with closest theater and instructions to change'
 
   it '.process_DMs_for_zipcodes handles cases when zipcode cannot be extracted'
