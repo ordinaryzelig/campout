@@ -26,7 +26,7 @@ task :diagnostics => 'db:connect' do
     puts 'OK'
   rescue
     if Campout.env.production?
-      Pony.mail(to: 'ningja@me.com', subject: 'Campout diagnostics failure', body: $!.backtrace.join("\n"))
+      Pony.mail(to: 'ningja@me.com', subject: "Campout diagnostics failure: #{$!.message}", body: $!.backtrace.join("\n"))
       puts 'failed. email sent'
     else
       puts 'error'
