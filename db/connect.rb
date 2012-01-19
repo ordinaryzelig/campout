@@ -1,8 +1,2 @@
-if Campout.env.production?
-  ActiveRecord::Base.establish_connection(YAML.load('db/database.yml')[ENV['RACK_ENV']])
-else
-  ActiveRecord::Base.establish_connection(
-    adapter:  'sqlite3',
-    database: "db/#{Campout.env}.sqlite3",
-  )
-end
+config = YAML.load(File.open('config/database.yml').read)[ENV['RACK_ENV']]
+ActiveRecord::Base.establish_connection(config)

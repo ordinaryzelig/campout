@@ -5,7 +5,7 @@ module Campout
     # E.g. Campout.env.production?
     # Default to development.
     def env
-      @env ||= ActiveSupport::StringInquirer.new(ENV.fetch('RACK_ENV', 'development'))
+      @env ||= ActiveSupport::StringInquirer.new(ENV['RACK_ENV'])
     end
 
     def root_dir
