@@ -1,14 +1,14 @@
-TwitterAccount.create_from_followers
+fork do
+  TwitterAccount.create_from_followers
+  TwitterAccount.follow_all_not_followed
+  TwitterAccount.prompt_for_zipcodes
+end
 
-#DM asking for zipcode
-  #for each twitter account without zipcode assigned and not yet asked...
-    #DM with instructions asking for zipcode
-    #mark as asked
+fork do
+  TwitterAccount.process_DMs_for_zipcodes
+end
 
-#Assign zipcode
-  #list DMs
-  #assign zipcode to twitter account
-  #delete DM
+Process.wait
 
 #Check for movies
   #1 zipcode at a time...

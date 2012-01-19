@@ -15,7 +15,6 @@ class TwitterAccount < ActiveRecord::Base
   scope :followed, proc { |bool| where(followed: bool) }
   scope :not_prompted_for_zipcode, where(prompted_for_zipcode_at: nil)
   scope :promptable_for_zipcode, followed(true).not_prompted_for_zipcode
-  scope :no_theaters_assigned, where(theaters_assigned: false)
 
   class << self
 
@@ -43,36 +42,9 @@ class TwitterAccount < ActiveRecord::Base
       promptable_for_zipcode.each &:prompt_for_zipcode
     end
 
-    # List DMs, extract zipcode, assign to twitter account, delete DM.
+    # List DMs, process each for zipcode.
     def process_DMs_for_zipcodes
-      Twitter.direct_messages.each do |dm|
-        account = dm.twitter_account
-        if zipcode = dm.extract_zipcode
-          account.update_attributes! zipcode: zipcode
-        else
-          account.deny_zipcode
-        end
-        dm.destroy
-      end
-    end
-
-    # For any TwitterAccounts that don't have theaters assigned,
-    # using zipcode, find or create theaters,
-    # assign them to that TwitterAccount's theaters.
-    # Confirm location.
-    def find_and_assign_theaters
-      no_theaters_assigned.all.each do |twitter_account|
-        theaters = MovieTicketsTheaterList.scour(twitter_account.zipcode)
-        if theaters.any?
-          twitter_account.update_attributes!(
-            movie_tickets_theaters: theaters,
-            theaters_assigned: true,
-          )
-          twitter_account.confirm_location_with_theater_list
-        else
-          twitter_account.deny_theater_list
-        end
-      end
+      Twitter.direct_messages.each &:process_zipcode
     end
 
     private
@@ -123,6 +95,24 @@ class TwitterAccount < ActiveRecord::Base
 
   def deny_zipcode
     dm! "Sorry. I couldn't understand your zipcode. Please send me a Direct Message with a valid zipcode. e.g. 12345"
+  end
+
+  # Using zipcode, find or create theaters,
+  # assign them to account's theaters.
+  # Confirm location.
+  # Destroy old assignments no matter what.
+  def find_and_assign_theaters
+    # Out with the old, in with the new.
+    theater_assignments.destroy
+    theaters = MovieTicketsTheaterList.scour(self.zipcode)
+    if theaters.any?
+      update_attributes!(
+        movie_tickets_theaters: theaters,
+      )
+      confirm_location_with_theater_list
+    else
+      deny_theater_list
+    end
   end
 
   private
