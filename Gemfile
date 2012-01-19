@@ -19,12 +19,16 @@ end
 
 group :test do
   gem 'database_cleaner', '0.7.1'
-  gem 'factory_girl', '2.4.0'
   gem 'fakeweb', '1.3.0'
   gem 'minitest', '2.10.0'
   gem 'mocha', '0.10.2'
   gem 'timecop', '0.3.5'
   gem 'vcr', '1.11.3'
+end
+
+group :production, :test do
+  # Include for db/seed.rb.
+  gem 'factory_girl', '2.4.0'
 end
 
 group :development, :test do
