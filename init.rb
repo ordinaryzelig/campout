@@ -1,5 +1,5 @@
 require 'bundler/setup'
-Bundler.require :default, ENV.fetch('CAMPOUT_ENV', :development).to_sym
+Bundler.require :default, ENV.fetch('RACK_ENV', :development).to_sym
 
 require 'open-uri'
 

@@ -1,11 +1,12 @@
 require 'spec_helper'
 
-describe MovieTickets::Theater do
+describe MovieTicketsTheater do
 
   it 'scrapes titles' do
     VCR.use_cassette('movietickets/theaters/amc') do
-      movies = MovieTickets::Theater.scour(
-        theater: MovieTickets::Theater.first,
+      FactoryGirl.create(:movie_tickets_amc)
+      movies = MovieTicketsTheater.scour(
+        theater: MovieTicketsTheater.first,
         date:    Date.new(2012, 01, 16),
       )
       movies.size.must_equal 28

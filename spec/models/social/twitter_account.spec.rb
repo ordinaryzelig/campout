@@ -42,6 +42,4 @@ describe TwitterAccount do
 
   it '.process_DMs_for_zipcodes handles cases when zipcode cannot be extracted'
 
-  it 'is destroyed if user is blocking us'
-
 end

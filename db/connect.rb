@@ -1,9 +1,8 @@
-unless Campout.env.production?
+if Campout.env.production?
+  ActiveRecord::Base.establish_connection(YAML.load('db/database.yml')[ENV['RACK_ENV']])
+else
   ActiveRecord::Base.establish_connection(
     adapter:  'sqlite3',
-    database: ':memory:',
+    database: "db/#{Campout.env}.sqlite3",
   )
-
-  ActiveRecord::Migration.verbose = false
-  ActiveRecord::Migrator.migrate('db/migrations')
 end

@@ -1,4 +1,4 @@
-ENV['CAMPOUT_ENV'] = 'test'
+ENV['RACK_ENV'] = 'test'
 
 require_relative '../init'
 require_relative '../db/connect'
@@ -21,9 +21,6 @@ Dir['./spec/support/**/*.rb'].each { |f| require f }
 
 # DatabaseCleaner.
 DatabaseCleaner.strategy = :truncation
-
-# FactoryGirl.
-FactoryGirl.definition_file_paths = ['spec/support']
 
 class MiniTest::Spec
 
