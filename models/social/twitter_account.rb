@@ -46,7 +46,12 @@ class TwitterAccount < ActiveRecord::Base
     # List DMs, extract zipcode, assign to twitter account, delete DM.
     def process_DMs_for_zipcodes
       Twitter.direct_messages.each do |dm|
-        dm.extract_and_assign_zipcode!
+        account = dm.twitter_account
+        if zipcode = dm.extract_zipcode
+          account.update_attributes! zipcode: zipcode
+        else
+          account.deny_zipcode
+        end
         dm.destroy
       end
     end
@@ -65,7 +70,7 @@ class TwitterAccount < ActiveRecord::Base
           )
           twitter_account.confirm_location_with_theater_list
         else
-          twitter_account.deny_location
+          twitter_account.deny_theater_list
         end
       end
     end
@@ -97,7 +102,7 @@ class TwitterAccount < ActiveRecord::Base
   # DM with instructions asking for zipcode,
   # mark as prompted.
   def prompt_for_zipcode
-    dm 'What is your zipcode?'
+    dm! 'What is your zipcode?'
     update_attributes! prompted_for_zipcode_at: Time.now
   end
 
@@ -107,20 +112,24 @@ class TwitterAccount < ActiveRecord::Base
     chars_left = TweetString::CHARACTER_LIMIT - (message_without_theater.length - 2) # Don't count the '%s'.
     closest_theater_name = movie_tickets_theaters.closest.name.truncate(chars_left)
     message = message_without_theater.sub('%s', closest_theater_name)
-    dm message
+    dm! message
     true
   end
 
   # Send DM denying any theaters near zipcode.
-  def deny_location
-    dm "Sorry. I couldn't find any theaters near #{zipcode}. Send me a Direct Message with another zipcode and I'll try again."
+  def deny_theater_list
+    dm! "Sorry. I couldn't find any theaters near #{zipcode}. Send me a Direct Message with another zipcode and I'll try again."
+  end
+
+  def deny_zipcode
+    dm! "Sorry. I couldn't understand your zipcode. Please send me a Direct Message with a valid zipcode. e.g. 12345"
   end
 
   private
 
   # Send a DM with message. Return true if successful.
   # Wrap message in TweetString.
-  def dm(message)
+  def dm!(message)
     Twitter.direct_message_create(self.user_id, TweetString.new(message))
     true
   end

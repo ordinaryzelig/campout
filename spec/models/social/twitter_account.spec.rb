@@ -57,13 +57,26 @@ describe TwitterAccount do
     end
   end
 
-  it '#deny_location sends DM with message that no theaters were found' do
+  it '#deny_theater_list sends DM with message that no theaters were found' do
     VCR.use_cassette('twitter/DM_redningja_denying_theater_list') do
       account = FactoryGirl.create(:redningja, zipcode: 10000)
-      account.deny_location.must_equal true
+      account.deny_theater_list.must_equal true
     end
   end
 
-  it '.process_DMs_for_zipcodes handles cases when zipcode cannot be extracted'
+  it '.process_DMs_for_zipcodes sends DM denying zipcode with instructions to send another DM with valid zipcode' do
+    VCR.use_cassette('twitter/list_DMs_with_bad_zipcodes') do
+      TwitterAccount.any_instance.expects(:deny_zipcode)
+      FactoryGirl.create(:redningja)
+      TwitterAccount.process_DMs_for_zipcodes
+    end
+  end
+
+  it '#deny_zipcode sends DM asking for valid zipcode' do
+    VCR.use_cassette('twitter/DM_redningja_denying_zipcode') do
+      account = FactoryGirl.create(:redningja)
+      account.deny_zipcode.must_equal true
+    end
+  end
 
 end

@@ -17,15 +17,6 @@ describe Twitter::DirectMessage do
     end
   end
 
-  it "#extract_and_assign_zipcode assigns zipcode to sender's twitter account" do
-    VCR.use_cassette('twitter/list_DMs') do
-      redningja = FactoryGirl.create(:redningja, zipcode:  nil)
-      dm = Twitter.direct_messages.first
-      dm.extract_and_assign_zipcode!
-      redningja.reload.zipcode.must_equal 73142
-    end
-  end
-
   it '#destroy sends destroy request to Twitter' do
     VCR.use_cassette('twitter/list_DMs') do
       Twitter.expects(:direct_message_destroy)
