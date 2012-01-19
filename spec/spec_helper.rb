@@ -9,7 +9,7 @@ require 'mocha'
 
 # VCR.
 VCR.config do |c|
-  c.cassette_library_dir = 'spec/support/fixtures/vcr_cassettes'
+  c.cassette_library_dir = 'spec/support/vcr_cassettes'
   c.stub_with :fakeweb
   TWITTER_KEYS.each do |_, val|
     c.filter_sensitive_data('<FILTERED>') { val }
