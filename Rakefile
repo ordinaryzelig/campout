@@ -1,5 +1,3 @@
-require './init'
-
 namespace :db do
 
   desc 'Seed data'
@@ -13,6 +11,7 @@ namespace :db do
   end
 
   task :connect do
+    require './init'
     require './db/connect'
   end
 
@@ -55,7 +54,7 @@ task :check, [:title, :date, :zipcode] => 'db:connect' do |t, args|
 end
 
 desc 'Run cron.rb'
-task :cron do
+task :cron => 'db:connect' do
   load Campout.root_dir + 'cron.rb'
 end
 

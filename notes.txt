@@ -8,21 +8,3 @@ work flow
   user DMs zipcode
   campout finds, creates, and assigns theaters
   when tickets go on sale, DM user
-
-scheduled tasks
-
-  Assign theaters
-    for each twitter account
-      search for theaters using zipcode
-      find_or_create
-      add to twitter account's theaters
-
-  Check for movies
-    1 zipcode at a time...
-      check if all matching theaters already searched
-      if not, search for zipcode and update theater last searched date
-
-  Notify of ticket sales
-    for each account not yet notified and with theaters selling tickets...
-      DM list of theaters selling tickets
-      mark as notified
