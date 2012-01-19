@@ -38,16 +38,31 @@ describe TwitterAccount do
     end
   end
 
-  it '.assign_theaters searches for theaters, creates theaters, and assigns them to twitter account'
+  it '.find_and_assign_theaters searches for theaters, creates theaters, and assigns them to twitter account' do
+    VCR.use_cassette('movie_tickets/theaters/search_location_73142') do
+      TwitterAccount.any_instance.expects(:confirm_location_with_theater_list)
+      account = FactoryGirl.create('redningja', zipcode: 73142)
+      TwitterAccount.find_and_assign_theaters
+      account_theaters = account.reload.movie_tickets_theaters
+      account_theaters.map(&:house_id).must_equal MovieTicketsTheater.all.map(&:house_id)
+      account.theaters_assigned.must_equal true
+    end
+  end
 
-  #it '.determine_zipcodes uses location to find zipcodes' do
-    #VCR.use_cassette('movie_tickets/search_zipcode_73142') do
-      #TwitterAccount.searchable
-      #TwitterAccount.determine_zipcodes
-    #end
-  #end
+  it '#confirm_location_with_theater_list sends DM with closest theater and instructions to change' do
+    VCR.use_cassette('twitter/DM_redningja_confirming_theater_list') do
+      theaters = [FactoryGirl.create(:movie_tickets_amc)]
+      account = FactoryGirl.create(:redningja, movie_tickets_theaters: theaters)
+      account.confirm_location_with_theater_list.must_equal true # Make sure DM was sent.
+    end
+  end
 
-  it '.process_DMs_for_zipcodes sends follow up confirmation DM with closest theater and instructions to change'
+  it '#deny_location sends DM with message that no theaters were found' do
+    VCR.use_cassette('twitter/DM_redningja_denying_theater_list') do
+      account = FactoryGirl.create(:redningja, zipcode: 10000)
+      account.deny_location.must_equal true
+    end
+  end
 
   it '.process_DMs_for_zipcodes handles cases when zipcode cannot be extracted'
 

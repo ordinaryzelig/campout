@@ -22,7 +22,7 @@ group :test do
   gem 'database_cleaner', '0.7.1'
   gem 'fakeweb', '1.3.0'
   gem 'minitest', '2.10.0'
-  gem 'mocha', '0.10.2'
+  gem 'mocha', '0.10.2', require: false
   gem 'timecop', '0.3.5'
   gem 'vcr', '1.11.3'
 end

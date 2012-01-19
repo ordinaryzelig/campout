@@ -5,9 +5,9 @@ class CreateTwitterAccounts < ActiveRecord::Migration
       t.integer  :user_id, null: false
       t.string   :screen_name, null: false
       t.boolean  :followed, null: false, default: false
+      t.string   :location
       t.integer  :zipcode
       t.datetime :prompted_for_zipcode_at
-      t.string   :location
       t.timestamps
     end
   end
