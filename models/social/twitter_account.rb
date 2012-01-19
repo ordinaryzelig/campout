@@ -21,8 +21,9 @@ class TwitterAccount < ActiveRecord::Base
     # Create new twitter accounts from followers.
     # list followers that are not yet followed.
     # create new twitter account in DB.
+    # Return new accounts.
     def create_from_followers
-      new_follower_ids.each do |follower_id|
+      new_follower_ids.map do |follower_id|
         twitter_user = Twitter.user(follower_id)
         create_from_twitter_user!(twitter_user)
       end
@@ -30,10 +31,12 @@ class TwitterAccount < ActiveRecord::Base
 
     # Follow back twitter accounts not yet followed.
     # Mark as followed.
+    # Return accounts now followed.
     def follow_all_not_followed
-      followed(false).each do |twitter_account|
+      followed(false).map do |twitter_account|
         Twitter.follow(twitter_account.user_id)
         twitter_account.update_attributes! followed: true
+        twitter_account
       end
     end
 

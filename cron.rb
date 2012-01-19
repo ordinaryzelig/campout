@@ -1,14 +1,18 @@
-fork do
-  TwitterAccount.create_from_followers
-  TwitterAccount.follow_all_not_followed
-  TwitterAccount.prompt_for_zipcodes
-end
+new_accounts      = TwitterAccount.create_from_followers
+new_followings    = TwitterAccount.follow_all_not_followed
+prompted_accounts = TwitterAccount.prompt_for_zipcodes
+processed_dms     = TwitterAccount.process_DMs_for_zipcodes
 
-fork do
-  TwitterAccount.process_DMs_for_zipcodes
+# Email progress if any.
+if (new_accounts + new_followings + prompted_accounts + processed_dms).any?
+  body = [
+    "#{new_accounts.size} new accounts. #{TwitterAccount.count} total.",
+    "#{new_followings.size} new followings.",
+    "#{prompted_accounts.size} prompts for zipcodes",
+    "#{processed_dms.size} DMs processed for zipcodes",
+  ].join("\n")
+  Pony.mail(to: 'ningja@me.com', subject: "New progress", body: body)
 end
-
-Process.wait
 
 #Check for movies
   #1 zipcode at a time...
