@@ -3,6 +3,7 @@ class CreateMovieTicketsMovies < ActiveRecord::Migration
     create_table :movie_tickets_movies do |t|
       t.string :title, null: false
       t.integer :movie_id, null: false
+      t.timestamps
     end
   end
 end

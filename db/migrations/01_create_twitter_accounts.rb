@@ -8,6 +8,7 @@ class CreateTwitterAccounts < ActiveRecord::Migration
       t.integer  :zipcode
       t.datetime :prompted_for_zipcode_at
       t.string   :location
+      t.timestamps
     end
   end
 
