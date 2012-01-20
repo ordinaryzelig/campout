@@ -23,9 +23,10 @@ task :diagnostics => 'db:connect' do
   begin
     MovieTicketsTheater.diagnostics
     puts 'OK'
+    raise 'NOT!'
   rescue
     if Campout.env.production?
-      Pony.mail(to: 'ningja@me.com', subject: "Campout diagnostics failure: #{$!.message}", body: $!.backtrace.join("\n"))
+      Mailer.exception($!)
       puts 'failed. email sent'
     else
       puts 'error'
@@ -45,7 +46,7 @@ task :check, [:title, :date, :zipcode] => 'db:connect' do |t, args|
     puts 'no go'
   else
     if Campout.env.production?
-      Pony.mail(to: 'ningja@me.com', subject: "#{title} is on sale!!!", body: theaters.map(&:name).join("\n"))
+      Mailer.on_sale(movie, theaters)
       puts 'email sent'
     else
       puts theaters.map(&:name)

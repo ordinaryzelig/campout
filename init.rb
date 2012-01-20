@@ -3,7 +3,7 @@ ENV['RACK_ENV'] ||= 'development'
 require 'bundler/setup'
 Bundler.require :default, ENV['RACK_ENV']
 
-require 'open-uri'
+require './mailer'
 
 require 'active_support/inflector'
 require 'active_support/string_inquirer'

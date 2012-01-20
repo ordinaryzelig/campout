@@ -1,4 +1,5 @@
-# Not sure we need this anymore.
+# This used mainly for test rake tasks.
+
 # Use FactoryGirl to create some stuff.
 require 'factory_girl'
 Dir['./spec/support/factories/*.rb'].each { |f| require f }
