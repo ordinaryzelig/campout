@@ -2,7 +2,7 @@
 - !ruby/struct:VCR::HTTPInteraction
   request: !ruby/struct:VCR::Request
     method: :get
-    uri: http://www.movietickets.com:80/movie_detail.asp?movie_id=116928&ShowDate=0%2F1&SearchZip=73142
+    uri: http://www.movietickets.com:80/movie_detail.asp?movie_id=123162&ShowDate=27&SearchZip=10001
     body: !!null 
     headers: !!null 
   response: !ruby/struct:VCR::Response
@@ -13,41 +13,45 @@
       cache-control:
       - private
       content-length:
-      - '64293'
+      - '64742'
       content-type:
       - text/html
       set-cookie:
-      - session=VX=1291389560&VID=2816288386; path=/
-      - persist=CX=912281264270796&CID=1286228513; expires=Sat, 19-Jan-2013 05:00:00
+      - session=VX=1646710008&VID=2817294997; path=/
+      - persist=CX=81435217879073&CID=1287083496; expires=Sun, 20-Jan-2013 05:00:00
         GMT; path=/
-      - session=VX=1291389560&VID=2816288386; path=/; path=/
-      - TS5d4549=9cd3cf59ce567e117091ec14ca45b5d772f4407c5fc7e38f4f17abf9; Path=/
+      - ASPSESSIONIDSABSRSRC=BMBLOPBAGECILLMMCJHAFJCL; path=/
+      - session=VX=1646710008&VID=2817294997; path=/; path=/
+      - persist=CX=81435217879073&CID=1287083496; expires=Sun, 20-Jan-2013 05:00:00
+        GMT; path=/; path=/
+      - TS5d4549=e3e2e8fd5fc291f677786fc2b0025e401ccc8b0db647c9e04f1970df; Path=/
       x-powered-by:
       - ASP.NET
       date:
-      - Thu, 19 Jan 2012 05:36:57 GMT
+      - Fri, 20 Jan 2012 13:49:20 GMT
     body: ! "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html
       id=\"html\" xml:lang=\"en-us\" lang=\"en-us\" xmlns=\"http://www.w3.org/1999/xhtml\"
-      xmlns:og=\"http://ogp.me/ns#\" xmlns:fb=\"http://www.facebook.com/2008/fbml\">\r\n<head>\r\n<title>The
-      Iron Lady - MovieTickets.com</title>\r\n<meta name=\"description\" content=\"The
-      Iron Lady - Buy movie tickets, find showtimes, read reviews, see trailers and
-      more on MovieTickets.com\" />\r\n<meta name=\"keywords\" content=\"The Iron
-      Lady, showtimes, synopsis, reviews, trailers, photos, MovieTickets.com\" />\r\n<meta
-      http-equiv=\"X-UA-Compatible\" content=\"IE=8\" />\r\n<meta http-equiv=\"content-type\"
-      content=\"text/html; charset=UTF-8\" />\r\n<meta property=\"fb:app_id\" content=\"111814275500067\"/>\r\n\r\n\r\n\r\n<link
-      rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/style/site.css\"
-      />\r\n\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/style/color_black.css\"
+      xmlns:og=\"http://ogp.me/ns#\" xmlns:fb=\"http://www.facebook.com/2008/fbml\">\r\n<head>\r\n<title>Ghost
+      Rider 3D: Spirit of Vengeance - MovieTickets.com</title>\r\n<meta name=\"description\"
+      content=\"Ghost Rider 3D: Spirit of Vengeance - Buy movie tickets, find showtimes,
+      read reviews, see trailers and more on MovieTickets.com\" />\r\n<meta name=\"keywords\"
+      content=\"Ghost Rider 3D: Spirit of Vengeance, showtimes, synopsis, reviews,
+      trailers, photos, MovieTickets.com\" />\r\n<meta http-equiv=\"X-UA-Compatible\"
+      content=\"IE=8\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html;
+      charset=UTF-8\" />\r\n<meta property=\"fb:app_id\" content=\"111814275500067\"/>\r\n\r\n\r\n\r\n<link
+      rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/style/site.css\"
+      />\r\n\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/style/color_black.css\"
       />\r\n<!--[if gt IE 6]>\r\n<link rel=\"stylesheet\" type=\"text/css\" media=\"screen\"
-      href=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/style/ie.css\">\r\n<![endif]-->\r\n<!--
+      href=\"http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/style/ie.css\">\r\n<![endif]-->\r\n<!--
       localized stylesheets -->\r\n\r\n<!-- end localized stylesheets -->\r\n\r\n<link
-      rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/style/add_this.css\"
-      />\r\n\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/style/printing.css\"
-      media=\"print\" />\r\n<script type=\"text/javascript\" src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/scripts/scripts.min.pack.js\"></script>\r\n<!--
-      script type=\"text/javascript\" src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/scripts/scripts.source.js\"></script
+      rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/style/add_this.css\"
+      />\r\n\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/style/printing.css\"
+      media=\"print\" />\r\n<script type=\"text/javascript\" src=\"http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/scripts/scripts.min.pack.js\"></script>\r\n<!--
+      script type=\"text/javascript\" src=\"http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/scripts/scripts.source.js\"></script
       -->\n<script type=\"text/javascript\">\n    // DART ordinal seed\n    var ord
       = Math.random() * 10000000000000000;\n</script>\n\n\n<style type=\"text/css\">\n\t#bod1
-      {background: url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/back_mid_default4_black.png)
-      top center repeat-y; color: #000}\n\t#navlist li a {background: url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/back_tab1.gif)
+      {background: url(http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/common/back_mid_default4_black.png)
+      top center repeat-y; color: #000}\n\t#navlist li a {background: url(http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/common/back_tab1.gif)
       bottom repeat-x #ddd}\n\t.breakWord {word-wrap: break-word}\n\t    .BVContentReviewText
       {width: 428px}\n</style>\n\n        <!-- BEGIN bazaarvoice head -->\n        <link
       rel=\"stylesheet\" type=\"text/css\" href=\"http://reviews.movietickets.com/static/6056/bazaarvoice.css\"
@@ -77,12 +81,12 @@
       \   <div id=\"ad728x90\" style=\"min-height: 90px\">\n        \n            <span
       id=\"ad728x90span\">\n            \t\n<script type=\"text/javascript\">\n    //<![CDATA[\n
       \   //ord = Math.random() * 10000000000000000;\n    document.write('<scr' +
-      'ipt type=\"text/javascript\" src=\"http://ad.doubleclick.net/adj/hwd.movietickets/movie_detail;lang=0;movie=116928;zip=73142;age=null;gender=null;afid=null;genre=Drama;rating=PG-13;companion=yes;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=top;sz=728x90,954x250,960x119;tile=1;ord='
-      + ord + '?\"><\\/scr' + 'ipt>');\n    //]]>\n</script>\n<noscript><a href=\"http://ad.doubleclick.net/jump/hwd.movietickets/movie_detail;lang=0;movie=116928;zip=73142;age=null;gender=null;afid=null;genre=Drama;rating=PG-13;companion=yes;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=top;sz=728x90,954x250,960x119;tile=1;ord=123456789?\"
-      target=\"_blank\" ><img src=\"http://ad.doubleclick.net/ad/hwd.movietickets/movie_detail;lang=0;movie=116928;zip=73142;age=null;gender=null;afid=null;genre=Drama;rating=PG-13;companion=yes;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=top;sz=728x90,954x250,960x119;tile=1;ord=123456789?\"
+      'ipt type=\"text/javascript\" src=\"http://ad.doubleclick.net/adj/hwd.movietickets/movie_detail;lang=0;movie=123162;zip=10001;age=null;gender=null;afid=null;genre=Action/Adventure;rating=PG-13;companion=yes;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=top;sz=728x90,954x250,960x119;tile=1;ord='
+      + ord + '?\"><\\/scr' + 'ipt>');\n    //]]>\n</script>\n<noscript><a href=\"http://ad.doubleclick.net/jump/hwd.movietickets/movie_detail;lang=0;movie=123162;zip=10001;age=null;gender=null;afid=null;genre=Action/Adventure;rating=PG-13;companion=yes;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=top;sz=728x90,954x250,960x119;tile=1;ord=123456789?\"
+      target=\"_blank\" ><img src=\"http://ad.doubleclick.net/ad/hwd.movietickets/movie_detail;lang=0;movie=123162;zip=10001;age=null;gender=null;afid=null;genre=Action/Adventure;rating=PG-13;companion=yes;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=top;sz=728x90,954x250,960x119;tile=1;ord=123456789?\"
       border=\"0\" alt=\"\" /></a></noscript>\n\n            </span>\n        \n    </div>\n</div>\n<!--
       END 728x90 position Top leaderboard -->\n\n<div id=\"outerBod\">\n<div id=\"endcapTop\"
-      style=\"\n    \n        background: url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/back_topcap_black4.png)
+      style=\"\n    \n        background: url(http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/common/back_topcap_black4.png)
       no-repeat\"></div>\r\n<div id=\"bod1\">\r\n\t<div id=\"headerHP\">\r\n\t\t\r\n
       \       <p id=\"access\"><a href=\"#body\" accesskey=\"2\" title=\"Skip navigation\">Skip
       navigation</a> - <a href=\"#srch\" accesskey=\"4\" title=\"Skip to Search\">Skip
@@ -93,13 +97,13 @@
       holiday logo below.\n    \n\t    document.getElementById(\"logos\").style.height
       = \"69px\";\n\t    document.getElementById(\"logos\").style.background = \"url(http://a1608.g.akamai.net/7/1608/1174/200971618955/www.movietickets.com/images/common/site_images3.png)
       no-repeat\";\n\tdocument.getElementById(\"logos\").style.background = \"none\";\n
-      \   $MTj(\"#mtlogo\").html(\"<img style=\\\"margin: 9px 0 0 6px\\\" src=\\\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/en/logo_mt_new.png\\\"
+      \   $MTj(\"#mtlogo\").html(\"<img style=\\\"margin: 9px 0 0 6px\\\" src=\\\"http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/en/logo_mt_new.png\\\"
       title=\\\"MovieTickets.com\\\" alt=\\\"MovieTickets.com\\\" />\");document.getElementById(\"logos\").style.background
       = \"none\";\t// Override repeating gradiant\n    //]]>\n    </script>\n    \n<script
       type=\"text/javascript\">\n    //<![CDATA[\n    //ord = Math.random() * 10000000000000000;\n
-      \   document.write('<scr' + 'ipt type=\"text/javascript\" src=\"http://ad.doubleclick.net/adj/hwd.movietickets/movie_detail;lang=0;movie=116928;zip=73142;age=null;gender=null;afid=null;genre=Drama;rating=PG-13;companion=no;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=top3;sz=1x1;tile=2;ord='
-      + ord + '?\"><\\/scr' + 'ipt>');\n    //]]>\n</script>\n<noscript><a href=\"http://ad.doubleclick.net/jump/hwd.movietickets/movie_detail;lang=0;movie=116928;zip=73142;age=null;gender=null;afid=null;genre=Drama;rating=PG-13;companion=no;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=top3;sz=1x1;tile=2;ord=123456789?\"
-      target=\"_blank\" ><img src=\"http://ad.doubleclick.net/ad/hwd.movietickets/movie_detail;lang=0;movie=116928;zip=73142;age=null;gender=null;afid=null;genre=Drama;rating=PG-13;companion=no;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=top3;sz=1x1;tile=2;ord=123456789?\"
+      \   document.write('<scr' + 'ipt type=\"text/javascript\" src=\"http://ad.doubleclick.net/adj/hwd.movietickets/movie_detail;lang=0;movie=123162;zip=10001;age=null;gender=null;afid=null;genre=Action/Adventure;rating=PG-13;companion=no;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=top3;sz=1x1;tile=2;ord='
+      + ord + '?\"><\\/scr' + 'ipt>');\n    //]]>\n</script>\n<noscript><a href=\"http://ad.doubleclick.net/jump/hwd.movietickets/movie_detail;lang=0;movie=123162;zip=10001;age=null;gender=null;afid=null;genre=Action/Adventure;rating=PG-13;companion=no;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=top3;sz=1x1;tile=2;ord=123456789?\"
+      target=\"_blank\" ><img src=\"http://ad.doubleclick.net/ad/hwd.movietickets/movie_detail;lang=0;movie=123162;zip=10001;age=null;gender=null;afid=null;genre=Action/Adventure;rating=PG-13;companion=no;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=top3;sz=1x1;tile=2;ord=123456789?\"
       border=\"0\" alt=\"\" /></a></noscript>\n</span></a>\n\t\t</div>\n\t</div>\n<div
       class=\"fl mgnt5 mgnb2 tar\" style=\"width: 686px\">\n\t<div id=\"nav\">\n\t
       \   <div style=\"text-align:right;\">\n\t\t<a href=\"http://www.movietickets.com/help.asp\">Help</a>
@@ -108,9 +112,9 @@
       &nbsp;|&nbsp; <a href=\"https://www.movietickets.com/sign_in.asp\">My Account</a>\n\t\t<form
       id=\"formlang\" style=\"display:inline;padding-left:5px;\" method=\"get\" action=\"movie_detail.asp\"
       name=\"formlang\"><input type=\"hidden\" name=\"language\" value=\"0\" /><input
-      type=\"hidden\" name=\"movie_id\" value=\"116928\" /><input type=\"hidden\"
-      name=\"SearchZip\" value=\"73142\" /><input type=\"hidden\" name=\"ShowDate\"
-      value=\"0\" /><input type=\"hidden\" name=\"house_id\" value=\"0\" /><input
+      type=\"hidden\" name=\"movie_id\" value=\"123162\" /><input type=\"hidden\"
+      name=\"SearchZip\" value=\"10001\" /><input type=\"hidden\" name=\"ShowDate\"
+      value=\"27\" /><input type=\"hidden\" name=\"house_id\" value=\"0\" /><input
       type=\"hidden\" name=\"SearchCity\" value=\"\" /><input type=\"hidden\" name=\"SearchRadius\"
       value=\"15\" />\n\t        <select class=\"vam ft11\" style=\"width: 143px\"
       name=\"language\" onchange=\"submitLang()\">\n              \n\t\t      <option
@@ -168,15 +172,15 @@
       name=\"SearchType\" value=\"1\" /><a name=\"srch\"></a>\n\t\t\t<p class=\"mgnb1
       mgnl5 tal bld ttuc clr13\"><label id=\"labelZip\" for=\"Szip\">Enter your Location</label></p>\n\t\t\t<div
       class=\"zipDrop1\">\n\t\t\t\t<input id=\"Szip\" class=\"Szip vam\" type=\"text\"
-      name=\"Szip\" maxlength=\"64\" value=\"73142\" onfocus=\"this.value='';\" onblur=\"if
-      (this.value.length==0){this.value='73142';}\" />\n\t\t\t\t<a id=\"zGo\" href=\"#\"
+      name=\"Szip\" maxlength=\"64\" value=\"10001\" onfocus=\"this.value='';\" onblur=\"if
+      (this.value.length==0){this.value='10001';}\" />\n\t\t\t\t<a id=\"zGo\" href=\"#\"
       onclick=\"submitSearch('enter a zip code (or) city, state');\">GO</a>\n\t\t\t</div>\n\t\t</form>\n\t\t<div
       class=\"fl w240 mgnl15\">\n\t\t\t<p class=\"mgnb1 mgnl5 tal bld ttuc clr13\">choose
       your movie</p>\n\t\t\t<div class=\"outerDropContainer1\">\n\t\t\t\t<div class=\"dropMenu\">\n\t\t\t\t\t<p
       class=\"slide\"><a href=\"#\" class=\"btn_slide1\">select a movie</a></p>\n\t\t\t\t</div>\n\t\t\t\t<div
       id=\"panel1\">\n\t\t\t\t\t<div class=\"dropLargeTop1\">&nbsp;</div>\n\t\t\t\t\t<div
       id=\"panel2\">\n\t\t\t\t\t\t<div id=\"moviedrop1\">\n\t\t\t\t\t\t\t<div>\n<iframe
-      id=\"Iframe1\" name=\"adFrameMovieDropDown\" src=\"http://www.movietickets.com/panelAd.asp?tag=Frame1&ptag=movie_detail/movie_id=116928&ft=0&fr=0&fl=0&fb=0&pn=movie_detail.asp\"
+      id=\"Iframe1\" name=\"adFrameMovieDropDown\" src=\"http://www.movietickets.com/panelAd.asp?tag=Frame1&ptag=movie_detail/movie_id=123162&ft=0&fr=0&fl=0&fb=0&pn=movie_detail.asp\"
       width=\"728\" height=\"90\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\"
       scrolling=\"no\"></iframe>\n<script type=\"text/javascript\">\n//<![CDATA\n
       \   var iframeRef = $MTj('#adFrameMovieDropDown');\n    var detectMTiframe =
@@ -193,7 +197,7 @@
       \                           //alert(\"6\");\n                                $MTj('#adPosFrame1',
       frames['adFrameMovieDropDown'].document).append('<a style=\"position: absolute;
       z-index: 9999\" href=\"http://www.movietickets.com/redir.asp?uid=390\" target=\"_blank\"><img
-      src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/panels/728x90_facebook_house_ad.jpg?pn=movie_detail.asp\"
+      src=\"http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/common/panels/728x90_facebook_house_ad.jpg?pn=movie_detail.asp\"
       width=\"728\" height=\"90\" border=\"0\" title=\"Check out MovieTickets.com
       on Facebook\" alt=\"Check out MovieTickets.com on Facebook\" /></a>');\n                            //hideAd
       = true;\n                        }\n                        else {\n                            //alert(\"7\");\n
@@ -294,16 +298,16 @@
       style=\"padding-bottom: 7px; text-align: center;\">\n    <span id=\"ad960x119span\">\n
       \   \n<script type=\"text/javascript\">\n    //<![CDATA[\n    //ord = Math.random()
       * 10000000000000000;\n    document.write('<scr' + 'ipt type=\"text/javascript\"
-      src=\"http://ad.doubleclick.net/adj/hwd.movietickets/movie_detail;lang=0;movie=116928;zip=73142;age=null;gender=null;afid=null;genre=Drama;rating=PG-13;companion=no;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=top1;sz=728x90,954x250,960x119;tile=3;ord='
-      + ord + '?\"><\\/scr' + 'ipt>');\n    //]]>\n</script>\n<noscript><a href=\"http://ad.doubleclick.net/jump/hwd.movietickets/movie_detail;lang=0;movie=116928;zip=73142;age=null;gender=null;afid=null;genre=Drama;rating=PG-13;companion=no;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=top1;sz=728x90,954x250,960x119;tile=3;ord=123456789?\"
-      target=\"_blank\" ><img src=\"http://ad.doubleclick.net/ad/hwd.movietickets/movie_detail;lang=0;movie=116928;zip=73142;age=null;gender=null;afid=null;genre=Drama;rating=PG-13;companion=no;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=top1;sz=728x90,954x250,960x119;tile=3;ord=123456789?\"
+      src=\"http://ad.doubleclick.net/adj/hwd.movietickets/movie_detail;lang=0;movie=123162;zip=10001;age=null;gender=null;afid=null;genre=Action/Adventure;rating=PG-13;companion=no;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=top1;sz=728x90,954x250,960x119;tile=3;ord='
+      + ord + '?\"><\\/scr' + 'ipt>');\n    //]]>\n</script>\n<noscript><a href=\"http://ad.doubleclick.net/jump/hwd.movietickets/movie_detail;lang=0;movie=123162;zip=10001;age=null;gender=null;afid=null;genre=Action/Adventure;rating=PG-13;companion=no;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=top1;sz=728x90,954x250,960x119;tile=3;ord=123456789?\"
+      target=\"_blank\" ><img src=\"http://ad.doubleclick.net/ad/hwd.movietickets/movie_detail;lang=0;movie=123162;zip=10001;age=null;gender=null;afid=null;genre=Action/Adventure;rating=PG-13;companion=no;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=top1;sz=728x90,954x250,960x119;tile=3;ord=123456789?\"
       border=\"0\" alt=\"\" /></a></noscript>\n\n        \n        <script type=\"text/javascript\">\n
       \       //<![CDATA[\n        \n        \n        // function is always called
       on page load (see _html_foot.asp -> adjustAds();) so function must be present\n
       \       // execute contents of function on every page that does NOT have purchase
       in the name except for pre_purchase.asp\n        function showEditorialTop1()
       {\n            \n            $MTj(\"#ad960x119span\").hide();\n                $MTj(\"#ad960x119span\").prepend('<a
-      href=\"http://www.movietickets.com/3d.asp\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/panels/960x119_3dhouse_ad_rr.jpg?pn=movie_detail.asp&tb=0\"
+      href=\"http://www.movietickets.com/3d.asp\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/common/panels/960x119_3dhouse_ad_rr.jpg?pn=movie_detail.asp&tb=0\"
       width=\"960\" height=\"119\" title=\"MovieTickets.com - 3D MOVIES: now playing
       and coming soon\" alt=\"MovieTickets.com - 3D MOVIES: now playing and coming
       soon\" /></a>');\n                window.setTimeout(function() {\n                    if
@@ -311,20 +315,21 @@
       \                   }\n                else {\n                    $MTj(\"#ad960x119span\").fadeIn();\n
       \               }\n            }, 1000);\n             \n            return
       true; \n        }\n        //]]>\n        </script>\n    \n    </span></div>\n\r\n\t</div>\r\n\t<div
-      id=\"bod2bTop\"></div>\r\n\t<div id=\"bod2HP\">\r\n\t\t<h1>The Iron Lady</h1>\r\n\t\t<div
-      id=\"bod5HP\">\r\n\t\t\t<div id=\"mid\" style=\"padding: 0 0 10px 10px\">\r\n\t\t\t<!--
-      BEGIN Body -->\r\n\t\t\t   <!-- BEGIN tabbed navigation -->\r\n\t\t\t\t<ul id=\"navlist\">\r\n\t\t\t\t\t\t\t<li><a
-      id=\"current\" href=\"#\">Showtimes</a></li>\r\n\t\t\t\t\t\t\t<li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=116928&amp;showdate=0&amp;tstate=1\">Synopsis</a></li>\r\n\t\t\t\t\t\t\t<li><a
-      href=\"http://www.movietickets.com/movie_detail.asp?movie_id=116928&amp;showdate=0&amp;tstate=6\">User
-      Reviews</a></li>\r\n\t\t\t\t\t\t\t<li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=116928&amp;showdate=0&amp;tstate=4\">Trailers
-      &amp; Clips</a></li>\r\n\t\t\t\t\t\t\t<li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=116928&amp;SearchZip=73142&amp;SearchRadius=15&amp;tstate=5&amp;showdate=0&amp;rel=\">Photos</a></li>\r\n\t\t\t\t</ul>\r\n\t\t\t\t<!--
-      END tabbed navigation -->\r\n\t\t\t\t\r\n\t\t\t\t<div id=\"md2\" class=\"brd8\"><div
-      class=\"pr w150 mgnt10\" style=\"height: 225px\"><div class=\"pa w150\" style=\"top:
-      0; left: 0; z-index: 2; height: 225px; background: url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/cover_poster5.png)
-      no-repeat\" title=\"The Iron Lady\">&nbsp;</div><img class=\"pa\" style=\"z-index:
-      1; top: 0; left: 0\" src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/photos/mt116928H1.jpg\"
-      width=\"150\" height=\"225\" title=\"The Iron Lady\" alt=\"The Iron Lady\" onerror=\"this.onerror=null;this.src='http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/photos/not_available_150x225.jpg';\"
-      /></div>\r\n\t\t\t\t\t\t<div class=\"mgnt5\"><span class=\"button\"><a href=\"http://affiliates.allposters.com/link/redirect.asp?aid=613078&amp;c=z&amp;search=The+Iron+Lady&amp;categoryID=101\"
+      id=\"bod2bTop\"></div>\r\n\t<div id=\"bod2HP\">\r\n\t\t<h1>Ghost Rider 3D: Spirit
+      of Vengeance</h1>\r\n\t\t<div id=\"bod5HP\">\r\n\t\t\t<div id=\"mid\" style=\"padding:
+      0 0 10px 10px\">\r\n\t\t\t<!-- BEGIN Body -->\r\n\t\t\t   <!-- BEGIN tabbed
+      navigation -->\r\n\t\t\t\t<ul id=\"navlist\">\r\n\t\t\t\t\t\t\t<li><a id=\"current\"
+      href=\"#\">Showtimes</a></li>\r\n\t\t\t\t\t\t\t<li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=123162&amp;showdate=27&amp;tstate=1\">Synopsis</a></li>\r\n\t\t\t\t\t\t\t<li><a
+      href=\"http://www.movietickets.com/movie_detail.asp?movie_id=123162&amp;showdate=27&amp;tstate=6\">User
+      Reviews</a></li>\r\n\t\t\t\t</ul>\r\n\t\t\t\t<!-- END tabbed navigation -->\r\n\t\t\t\t\r\n\t\t\t\t<div
+      id=\"md2\" class=\"brd8\"><div class=\"pr w150 mgnt10\" style=\"height: 225px\"><div
+      class=\"pa w150\" style=\"top: 0; left: 0; z-index: 2; height: 225px; background:
+      url(http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/common/cover_poster5.png)
+      no-repeat\" title=\"Ghost Rider 3D: Spirit of Vengeance\">&nbsp;</div><img class=\"pa\"
+      style=\"z-index: 1; top: 0; left: 0\" src=\"http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/photos/mt123162H1.jpg\"
+      width=\"150\" height=\"225\" title=\"Ghost Rider 3D: Spirit of Vengeance\" alt=\"Ghost
+      Rider 3D: Spirit of Vengeance\" onerror=\"this.onerror=null;this.src='http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/photos/not_available_150x225.jpg';\"
+      /></div>\r\n\t\t\t\t\t\t<div class=\"mgnt5\"><span class=\"button\"><a href=\"http://affiliates.allposters.com/link/redirect.asp?aid=613078&amp;c=z&amp;search=Ghost+Rider+3D%3A+Spirit+of+Vengeance&amp;categoryID=101\"
       target=\"_blank\">Buy Posters</a></span></div>\r\n\t\t\t\t\t\t<div id=\"BVCustomerRatings\"
       style=\"margin-top: 5px; border: 1px solid #ccc\"></div>\r\n\t\t\t\t\t\t<script
       type=\"text/javascript\">\r\n\t\t\t\t\t\t    var BVisLoaded = false;\r\n\t\t\t\t\t\t
@@ -334,82 +339,80 @@
       + escape(page);\r\n\t\t\t\t\t\t            document.getElementById('BVReviewsContainer').innerHTML
       = '<!-- Review retrieval timed out -->';\r\n\t\t\t\t\t\t            document.getElementById(\"adTrailerContainer\").style.display
       = \"none\";\r\n\t\t\t\t\t\t        }\r\n\t\t\t\t\t\t    }\r\n\t\t\t\t\t\t</script>\r\n\r\n\t\t\t\t\t\t<div
-      id=\"BVReturnURL\" style=\"display: none;\">http://www.movietickets.com/movie_detail.asp?movie_id=116928&amp;showdate=0&amp;SearchRadius=15&amp;SearchZip=73142&amp;tstate=0</div>\r\n\t\t\t\t\t\t<div
-      id=\"BVSubmissionParameters\" style=\"display: none;\">movie_id=116928&amp;showdate=0&amp;SearchRadius=15&amp;SearchZip=73142&amp;tstate=6&amp;urstate=1</div>\r\n\t\t\t\t\t\t<iframe
-      id=\"BVFrame\" name=\"BVFrame\" src=\"http://reviews.movietickets.com/6056/116928/reviews.htm?format=embedded\"
+      id=\"BVReturnURL\" style=\"display: none;\">http://www.movietickets.com/movie_detail.asp?movie_id=123162&amp;showdate=27&amp;SearchRadius=15&amp;SearchZip=10001&amp;tstate=0</div>\r\n\t\t\t\t\t\t<div
+      id=\"BVSubmissionParameters\" style=\"display: none;\">movie_id=123162&amp;showdate=27&amp;SearchRadius=15&amp;SearchZip=10001&amp;tstate=6&amp;urstate=1</div>\r\n\t\t\t\t\t\t<iframe
+      id=\"BVFrame\" name=\"BVFrame\" src=\"http://reviews.movietickets.com/6056/123162/reviews.htm?format=embedded\"
       style=\"visibility: hidden; width: 1px; height: 1px; position: absolute; left:
       -999px; top: -999px;\"></iframe>\r\n                    <span class=\"button
       print\"><input type=\"button\" value=\"Print Showtimes\" name=\"print_showtimes\"
-      /></span>\r\n\t\t\t\t\t<ul class=\"mdinfo\">\r\n\t\t\t\t\t\t<li><p>RELEASE DATE</p>12/30/2011
-      - Limited<br />01/13/2012 - Limited</li>\r\n\t\t\t\t\t\t<li><p>RUN TIME:</p>1
-      hr. 45 min.</li>\r\n\t\t\t\t\t\t<li><p>MPAA RATING:</p>(PG-13), for some violent
-      images and brief nudity</li>\r\n\t\t\t\t\t\t<li><p>GENRE:</p>Drama                    </li>\r\n\t\t\t\t\t\t<li><p>STARRING:</p>Meryl
-      Streep, Harry Lloyd, Richard E. Grant, Jim Broadbent, Anthony Head</li>\r\n\t\t\t\t\t\t<li><p>DIRECTOR(S):</p>Phyllida
-      Lloyd                                                                                                                  </li>\r\n\t\t\t\t\t\t<li><p>PRODUCER(S):</p>Damian
-      Jones                                                                                                                    </li>\r\n\t\t\t\t\t\t<li><p>WRITER(S):</p>Abi
-      Morgan                                                                                                                      </li>\r\n\t\t\t\t\t\t<li><p>STUDIO:</p>The
-      Weinstein Co.                                                                                                               </li>\r\n\t\t\t\t\t</ul>\t\t\t\t\r\n\t\t\t\t\t<h3
+      /></span>\r\n\t\t\t\t\t<ul class=\"mdinfo\">\r\n\t\t\t\t\t\t<li><p>RELEASE DATE</p>02/17/2012
+      - Nationwide</li>\r\n\t\t\t\t\t\t<li><p>MPAA RATING:</p>(PG-13), for intense
+      sequences of action and violence, some disturbing images, and language</li>\r\n\t\t\t\t\t\t<li><p>GENRE:</p>Action/Adventure
+      \        </li>\r\n\t\t\t\t\t\t<li><p>STARRING:</p>Nicolas Cage, Idris Elba,
+      Ciarán Hinds, Christopher Lambert, Violante Placido</li>\r\n\t\t\t\t\t\t<li><p>DIRECTOR(S):</p>Mark
+      Neveldine, Brian Taylor                                                                                                    </li>\r\n\t\t\t\t\t\t<li><p>STUDIO:</p>Sony
+      Pictures                                                                                                                   </li>\r\n\t\t\t\t\t</ul>\t\t\t\t\r\n\t\t\t\t\t<h3
       class=\"hide clr sc8 mgn10050 tac ft4\">Showtimes Legend</h3>\r\n\t\t\t\t\t<p
       class=\"hide tal ft1 lh11\"><b>Showtimes available for purchase (clickable)
       are blue</b><br />example: <span class=\"clr5\">7:45pm</span><br /><br /><b>Showtimes
       not available for online purchase are in grey</b><br />example: <span class=\"clr1\">11:30am</span></p>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div
       id=\"md3\">\r\n\t\t\t\t\t\t<form id=\"MDsearch\" method=\"get\" action=\"movie_detail.asp\"
       name=\"frmMDTheaters\">\r\n\t\t\t\t\t\t<input type=\"hidden\" name=\"movie_id\"
-      value=\"116928\" />\r\n\t\t\t\t\t\t<input type=\"hidden\" name=\"tstate\" value=\"3\"
+      value=\"123162\" />\r\n\t\t\t\t\t\t<input type=\"hidden\" name=\"tstate\" value=\"3\"
       />\r\n\t\t\t\t\t\t<input type=\"hidden\" name=\"rel\" value=\"\" />\r\n\t\t\t\t\t\t<div
       class=\"clr bckMain\" style=\"padding: 10px 10px 10px 10px\"><div id=\"searchbox1\">\r\n\t\t\t\t\t\t\t<label
       id=\"lblZip\" class=\"clr4\" for=\"SearchZip\"\r\n\t\t\t\t\t\t\t    \r\n\t\t\t\t
       \               >Zip&nbsp;Code<br />\r\n\t\t\t\t\t\t\t\t<input class=\"md7\"
-      type=\"text\" id=\"SearchZip\" name=\"SearchZip\" maxlength=\"8\" value=\"73142\"
+      type=\"text\" id=\"SearchZip\" name=\"SearchZip\" maxlength=\"8\" value=\"10001\"
       />\r\n\t\t\t\t\t\t\t</label>\r\n\t\t\t\t\t\t\t<label id=\"lblDate\" class=\"clr4\"\r\n\t\t\t\t\t\t\t
       \     for=\"ShowDate\">Date<br />\r\n\t\t\t\t\t\t\t\t<select id=\"ShowDate\"
       class=\"md12\" name=\"ShowDate\" onchange=\"frmMDTheaters.submit();\"><option
-      value=\"0\" selected=\"selected\">Wed, Jan. 18</option>\n<option value=\"1\">Thu,
-      Jan. 19</option>\n<option value=\"2\">Fri, Jan. 20</option>\n<option value=\"3\">Sat,
-      Jan. 21</option>\n<option value=\"4\">Sun, Jan. 22</option>\n<option value=\"5\">Mon,
-      Jan. 23</option>\n<option value=\"6\">Tue, Jan. 24</option>\n<option value=\"7\">Wed,
-      Jan. 25</option>\n<option value=\"8\">Thu, Jan. 26</option>\n<option value=\"9\">Fri,
-      Jan. 27</option>\n<option value=\"10\">Sat, Jan. 28</option>\n<option value=\"11\">Sun,
-      Jan. 29</option>\n<option value=\"12\">Mon, Jan. 30</option>\n<option value=\"13\">Tue,
-      Jan. 31</option>\n<option value=\"14\">Wed, Feb. 1</option>\n<option value=\"15\">Thu,
-      Feb. 2</option>\n<option value=\"16\">Fri, Feb. 3</option>\n<option value=\"17\">Sat,
-      Feb. 4</option>\n<option value=\"18\">Sun, Feb. 5</option>\n<option value=\"19\">Mon,
-      Feb. 6</option>\n<option value=\"20\">Tue, Feb. 7</option>\n<option value=\"21\">Wed,
-      Feb. 8</option>\n<option value=\"22\">Thu, Feb. 9</option>\n<option value=\"23\">Fri,
-      Feb. 10</option>\n<option value=\"24\">Sat, Feb. 11</option>\n<option value=\"25\">Sun,
-      Feb. 12</option>\n<option value=\"26\">Mon, Feb. 13</option>\n<option value=\"27\">Tue,
-      Feb. 14</option>\n<option value=\"28\">Wed, Feb. 15</option>\n<option value=\"29\">Thu,
-      Feb. 16</option>\n<option value=\"30\">Fri, Feb. 17</option>\n<option value=\"31\">Sat,
-      Feb. 18</option>\n<option value=\"32\">Sun, Feb. 19</option>\n<option value=\"33\">Mon,
-      Feb. 20</option>\n<option value=\"34\">Tue, Feb. 21</option>\n<option value=\"35\">Wed,
-      Feb. 22</option>\n<option value=\"36\">Thu, Feb. 23</option>\n<option value=\"37\">Fri,
-      Feb. 24</option>\n<option value=\"38\">Sat, Feb. 25</option>\n<option value=\"39\">Sun,
-      Feb. 26</option>\n<option value=\"40\">Mon, Feb. 27</option>\n<option value=\"41\">Tue,
-      Feb. 28</option>\n<option value=\"42\">Wed, Feb. 29</option>\n<option value=\"43\">Thu,
-      Mar. 1</option>\n<option value=\"44\">Fri, Mar. 2</option>\n<option value=\"45\">Sat,
-      Mar. 3</option>\n<option value=\"46\">Sun, Mar. 4</option>\n<option value=\"47\">Mon,
-      Mar. 5</option>\n<option value=\"48\">Tue, Mar. 6</option>\n<option value=\"49\">Wed,
-      Mar. 7</option>\n<option value=\"50\">Thu, Mar. 8</option>\n<option value=\"51\">Fri,
-      Mar. 9</option>\n<option value=\"52\">Sat, Mar. 10</option>\n<option value=\"53\">Sun,
-      Mar. 11</option>\n<option value=\"54\">Mon, Mar. 12</option>\n<option value=\"55\">Tue,
-      Mar. 13</option>\n<option value=\"56\">Wed, Mar. 14</option>\n<option value=\"57\">Thu,
-      Mar. 15</option>\n<option value=\"58\">Fri, Mar. 16</option>\n<option value=\"59\">Sat,
-      Mar. 17</option>\n<option value=\"60\">Sun, Mar. 18</option>\n<option value=\"61\">Mon,
-      Mar. 19</option>\n<option value=\"62\">Tue, Mar. 20</option>\n<option value=\"63\">Wed,
-      Mar. 21</option>\n<option value=\"64\">Thu, Mar. 22</option>\n<option value=\"65\">Fri,
-      Mar. 23</option>\n<option value=\"66\">Sat, Mar. 24</option>\n<option value=\"67\">Sun,
-      Mar. 25</option>\n<option value=\"68\">Mon, Mar. 26</option>\n<option value=\"69\">Tue,
-      Mar. 27</option>\n<option value=\"70\">Wed, Mar. 28</option>\n<option value=\"71\">Thu,
-      Mar. 29</option>\n<option value=\"72\">Fri, Mar. 30</option>\n<option value=\"73\">Sat,
-      Mar. 31</option>\n<option value=\"74\">Sun, Apr. 1</option>\n<option value=\"75\">Mon,
-      Apr. 2</option>\n<option value=\"76\">Tue, Apr. 3</option>\n<option value=\"77\">Wed,
-      Apr. 4</option>\n<option value=\"78\">Thu, Apr. 5</option>\n<option value=\"79\">Fri,
-      Apr. 6</option>\n<option value=\"80\">Sat, Apr. 7</option>\n<option value=\"81\">Sun,
-      Apr. 8</option>\n<option value=\"82\">Mon, Apr. 9</option>\n<option value=\"83\">Tue,
-      Apr. 10</option>\n<option value=\"84\">Wed, Apr. 11</option>\n<option value=\"85\">Thu,
-      Apr. 12</option>\n<option value=\"86\">Fri, Apr. 13</option>\n<option value=\"87\">Sat,
-      Apr. 14</option>\n<option value=\"88\">Sun, Apr. 15</option>\n<option value=\"89\">Mon,
-      Apr. 16</option>\n<option value=\"90\">Tue, Apr. 17</option>\n\r\n\t\t\t\t\t\t\t\t</select>\r\n\t\t\t\t\t\t\t</label>\r\n\t\t\t\t\t\t\t<label
+      value=\"0\">Fri, Jan. 20</option>\n<option value=\"1\">Sat, Jan. 21</option>\n<option
+      value=\"2\">Sun, Jan. 22</option>\n<option value=\"3\">Mon, Jan. 23</option>\n<option
+      value=\"4\">Tue, Jan. 24</option>\n<option value=\"5\">Wed, Jan. 25</option>\n<option
+      value=\"6\">Thu, Jan. 26</option>\n<option value=\"7\">Fri, Jan. 27</option>\n<option
+      value=\"8\">Sat, Jan. 28</option>\n<option value=\"9\">Sun, Jan. 29</option>\n<option
+      value=\"10\">Mon, Jan. 30</option>\n<option value=\"11\">Tue, Jan. 31</option>\n<option
+      value=\"12\">Wed, Feb. 1</option>\n<option value=\"13\">Thu, Feb. 2</option>\n<option
+      value=\"14\">Fri, Feb. 3</option>\n<option value=\"15\">Sat, Feb. 4</option>\n<option
+      value=\"16\">Sun, Feb. 5</option>\n<option value=\"17\">Mon, Feb. 6</option>\n<option
+      value=\"18\">Tue, Feb. 7</option>\n<option value=\"19\">Wed, Feb. 8</option>\n<option
+      value=\"20\">Thu, Feb. 9</option>\n<option value=\"21\">Fri, Feb. 10</option>\n<option
+      value=\"22\">Sat, Feb. 11</option>\n<option value=\"23\">Sun, Feb. 12</option>\n<option
+      value=\"24\">Mon, Feb. 13</option>\n<option value=\"25\">Tue, Feb. 14</option>\n<option
+      value=\"26\">Wed, Feb. 15</option>\n<option value=\"27\" selected=\"selected\">Thu,
+      Feb. 16</option>\n<option value=\"28\">Fri, Feb. 17</option>\n<option value=\"29\">Sat,
+      Feb. 18</option>\n<option value=\"30\">Sun, Feb. 19</option>\n<option value=\"31\">Mon,
+      Feb. 20</option>\n<option value=\"32\">Tue, Feb. 21</option>\n<option value=\"33\">Wed,
+      Feb. 22</option>\n<option value=\"34\">Thu, Feb. 23</option>\n<option value=\"35\">Fri,
+      Feb. 24</option>\n<option value=\"36\">Sat, Feb. 25</option>\n<option value=\"37\">Sun,
+      Feb. 26</option>\n<option value=\"38\">Mon, Feb. 27</option>\n<option value=\"39\">Tue,
+      Feb. 28</option>\n<option value=\"40\">Wed, Feb. 29</option>\n<option value=\"41\">Thu,
+      Mar. 1</option>\n<option value=\"42\">Fri, Mar. 2</option>\n<option value=\"43\">Sat,
+      Mar. 3</option>\n<option value=\"44\">Sun, Mar. 4</option>\n<option value=\"45\">Mon,
+      Mar. 5</option>\n<option value=\"46\">Tue, Mar. 6</option>\n<option value=\"47\">Wed,
+      Mar. 7</option>\n<option value=\"48\">Thu, Mar. 8</option>\n<option value=\"49\">Fri,
+      Mar. 9</option>\n<option value=\"50\">Sat, Mar. 10</option>\n<option value=\"51\">Sun,
+      Mar. 11</option>\n<option value=\"52\">Mon, Mar. 12</option>\n<option value=\"53\">Tue,
+      Mar. 13</option>\n<option value=\"54\">Wed, Mar. 14</option>\n<option value=\"55\">Thu,
+      Mar. 15</option>\n<option value=\"56\">Fri, Mar. 16</option>\n<option value=\"57\">Sat,
+      Mar. 17</option>\n<option value=\"58\">Sun, Mar. 18</option>\n<option value=\"59\">Mon,
+      Mar. 19</option>\n<option value=\"60\">Tue, Mar. 20</option>\n<option value=\"61\">Wed,
+      Mar. 21</option>\n<option value=\"62\">Thu, Mar. 22</option>\n<option value=\"63\">Fri,
+      Mar. 23</option>\n<option value=\"64\">Sat, Mar. 24</option>\n<option value=\"65\">Sun,
+      Mar. 25</option>\n<option value=\"66\">Mon, Mar. 26</option>\n<option value=\"67\">Tue,
+      Mar. 27</option>\n<option value=\"68\">Wed, Mar. 28</option>\n<option value=\"69\">Thu,
+      Mar. 29</option>\n<option value=\"70\">Fri, Mar. 30</option>\n<option value=\"71\">Sat,
+      Mar. 31</option>\n<option value=\"72\">Sun, Apr. 1</option>\n<option value=\"73\">Mon,
+      Apr. 2</option>\n<option value=\"74\">Tue, Apr. 3</option>\n<option value=\"75\">Wed,
+      Apr. 4</option>\n<option value=\"76\">Thu, Apr. 5</option>\n<option value=\"77\">Fri,
+      Apr. 6</option>\n<option value=\"78\">Sat, Apr. 7</option>\n<option value=\"79\">Sun,
+      Apr. 8</option>\n<option value=\"80\">Mon, Apr. 9</option>\n<option value=\"81\">Tue,
+      Apr. 10</option>\n<option value=\"82\">Wed, Apr. 11</option>\n<option value=\"83\">Thu,
+      Apr. 12</option>\n<option value=\"84\">Fri, Apr. 13</option>\n<option value=\"85\">Sat,
+      Apr. 14</option>\n<option value=\"86\">Sun, Apr. 15</option>\n<option value=\"87\">Mon,
+      Apr. 16</option>\n<option value=\"88\">Tue, Apr. 17</option>\n<option value=\"89\">Wed,
+      Apr. 18</option>\n<option value=\"90\">Thu, Apr. 19</option>\n\r\n\t\t\t\t\t\t\t\t</select>\r\n\t\t\t\t\t\t\t</label>\r\n\t\t\t\t\t\t\t<label
       id=\"lblRadius\" class=\"clr4\" for=\"SearchRadius\">Range\r\n<br /><select
       class=\"md12\" id=\"SearchRadius\" name=\"SearchRadius\" onchange=\"frmMDTheaters.submit();\">\t<option
       value=\"5\">5 mi.</option>\n\t\t\t\t\t\t<option value=\"10\">10 mi.</option>\n\t\t\t\t\t\t<option
@@ -418,31 +421,39 @@
       value=\"40\">40 mi.</option>\n</select></label>\r\n\t\t\t\t\t\t\t<div class=\"md14\"><span
       class=\"button2\"><input type=\"submit\" id=\"md2Go\" name=\"md2Go\" value=\"Go\"
       /></span></div>\r\n\t\t\t\t\t\t\t<p class=\"clr pdt5 clr4\">Change the zip code,
-      date, or range of your search.</p>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</form>\r\n\t\t\t\t\t\t\t\t\t<ul
+      date, or range of your search.</p>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\r\n\t\t
+      \   <div class=\"clr bckMain mgnt10 tac clr4\" style=\"border-top: 1px dotted
+      #666\">\r\n\t\t    <p class=\"mgnt10\">Looking for <b>Ghost Rider: Spirit of
+      Vengeance</b>? &nbsp;<a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=102395\">Click
+      here</a></p>\r\n\r\n\t\t    </div>\r\n\t\t    \r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</form>\r\n\t\t\t\t\t\t\t\t\t<ul
       id=\"mdRow1\">\r\n\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t\t<li><h3 class=\"mgn3030
       pd5 sc8 clr7\"><a class=\"fr\" href=\"http://www.trialpay.com/custom/movietickets\"
-      target=\"_blank\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/button_gettickets2.png\"
+      target=\"_blank\"><img src=\"http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/common/button_gettickets2.png\"
       title=\"get ticket free - see details\" alt=\"get ticket free - see details\"
       /></a><span style=\"line-height: 3em\">Online ticketing<span class=\"hide\">
       is available for theaters in blue</span></span><div class=\"clr\"></div></h3></li>\r\n\t\t\t\t\t\t\t\t\t\t<li
-      class=\"hl5\"><p><a class=\"md13\" href=\"house_detail.asp?house_id=5902&#038;showdate=0\"><strong>AMC
-      Quail Springs Mall 24</strong></a><a class=\"bld\" href=\"/pre_purchase.asp?movie_id=116928&#038;house_id=5902&#038;showdate=0\">BUY
-      TICKETS</a> - 2:20pm, 5:00pm, 7:50pm, 10:35pm</p></li>\r\n\t\t\t\t\t\t\t\t\t\t<li><p><a
-      class=\"md13\" href=\"house_detail.asp?house_id=9147&#038;showdate=0\"><strong>Harkins
-      Bricktown Cinemas 16</strong></a><a class=\"bld\" href=\"/pre_purchase.asp?movie_id=116928&#038;house_id=9147&#038;showdate=0\">BUY
-      TICKETS</a> - 1:15pm, 3:45pm, 6:15pm, 8:45pm</p></li>\r\n\t\t\t\t\t\t\t\t\t\t<li></li>\r\n\t\t\t\t\t\t\t\t\t</ul><p
-      class=\"mgnt3 pd5 sc8 ft9 bld mgn3030\">User Comments: The Iron Lady</p>\r\n<div
-      id=\"fb-root\"></div><script src=\"http://connect.facebook.net/en_US/all.js#appId=172454369493943&amp;xfbml=1\"></script><fb:like
+      class=\"hl5\"><p><a class=\"md13\" href=\"house_detail.asp?house_id=10513&#038;showdate=27\"><strong>AMC
+      Aviation 12</strong></a><a class=\"bld\" href=\"/pre_purchase.asp?movie_id=123162&#038;house_id=10513&#038;showdate=27\">BUY
+      TICKETS</a> - <a href=\"https://www.movietickets.com/purchase.asp?perf_id=668795003\">12:01am</a></p></li>\r\n\t\t\t\t\t\t\t\t\t\t<li><p><a
+      class=\"md13\" href=\"house_detail.asp?house_id=10415&#038;showdate=27\"><strong>AMC
+      Garden State 16</strong></a><a class=\"bld\" href=\"/pre_purchase.asp?movie_id=123162&#038;house_id=10415&#038;showdate=27\">BUY
+      TICKETS</a> - <a href=\"https://www.movietickets.com/purchase.asp?perf_id=668805019\">Midnight</a></p></li>\r\n\t\t\t\t\t\t\t\t\t\t\t<li><p
+      class=\"pd5 hlp4 ft5 bld\">Theaters listed below are NOT available for online
+      ticketing</p></li>\r\n\t\t\t\t\t\t\t\t\t\t<li class=\"md4 hl5\"><p class=\"md17\"><a
+      class=\"md16\" href=\"house_detail.asp?house_id=134\"><strong>AMC Loews Fresh
+      Meadows 7</strong></a>12:01 AM</p></li>\r\n\t\t\t\t\t\t\t\t\t\t<li></li>\r\n\t\t\t\t\t\t\t\t\t</ul><p
+      class=\"mgnt3 pd5 sc8 ft9 bld mgn3030\">User Comments: Ghost Rider 3D: Spirit
+      of Vengeance</p>\r\n<div id=\"fb-root\"></div><script src=\"http://connect.facebook.net/en_US/all.js#appId=172454369493943&amp;xfbml=1\"></script><fb:like
       href=\"www.facebook.com/MovieTicketscom\" send=\"true\" width=\"468\" show_faces=\"true\"
       font=\"arial\"></fb:like>\r\n<div id=\"fb-root\"></div><script src=\"http://connect.facebook.net/en_US/all.js#appId=172454369493943&amp;xfbml=1\"></script><fb:comments
-      href=\"www.movietickets.com/movie_detail.asp?movie_id=116928\" num_posts=\"4\"
+      href=\"www.movietickets.com/movie_detail.asp?movie_id=123162\" num_posts=\"4\"
       width=\"468\"></fb:comments>\r\n\t\t\t        <div id=\"adTrailerContainer\"
       class=\"mgnt10 pd10 tac\" style=\"background: #ddd\"><div class=\"w300 mAuto
       tac\">\n<span id=\"adTrailer\"><span id=\"adTrailerspan\">\n    \n<script type=\"text/javascript\">\n
       \   //<![CDATA[\n    //ord = Math.random() * 10000000000000000;\n    document.write('<scr'
-      + 'ipt type=\"text/javascript\" src=\"http://ad.doubleclick.net/adj/hwd.movietickets/movie_detail;lang=0;movie=116928;zip=73142;age=null;gender=null;afid=null;genre=Drama;rating=PG-13;companion=no;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=middle;sz=300x250,300x600;tile=6;ord='
-      + ord + '?\"><\\/scr' + 'ipt>');\n    //]]>\n</script>\n<noscript><a href=\"http://ad.doubleclick.net/jump/hwd.movietickets/movie_detail;lang=0;movie=116928;zip=73142;age=null;gender=null;afid=null;genre=Drama;rating=PG-13;companion=no;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=middle;sz=300x250,300x600;tile=6;ord=123456789?\"
-      target=\"_blank\" ><img src=\"http://ad.doubleclick.net/ad/hwd.movietickets/movie_detail;lang=0;movie=116928;zip=73142;age=null;gender=null;afid=null;genre=Drama;rating=PG-13;companion=no;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=middle;sz=300x250,300x600;tile=6;ord=123456789?\"
+      + 'ipt type=\"text/javascript\" src=\"http://ad.doubleclick.net/adj/hwd.movietickets/movie_detail;lang=0;movie=123162;zip=10001;age=null;gender=null;afid=null;genre=Action/Adventure;rating=PG-13;companion=no;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=middle;sz=300x250,300x600;tile=6;ord='
+      + ord + '?\"><\\/scr' + 'ipt>');\n    //]]>\n</script>\n<noscript><a href=\"http://ad.doubleclick.net/jump/hwd.movietickets/movie_detail;lang=0;movie=123162;zip=10001;age=null;gender=null;afid=null;genre=Action/Adventure;rating=PG-13;companion=no;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=middle;sz=300x250,300x600;tile=6;ord=123456789?\"
+      target=\"_blank\" ><img src=\"http://ad.doubleclick.net/ad/hwd.movietickets/movie_detail;lang=0;movie=123162;zip=10001;age=null;gender=null;afid=null;genre=Action/Adventure;rating=PG-13;companion=no;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=middle;sz=300x250,300x600;tile=6;ord=123456789?\"
       border=\"0\" alt=\"\" /></a></noscript>\n\n</span></span>\n</div></div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div
       class=\"clr\"></div>\r\n\t\t\t<!-- END Body -->\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div
       id=\"bod4HP\">\r\n\t\t\t<iframe src=\"http://www.facebook.com/plugins/like.php?app_id=172454369493943&amp;href=www.facebook.com%2FMovieTicketscom&amp;send=false&amp;layout=standard&amp;width=300&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=80\"
@@ -450,9 +461,9 @@
       height:80px;\" allowTransparency=\"true\"></iframe>\r\n\n    <div id=\"ad120x600container\"><span
       id=\"ad120x600\"><span id=\"ad120x600span\">\n        \n<script type=\"text/javascript\">\n
       \   //<![CDATA[\n    //ord = Math.random() * 10000000000000000;\n    document.write('<scr'
-      + 'ipt type=\"text/javascript\" src=\"http://ad.doubleclick.net/adj/hwd.movietickets/movie_detail;lang=0;movie=116928;zip=73142;age=null;gender=null;afid=null;genre=Drama;rating=PG-13;companion=no;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=right;sz=300x600,160x600,300x250;tile=5;ord='
-      + ord + '?\"><\\/scr' + 'ipt>');\n    //]]>\n</script>\n<noscript><a href=\"http://ad.doubleclick.net/jump/hwd.movietickets/movie_detail;lang=0;movie=116928;zip=73142;age=null;gender=null;afid=null;genre=Drama;rating=PG-13;companion=no;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=right;sz=300x600,160x600,300x250;tile=5;ord=123456789?\"
-      target=\"_blank\" ><img src=\"http://ad.doubleclick.net/ad/hwd.movietickets/movie_detail;lang=0;movie=116928;zip=73142;age=null;gender=null;afid=null;genre=Drama;rating=PG-13;companion=no;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=right;sz=300x600,160x600,300x250;tile=5;ord=123456789?\"
+      + 'ipt type=\"text/javascript\" src=\"http://ad.doubleclick.net/adj/hwd.movietickets/movie_detail;lang=0;movie=123162;zip=10001;age=null;gender=null;afid=null;genre=Action/Adventure;rating=PG-13;companion=no;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=right;sz=300x600,160x600,300x250;tile=5;ord='
+      + ord + '?\"><\\/scr' + 'ipt>');\n    //]]>\n</script>\n<noscript><a href=\"http://ad.doubleclick.net/jump/hwd.movietickets/movie_detail;lang=0;movie=123162;zip=10001;age=null;gender=null;afid=null;genre=Action/Adventure;rating=PG-13;companion=no;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=right;sz=300x600,160x600,300x250;tile=5;ord=123456789?\"
+      target=\"_blank\" ><img src=\"http://ad.doubleclick.net/ad/hwd.movietickets/movie_detail;lang=0;movie=123162;zip=10001;age=null;gender=null;afid=null;genre=Action/Adventure;rating=PG-13;companion=no;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=right;sz=300x600,160x600,300x250;tile=5;ord=123456789?\"
       border=\"0\" alt=\"\" /></a></noscript>\n\n    </span></span></div>\n    <script
       type=\"text/javascript\">\n        //<![CDATA[\n        function showEditorialRight()
       {\n            // if using facebook widget\n            /*\n            setTimeout(function()
@@ -463,7 +474,7 @@
       \           }, 1500);\n            */\n        }\n        //]]>\n    </script><div
       class=\"s_box_4 d_box_5\"><h3>Movie Focus</h3>\n   <div class=\"details\">\n<a
       href=\"http://www.movietickets.com/movie_detail.asp?movie_id=120472&showdate=0&tstate=4&vid=2156&vxr=828772\"><img
-      src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/homepage/mih_redtails_292x125_rr.jpg\"
+      src=\"http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/common/homepage/mih_redtails_292x125_rr.jpg\"
       width=\"292\" height=\"125\" title=\"Red Tails\" alt=\"Red Tails\" /></a>\n\t<p>More
       Movie Features</p>\n\t<ol class=\"reset\">\n\t<li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=120472&showdate=0&tstate=4&vid=2156&vxr=828772\"
       style=\"width:300px\">MADE IN HOLLYWOOD: Red Tails Interviews</a></li>\n\t<li><a
@@ -499,7 +510,7 @@
       id=\"footHP\">\r\n\t\t<div id=\"bod2bBottom\"></div>\r\n\t\t<div class=\"bod2bTop\"
       style=\"margin-top: 10px\"></div>\r\n\t\t<div style=\"background: #fff\">\n\t\t<div
       id=\"footerExtend\">\n\t\t\n\t\t\t<div class=\"footerList1\" style=\"background:
-      url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/footer_vertline1.png)
+      url(http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/common/footer_vertline1.png)
       164px 0 no-repeat\">\n\t\t\t\t<div class=\"footerExtendHd\">top&nbsp;movies</div>\n\t\t\t\t<ul>\n\t\t\t\t\t\n\t\t\t\t\t<li><a
       href=\"http://www.movietickets.com/movie_detail.asp?movie_id=88936\">Mission:
       Impossible - Ghost Protocol</a></li>\n\t\t\t\t\t<li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=74162\">Beauty
@@ -512,7 +523,7 @@
       Girl With the Dragon Tattoo</a></li>\n\t\t\t\t\t<li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=94735\">War
       Horse</a></li>\n\t\t\t\t\t<li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=95204\">We
       Bought a Zoo</a></li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"footerList1\"
-      style=\"background: url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/footer_vertline1.png)
+      style=\"background: url(http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/common/footer_vertline1.png)
       164px 0 no-repeat\">\n\t\t\t\t<div class=\"footerExtendHd\">top&nbsp;videos</div>\n\t\t\t\t<ul>\n\t\t\t\t\t\n\t\t\t\t\t<li><a
       href=\"http://www.movietickets.com/movie_detail.asp?movie_id=110574&tstate=4\">Prometheus</a></li>\n\t\t\t\t\t<li><a
       href=\"http://www.movietickets.com/movie_detail.asp?movie_id=118045&tstate=4\">Wrath
@@ -525,7 +536,7 @@
       Rider: Spirit of Vengeance</a></li>\n\t\t\t\t\t<li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=110552&tstate=4\">The
       Dictator</a></li>\n                  \t<li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=113759&tstate=4\">Rock
       of Ages</a></li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"footerList1\"
-      style=\"background: url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/footer_vertline1.png)
+      style=\"background: url(http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/common/footer_vertline1.png)
       164px 0 no-repeat\">\n\t\t\t\t<div class=\"footerExtendHd\">most anticipated</div>\n\t\t\t\t<ul>\n\t\t\t\t\t\n\t\t\t\t\t<li><a
       href=\"http://www.movietickets.com/movie_detail.asp?movie_id=78775\">Dr. Seuss'
       The Lorax</a></li>\n\t\t\t\t\t<li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=100061\">John
@@ -537,7 +548,7 @@
       Three Stooges</a></li>\n                   \t<li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=118787\">Scary
       Movie 5</a></li>\n                    <li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=67625\">The
       Avengers</a></li>\n\t\t\t\t\t<li><a href=\"http://www.movietickets.com/movie_detail.asp?movie_id=81321\">Battleship</a></li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t\t<div
-      class=\"footerList2\" style=\"background: url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/footer_vertline1.png)
+      class=\"footerList2\" style=\"background: url(http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/common/footer_vertline1.png)
       164px 0 no-repeat\">\n\t\t\t\t<div class=\"footerExtendHd\" style=\"padding-bottom:
       0 !important\">explore</div>\n\t\t\t\t<span>&nbsp;<b>&#8226;</b>&nbsp;<a href=\"http://www.movietickets.com/movie_trailers.asp\">Movie&nbsp;Trailers</a>&nbsp;
       &nbsp;<b>&#8226;</b>&nbsp;<a href=\"http://www.movietickets.com/news.asp\">News</a>&nbsp;
@@ -560,7 +571,7 @@
       (Carib.)</a></li>\n\t\t\t\t\t\t<li><a href=\"http://www.movietickets.com/default.asp?language=11\">MovieTickets.com.es</a></li>\n
       \                       <li><a href=\"http://www.movietickets.com/default.asp?language=13\">MovieTickets.cl</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t\n\t\t\t<div
       class=\"fl w260\">\n\t\t\t\t<div id=\"iconMT\">\n\t\t\t\t\t<a style=\"background:
-      url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/site_images3.png)
+      url(http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/common/site_images3.png)
       -331px -338px no-repeat\" title=\"MovieTickets.com\" href=\"http://www.movietickets.com/default.asp\">&nbsp;</a>\n\t\t\t\t\t<p
       class=\"mgnt3 tal ft8\">MovieTickets.com, the worldwide leader in advance movie
       ticketing, offers moviegoers one of the leading destinations for buying movie
@@ -568,16 +579,16 @@
       view trailers and video clips, write your own reviews and much more.</p>\n\t\t\t\t\t<div
       class=\"clr\"></div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"footerExtendHd3\">stay&nbsp;connected&nbsp;with&nbsp;us</div>\n\t\t\t\t<div
       id=\"socialIcons\">\n\t\t\t\t\t<a href=\"http://www.movietickets.com/redir.asp?uid=390\"
-      target=\"_blank\" style=\"background: url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/site_images3.png)
+      target=\"_blank\" style=\"background: url(http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/common/site_images3.png)
       0 -338px no-repeat;\" title=\"Facebook\" id=\"soc_facebook\">Facebook</a>\n\t\t\t\t\t<a
       href=\"http://www.movietickets.com/redir.asp?uid=392\" target=\"_blank\" style=\"background:
-      url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/site_images3.png)
+      url(http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/common/site_images3.png)
       -124px -338px no-repeat;\" title=\"Twitter\" id=\"soc_twitter\">Twitter</a>\n\t\t\t\t\t<a
       href=\"http://www.movietickets.com/redir.asp?uid=393\" target=\"_blank\" style=\"background:
-      url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/site_images3.png)
+      url(http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/common/site_images3.png)
       -186px -338px no-repeat\" title=\"YouTube\" id=\"soc_youtube\">YouTube</a>\n\t\t\t\t</div>\n\t\t\t\t<a
       id=\"footerSubscribe\" href=\"https://www.movietickets.com/sign_in.asp?s=1\">\n\t\t\t\t\t<div
-      id=\"iconMail\" style=\"background: url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/site_images3.png)
+      id=\"iconMail\" style=\"background: url(http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/common/site_images3.png)
       -242px -338px no-repeat\">&nbsp;</div>\n\t\t\t\t\t<div id=\"footerSubscribeTxt\">\n\t\t\t\t\t\t<p>Get
       the MovieTickets.com newsletter for all the latest movie info!</p>\n\t\t\t\t\t\t<span>subscribe&nbsp;now</span>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
       class=\"clr\"></div>\n\t\t\t\t</a>\n\t\t\t</div>\n            \n\t\t\t<div class=\"clr\"></div>\n\t\t</div></div>\r\n\t\t<div
@@ -597,25 +608,25 @@
       Sales</a> &nbsp;|&nbsp; <a href=\"http://www.movietickets.com/legal.asp\">&copy;
       2006-2012 MovieTickets.com, Inc.</a></p>\n</div>\r\n\t</div>\r\n</div>\r\n</div>\n\n<script
       type=\"text/javascript\">\n\n    if((screen.width>=2560)){document.getElementById(\"html\").style.background=\"#afb8c3
-      url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/wp_2560.jpg)
+      url(http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/common/wp_2560.jpg)
       repeat-x\"}else{if((screen.width>=1920)){document.getElementById(\"html\").style.background=\"#afb8c3
-      url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/wp_1920.jpg)
+      url(http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/common/wp_1920.jpg)
       repeat-x\"}else{if((screen.width>=1600)){document.getElementById(\"html\").style.background=\"#afb8c3
-      url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/wp_1680.jpg)
+      url(http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/common/wp_1680.jpg)
       repeat-x\"}else{if((screen.width>=1440)){document.getElementById(\"html\").style.background=\"#afb8c3
-      url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/wp_1440.jpg)
+      url(http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/common/wp_1440.jpg)
       repeat-x\"}else{if((screen.width>=1152)){document.getElementById(\"html\").style.background=\"#afb8c3
-      url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/wp_1152.jpg)
+      url(http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/common/wp_1152.jpg)
       repeat-x\"}else{if((screen.width>=1024)){document.getElementById(\"html\").style.background=\"#afb8c3
-      url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/wp_1024.jpg)
+      url(http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/common/wp_1024.jpg)
       repeat-x\"}else{document.getElementById(\"html\").style.background=\"#afb8c3
-      url(http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/images/common/wp_1280.jpg)
+      url(http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/images/common/wp_1280.jpg)
       repeat-x\"}}}}}};\n\n</script>\n\n\n<script type=\"text/javascript\">\n    //<![CDATA[\n
       \   //ord = Math.random() * 10000000000000000;\n    document.write('<scr' +
-      'ipt type=\"text/javascript\" src=\"http://ad.doubleclick.net/adj/hwd.movietickets/movie_detail;lang=0;movie=116928;zip=73142;age=null;gender=null;afid=null;genre=Drama;rating=PG-13;companion=yes;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=middle3;sz=1x1;tile=7;ord='
-      + ord + '?\"><\\/scr' + 'ipt>');\n    //]]>\n</script>\n<noscript><a href=\"http://ad.doubleclick.net/jump/hwd.movietickets/movie_detail;lang=0;movie=116928;zip=73142;age=null;gender=null;afid=null;genre=Drama;rating=PG-13;companion=yes;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=middle3;sz=1x1;tile=7;ord=123456789?\"
-      target=\"_blank\" ><img src=\"http://ad.doubleclick.net/ad/hwd.movietickets/movie_detail;lang=0;movie=116928;zip=73142;age=null;gender=null;afid=null;genre=Drama;rating=PG-13;companion=yes;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=middle3;sz=1x1;tile=7;ord=123456789?\"
-      border=\"0\" alt=\"\" /></a></noscript>\n\n</script>\n\n<script src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/scripts/jquery.prettyPhoto.js\"
+      'ipt type=\"text/javascript\" src=\"http://ad.doubleclick.net/adj/hwd.movietickets/movie_detail;lang=0;movie=123162;zip=10001;age=null;gender=null;afid=null;genre=Action/Adventure;rating=PG-13;companion=yes;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=middle3;sz=1x1;tile=7;ord='
+      + ord + '?\"><\\/scr' + 'ipt>');\n    //]]>\n</script>\n<noscript><a href=\"http://ad.doubleclick.net/jump/hwd.movietickets/movie_detail;lang=0;movie=123162;zip=10001;age=null;gender=null;afid=null;genre=Action/Adventure;rating=PG-13;companion=yes;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=middle3;sz=1x1;tile=7;ord=123456789?\"
+      target=\"_blank\" ><img src=\"http://ad.doubleclick.net/ad/hwd.movietickets/movie_detail;lang=0;movie=123162;zip=10001;age=null;gender=null;afid=null;genre=Action/Adventure;rating=PG-13;companion=yes;site=live;house=0;edit=null;purchase=no;visit=no;tab=showtimes;pos=middle3;sz=1x1;tile=7;ord=123456789?\"
+      border=\"0\" alt=\"\" /></a></noscript>\n\n</script>\n\n<script src=\"http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/scripts/jquery.prettyPhoto.js\"
       type=\"text/javascript\"></script>\n<script type=\"text/javascript\">\n//<![CDATA[\n
       \   //sadjustAds();\n$MTj(document).ready(function(){\n$MTj(\".gallery a[rel^='prettyPhoto']\").prettyPhoto({
       theme: 'facebook' });\n$MTj(\".jq_btn_promo_warning\").click(function() {\n
@@ -627,12 +638,12 @@
       type=\"text/javascript\" src=\"http://s7.addthis.com/js/250/addthis_widget.js#pub=MovieTickets\"></script><!--
       SiteCatalyst code version: H.19.4.\r\nCopyright 1997-2009 Omniture, Inc. More
       info available at\r\nhttp://www.omniture.com -->\r\n<script language=\"JavaScript\"
-      type=\"text/javascript\" src=\"http://a1608.g.akamai.net/7/1608/1174/201211815303/www.movietickets.com/scripts/s_code.js\"></script>\r\n<script
+      type=\"text/javascript\" src=\"http://a1608.g.akamai.net/7/1608/1174/2012119175025/www.movietickets.com/scripts/s_code.js\"></script>\r\n<script
       language=\"JavaScript\" type=\"text/javascript\"><!--\r\n/* You may give each
       page an identifying name, server, and channel on\r\nthe next lines. */\r\ns.pageName=\"movie_detail.asp\"\r\ns.server=\"\"\r\ns.channel=\"\"\r\ns.pageType=\"\"\r\ns.prop1=\"\"\r\ns.prop2=\"\"\r\ns.prop3=\"\"\r\ns.prop4=\"\"\r\ns.prop5=\"\"\r\n/*
-      Conversion Variables */\r\ns.campaign=\"\"\r\ns.state=\"\"\r\ns.zip=\"\"\r\ns.events=\"\"\r\ns.products=\"\"\r\ns.purchaseID=\"\"\r\ns.eVar1=\"\"\r\ns.eVar2=\"\"\r\ns.eVar3=\"\"\r\ns.eVar4=\"\"\r\ns.eVar5=\"\"\r\n\r\n\r\ns.events=\"event4\"\r\ns.products=\";116928\"\r\ns.prop5=\"0
-      - Default\"\r\ns.prop2=\"116928 - The Iron Lady\"\r\n\r\n/************* DO NOT
-      ALTER ANYTHING BELOW THIS LINE ! **************/\r\nvar s_code=s.t();if(s_code)document.write(s_code)//--></script>\r\n<script
+      Conversion Variables */\r\ns.campaign=\"\"\r\ns.state=\"\"\r\ns.zip=\"\"\r\ns.events=\"\"\r\ns.products=\"\"\r\ns.purchaseID=\"\"\r\ns.eVar1=\"\"\r\ns.eVar2=\"\"\r\ns.eVar3=\"\"\r\ns.eVar4=\"\"\r\ns.eVar5=\"\"\r\n\r\n\r\ns.events=\"event4\"\r\ns.products=\";123162\"\r\ns.prop5=\"0
+      - Default\"\r\ns.prop2=\"123162 - Ghost Rider 3D: Spirit of Vengeance\"\r\n\r\n/*************
+      DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/\r\nvar s_code=s.t();if(s_code)document.write(s_code)//--></script>\r\n<script
       language=\"JavaScript\" type=\"text/javascript\"><!--\r\nif(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\\!-'+'-')\r\n//--></script><noscript><a
       href=\"http://www.omniture.com\" title=\"Web Analytics\"><img\r\nsrc=\"http://movieticketscom.122.2o7.net/b/ss/mtcomprod/1/H.19.4--NS/0\"\r\nheight=\"1\"
       width=\"1\" border=\"0\" alt=\"\" /></a></noscript><!--/DO NOT REMOVE/-->\r\n<!--

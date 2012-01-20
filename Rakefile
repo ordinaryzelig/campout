@@ -21,7 +21,11 @@ desc 'Check that parsing is working against all sources'
 task :diagnostics => 'db:connect' do
   mail_on_error do
     print 'movietickets.com...'
-    MovieTicketsTheater.diagnostics
+    movies = MovieTicketsTheater.diagnostics
+    print "found #{movies.size} movies..."
+    movie = movies.first
+    print "checking theaters for #{movie.title}..."
+    MovieTicketsMovie.diagnostics(movies.first)
     puts 'OK'
   end
 end

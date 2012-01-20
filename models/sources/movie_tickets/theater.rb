@@ -12,8 +12,10 @@ class MovieTicketsTheater < ActiveRecord::Base
 
     # Check to see if movies are parsing correctly.
     def diagnostics
-      movies = scour theater: MovieTicketsTheater.first
-      raise "No movies found at #{url}" if movies.empty?
+      theater = MovieTicketsTheater.first
+      movies = scour theater: theater
+      raise "No movies found at #{theater.name}" if movies.empty?
+      movies
     end
 
     # Make request, parse, return movies.

@@ -15,6 +15,13 @@ class MovieTicketsMovie < ActiveRecord::Base
 
   class << self
 
+    # Check to see if theaters are parsing correctly.
+    def diagnostics(movie)
+      theaters = scour movie: movie
+      raise "No theaters found for #{movie.title}" if theaters.empty?
+      theaters
+    end
+
     # Make request, parse, return theaters.
     def scour(options)
       html = get '', query: query_options(options)
@@ -43,7 +50,7 @@ class MovieTicketsMovie < ActiveRecord::Base
     def query_options(options)
       options.each_with_object({}) do |(key, val), hash|
         case key
-        when :date    then hash[:ShowDate]  = Date.today - val
+        when :date    then hash[:ShowDate]  = (val - Date.today).to_i
         when :movie   then hash[:movie_id]  = val.movie_id
         when :zipcode then hash[:SearchZip] = val
         else

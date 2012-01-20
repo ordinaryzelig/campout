@@ -7,6 +7,11 @@ FactoryGirl.define do
       movie_id 116928
     end
 
+    factory :movie_tickets_ghost_rider do
+      title 'Ghost Rider 3D: Spirit of Vengeance'
+      movie_id 123162
+    end
+
   end
 
 end
