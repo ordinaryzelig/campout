@@ -97,7 +97,7 @@ class TwitterAccount < ActiveRecord::Base
   end
 
   def deny_zipcode
-    dm! "Sorry. I couldn't understand your zipcode. Please send me a Direct Message with a valid zipcode. e.g. 12345"
+    dm! "Sorry. I didn't understand your zipcode. Please send me a Direct Message with a valid zipcode. e.g. 12345"
   end
 
   # Using zipcode, find or create theaters,
