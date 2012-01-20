@@ -6,7 +6,7 @@ class TwitterAccount < ActiveRecord::Base
       first
     end
   end
-  has_many :movie_tickets_movie_assignments
+  has_many :movie_tickets_movie_assignments, dependent: :destroy
   has_many :movie_tickets_movies, through: :movie_tickets_movie_assignments
 
   validates :user_id, presence: true, uniqueness: true

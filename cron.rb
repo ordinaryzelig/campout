@@ -25,11 +25,17 @@ end
 
 =begin
 
+movie assignments x theater assignments = tracker
+when movie added, create tracker for each theater
+when theater added, create tracker for each movie
+
 Check for movies on sale at theaters
-  for each movie tracker
-    for each twitter account
-      scour for zipcode on [release date, Date.today].max
-      mark each theater
+  for each movie not yet released
+    for each tracker still open
+      for each twitter account's zipcode
+        scour for zipcode on release date
+        if theater is selling, mark tracker as such
+        notify twitter account.
 
 Notify of ticket sales
   for each account not yet notified and with theaters selling tickets...
