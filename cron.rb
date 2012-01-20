@@ -1,3 +1,4 @@
+# Do work.
 new_accounts      = TwitterAccount.create_from_followers
 new_followings    = TwitterAccount.follow_all_not_followed
 prompted_accounts = TwitterAccount.prompt_for_zipcodes
@@ -12,6 +13,7 @@ if (new_accounts + new_followings + prompted_accounts + processed_dms).any?
     "#{processed_dms.size} DMs processed for zipcodes",
   ].join("\n")
   Pony.mail(to: 'ningja@me.com', subject: "New progress", body: body)
+  puts body
 end
 
 #Check for movies
