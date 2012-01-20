@@ -16,6 +16,7 @@ class MovieTicketsTheaterList
 
     private
 
+    # Parse and return new theaters (not saved to DB).
     def parse(html)
       doc = Nokogiri.HTML(html)
       theaters = doc.css('#rw1 li').map do |li|

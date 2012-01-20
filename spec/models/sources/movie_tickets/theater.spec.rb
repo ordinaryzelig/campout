@@ -16,4 +16,20 @@ describe MovieTicketsTheater do
     end
   end
 
+  describe '#find_or_create' do
+
+    it 'returns persisted theater if it exists' do
+      theater = FactoryGirl.create(:movie_tickets_amc)
+      theater.find_or_create!
+      MovieTicketsTheater.count.must_equal 1
+    end
+
+    it 'returns newly created theater if it is not persisted yet' do
+      theater = FactoryGirl.build(:movie_tickets_amc)
+      theater.find_or_create!
+      theater.persisted?.must_equal true
+    end
+
+  end
+
 end

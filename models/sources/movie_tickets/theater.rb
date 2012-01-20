@@ -6,7 +6,7 @@ class MovieTicketsTheater < ActiveRecord::Base
   base_uri 'http://www.movietickets.com/house_detail.asp'
 
   validates :name, presence: true
-  validates :house_id, numericality: {greater_than: 0}
+  validates :house_id, numericality: {greater_than: 0}, uniqueness: true
 
   class << self
 
@@ -59,6 +59,14 @@ class MovieTicketsTheater < ActiveRecord::Base
       end
     end
 
+  end
+
+  # Find in DB if it exists or save!
+  def find_or_create!
+    from_db = self.class.find_by_house_id self.house_id
+    return from_db if from_db
+    save!
+    self
   end
 
 end
