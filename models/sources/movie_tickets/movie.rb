@@ -2,6 +2,8 @@
 
 class MovieTicketsMovie < ActiveRecord::Base
 
+  validates :movie_id, uniqueness: true
+
   include HTTParty
   base_uri 'http://www.movietickets.com/movie_detail.asp'
 
