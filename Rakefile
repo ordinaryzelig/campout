@@ -1,3 +1,6 @@
+# ====================================
+# DB.
+
 namespace :db do
 
   desc 'Seed data'
@@ -16,6 +19,9 @@ namespace :db do
   end
 
 end
+
+# ====================================
+# Campout.
 
 desc 'Check that parsing is working against all sources'
 task :diagnostics => 'db:connect' do
