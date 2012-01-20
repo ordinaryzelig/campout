@@ -6,8 +6,8 @@ class TwitterAccount < ActiveRecord::Base
       first
     end
   end
-  has_many :movie_tickets_trackers
-  has_many :movie_tickets_movies, through: :movie_tickets_trackers
+  has_many :movie_tickets_movie_assignments
+  has_many :movie_tickets_movies, through: :movie_tickets_movie_assignments
 
   validates :user_id, presence: true, uniqueness: true
   validates :screen_name, presence: true, uniqueness: true

@@ -23,12 +23,16 @@ if (new_accounts + new_followings + prompted_accounts + processed_dms).any?
   puts body
 end
 
-#Check for movies
-  #1 zipcode at a time...
-    #check if all matching theaters already searched
-    #if not, search for zipcode and update theater last searched date
+=begin
 
-#Notify of ticket sales
-  #for each account not yet notified and with theaters selling tickets...
-    #DM list of theaters selling tickets
-    #mark as notified
+Check for movies on sale at theaters
+  for each movie tracker
+    for each twitter account
+      scour for zipcode on [release date, Date.today].max
+      mark each theater
+
+Notify of ticket sales
+  for each account not yet notified and with theaters selling tickets...
+    DM list of theaters selling tickets
+    mark as notified
+=end
