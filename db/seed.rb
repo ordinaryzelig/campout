@@ -1,11 +1,13 @@
 # This used mainly for test rake tasks.
 
-# Use FactoryGirl to create some stuff.
-require 'factory_girl'
-Dir['./spec/support/factories/*.rb'].each { |f| require f }
+# Create some movies.
 [
-  :movie_tickets_amc,
-  :movie_tickets_iron_lady,
-].each do |factory|
-  FactoryGirl.create(factory)
+  {title: 'The Dark Knight Rises: The IMAX Experience', movie_id: 119747},
+  {title: 'Ghost Rider: Spirit of Vengeance',           movie_id: 102395},
+  {title: 'The Iron Lady',                              movie_id: 116928},
+].each do |atts|
+  MovieTicketsMovie.create!(atts)
 end
+
+# Create AMC theater.
+MovieTicketsTheater.create!({name: 'AMC Quail Springs Mall 24', house_id: 5902})

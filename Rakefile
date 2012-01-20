@@ -19,44 +19,38 @@ end
 
 desc 'Check that parsing is working against all sources'
 task :diagnostics => 'db:connect' do
-  print 'movietickets.com...'
-  begin
+  mail_on_error do
+    print 'movietickets.com...'
     MovieTicketsTheater.diagnostics
     puts 'OK'
-    raise 'NOT!'
-  rescue
-    if Campout.env.production?
-      Mailer.exception($!)
-      puts 'failed. email sent'
-    else
-      puts 'error'
-      raise
-    end
   end
 end
 
 desc 'Check for movie on specific day in zipcode'
 task :check, [:title, :date, :zipcode] => 'db:connect' do |t, args|
-  title = args.title
-  date = Chronic.parse(args.date).to_date
-  zipcode = args.zipcode
-  movie = MovieTicketsMovie.find_by_title!(title)
-  theaters = movie.find_theaters_selling(date, zipcode)
-  if theaters.empty?
-    puts 'no go'
-  else
-    if Campout.env.production?
-      Mailer.on_sale(movie, theaters)
-      puts 'email sent'
+  mail_on_error do
+    title = args.title
+    date = Chronic.parse(args.date).to_date
+    zipcode = args.zipcode
+    movie = MovieTicketsMovie.find_by_title!(title)
+    theaters = movie.find_theaters_selling(date, zipcode)
+    if theaters.empty?
+      puts 'no go'
     else
       puts theaters.map(&:name)
+      if Campout.env.production?
+        Mailer.on_sale(movie, theaters)
+        puts 'email sent'
+      end
     end
   end
 end
 
 desc 'Run cron.rb'
 task :cron => 'db:connect' do
-  load Campout.root_dir + 'cron.rb'
+  mail_on_error do
+    load Campout.root_dir + 'cron.rb'
+  end
 end
 
 # ====================================
@@ -69,4 +63,20 @@ task :default => :test
 Rake::TestTask.new(:test) do |t|
   t.libs << 'spec'
   t.pattern = 'spec/**/*.spec.rb'
+end
+
+# ====================================
+# Error handler.
+
+def mail_on_error
+  yield
+rescue
+  if Campout.env.production?
+    Mailer.exception($!)
+    puts 'email sent'
+  end
+  # Output exception.
+  puts $!.class
+  puts $!.message
+  puts $!.backtrace
 end
