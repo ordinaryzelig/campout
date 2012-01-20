@@ -2,11 +2,19 @@
 
 class MovieTicketsTheater < ActiveRecord::Base
 
-  include HTTParty
-  base_uri 'http://www.movietickets.com/house_detail.asp'
+  has_many :movie_tickets_theater_assignments
+  has_many :twitter_accounts, through: :movie_tickets_theater_assignments
 
   validates :name, presence: true
   validates :house_id, numericality: {greater_than: 0}, uniqueness: true
+
+  scope :tracked_by_multiples, select('movie_tickets_theaters.*, COUNT(movie_tickets_theater_assignments.id) as assignments').
+                               joins(:movie_tickets_theater_assignments).
+                               group('movie_tickets_theaters.id').
+                               having('assignments > 1')
+
+  include HTTParty
+  base_uri 'http://www.movietickets.com/house_detail.asp'
 
   class << self
 
