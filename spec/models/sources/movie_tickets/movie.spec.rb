@@ -10,7 +10,6 @@ describe MovieTicketsMovie do
         release_date = Date.civil(2012, 02, 16)
         theaters = MovieTicketsMovie.scour(
           movie: movie,
-          date:  release_date,
           zipcode: 10001,
         )
         theaters.size.must_equal 3

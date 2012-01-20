@@ -37,13 +37,12 @@ task :diagnostics => 'db:connect' do
 end
 
 desc 'Check for movie on specific day in zipcode'
-task :check, [:title, :date, :zipcode] => 'db:connect' do |t, args|
+task :check, [:title, :zipcode] => 'db:connect' do |t, args|
   mail_on_error do
     title = args.title
-    date = Chronic.parse(args.date).to_date
     zipcode = args.zipcode
     movie = MovieTicketsMovie.find_by_title!(title)
-    theaters = movie.find_theaters_selling(date, zipcode)
+    theaters = movie.find_theaters_selling(zipcode)
     if theaters.empty?
       puts 'no go'
     else

@@ -2,15 +2,16 @@
 
 class MovieTicketsMovie < ActiveRecord::Base
 
-  validates :movie_id, uniqueness: true
+  validates :movie_id,    presence: true, uniqueness: true
+  validates :title,       presence: true
+  validates :released_on, presence: true
 
   include HTTParty
   base_uri 'http://www.movietickets.com/movie_detail.asp'
 
-  def find_theaters_selling(date, zipcode)
+  def find_theaters_selling(zipcode)
     self.class.scour(
       movie:   self,
-      date:    date,
       zipcode: zipcode,
     )
   end
@@ -19,7 +20,7 @@ class MovieTicketsMovie < ActiveRecord::Base
 
     # Check to see if theaters are parsing correctly.
     def diagnostics(movie)
-      theaters = scour movie: movie, zipcode: 73142, date: Date.today
+      theaters = scour(movie: movie, zipcode: 73142)
       raise "No theaters found for #{movie.title}" if theaters.empty?
       theaters
     end
@@ -47,14 +48,19 @@ class MovieTicketsMovie < ActiveRecord::Base
     # Construct options to use in HTTParty request query (i.e.g the ? part).
     # Options:
     #   zipcode
-    #   movie: Converts to movie_id.
-    #   date (optional):  They do a countup style here. E.g. x days from today.
+    #   movie: Converts to movie_id and ShowDate.
     def query_options(options)
       options.each_with_object({}) do |(key, val), hash|
         case key
-        when :date    then hash[:ShowDate]  = (val - Date.today).to_i
-        when :movie   then hash[:movie_id]  = val.movie_id
-        when :zipcode then hash[:SearchZip] = val
+        when :date
+          hash[:ShowDate] = val.to_ShowDate
+        when :movie
+          # Set both movie_id and ShowDate.
+          movie = val
+          hash[:movie_id]  = movie.movie_id
+          hash[:ShowDate]  = movie.released_on.to_ShowDate if movie.released_on
+        when :zipcode
+          hash[:SearchZip] = val
         else
           raise "unknown option: #{key}"
         end
