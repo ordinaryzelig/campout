@@ -10,7 +10,9 @@ describe MovieTicketsTheater do
         date:    Date.new(2012, 1, 18),
       )
       movies.size.must_equal 29
-      movies.first.title.must_equal 'The Adventures of Tintin 3D'
+      movie = movies.first
+      movie.title.must_equal 'The Adventures of Tintin 3D'
+      movie.movie_id.must_equal 110178
     end
   end
 

@@ -30,12 +30,18 @@ class MovieTicketsTheater < ActiveRecord::Base
     def parse(html)
       doc = Nokogiri.HTML(html)
       movies = doc.css('#rw3 li').map do |li|
+        # parse.
+        title = li.css('h4 a').text
+        # Skip if no title.
+        next nil if title.blank?
+        movie_id = li.css('h4 a').first['href'].match(/movie_id=(?<id>\d+)/)[:id]
+        # Build new movie.
         movie = MovieTicketsMovie.new(
-          title: li.css('h4 a').text,
+          title: title,
+          movie_id: movie_id,
         )
       end
-      # Return only movies with a title.
-      movies.select { |movie| movie.title.present? }
+      movies.compact
     end
 
     # Construct options to use in HTTParty request query (i.e.g the ? part).

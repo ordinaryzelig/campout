@@ -17,7 +17,7 @@ class MovieTicketsMovie < ActiveRecord::Base
 
     # Check to see if theaters are parsing correctly.
     def diagnostics(movie)
-      theaters = scour movie: movie
+      theaters = scour movie: movie, zipcode: 73142, date: Date.today
       raise "No theaters found for #{movie.title}" if theaters.empty?
       theaters
     end

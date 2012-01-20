@@ -25,7 +25,7 @@ task :diagnostics => 'db:connect' do
     print "found #{movies.size} movies..."
     movie = movies.first
     print "checking theaters for #{movie.title}..."
-    MovieTicketsMovie.diagnostics(movies.first)
+    MovieTicketsMovie.diagnostics(movie)
     puts 'OK'
   end
 end
@@ -75,6 +75,7 @@ end
 def mail_on_error
   yield
 rescue
+  puts 'error'
   if Campout.env.production?
     Mailer.exception($!)
     puts 'email sent'
