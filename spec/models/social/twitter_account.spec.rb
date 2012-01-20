@@ -84,10 +84,10 @@ describe TwitterAccount do
       VCR.use_cassette('movie_tickets/theaters/search_location_73142') do
         theaters = [FactoryGirl.create(:movie_tickets_amc)]
         account = FactoryGirl.create(:redningja, zipcode: 73142, movie_tickets_theaters: theaters)
-        assignment = account.theater_assignments.first
+        assignment = account.movie_tickets_theater_assignments.first
         account.expects(:confirm_location_with_theater_list)
         account.find_and_assign_theaters
-        TheaterAssignment.exists?(assignment.id).must_equal false
+        MovieTicketsTheaterAssignment.exists?(assignment.id).must_equal false
       end
     end
 

@@ -1,7 +1,7 @@
 class TwitterAccount < ActiveRecord::Base
 
-  has_many :theater_assignments, dependent: :destroy
-  has_many :movie_tickets_theaters, through: :theater_assignments do
+  has_many :movie_tickets_theater_assignments, dependent: :destroy
+  has_many :movie_tickets_theaters, through: :movie_tickets_theater_assignments do
     def closest
       first
     end
@@ -108,7 +108,7 @@ class TwitterAccount < ActiveRecord::Base
   # Destroy old assignments no matter what.
   def find_and_assign_theaters
     # Out with the old, in with the new.
-    theater_assignments.clear
+    movie_tickets_theater_assignments.clear
     theaters = MovieTicketsTheaterList.scour(self.zipcode)
     # Don't create theaters if they already exist.
     theaters.map! &:find_or_create!

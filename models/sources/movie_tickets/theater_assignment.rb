@@ -1,4 +1,4 @@
-class TheaterAssignment < ActiveRecord::Base
+class MovieTicketsTheaterAssignment < ActiveRecord::Base
 
   belongs_to :movie_tickets_theater
   belongs_to :twitter_account
