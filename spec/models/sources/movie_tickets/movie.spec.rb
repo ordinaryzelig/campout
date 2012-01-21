@@ -6,21 +6,40 @@ describe MovieTicketsMovie do
   let(:theater) { FactoryGirl.create(:movie_tickets_amc) }
   let(:account) { FactoryGirl.create(:redningja, movie_tickets_movies: [movie], movie_tickets_theaters: [theater]) }
 
-  it 'scrapes future titles' do
-    date_test_run = Date.civil(2012, 1, 20)
-    Timecop.freeze(date_test_run) do
-      VCR.use_cassette('movie_tickets/movies/ghost_rider') do
-        release_date = Date.civil(2012, 02, 16)
-        theaters = MovieTicketsMovie.scour(
-          movie: movie,
-          zipcode: 10001,
-        )
-        theaters.size.must_equal 3
-        theater = theaters.first
-        theater.name.must_equal 'AMC Aviation 12'
-        theater.house_id.must_equal 10513
+  describe '.scour' do
+
+    it 'scrapes future titles' do
+      date_test_run = Date.civil(2012, 1, 20)
+      Timecop.freeze(date_test_run) do
+        VCR.use_cassette('movie_tickets/movies/ghost_rider') do
+          release_date = Date.civil(2012, 02, 16)
+          theaters = MovieTicketsMovie.scour(
+            movie: movie,
+            zipcode: 10001,
+          )
+          theaters.size.must_equal 3
+          theater = theaters.first
+          theater.name.must_equal 'AMC Aviation 12'
+          theater.house_id.must_equal 10513
+        end
       end
     end
+
+    it 'includes theaters that site is not selling tickets for' do
+      date_test_run = Date.civil(2012, 1, 20)
+      Timecop.freeze(date_test_run) do
+        VCR.use_cassette('movie_tickets/movies/ghost_rider') do
+          release_date = Date.civil(2012, 02, 16)
+          theaters = MovieTicketsMovie.scour(
+            movie: movie,
+            zipcode: 10001,
+          )
+          amc_loews = 134
+          theaters.map(&:house_id).must_include amc_loews
+        end
+      end
+    end
+
   end
 
   it '.unreleased scopes movies whose released_on is later than today' do

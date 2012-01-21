@@ -87,11 +87,11 @@ class MovieTicketsTheater < ActiveRecord::Base
 
   private
 
-  # Remove extraneous 'theater', 'theatre', and trailing numbers.
+  # Remove extraneous 'theater', 'theatre', 'cinema' (or any plural form), and trailing numbers.
   # I don't care how many screens you have.
   # Got limited tweet characters here, people.
   def create_short_name
-    self.short_name = name.gsub(/theater|theatre/i, ''). # remove theater, theatre
+    self.short_name = name.gsub(/(cinema|theater|theatre)s?/i, ''). # remove theater, theatre
                            sub(/\d+$/, '').              # remove trailing digits
                            strip.                        # remove extraneous white space
                            gsub(/  /, ' ')               # replace double spaces with single space

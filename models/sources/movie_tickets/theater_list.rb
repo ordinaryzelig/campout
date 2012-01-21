@@ -19,12 +19,16 @@ class MovieTicketsTheaterList
     # Parse and return new theaters (not saved to DB).
     def parse(html)
       doc = Nokogiri.HTML(html)
-      theaters = doc.css('#rw1 li').map do |li|
-        MovieTicketsTheater.new(
-          name: li.css('a').text.sub(/ - .*$/, ''), # Strip city at end.
-          house_id: li.css('a').first['href'].match(/house_id=(?<id>\d+)/)[:id],
-        )
-      end
+      ['#rw1', '#rw2'].map do |ul_id|
+        doc.css("#{ul_id} li").map { |li| parse_li(li) }
+      end.flatten
+    end
+
+    def parse_li(li)
+      MovieTicketsTheater.new(
+        name: li.css('a').text.sub(/ - .*$/, ''), # Strip city at end.
+        house_id: li.css('a').first['href'].match(/house_id=(?<id>\d+)/)[:id],
+      )
     end
 
   end
