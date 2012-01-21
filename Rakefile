@@ -61,6 +61,18 @@ task :cron => 'db:connect' do
   end
 end
 
+desc 'check for ticket sales on all unreleased movies and live trackers'
+task 'scour' => 'db:connect' do
+  mail_on_error do
+    accounts_notified = MovieTicketsMovie.check_for_newly_released_tickets
+    message = "#{accounts_notified.size} notified"
+    if accounts_notified.any?
+      Mail.cron_progress(message) 
+      puts message
+    end
+  end
+end
+
 desc 'Do some queries, get some numbers'
 task :stats => 'db:connect' do
   puts "#{TwitterAccount.count} twitter accounts."

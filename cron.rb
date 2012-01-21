@@ -9,16 +9,14 @@ end
 new_followings    = TwitterAccount.follow_all_not_followed
 prompted_accounts = TwitterAccount.prompt_for_zipcodes
 processed_dms     = TwitterAccount.process_DMs_for_zipcodes
-accounts_notified = MovieTicketsMovie.check_for_newly_released_tickets
 
 # Email progress if any.
-if (new_accounts + new_followings + prompted_accounts + processed_dms + accounts_notified).any?
+if (new_accounts + new_followings + prompted_accounts + processed_dms).any?
   body = [
     "#{new_accounts.size} new accounts. #{TwitterAccount.count} total.",
     "#{new_followings.size} new followings.",
     "#{prompted_accounts.size} prompts for zipcodes",
     "#{processed_dms.size} DMs processed for zipcodes",
-    "#{accounts_notified.size} accounts notified",
   ].join("\n")
   if Campout.env.production?
     Mailer.cron_progress(body)
