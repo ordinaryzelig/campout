@@ -41,10 +41,10 @@ describe MovieTicketsTheater do
   end
 
   it '#short_name removes the word "theater" and "theatre" and any trailing numbers to save character space' do
-    name = 'fancy  schmancy theater theatre theaters  cinema cinemas 64'
+    name = 'fancy  schmancy theater theatre theaters  cinema cinemas    cinemark 64'
     theater = MovieTicketsTheater.new(name: name)
     theater.valid?
-    theater.short_name.must_equal 'fancy schmancy'
+    theater.short_name.must_equal 'fancy schmancy cinemark'
   end
 
   it 'is compared to other theaters by house_id' do
