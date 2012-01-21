@@ -4,6 +4,7 @@ class CreateMovieTicketsTrackers < ActiveRecord::Migration
       t.belongs_to :twitter_account, null: false
       t.belongs_to :movie_tickets_movie_assignment, null: false
       t.belongs_to :movie_tickets_theater_assignment, null: false
+      t.boolean    :live, null: false, default: true
     end
   end
 end

@@ -4,8 +4,8 @@ describe String do
 
   describe '#truncate' do
 
-    it 'shortens strings with elipsis' do
-      'abcdefghijklmnop'.truncate(6).must_equal 'abc...'
+    it 'shortens strings with short elipsis (2 periods)' do
+      'abcdefghijklmnop'.truncate(6).must_equal 'abcd..'
     end
 
     it 'leaves alone strings that are short enough' do

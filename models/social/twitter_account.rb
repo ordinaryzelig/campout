@@ -8,6 +8,7 @@ class TwitterAccount < ActiveRecord::Base
   end
   has_many :movie_tickets_movie_assignments, dependent: :destroy
   has_many :movie_tickets_movies, through: :movie_tickets_movie_assignments
+  has_many :movie_tickets_trackers
 
   validates :user_id, presence: true, uniqueness: true
   validates :screen_name, presence: true, uniqueness: true
@@ -85,9 +86,9 @@ class TwitterAccount < ActiveRecord::Base
 
   # Send DM with closest theater (should be first) and instructions on how to change.
   def confirm_location_with_theater_list
-    message_without_theater = "I'm tracking some theaters for you including %s. If this is wrong, send me a Direct Message with the correct zipcode."
-    chars_left = TweetString::CHARACTER_LIMIT - (message_without_theater.length - 2) # Don't count the '%s'.
-    closest_theater_name = movie_tickets_theaters.closest.name.truncate(chars_left)
+    message_without_theater = TweetString.new("I'm tracking some theaters for you including %s. If this is wrong, send me a Direct Message with the correct zipcode.")
+    chars_left = message_without_theater.num_chars_left - 2 # Don't count the '%s'.
+    closest_theater_name = movie_tickets_theaters.closest.short_name.truncate(chars_left)
     message = message_without_theater.sub('%s', closest_theater_name)
     dm! message
     true
@@ -122,12 +123,22 @@ class TwitterAccount < ActiveRecord::Base
     end
   end
 
+  # Given trackers, DM with movie and trackers' theaters.
+  # Close trackers.
+  def notify_about_tickets!(trackers)
+    raise 'no trackers to notify' if trackers.empty? # Don't look stupid.
+    dm! TicketsOnSaleTweet.new(trackers)
+    trackers.each &:close
+  end
+
   private
 
   # Send a DM with message. Return true if successful.
   # Wrap message in TweetString.
   def dm!(message)
-    Twitter.direct_message_create(self.user_id, TweetString.new(message))
+    tweet_string = TweetString.new(message)
+    tweet_string.validate!
+    Twitter.direct_message_create(self.user_id, tweet_string.to_s)
     true
   end
 

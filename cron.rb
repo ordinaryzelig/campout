@@ -9,36 +9,20 @@ end
 new_followings    = TwitterAccount.follow_all_not_followed
 prompted_accounts = TwitterAccount.prompt_for_zipcodes
 processed_dms     = TwitterAccount.process_DMs_for_zipcodes
+accounts_notified = MovieTicketsMovie.check_for_newly_released_tickets
 
 # Email progress if any.
-if (new_accounts + new_followings + prompted_accounts + processed_dms).any?
+if (new_accounts + new_followings + prompted_accounts + processed_dms + accounts_notified).any?
   body = [
     "#{new_accounts.size} new accounts. #{TwitterAccount.count} total.",
     "#{new_followings.size} new followings.",
     "#{prompted_accounts.size} prompts for zipcodes",
     "#{processed_dms.size} DMs processed for zipcodes",
+    "#{accounts_notified.size} accounts notified",
   ].join("\n")
-  Mailer.cron_progress(body)
+  if Campout.env.production?
+    Mailer.cron_progress(body)
+  end
   # Output to command line too.
   puts body
 end
-
-=begin
-
-movie assignments x theater assignments = tracker
-when movie added, create tracker for each theater
-when theater added, create tracker for each movie
-
-Check for movies on sale at theaters
-  for each movie not yet released
-    for each tracker still open
-      for each twitter account's zipcode
-        scour for zipcode on release date
-        if theater is selling, mark tracker as such
-        notify twitter account.
-
-Notify of ticket sales
-  for each account not yet notified and with theaters selling tickets...
-    DM list of theaters selling tickets
-    mark as notified
-=end

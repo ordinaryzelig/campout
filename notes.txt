@@ -8,3 +8,5 @@ work flow
   user DMs zipcode
   campout finds, creates, and assigns theaters
   when tickets go on sale, DM user
+
+twappt = app in a twitter account

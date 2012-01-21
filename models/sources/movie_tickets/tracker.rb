@@ -10,4 +10,10 @@ class MovieTicketsTracker < ActiveRecord::Base
   validates :movie_tickets_movie_assignment_id,   presence: true
   validates :movie_tickets_theater_assignment_id, presence: true
 
+  scope :live, where(live: true)
+
+  def close
+    update_attributes! live: false
+  end
+
 end

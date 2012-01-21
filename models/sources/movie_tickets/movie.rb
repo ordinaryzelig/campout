@@ -2,21 +2,24 @@
 
 class MovieTicketsMovie < ActiveRecord::Base
 
+  has_many :movie_tickets_movie_assignments
+  has_many :movie_tickets_trackers, through: :movie_tickets_movie_assignments
+
   validates :movie_id,    presence: true, uniqueness: true
   validates :title,       presence: true
   validates :released_on, presence: true
 
+  scope :unreleased, proc { where('released_on > ?', Date.today) }
+
   include HTTParty
   base_uri 'http://www.movietickets.com/movie_detail.asp'
 
-  def find_theaters_selling(zipcode)
-    self.class.scour(
-      movie:   self,
-      zipcode: zipcode,
-    )
-  end
-
   class << self
+
+    # Check for tickets for unreleased movies.
+    def check_for_newly_released_tickets
+      unreleased.map(&:check_for_tickets).flatten
+    end
 
     # Check to see if theaters are parsing correctly.
     def diagnostics(movie)
@@ -37,12 +40,15 @@ class MovieTicketsMovie < ActiveRecord::Base
     def parse(html)
       doc = Nokogiri.HTML(html)
       theaters = doc.css('#mdRow1 li').map do |li|
+        name = li.css('a strong').text
+        next if name.blank?
+        house_id = li.css('a').first['href'].match(/house_id=(?<id>\d+)/)[:id]
         MovieTicketsTheater.new(
-          name: li.css('a strong').text,
+          name: name,
+          house_id: house_id,
         )
-      end
-      # Return only theaters with a name.
-      theaters.select { |theater| theater.name.present? }
+      end.compact
+      theaters
     end
 
     # Construct options to use in HTTParty request query (i.e.g the ? part).
@@ -67,6 +73,29 @@ class MovieTicketsMovie < ActiveRecord::Base
       end
     end
 
+  end
+
+  def find_theaters_selling_at(zipcode)
+    self.class.scour(
+      movie:   self,
+      zipcode: zipcode,
+    )
+  end
+
+  # Gather all live trackers.
+  # Group them by twitter account.
+  # find theaters selling at twitter account's zipcode.
+  # For theaters that are selling tickets now, notify account and close corresponding tracker.
+  def check_for_tickets
+    live_trackers = movie_tickets_trackers.live.includes(:twitter_account, :movie_tickets_theater).all
+    live_trackers.group_by(&:twitter_account).each_with_object([]) do |(twitter_account, trackers), accounts_notified|
+      theaters = find_theaters_selling_at(twitter_account.zipcode)
+      trackers_to_notify = trackers.select { |tracker| theaters.include?(tracker.movie_tickets_theater) }
+      if trackers_to_notify.any?
+        twitter_account.notify_about_tickets!(trackers_to_notify)
+        accounts_notified << twitter_account
+      end
+    end
   end
 
 end

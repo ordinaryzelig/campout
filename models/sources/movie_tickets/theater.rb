@@ -5,8 +5,11 @@ class MovieTicketsTheater < ActiveRecord::Base
   has_many :movie_tickets_theater_assignments
   has_many :twitter_accounts, through: :movie_tickets_theater_assignments
 
-  validates :name, presence: true
-  validates :house_id, numericality: {greater_than: 0}, uniqueness: true
+  before_validation :create_short_name
+
+  validates :name,       presence: true
+  validates :short_name, presence: true
+  validates :house_id,   numericality: {greater_than: 0}, uniqueness: true
 
   scope :tracked_by_multiples, select('movie_tickets_theaters.*, COUNT(movie_tickets_theater_assignments.id) as assignments').
                                joins(:movie_tickets_theater_assignments).
@@ -75,6 +78,23 @@ class MovieTicketsTheater < ActiveRecord::Base
     return from_db if from_db
     save!
     self
+  end
+
+  # Theaters should be compared by house_id
+  def ==(another_theater)
+    self.house_id == another_theater.house_id
+  end
+
+  private
+
+  # Remove extraneous 'theater', 'theatre', and trailing numbers.
+  # I don't care how many screens you have.
+  # Got limited tweet characters here, people.
+  def create_short_name
+    self.short_name = name.gsub(/theater|theatre/i, ''). # remove theater, theatre
+                           sub(/\d+$/, '').              # remove trailing digits
+                           strip.                        # remove extraneous white space
+                           gsub(/  /, ' ')               # replace double spaces with single space
   end
 
 end

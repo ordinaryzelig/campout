@@ -14,7 +14,6 @@ namespace :db do
   end
 
   task :connect do
-    require './init'
     require './db/connect'
   end
 
@@ -42,7 +41,7 @@ task :check, [:title, :zipcode] => 'db:connect' do |t, args|
     title = args.title
     zipcode = args.zipcode
     movie = MovieTicketsMovie.find_by_title!(title)
-    theaters = movie.find_theaters_selling(zipcode)
+    theaters = movie.find_theaters_selling_at(zipcode)
     if theaters.empty?
       puts 'no go'
     else

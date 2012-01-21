@@ -40,4 +40,18 @@ describe MovieTicketsTheater do
     MovieTicketsTheater.tracked_by_multiples.all.size.must_equal 1
   end
 
+  it '#short_name removes the word "theater" and "theatre" and any trailing numbers to save character space' do
+    name = 'fancy  schmancy theater theatre 64'
+    theater = MovieTicketsTheater.new(name: name)
+    theater.valid?
+    theater.short_name.must_equal 'fancy schmancy'
+  end
+
+  it 'is compared to other theaters by house_id' do
+    theater_1 = MovieTicketsTheater.new house_id: 1
+    theater_2 = MovieTicketsTheater.new house_id: 1
+    theater_1.must_equal theater_2
+    [theater_1].must_include theater_2
+  end
+
 end

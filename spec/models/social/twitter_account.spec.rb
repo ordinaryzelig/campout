@@ -115,4 +115,22 @@ describe TwitterAccount do
     end
   end
 
+  describe '#notify_about_tickets!' do
+
+    let(:movie)    { FactoryGirl.create(:movie_tickets_iron_lady) }
+    let(:theaters) { [:amc, :warren].map { |t| FactoryGirl.create("movie_tickets_#{t}") } }
+    let(:account)  { FactoryGirl.create(:redningja, movie_tickets_movies: [movie], movie_tickets_theaters: theaters) }
+
+    it 'DMs account with list of theaters selling tickets' do
+      account.must_expect_to_send_DM('The Iron Lady is on sale at AMC Quail Springs Mall, Moore Warren')
+      account.notify_about_tickets!(account.movie_tickets_trackers)
+    end
+
+  end
+
+  it '#dm! wraps message in TweetString' do
+    message = 'f' * (TweetString::CHARACTER_LIMIT + 1)
+    proc { TwitterAccount.new.send(:dm!, message) }.must_raise TweetString::LimitExceeded
+  end
+
 end
