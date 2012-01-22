@@ -102,7 +102,7 @@ def mail_on_error
 rescue
   puts 'error'
   if Campout.env.production?
-    Mailer.exception($!)
+    Mailer.rake_exception($!)
     puts 'email sent'
   end
   # Output exception.
