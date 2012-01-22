@@ -5,17 +5,24 @@ gem 'activesupport', '3.1.3'
 gem 'awesome_print'
 gem 'camping', '2.1.467'
 gem 'chronic', '0.6.6'
+gem 'haml', '3.1.4'
 gem 'httparty', '0.8.1'
-gem 'markaby', '0.7.2'
 gem 'mechanize', '2.1'
 gem 'nokogiri', '1.5.0'
 gem 'pony', '1.4'
+gem 'rack-contrib', '1.1.0'
 gem 'rake', '0.9.2.2'
 gem 'state_machine', '1.1.1'
+gem 'tilt', '1.3.3'
 gem 'twitter', '2.0.2'
 
 group :production do
   gem 'pg'
+end
+
+group :development do
+  gem 'growl', '1.0.3'
+  gem 'guard-haml', '0.3.1'
 end
 
 group :test do

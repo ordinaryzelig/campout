@@ -1,0 +1,112 @@
+!!! 5
+
+%html
+
+  %head
+    %title Campout
+
+    %style
+      :sass
+
+        html
+          background-image: url('images/TheDarkKnightRises_TeaserPoster.jpg')
+          background-repeat: no-repeat
+          background-position: center 10%
+          background-color: black
+
+        $font_color: #C9D4DC
+        $special_font_color: #8CB2B2
+
+        body
+          color: $font_color
+          font-family: sans-serif
+
+        a
+          color: $special_font_color
+          text-decoration: none
+          &:visted
+            color: inherit
+            text-decoration: inherit
+          &:hover
+            color: darken($special_font_color, 20)
+
+        p, h1, h2
+          margin: 0
+
+        strong
+          color: darken($font_color, 15)
+
+        .small_print
+          font-size: 8pt
+
+        .translucent_box
+          background: rgba(0, 0, 0, 0.7)
+          border: 1px solid #3B4744
+
+        #content
+          width: 400px
+          position: absolute
+          $position_offset: 50px
+          top: $position_offset
+          left: $position_offset
+          padding: 30px
+
+          $paragraph_margin_bottom: 30px
+          p
+            margin-bottom: $paragraph_margin_bottom
+
+          #header
+            margin-bottom: 30px
+
+          #notes
+            p
+              margin-bottom: $paragraph_margin_bottom / 2
+
+        #footer
+          width: 400px
+          position: absolute
+          bottom: 30px
+          right: 5%
+          padding: 10px
+
+  %body
+
+    #content.translucent_box
+
+      #header
+        %h1 Campout
+
+      %p
+        :plain
+          If you haven't heard already,
+          <a href="http://batman-news.com/2012/01/09/the-dark-knight-rises-opening-night-imax-tickets-on-sale-now/">
+            in some places, tickets for The Dark Knight Rises have already sold out</a>.
+          Don't miss out on tickets going on sale in your area!
+
+      %p
+        :plain
+          All you have to do is follow <a href="http://twitter.com/TDKRcampout">@TDKRcampout</a>.
+          Campout will send you a <strong>private Direct Message*</strong> asking for your <strong>US zipcode</strong>.
+          When showtimes are posted for a midnight screening in your area,
+          Campout will send you a Direct Message listing those theaters.
+
+      %p
+        :plain
+          There is nothing to sign up for. As soon as you follow @TDKRcampout, you're good to go.
+          If you want to opt out, just unfollow @TDKRcampout and you will no longer receive any messages from @TDKRcampout.
+
+      #notes.small_print
+
+        %p
+          :plain
+            *This app is completely private.
+            Campout will not share your zipcode with anybody.
+            All Direct Messages are sent through Twitter's private Direct Messaging system.
+
+        %p
+          :plain
+            If you have any questions/suggestions, tweet them to me, or <a href="mailto:campout@redningja.com">email me</a>.
+
+    #footer.translucent_box.small_print
+      Disclaimer: This site/app is not affiliated with, permissed by, &ltinsert lawyer term here&gt, any company/person/entity anywhere.
+      The background image is a free downloadable poster from <a href="http://www.thedarkknightrises.com/">thedarkknightrises.com</a>.
