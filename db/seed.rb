@@ -3,6 +3,7 @@
 # Create some movies.
 [
   {title: 'The Dark Knight Rises: The IMAX Experience', movie_id: 119747, released_on: Date.civil(2012, 7, 19)},
+  {title: 'The Dark Knight Rises',                      movie_id: 117274, released_on: Date.civil(2012, 7, 19)},
   {title: 'Ghost Rider 3D: Spirit of Vengeance',        movie_id: 123162, released_on: Date.civil(2012, 2, 16)},
   {title: 'The Iron Lady',                              movie_id: 116928, released_on: Date.civil(2012, 1, 13)},
 ].each do |atts|
