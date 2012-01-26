@@ -6,6 +6,4 @@ module MiniTest::Assertions
 
 end
 
-module MiniTest::Expectations
-  infect_an_assertion :assert_expect_to_send_DM, :must_expect_to_send_DM, :reverse
-end
+TwitterAccount.infect_an_assertion :assert_expect_to_send_DM, :must_expect_to_send_DM, :reverse
