@@ -67,7 +67,7 @@ task 'scour' => 'db:connect' do
     accounts_notified = MovieTicketsMovie.check_for_newly_released_tickets
     message = "#{accounts_notified.size} notified"
     if accounts_notified.any?
-      Mail.cron_progress(message) 
+      Mailer.cron_progress(message)
       puts message
     end
   end
