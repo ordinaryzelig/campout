@@ -80,7 +80,7 @@ class TwitterAccount < ActiveRecord::Base
   # DM with instructions asking for zipcode,
   # mark as prompted.
   def prompt_for_zipcode
-    dm! 'What is your zipcode?'
+    dm! 'What is your zipcode? (I am a robot. Go to http://campout.heroku.com for more info.)'
     update_attributes! prompted_for_zipcode_at: Time.now
   end
 
