@@ -49,8 +49,26 @@ class TwitterAccount < ActiveRecord::Base
     end
 
     # List DMs, process each for zipcode.
+    # If zipcode successfully extracted, assign to twitter account if different.
+    # If zipcode cannot be processed, deny_zipcode.
+    # If zipcode extracted and assigned (and different), find and assigne theaters.
+    # Make sure to only find/assign theaters if zipcode is different
+    # so we don't sound like a broken record.
     def process_DMs_for_zipcodes
-      Twitter.direct_messages.each &:process_zipcode
+      Twitter.direct_messages.each do |dm|
+        zipcode = dm.extract_zipcode
+        dm.destroy
+        twitter_account = dm.twitter_account
+        if zipcode
+          twitter_account.zipcode = zipcode
+          if twitter_account.zipcode_changed?
+            twitter_account.save!
+            twitter_account.find_and_assign_theaters
+          end
+        else
+          twitter_account.deny_zipcode
+        end
+      end
     end
 
     private

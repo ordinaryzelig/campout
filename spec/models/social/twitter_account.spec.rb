@@ -133,4 +133,34 @@ describe TwitterAccount do
     proc { TwitterAccount.new.send(:dm!, message) }.must_raise TweetString::LimitExceeded
   end
 
+  describe '.process_DMs_for_zipcodes' do
+
+    it 'extracts zipcode from DM and finds/assigns theaters' do
+      VCR.use_cassette('twitter/list_DMs_and_deletes_DM_from_redningja') do
+        account = FactoryGirl.create(:redningja, zipcode: nil)
+        TwitterAccount.any_instance.expects(:find_and_assign_theaters)
+        Twitter::DirectMessage.any_instance.expects(:destroy)
+        TwitterAccount.process_DMs_for_zipcodes
+        account.reload.zipcode.must_equal 73142
+      end
+    end
+
+    it 'sends DM denying zipcode if zipcode cannot be extracted' do
+      VCR.use_cassette('twitter/list_DMs_with_bad_zipcodes') do
+        FactoryGirl.create(:redningja)
+        TwitterAccount.any_instance.expects(:deny_zipcode)
+        TwitterAccount.process_DMs_for_zipcodes
+      end
+    end
+
+    it 'does not find or assign theaters if zipcode has not changed' do
+      VCR.use_cassette('twitter/list_DMs_and_deletes_DM_from_redningja') do
+        FactoryGirl.create(:redningja, zipcode: 73142)
+        TwitterAccount.any_instance.expects(:find_and_assign_theaters).never
+        TwitterAccount.process_DMs_for_zipcodes
+      end
+    end
+
+  end
+
 end
