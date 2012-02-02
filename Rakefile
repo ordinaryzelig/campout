@@ -76,9 +76,9 @@ end
 desc 'Do some queries, get some numbers'
 task :stats => 'db:connect' do
   puts "#{TwitterAccount.count} twitter accounts."
-  puts "#{MovieTicketsMovieAssignment.count} movie trackers."
   puts "#{MovieTicketsMovie.count} movies."
   puts "#{MovieTicketsTheater.count} theaters."
+  puts "#{MovieTicketsMovieTracker.count} trackers."
 end
 
 # ====================================
