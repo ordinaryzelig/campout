@@ -154,7 +154,7 @@ class TwitterAccount < ActiveRecord::Base
 
   # Send DM with closest theater (should be first) and instructions on how to change.
   def confirm_location_with_theater_list
-    message_without_theater = TweetString.new("I'm tracking some theaters for you including %s. If this is wrong, send me a Direct Message with the correct zipcode.")
+    message_without_theater = TweetString.new("I'm tracking #{movie_tickets_theaters.size} theaters including %s. If this is wrong, send me a Direct Message with the correct zipcode.")
     chars_left = message_without_theater.num_chars_left - 2 # Don't count the '%s'.
     closest_theater_name = movie_tickets_theaters.closest.short_name.truncate(chars_left)
     message = message_without_theater.sub('%s', closest_theater_name)
