@@ -51,6 +51,8 @@ class TwitterAccount < ActiveRecord::Base
     # If zipcode successfully extracted, assign to twitter account if different.
     # If zipcode cannot be processed, deny_zipcode.
     # If zipcode extracted and assigned (and different), find and assigne theaters.
+    # If theaters found, DM confirmation.
+    # If no theaters found, DM no theaters found.
     # Make sure to only find/assign theaters if zipcode is different
     # so we don't sound like a broken record.
     def process_DMs_for_zipcodes
@@ -63,6 +65,7 @@ class TwitterAccount < ActiveRecord::Base
           if twitter_account.zipcode_changed?
             twitter_account.save!
             twitter_account.find_and_assign_theaters
+            twitter_account.confirm_or_deny_theaters
           end
         else
           twitter_account.deny_zipcode
@@ -101,6 +104,54 @@ class TwitterAccount < ActiveRecord::Base
     update_attributes! prompted_for_zipcode_at: Time.now
   end
 
+  def deny_zipcode
+    dm! "Sorry. I didn't understand your zipcode. Please send me a Direct Message with a valid zipcode. e.g. 12345. (US only for now)"
+  end
+
+  # Using zipcode, find or create theaters,
+  # assign them to account's theaters.
+  # Destroy old assignments no matter what.
+  def find_and_assign_theaters
+    # Out with the old, in with the new.
+    movie_tickets_theater_assignments.clear
+    theaters = MovieTicketsTheaterList.scour(self.zipcode)
+    # Don't create theaters if they already exist.
+    theaters.map! &:find_or_create!
+    if theaters.any?
+      update_attributes!(
+        movie_tickets_theaters: theaters,
+      )
+    end
+    theaters
+  end
+
+  # Given trackers, DM with movie and trackers' theaters.
+  # Close trackers.
+  def notify_about_tickets!(trackers)
+    raise 'no trackers to notify' if trackers.empty? # Don't look stupid.
+    dm! TicketsOnSaleTweet.new(trackers)
+    trackers.each &:close
+  end
+
+  def confirm_or_deny_theaters
+    if movie_tickets_theaters.any?
+      confirm_location_with_theater_list
+    else
+      deny_theater_list
+    end
+  end
+
+  private
+
+  # Send a DM with message. Return true if successful.
+  # Wrap message in TweetString.
+  def dm!(message)
+    tweet_string = TweetString.new(message)
+    tweet_string.validate!
+    Twitter.direct_message_create(self.user_id, tweet_string.to_s)
+    true
+  end
+
   # Send DM with closest theater (should be first) and instructions on how to change.
   def confirm_location_with_theater_list
     message_without_theater = TweetString.new("I'm tracking some theaters for you including %s. If this is wrong, send me a Direct Message with the correct zipcode.")
@@ -114,49 +165,6 @@ class TwitterAccount < ActiveRecord::Base
   # Send DM denying any theaters near zipcode.
   def deny_theater_list
     dm! "Sorry. I couldn't find any theaters near #{zipcode}. Send me a Direct Message with another zipcode and I'll try again."
-  end
-
-  def deny_zipcode
-    dm! "Sorry. I didn't understand your zipcode. Please send me a Direct Message with a valid zipcode. e.g. 12345. (US only for now)"
-  end
-
-  # Using zipcode, find or create theaters,
-  # assign them to account's theaters.
-  # Confirm location.
-  # Destroy old assignments no matter what.
-  def find_and_assign_theaters
-    # Out with the old, in with the new.
-    movie_tickets_theater_assignments.clear
-    theaters = MovieTicketsTheaterList.scour(self.zipcode)
-    # Don't create theaters if they already exist.
-    theaters.map! &:find_or_create!
-    if theaters.any?
-      update_attributes!(
-        movie_tickets_theaters: theaters,
-      )
-      confirm_location_with_theater_list
-    else
-      deny_theater_list
-    end
-  end
-
-  # Given trackers, DM with movie and trackers' theaters.
-  # Close trackers.
-  def notify_about_tickets!(trackers)
-    raise 'no trackers to notify' if trackers.empty? # Don't look stupid.
-    dm! TicketsOnSaleTweet.new(trackers)
-    trackers.each &:close
-  end
-
-  private
-
-  # Send a DM with message. Return true if successful.
-  # Wrap message in TweetString.
-  def dm!(message)
-    tweet_string = TweetString.new(message)
-    tweet_string.validate!
-    Twitter.direct_message_create(self.user_id, tweet_string.to_s)
-    true
   end
 
 end

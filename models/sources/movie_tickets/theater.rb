@@ -91,10 +91,11 @@ class MovieTicketsTheater < ActiveRecord::Base
   # I don't care how many screens you have.
   # Got limited tweet characters here, people.
   def create_short_name
-    self.short_name = name.gsub(/\b(cinema|theater|theatre)s?\b/i, ''). # remove theater, theatre
-                           sub(/\d+$/, ''). # remove trailing digits
-                           strip.           # remove extraneous white space
-                           gsub(/ \s*/, ' ')  # replace multiple whitespaces with single space
+    self.short_name = self.name.gsub(/\b(cinema|theater|theatre)s?\b/i, ''). # remove theater, theatre
+                                sub(/\d+$/, ''). # remove trailing digits
+                                strip.           # remove extraneous white space
+                                gsub(/ \s*/, ' ')  # replace multiple whitespaces with single space
+    self.short_name = name if self.short_name.blank?
   end
 
 end

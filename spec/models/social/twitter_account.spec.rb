@@ -73,7 +73,6 @@ describe TwitterAccount do
     it 'searches for theaters, creates theaters, and assigns them to twitter account' do
       VCR.use_cassette('movie_tickets/theaters/search_location_73142') do
         account = FactoryGirl.create('redningja', zipcode: 73142)
-        account.expects(:confirm_location_with_theater_list)
         account.find_and_assign_theaters
         account_theaters = account.reload.movie_tickets_theaters
         account_theaters.map(&:house_id).must_equal MovieTicketsTheater.all.map(&:house_id)
@@ -85,7 +84,6 @@ describe TwitterAccount do
         theaters = [FactoryGirl.create(:movie_tickets_amc)]
         account = FactoryGirl.create(:redningja, zipcode: 73142, movie_tickets_theaters: theaters)
         assignment = account.movie_tickets_theater_assignments.first
-        account.expects(:confirm_location_with_theater_list)
         account.find_and_assign_theaters
         MovieTicketsTheaterAssignment.exists?(assignment.id).must_equal false
       end
@@ -97,14 +95,14 @@ describe TwitterAccount do
     VCR.use_cassette('twitter/DM_redningja_confirming_theater_list') do
       theaters = [FactoryGirl.create(:movie_tickets_amc)]
       account = FactoryGirl.create(:redningja, movie_tickets_theaters: theaters)
-      account.confirm_location_with_theater_list.must_equal true # Make sure DM was sent.
+      account.send(:confirm_location_with_theater_list).must_equal true
     end
   end
 
   it '#deny_theater_list sends DM with message that no theaters were found' do
     VCR.use_cassette('twitter/DM_redningja_denying_theater_list') do
       account = FactoryGirl.create(:redningja, zipcode: 10000)
-      account.deny_theater_list.must_equal true
+      account.send(:deny_theater_list).must_equal true
     end
   end
 
@@ -139,6 +137,7 @@ describe TwitterAccount do
       VCR.use_cassette('twitter/list_DMs_and_deletes_DM_from_redningja') do
         account = FactoryGirl.create(:redningja, zipcode: nil)
         TwitterAccount.any_instance.expects(:find_and_assign_theaters)
+        TwitterAccount.any_instance.expects(:confirm_or_deny_theaters)
         Twitter::DirectMessage.any_instance.expects(:destroy)
         TwitterAccount.process_DMs_for_zipcodes
         account.reload.zipcode.must_equal '73142'
@@ -159,6 +158,23 @@ describe TwitterAccount do
         TwitterAccount.any_instance.expects(:find_and_assign_theaters).never
         TwitterAccount.process_DMs_for_zipcodes
       end
+    end
+
+  end
+
+  describe '.confirm_or_deny_theaters' do
+
+    it 'confirms location with theater list if theaters found' do
+      account = FactoryGirl.build(:redningja)
+      account.expects(:movie_tickets_theaters).returns([1])
+      account.expects(:confirm_location_with_theater_list)
+      account.confirm_or_deny_theaters
+    end
+
+    it 'denies theater list if no theaters found' do
+      account = FactoryGirl.build(:redningja)
+      account.expects(:deny_theater_list)
+      account.confirm_or_deny_theaters
     end
 
   end
