@@ -79,7 +79,6 @@ task :stats => 'db:connect' do
   puts "#{MovieTicketsMovieAssignment.count} movie trackers."
   puts "#{MovieTicketsMovie.count} movies."
   puts "#{MovieTicketsTheater.count} theaters."
-  puts "#{MovieTicketsTheater.tracked_by_multiples.all.size} theaters tracked by multiples."
 end
 
 # ====================================
