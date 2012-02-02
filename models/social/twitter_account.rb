@@ -13,7 +13,6 @@ class TwitterAccount < ActiveRecord::Base
   validates :user_id, presence: true, uniqueness: true
   validates :screen_name, presence: true, uniqueness: true
   validates :followed, inclusion: {in: [true, false]}
-  validates :zipcode, numericality: {allow_nil: true, greater_than_or_equal_to: 10000, less_than_or_equal_to: 99999}
 
   scope :followed, proc { |bool| where(followed: bool) }
   scope :not_prompted_for_zipcode, where(prompted_for_zipcode_at: nil)

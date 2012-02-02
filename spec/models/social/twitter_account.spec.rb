@@ -141,7 +141,7 @@ describe TwitterAccount do
         TwitterAccount.any_instance.expects(:find_and_assign_theaters)
         Twitter::DirectMessage.any_instance.expects(:destroy)
         TwitterAccount.process_DMs_for_zipcodes
-        account.reload.zipcode.must_equal 73142
+        account.reload.zipcode.must_equal '73142'
       end
     end
 
