@@ -78,7 +78,6 @@ desc 'Do some queries, get some numbers'
 task :stats => 'db:connect' do
   body = []
   body << "#{TwitterAccount.count} twitter accounts."
-  body << "#{MovieTicketsMovie.count} movies."
   body << "#{MovieTicketsTheater.count} theaters."
   body << "#{MovieTicketsTracker.count} trackers."
   body = body.join("\n")
