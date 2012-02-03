@@ -76,10 +76,14 @@ end
 
 desc 'Do some queries, get some numbers'
 task :stats => 'db:connect' do
-  puts "#{TwitterAccount.count} twitter accounts."
-  puts "#{MovieTicketsMovie.count} movies."
-  puts "#{MovieTicketsTheater.count} theaters."
-  puts "#{MovieTicketsTracker.count} trackers."
+  body = []
+  body << "#{TwitterAccount.count} twitter accounts."
+  body << "#{MovieTicketsMovie.count} movies."
+  body << "#{MovieTicketsTheater.count} theaters."
+  body << "#{MovieTicketsTracker.count} trackers."
+  body = body.join("\n")
+  Mailer.stats(body)
+  puts body
 end
 
 # ====================================

@@ -24,6 +24,10 @@ module Mailer
       Pony.mail(subject: "New progress", body: body)
     end
 
+    def stats(body)
+      Pony.mail(subject: 'Stats', body: body)
+    end
+
     private
 
     def exception_body(ex)
