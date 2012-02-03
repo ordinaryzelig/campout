@@ -66,6 +66,7 @@ task 'scour' => 'db:connect' do
   mail_on_error do
     accounts_notified = MovieTicketsMovie.check_for_newly_released_tickets
     message = "#{accounts_notified.size} notified"
+    message += accounts_notified.map(&:zipcode).join("\n")
     if accounts_notified.any?
       Mailer.cron_progress(message)
       puts message
@@ -78,7 +79,7 @@ task :stats => 'db:connect' do
   puts "#{TwitterAccount.count} twitter accounts."
   puts "#{MovieTicketsMovie.count} movies."
   puts "#{MovieTicketsTheater.count} theaters."
-  puts "#{MovieTicketsMovieTracker.count} trackers."
+  puts "#{MovieTicketsTracker.count} trackers."
 end
 
 # ====================================
