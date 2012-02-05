@@ -32,14 +32,6 @@ describe MovieTicketsTheater do
 
   end
 
-  it '.tracked_by_multiples includes theaters that are being tracked by multiple accounts' do
-    theater = FactoryGirl.create(:movie_tickets_amc)
-    account = FactoryGirl.create(:redningja, movie_tickets_theaters: [theater])
-    MovieTicketsTheater.tracked_by_multiples.all.size.must_equal 0
-    account = FactoryGirl.create(:twitter_account, user_id: 1, screen_name: 'asdf', movie_tickets_theaters: [theater])
-    MovieTicketsTheater.tracked_by_multiples.all.size.must_equal 1
-  end
-
   describe '#short_name' do
 
     it 'is altered by removing the word "theater" and "theatre" and any trailing numbers to save character space' do
