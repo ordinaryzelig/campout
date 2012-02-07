@@ -24,8 +24,6 @@ DatabaseCleaner.strategy = :truncation
 
 class MiniTest::Spec
 
-  include ModelMacros
-
   def setup
     DatabaseCleaner.clean
   end

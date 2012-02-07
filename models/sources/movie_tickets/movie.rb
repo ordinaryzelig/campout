@@ -86,6 +86,7 @@ class MovieTicketsMovie < ActiveRecord::Base
   # Group them by twitter account.
   # find theaters selling at twitter account's zipcode.
   # For theaters that are selling tickets now, notify account and close corresponding tracker.
+  # Return accounts notified.
   def check_for_tickets
     live_trackers = movie_tickets_trackers.live.includes(:twitter_account, :movie_tickets_theater).all
     live_trackers.group_by(&:twitter_account).each_with_object([]) do |(twitter_account, trackers), accounts_notified|

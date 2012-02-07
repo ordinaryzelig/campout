@@ -8,3 +8,5 @@ module ModelMacros
   end
 
 end
+
+MiniTest::Spec.send :include, ModelMacros
