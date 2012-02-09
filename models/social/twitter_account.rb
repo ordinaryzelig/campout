@@ -1,14 +1,14 @@
 class TwitterAccount < ActiveRecord::Base
 
-  has_many :movie_tickets_theater_assignments, dependent: :destroy
-  has_many :movie_tickets_theaters, through: :movie_tickets_theater_assignments do
+  has_many :theater_assignments, dependent: :destroy
+  has_many :theaters, through: :theater_assignments do
     def closest
       first
     end
   end
-  has_many :movie_tickets_movie_assignments, dependent: :destroy
-  has_many :movie_tickets_movies, through: :movie_tickets_movie_assignments
-  has_many :movie_tickets_trackers
+  has_many :movie_assignments, dependent: :destroy
+  has_many :movies, through: :movie_assignments
+  has_many :trackers
 
   validates :user_id, presence: true, uniqueness: true
   validates :screen_name, presence: true, uniqueness: true
@@ -113,28 +113,29 @@ class TwitterAccount < ActiveRecord::Base
   # Destroy old assignments no matter what.
   def find_and_assign_theaters
     # Out with the old, in with the new.
-    movie_tickets_theater_assignments.clear
-    theaters = MovieTicketsTheaterList.scour(self.zipcode)
-    # Don't create theaters if they already exist.
-    theaters.map! &:find_or_create!
-    if theaters.any?
+    theater_assignments.clear
+    theater_listings = MovieTickets::TheaterListing.scour(self.zipcode)
+    # Get theaters from listings.
+    found_theaters = theater_listings.map!(&:find_or_create_movie_source!).map(&:theater)
+    if found_theaters.any?
       update_attributes!(
-        movie_tickets_theaters: theaters,
+        theaters: found_theaters,
       )
     end
-    theaters
   end
 
   # Given trackers, DM with movie and trackers' theaters.
   # Close trackers.
   def notify_about_tickets!(trackers)
     raise 'no trackers to notify' if trackers.empty? # Don't look stupid.
-    dm! TicketsOnSaleTweet.new(trackers)
+    movie = trackers.first.movie
+    theaters = trackers.map(&:theater)
+    dm! TicketsOnSaleTweet.new(movie, theaters)
     trackers.each &:close
   end
 
   def confirm_or_deny_theaters
-    if movie_tickets_theaters.any?
+    if theaters.any?
       confirm_location_with_theater_list
     else
       deny_theater_list
@@ -154,9 +155,9 @@ class TwitterAccount < ActiveRecord::Base
 
   # Send DM with closest theater (should be first) and instructions on how to change.
   def confirm_location_with_theater_list
-    message_without_theater = TweetString.new("I'm tracking #{movie_tickets_theaters.size} theaters including %s. If this is wrong, send me a Direct Message with the correct zipcode.")
+    message_without_theater = TweetString.new("I'm tracking #{theaters.size} theaters including %s. If this is wrong, send me a Direct Message with the correct zipcode.")
     chars_left = message_without_theater.num_chars_left - 2 # Don't count the '%s'.
-    closest_theater_name = movie_tickets_theaters.closest.short_name.truncate(chars_left)
+    closest_theater_name = theaters.closest.short_name.truncate(chars_left)
     message = message_without_theater.sub('%s', closest_theater_name)
     dm! message
     true

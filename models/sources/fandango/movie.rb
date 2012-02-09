@@ -7,6 +7,11 @@ class Fandango::Movie
 
   class << self
 
+    # Check for tickets for unreleased movies.
+    def check_for_newly_released_tickets
+      unreleased.map(&:check_for_tickets).flatten
+    end
+
     def new_from_feed(atts)
       new(
         title:       atts[:title],
@@ -14,6 +19,12 @@ class Fandango::Movie
       )
     end
 
+  end
+
+  def find_theaters_selling_at(zipcode)
+    Fandango.theaters_near(zipcode).select do |theater|
+      theater.selling?(self)
+    end
   end
 
 end

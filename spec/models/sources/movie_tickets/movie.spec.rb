@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe MovieTicketsMovie do
+describe MovieTickets::Movie do
 
-  let(:movie)   { FactoryGirl.build(:movie_tickets_ghost_rider) }
-  let(:theater) { FactoryGirl.create(:movie_tickets_amc) }
-  let(:account) { FactoryGirl.create(:redningja, movie_tickets_movies: [movie], movie_tickets_theaters: [theater]) }
+  it_must_behave_like_movie_source
+
+  let(:movie_source) { FactoryGirl.build(:movie_tickets_ghost_rider) }
 
   describe '.scour' do
 
@@ -13,14 +13,13 @@ describe MovieTicketsMovie do
       Timecop.freeze(date_test_run) do
         VCR.use_cassette('movie_tickets/movies/ghost_rider') do
           release_date = Date.civil(2012, 02, 16)
-          theaters = MovieTicketsMovie.scour(
-            movie: movie,
-            zipcode: 10001,
+          theaters = MovieTickets::Movie.scour(
+            movie_source: movie_source,
+            zipcode:      10001,
           )
           theaters.size.must_equal 3
           theater = theaters.first
-          theater.name.must_equal 'AMC Aviation 12'
-          theater.house_id.must_equal 10513
+          theater.external_id.must_equal '10513'
         end
       end
     end
@@ -30,55 +29,21 @@ describe MovieTicketsMovie do
       Timecop.freeze(date_test_run) do
         VCR.use_cassette('movie_tickets/movies/ghost_rider') do
           release_date = Date.civil(2012, 02, 16)
-          theaters = MovieTicketsMovie.scour(
-            movie: movie,
-            zipcode: 10001,
+          theaters = MovieTickets::Movie.scour(
+            movie_source: movie_source,
+            zipcode:      10001,
           )
-          amc_loews = 134
-          theaters.map(&:house_id).must_include amc_loews
+          amc_loews = '134'
+          theaters.map(&:external_id).must_include amc_loews
         end
       end
     end
 
   end
 
-  it '.unreleased scopes movies whose released_on is later than today' do
-    old_movie    = FactoryGirl.create(:movie_tickets_movie, released_on: Date.today - 1, title: 'asdf', movie_id: 1)
-    today_movie  = FactoryGirl.create(:movie_tickets_movie, released_on: Date.today,     title: 'asdf', movie_id: 2)
-    future_movie = FactoryGirl.create(:movie_tickets_movie, released_on: Date.today + 1, title: 'asdf', movie_id: 3)
-    MovieTicketsMovie.unreleased.must_equal [future_movie]
-  end
-
-  it '.check_for_newly_released_tickets uses live trackers and twitter accounts zipcodes to call #find_theaters_selling_at' do
-    MovieTicketsMovie.any_instance.expects(:find_theaters_selling_at).with(account.zipcode).once.returns([])
-    MovieTicketsMovie.check_for_newly_released_tickets
-  end
-
-  describe '#check_for_tickets' do
-
-    before do
-      account()
-    end
-
-    it 'notifies twitter account when theaters selling tickets' do
-      movie.expects(:find_theaters_selling_at).returns([theater])
-      TwitterAccount.any_instance.expects(:notify_about_tickets!).with(account.movie_tickets_trackers)
-      movie.check_for_tickets
-    end
-
-    it 'does not notify when no theaters selling tickets' do
-      movie.expects(:find_theaters_selling_at).returns([])
-      account.expects(:notify_about_tickets!).never
-      movie.check_for_tickets
-    end
-
-    it 'returns array of accounts that were notified' do
-      movie.expects(:find_theaters_selling_at).returns([theater])
-      TwitterAccount.any_instance.expects(:notify_about_tickets!)
-      accounts = movie.check_for_tickets
-      accounts.must_equal [account]
-    end
-
+  it '#find_theaters_selling_at uses scour to find theaters selling tickets for a movie_source' do
+    MovieTickets::Movie.expects(:scour).with(movie_source: movie_source, zipcode: 10001)
+    movie_source.find_theaters_selling_at(10001)
   end
 
 end

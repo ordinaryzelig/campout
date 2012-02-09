@@ -74,18 +74,18 @@ describe TwitterAccount do
       VCR.use_cassette('movie_tickets/theaters/search_location_73142') do
         account = FactoryGirl.create('redningja', zipcode: 73142)
         account.find_and_assign_theaters
-        account_theaters = account.reload.movie_tickets_theaters
-        account_theaters.map(&:house_id).must_equal MovieTicketsTheater.all.map(&:house_id)
+        account_theaters = account.reload.theaters
+        account_theaters.map(&:id).must_equal Theater.all.map(&:id)
       end
     end
 
     it 'clears existing theaters when assigning new ones' do
       VCR.use_cassette('movie_tickets/theaters/search_location_73142') do
-        theaters = [FactoryGirl.create(:movie_tickets_amc)]
-        account = FactoryGirl.create(:redningja, zipcode: 73142, movie_tickets_theaters: theaters)
-        assignment = account.movie_tickets_theater_assignments.first
+        theaters = [FactoryGirl.create(:amc)]
+        account = FactoryGirl.create(:redningja, zipcode: 73142, theaters: theaters)
+        assignment = account.theater_assignments.first
         account.find_and_assign_theaters
-        MovieTicketsTheaterAssignment.exists?(assignment.id).must_equal false
+        TheaterAssignment.exists?(assignment.id).must_equal false
       end
     end
 
@@ -93,8 +93,8 @@ describe TwitterAccount do
 
   it '#confirm_location_with_theater_list sends DM with closest theater and instructions to change' do
     VCR.use_cassette('twitter/DM_redningja_confirming_theater_list') do
-      theaters = [FactoryGirl.create(:movie_tickets_amc)]
-      account = FactoryGirl.create(:redningja, movie_tickets_theaters: theaters)
+      theaters = [FactoryGirl.create(:amc)]
+      account = FactoryGirl.create(:redningja, theaters: theaters)
       account.send(:confirm_location_with_theater_list).must_equal true
     end
   end
@@ -115,13 +115,13 @@ describe TwitterAccount do
 
   describe '#notify_about_tickets!' do
 
-    let(:movie)    { FactoryGirl.create(:movie_tickets_iron_lady) }
-    let(:theaters) { [:amc, :warren].map { |t| FactoryGirl.create("movie_tickets_#{t}") } }
-    let(:account)  { FactoryGirl.create(:redningja, movie_tickets_movies: [movie], movie_tickets_theaters: theaters) }
+    let(:movie)    { FactoryGirl.create(:iron_lady) }
+    let(:theaters) { [:amc, :warren].map { |t| FactoryGirl.create(t) } }
+    let(:account)  { FactoryGirl.create(:redningja, movies: [movie], theaters: theaters) }
 
     it 'DMs account with list of theaters selling tickets' do
       account.must_expect_to_send_DM('The Iron Lady is on sale at AMC Quail Springs Mall, Moore Warren')
-      account.notify_about_tickets!(account.movie_tickets_trackers)
+      account.notify_about_tickets!(account.trackers)
     end
 
   end
@@ -166,7 +166,7 @@ describe TwitterAccount do
 
     it 'confirms location with theater list if theaters found' do
       account = FactoryGirl.build(:redningja)
-      account.expects(:movie_tickets_theaters).returns([1])
+      account.expects(:theaters).returns([1])
       account.expects(:confirm_location_with_theater_list)
       account.confirm_or_deny_theaters
     end

@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe Fandango::Movie do
 
+  it_must_behave_like_movie_source
+
   it '.new_from_feed instantiates new object with Fandango gem attributes' do
     stub_fandango_feed 'movies_near_me_73142.rss'
     movie_feed = Fandango.movies_near(73142).first[:movies].first

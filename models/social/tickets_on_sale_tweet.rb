@@ -8,14 +8,12 @@ class TicketsOnSaleTweet < TweetString
 
   MOVIE_TITLE_MAX_LENGTH = 30
 
-  def initialize(trackers)
+  def initialize(movie, theaters)
     # Compose movie title + 'is on sale at '.
-    movie = trackers.first.movie_tickets_movie
     truncated_movie_title = movie.title.truncate(MOVIE_TITLE_MAX_LENGTH)
     is_on_sale_at = ' is on sale at '
     tweet = TweetString.new("#{truncated_movie_title}#{is_on_sale_at}")
     # compose list of theaters with truncated names.
-    theaters = trackers.map(&:movie_tickets_theater)
     chars_per_theater = (tweet.num_chars_left / theaters.size) - 2 # For comma and space.
     truncated_theater_names = theaters.map { |theater| theater.short_name.truncate(chars_per_theater) }.join(', ')
     # Combine.
