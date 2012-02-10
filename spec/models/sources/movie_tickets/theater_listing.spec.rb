@@ -25,25 +25,4 @@ describe MovieTickets::TheaterListing do
 
   end
 
-  describe '#find_or_create_movie_source!' do
-
-    it 'returns the existing theater source if it already exists' do
-      existing_theater_source = FactoryGirl.create(:movie_tickets_amc)
-      listing = MovieTickets::TheaterListing.new(house_id: existing_theater_source.external_id)
-      theater_source = listing.find_or_create_movie_source!
-      theater_source.must_equal existing_theater_source
-      MovieTickets::Theater.count.must_equal 1
-    end
-
-    it 'creates a new theater source for an existing theater' do
-      theater = FactoryGirl.create(:amc)
-      listing = MovieTickets::TheaterListing.new(house_id: 1, name: theater.name)
-      theater_source = listing.find_or_create_movie_source!
-      theater_source.theater.must_equal theater
-      Theater.count.must_equal 1
-      MovieTickets::Theater.count.must_equal 1
-    end
-
-  end
-
 end

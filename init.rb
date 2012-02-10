@@ -22,12 +22,6 @@ end
 
 # require models.
 Dir['./models/*.rb'].each { |f| require f }
-# require social dir.
-Dir['./models/social/*.rb'].each { |f| require f }
-# require each source.
-Dir['./models/sources/*.rb'].each { |f| require f }
-# require source dirs.
-Dir['./models/sources/*/*.rb'].each { |f| require f }
 
 # TODO: move this to config.
 require './twitter'

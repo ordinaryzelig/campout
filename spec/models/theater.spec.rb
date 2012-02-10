@@ -2,21 +2,16 @@ require 'spec_helper'
 
 describe Theater do
 
-  describe '#short_name' do
+  describe '#==' do
 
-    it 'is altered by removing common words and any trailing numbers to save character space' do
-      name = 'fancy  schmancy theater theatre theaters  cinema cinemas    cinemark 64'
-      theater = Theater.new(name: name)
-      theater.valid?
-      theater.short_name.must_equal 'fancy schmancy cinemark'
+    it 'returns true if theaters have same external_id' do
+      external_id = 'asdf'
+      a = Theater.new(external_id: external_id)
+      b = Theater.new(external_id: external_id)
+      a.must_equal b
     end
 
-    it 'is the same as name if blank' do
-      name = 'cinema 12'
-      theater = Theater.new(name: name)
-      theater.valid?
-      theater.short_name.must_equal name
-    end
+    it 'returns true if address look similar'
 
   end
 

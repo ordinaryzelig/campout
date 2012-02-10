@@ -27,7 +27,7 @@ class MovieTickets::Movie < MovieSource
         name = li.css('a strong').text
         next if name.blank?
         house_id = li.css('a').first['href'].match(/house_id=(?<id>\d+)/)[:id]
-        MovieTickets::Theater.new(
+        Theater.new(
           external_id: house_id,
         )
       end.compact

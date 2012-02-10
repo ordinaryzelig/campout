@@ -3,7 +3,7 @@ require 'spec_helper'
 describe TicketsOnSaleTweet do
 
   it '.new composes message and truncates theater short_names' do
-    theaters = 4.times.map { |i| theater = Theater.new(short_name: "#{i} Very long longer longest name") }
+    theaters = 4.times.map { |i| theater = Theater.new(name: "#{i} Very long longer longest name") }
     movie = Movie.new(title: 'Significantly long longer longest name: 3D IMAX Experience')
     tweet = TicketsOnSaleTweet.new(movie, theaters)
     tweet.valid?.must_equal true
@@ -12,7 +12,7 @@ describe TicketsOnSaleTweet do
   end
 
   it '.new should work even when there is nothing to truncate (i.e. it is not too fancy with truncation)' do
-    theater = Theater.new(short_name: "AMC")
+    theater = Theater.new(name: "AMC")
     movie = Movie.new(title: 'Elf')
     tweet = TicketsOnSaleTweet.new(movie, [theater])
     tweet.valid?.must_equal true

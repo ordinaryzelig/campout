@@ -47,4 +47,10 @@ describe TweetString do
 
   end
 
+  it '#== compares @string' do
+    a = TweetString.new('asdf')
+    b = TweetString.new('asdf')
+    a.must_equal b
+  end
+
 end

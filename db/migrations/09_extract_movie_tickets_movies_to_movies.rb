@@ -23,8 +23,6 @@ class ExtractMovieTicketsMoviesToMovies < ActiveRecord::Migration
     add_column :movie_sources, :movie_id, :integer
     # Add unique index to external_id and type
     add_index :movie_sources, [:external_id, :type], unique: true
-    # Add unique index to movie_id and type
-    add_index :movie_sources, [:movie_id, :type], unique: true
     # Set all existing movie_sources type to 'MovieTickets::Movie'
     # Assign movie_id to matching movie.
     execute <<-END

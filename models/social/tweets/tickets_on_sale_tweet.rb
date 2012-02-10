@@ -2,8 +2,6 @@
 # message that movie is on sale at theaters.
 # Use theater.short_name and truncate equally across theater names.
 
-require_relative './tweet_string'
-
 class TicketsOnSaleTweet < TweetString
 
   MOVIE_TITLE_MAX_LENGTH = 30

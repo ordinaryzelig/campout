@@ -28,4 +28,9 @@ class MiniTest::Spec
     DatabaseCleaner.clean
   end
 
+  # E.g. given 'describe Model', return Model.
+  def description
+    self.class.desc
+  end
+
 end

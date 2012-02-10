@@ -38,17 +38,4 @@ class MovieTickets::TheaterListing
 
   end
 
-  # If theater source exists, return it.
-  # If it doesn't, find the theater.
-  # If theater does not exist, create it.
-  # Create theater source.
-  # Return MovieTickets::Theater.
-  def find_or_create_movie_source!
-    theater_source_from_db = MovieTickets::Theater.find_by_external_id(house_id)
-    return theater_source_from_db if theater_source_from_db
-    theater = Theater.find_or_initialize_by_name(name)
-    theater.save! unless theater.persisted?
-    MovieTickets::Theater.create! external_id: house_id, theater: theater
-  end
-
 end

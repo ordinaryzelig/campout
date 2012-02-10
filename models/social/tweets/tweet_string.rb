@@ -26,6 +26,11 @@ class TweetString
     @string
   end
 
+  # Use to_s to compare to other objects.
+  def ==(obj)
+    to_s == obj.to_s
+  end
+
   # Number of characters left before exceeding limit.
   # If limit already exceeded, return 0.
   def num_chars_left

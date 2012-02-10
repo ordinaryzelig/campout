@@ -2,11 +2,10 @@ module Fandango
 
   class << self
 
-    # Given zipcode, fetch list of theaters near and movies selling at each.
-    # Return array of instantiated theaters.
-    def theaters_near(zipcode)
-      Fandango.movies_near(zipcode).map do |feed_hash|
-        Theater.new_from_feed(feed_hash)
+    # Use Fandango gem to find movies near zipcode, but just return instantiated Fandango::Theaters.
+    def find_theaters_near(zipcode)
+      movies_near(zipcode).map do |feed_hash|
+        Theater.new_from_feed_entry(feed_hash)
       end
     end
 

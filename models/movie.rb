@@ -4,7 +4,7 @@ class Movie < ActiveRecord::Base
 
   has_many :movie_sources
   has_many :movie_assignments
-  has_many :trackers, through: :movie_assignments
+  has_many :twitter_accounts, through: :movie_assignments
 
   validates :title,       presence: true
   validates :released_on, presence: true
@@ -26,13 +26,12 @@ class Movie < ActiveRecord::Base
   # For theaters that are selling tickets and match tracker's theater, notify account and close corresponding tracker.
   # Return accounts notified.
   def check_for_tickets
-    live_trackers = trackers.live.includes(:twitter_account, :theater).all
-    live_trackers.group_by(&:twitter_account).each_with_object([]) do |(twitter_account, trackers), accounts_notified|
+    twitter_accounts.select do |twitter_account|
       theaters_selling = find_theaters_selling_at(twitter_account.zipcode)
-      trackers_to_notify = trackers.select { |tracker| theaters_selling.include?(tracker.theater) }
-      if trackers_to_notify.any?
-        twitter_account.notify_about_tickets!(trackers_to_notify)
-        accounts_notified << twitter_account
+      theaters_tracked_down = theaters_selling - twitter_account.theaters_not_tracking_for_movie(self)
+      if theaters_tracked_down.any?
+        twitter_account.notify_about_tickets!(self, theaters_tracked_down)
+        true
       end
     end
   end

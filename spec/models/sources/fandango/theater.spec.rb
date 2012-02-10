@@ -6,15 +6,15 @@ describe Fandango::Theater do
 
     before do
       stub_fandango_feed 'movies_near_me_73142.rss'
-      feed = Fandango.movies_near(73142).first
-      theater_feed = feed[:theater]
-      theater_feed.merge!(movies: feed[:movies])
-      @theater = Fandango::Theater.new_from_feed(theater_feed)
+      feed_entry = Fandango.movies_near(73142).first
+      @theater = Fandango::Theater.new_from_feed_entry(feed_entry)
     end
 
     it 'instantiates new object with Fandango gem attributes' do
-      @theater.name.must_equal 'Northpark 7'
+      @theater.name.must_equal        'Northpark 7'
       @theater.external_id.must_equal 'aaicu'
+      @theater.address.must_equal     '12100 N. May Ave Oklahoma City, OK 73120'
+      @theater.postal_code.must_equal '73120'
       @theater.movies.size.must_equal 8
     end
 

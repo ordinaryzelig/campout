@@ -1,27 +1,20 @@
-# Scouring a theater will return array of movies showing at that theater.
+class Theater
 
-class Theater < ActiveRecord::Base
+  include RailsStyleInitialization
 
-  has_many :theater_sources
-  has_many :theater_assignments
-  has_many :twitter_accounts, through: :theater_assignments
+  attr_accessor :name
+  attr_accessor :external_id
+  attr_accessor :address
+  attr_accessor :postal_code
 
-  before_validation :create_short_name
+  def short_name
+    @short_name ||= name.to_theater_short_name
+  end
 
-  validates :name,       presence: true
-  validates :short_name, presence: true
-
-  private
-
-  # Remove extraneous 'theater', 'theatre', 'cinema' (or any plural form), and trailing numbers.
-  # I don't care how many screens you have.
-  # Got limited tweet characters here, people.
-  def create_short_name
-    self.short_name = self.name.gsub(/\b(cinema|theater|theatre)s?\b/i, ''). # remove theater, theatre
-                                sub(/\d+$/, '').  # remove trailing digits
-                                strip.            # remove extraneous white space
-                                gsub(/ \s*/, ' ') # replace multiple whitespaces with single space
-    self.short_name = name if self.short_name.blank?
+  def ==(theater)
+    return super unless theater.respond_to?(:external_id)
+    return true if external_id == theater.external_id
+    raise "how to compare theaters now?"
   end
 
 end

@@ -1,14 +1,8 @@
 class TwitterAccount < ActiveRecord::Base
 
-  has_many :theater_assignments, dependent: :destroy
-  has_many :theaters, through: :theater_assignments do
-    def closest
-      first
-    end
-  end
   has_many :movie_assignments, dependent: :destroy
   has_many :movies, through: :movie_assignments
-  has_many :trackers
+  has_many :ticket_notifications, dependent: :destroy
 
   validates :user_id, presence: true, uniqueness: true
   validates :screen_name, presence: true, uniqueness: true
@@ -50,7 +44,7 @@ class TwitterAccount < ActiveRecord::Base
     # List DMs, process each for zipcode.
     # If zipcode successfully extracted, assign to twitter account if different.
     # If zipcode cannot be processed, deny_zipcode.
-    # If zipcode extracted and assigned (and different), find and assigne theaters.
+    # If zipcode extracted
     # If theaters found, DM confirmation.
     # If no theaters found, DM no theaters found.
     # Make sure to only find/assign theaters if zipcode is different
@@ -61,12 +55,7 @@ class TwitterAccount < ActiveRecord::Base
         dm.destroy
         twitter_account = dm.twitter_account
         if zipcode
-          twitter_account.zipcode = zipcode
-          if twitter_account.zipcode_changed?
-            twitter_account.save!
-            twitter_account.find_and_assign_theaters
-            twitter_account.confirm_or_deny_theaters
-          end
+          twitter_account.process_zipcode(zipcode)
         else
           twitter_account.deny_zipcode
         end
@@ -100,33 +89,25 @@ class TwitterAccount < ActiveRecord::Base
   # DM with instructions asking for zipcode,
   # mark as prompted.
   def prompt_for_zipcode
-    dm! 'What is your zipcode? (I am a robot. Go to http://campout.heroku.com for more info.)'
+    dm! PromptForPostalCodeTweet.new
     update_attributes! prompted_for_zipcode_at: Time.now
   end
 
-  def deny_zipcode
-    dm! "Sorry. I didn't understand your zipcode (I'm a robot). Please send me a Direct Message with a valid zipcode. e.g. 12345. (US only for now)"
-  end
-
-  # Using zipcode, find or create theaters,
-  # assign them to account's theaters.
-  # Destroy old assignments no matter what.
-  def find_and_assign_theaters
-    # Out with the old, in with the new.
-    theater_assignments.clear
-    theater_listings = MovieTickets::TheaterListing.scour(self.zipcode)
-    # Get theaters from listings.
-    found_theaters = theater_listings.map!(&:find_or_create_movie_source!).map(&:theater)
-    if found_theaters.any?
-      update_attributes!(
-        theaters: found_theaters,
-      )
+  # Using zipcode, find theaters.
+  # If theaters found, send DM confirmation, else send DM denial.
+  def find_theaters_and_confirm_or_deny_location
+    theaters = TicketSources.find_theaters_near(zipcode)
+    if theaters.any?
+      confirm_location_with theater_listings
+    else
+      deny_theater_list
     end
   end
 
   # Given trackers, DM with movie and trackers' theaters.
   # Close trackers.
   def notify_about_tickets!(trackers)
+    # FIXME: move this check to TicketsOnSaleTweet.
     raise 'no trackers to notify' if trackers.empty? # Don't look stupid.
     movie = trackers.first.movie
     theaters = trackers.map(&:theater)
@@ -134,12 +115,31 @@ class TwitterAccount < ActiveRecord::Base
     trackers.each &:close
   end
 
-  def confirm_or_deny_theaters
-    if theaters.any?
-      confirm_location_with_theater_list
-    else
-      deny_theater_list
+  # Send DM with closest theater (should be first) and instructions on how to change.
+  def confirm_location_with(theater_listings)
+    dm! ConfirmTheatersTrackedTweet.new(theater_listings)
+  end
+
+  # Send DM denying any theaters near zipcode.
+  def deny_theater_list
+    dm! DenyTheatersTrackedTweet.new(zipcode)
+  end
+
+  def deny_zipcode
+    dm! DenyLocationTweet.new
+  end
+
+  # Set zipcode. if different than before, find theaters and confirm/deny location.
+  def process_zipcode(zipcode)
+    self.zipcode = zipcode
+    if zipcode_changed?
+      save!
+      find_theaters_and_confirm_or_deny_location
     end
+  end
+
+  def theaters_not_tracking_for_movie(movie)
+    ticket_notifications.for(movie).map(&:theater)
   end
 
   private
@@ -151,21 +151,6 @@ class TwitterAccount < ActiveRecord::Base
     tweet_string.validate!
     Twitter.direct_message_create(self.user_id, tweet_string.to_s)
     true
-  end
-
-  # Send DM with closest theater (should be first) and instructions on how to change.
-  def confirm_location_with_theater_list
-    message_without_theater = TweetString.new("I'm tracking #{theaters.size} theaters including %s. If this is wrong, send me a Direct Message with the correct zipcode.")
-    chars_left = message_without_theater.num_chars_left - 2 # Don't count the '%s'.
-    closest_theater_name = theaters.closest.short_name.truncate(chars_left)
-    message = message_without_theater.sub('%s', closest_theater_name)
-    dm! message
-    true
-  end
-
-  # Send DM denying any theaters near zipcode.
-  def deny_theater_list
-    dm! "Sorry. I couldn't find any theaters near #{zipcode}. Send me a Direct Message with another zipcode and I'll try again."
   end
 
 end
