@@ -1,6 +1,6 @@
 FactoryGirl.define do
 
-  factory :movie_tickets_movie_source, class: MovieTickets::Movie do
+  factory :movie_tickets_movie_source, class: MovieTickets::MovieSource do
 
     factory :movie_tickets_iron_lady do
       association :movie, factory: :iron_lady

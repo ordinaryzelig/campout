@@ -3,7 +3,7 @@ module MovieTickets
   class << self
 
     def find_theaters_near(zipcode)
-      TheaterListing.scour(zipcode)
+      TheaterSource.scour(zipcode)
     end
 
   end

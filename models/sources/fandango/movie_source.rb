@@ -1,4 +1,4 @@
-class Fandango::Movie
+class Fandango::MovieSource
 
   include RailsStyleInitialization
 

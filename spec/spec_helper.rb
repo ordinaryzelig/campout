@@ -4,6 +4,7 @@ require_relative '../init'
 require_relative '../db/connect'
 
 require 'minitest/autorun'
+require 'minitest/pride' # Color.
 # Must be required after minitest.
 require 'mocha'
 

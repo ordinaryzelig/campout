@@ -1,4 +1,4 @@
-class MovieTickets::Movie < MovieSource
+class MovieTickets::MovieSource < MovieSource
 
   include HTTParty
   base_uri 'http://www.movietickets.com/movie_detail.asp'
@@ -27,7 +27,7 @@ class MovieTickets::Movie < MovieSource
         name = li.css('a strong').text
         next if name.blank?
         house_id = li.css('a').first['href'].match(/house_id=(?<id>\d+)/)[:id]
-        Theater.new(
+        TheaterSource.new(
           external_id: house_id,
         )
       end.compact

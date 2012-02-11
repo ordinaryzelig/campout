@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe MovieTickets::Movie do
+describe MovieTickets::MovieSource do
 
   it_must_behave_like_movie_source
 
@@ -13,7 +13,7 @@ describe MovieTickets::Movie do
       Timecop.freeze(date_test_run) do
         VCR.use_cassette('movie_tickets/movies/ghost_rider') do
           release_date = Date.civil(2012, 02, 16)
-          theaters = MovieTickets::Movie.scour(
+          theaters = MovieTickets::MovieSource.scour(
             movie_source: movie_source,
             zipcode:      10001,
           )
@@ -29,7 +29,7 @@ describe MovieTickets::Movie do
       Timecop.freeze(date_test_run) do
         VCR.use_cassette('movie_tickets/movies/ghost_rider') do
           release_date = Date.civil(2012, 02, 16)
-          theaters = MovieTickets::Movie.scour(
+          theaters = MovieTickets::MovieSource.scour(
             movie_source: movie_source,
             zipcode:      10001,
           )
@@ -42,7 +42,7 @@ describe MovieTickets::Movie do
   end
 
   it '#find_theaters_selling_at uses scour to find theaters selling tickets for a movie_source' do
-    MovieTickets::Movie.expects(:scour).with(movie_source: movie_source, zipcode: 10001)
+    MovieTickets::MovieSource.expects(:scour).with(movie_source: movie_source, zipcode: 10001)
     movie_source.find_theaters_selling_at(10001)
   end
 

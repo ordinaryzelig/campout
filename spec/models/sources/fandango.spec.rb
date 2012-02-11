@@ -9,9 +9,9 @@ describe Fandango do
     theaters = Fandango.find_theaters_near(73142)
     theaters.size.must_equal 11
     theater = theaters.first
-    theater.must_be_kind_of Fandango::Theater
+    theater.must_be_kind_of Fandango::TheaterSource
     theater.movies.size.must_equal 8
-    theater.movies.first.must_be_kind_of Fandango::Movie
+    theater.movies.first.must_be_kind_of Fandango::MovieSource
   end
 
 end

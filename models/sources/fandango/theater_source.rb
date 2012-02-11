@@ -1,4 +1,4 @@
-class Fandango::Theater < Theater
+class Fandango::TheaterSource < TheaterSource
 
   attr_accessor :movies
 
@@ -6,12 +6,11 @@ class Fandango::Theater < Theater
 
     def new_from_feed_entry(atts)
       theater_atts = atts[:theater]
-      movies = atts[:movies].map { |m| Fandango::Movie.new_from_feed(m) }
+      external_id = theater_atts.delete(:external_id)
+      movies = atts[:movies].map { |m| Fandango::MovieSource.new_from_feed(m) }
       new(
-        name:        theater_atts[:name],
         external_id: theater_atts[:id],
-        address:     theater_atts[:address],
-        postal_code: theater_atts[:postal_code],
+        theater: ::Theater.new(theater_atts),
         movies:      movies,
       )
     end

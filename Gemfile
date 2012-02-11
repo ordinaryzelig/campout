@@ -23,6 +23,7 @@ group :production do
 end
 
 group :development do
+  gem 'git_remote_branch'
   gem 'growl', '1.0.3'
   gem 'guard-haml', '0.3.1'
 end

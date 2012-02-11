@@ -1,9 +1,4 @@
-class MovieTickets::TheaterListing
-
-  include RailsStyleInitialization
-
-  attr_accessor :name
-  attr_accessor :house_id
+class MovieTickets::TheaterSource < TheaterSource
 
   class << self
 
@@ -30,9 +25,11 @@ class MovieTickets::TheaterListing
     end
 
     def parse_li(li)
+      name = li.css('a').text.sub(/ - .*$/, '') # Strip city at end.
+      external_id = li.css('a').first['href'].match(/house_id=(?<id>\d+)/)[:id]
       new(
-        name:     li.css('a').text.sub(/ - .*$/, ''), # Strip city at end.
-        house_id: li.css('a').first['href'].match(/house_id=(?<id>\d+)/)[:id],
+        external_id: external_id,
+        theater: Theater.new(name: name),
       )
     end
 

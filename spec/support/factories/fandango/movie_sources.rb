@@ -1,6 +1,6 @@
 FactoryGirl.define do
 
-  factory :fandango_movie_source, class: Fandango::Movie do
+  factory :fandango_movie_source, class: Fandango::MovieSource do
 
     factory :fandango_iron_lady do
       association :movie, factory: :iron_lady

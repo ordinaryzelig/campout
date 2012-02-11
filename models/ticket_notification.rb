@@ -8,23 +8,12 @@ class TicketNotification < ActiveRecord::Base
 
   belongs_to :twitter_account
   belongs_to :movie
+  belongs_to :theater
 
   validates :twitter_account_id, presence: true
   validates :movie_id, presence: true
-  validates :theater_source_type, presence: true, inclusion: {in: TicketSources.all.map(&:name)}
-  validates :external_id, presence: true
+  validates :theater_id, presence: true, uniqueness: {scope: [:twitter_account_id, :movie_id]}
 
   scopes_for_associations
-
-  def theater_source=(theater_source)
-    self.theater_source_type = theater_source.class.type.name
-    self.external_id         = theater_source.external_id
-  end
-
-  def theater_source
-    theater_source_type.constantize::Theater.new(external_id: external_id)
-  end
-  # Not sure if we're going to differentiate between these right now.
-  alias_method :theater, :theater_source
 
 end

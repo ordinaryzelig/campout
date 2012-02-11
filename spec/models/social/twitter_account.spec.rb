@@ -110,15 +110,15 @@ describe TwitterAccount do
 
   describe '#notify_about_tickets!' do
 
-    let(:movie)    { FactoryGirl.create(:iron_lady) }
-    let(:theaters) { [:amc, :warren].map { |t| FactoryGirl.create(t) } }
-    let(:account)  { FactoryGirl.create(:redningja, movies: [movie], theaters: theaters) }
+    let(:movie)   { FactoryGirl.build(:iron_lady) }
+    let(:theater) { FactoryGirl.build(:amc) }
+    let(:account) { FactoryGirl.build(:redningja) }
 
-    it 'DMs account with list of theaters selling tickets'# do
-      #pending
-      #account.must_expect_to_send_DM('The Iron Lady is on sale at AMC Quail Springs Mall, Moore Warren')
-      #account.notify_about_tickets!(account.trackers)
-    #end
+    it 'DMs account with list of theaters selling tickets'do
+      TicketNotification.expects(:create!).with(theater: theater)
+      account.expects(:dm!)
+      account.notify_about_tickets!(movie, [theater])
+    end
 
   end
 

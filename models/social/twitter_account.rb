@@ -106,13 +106,13 @@ class TwitterAccount < ActiveRecord::Base
 
   # Given trackers, DM with movie and trackers' theaters.
   # Close trackers.
-  def notify_about_tickets!(trackers)
-    # FIXME: move this check to TicketsOnSaleTweet.
-    raise 'no trackers to notify' if trackers.empty? # Don't look stupid.
-    movie = trackers.first.movie
-    theaters = trackers.map(&:theater)
+  def notify_about_tickets!(movie, theaters)
+    TicketNotification.transaction do
+      theaters.each do |theater|
+        ticket_notifications.for(movie).create!(theater: theater)
+      end
+    end
     dm! TicketsOnSaleTweet.new(movie, theaters)
-    trackers.each &:close
   end
 
   # Send DM with closest theater (should be first) and instructions on how to change.
@@ -139,7 +139,7 @@ class TwitterAccount < ActiveRecord::Base
   end
 
   def theaters_not_tracking_for_movie(movie)
-    ticket_notifications.for(movie).map(&:theater)
+    ticket_notifications.for(movie).includes(:theater).map(&:theater)
   end
 
   private
