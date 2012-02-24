@@ -4,7 +4,7 @@ FactoryGirl.define do
 
     factory :fandango_amc do
       association :theater, factory: :amc
-      external_id 116928
+      external_id 'aaktw'
     end
 
   end

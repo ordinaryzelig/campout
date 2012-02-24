@@ -12,7 +12,7 @@ class MovieTickets::MovieSource < MovieSource
       theaters
     end
 
-    # Make request, parse, return theaters.
+    # Make request, parse, return TheaterSources.
     def scour(options)
       html = get '', query: query_options(options)
       parse html
@@ -20,14 +20,14 @@ class MovieTickets::MovieSource < MovieSource
 
     private
 
-    # Parse HTML into attributes and return Theater objects.
+    # Parse HTML into attributes and return TheaterSource objects.
     def parse(html)
       doc = Nokogiri.HTML(html)
       theaters = doc.css('#mdRow1 li').map do |li|
         name = li.css('a strong').text
         next if name.blank?
         house_id = li.css('a').first['href'].match(/house_id=(?<id>\d+)/)[:id]
-        TheaterSource.new(
+        MovieTickets::TheaterSource.new(
           external_id: house_id,
         )
       end.compact
@@ -59,10 +59,12 @@ class MovieTickets::MovieSource < MovieSource
   end
 
   def find_theaters_selling_at(zipcode)
-    self.class.scour(
+    theater_sources = self.class.scour(
       movie_source: self,
       zipcode:      zipcode,
     )
+    theater_sources.map!(&:find_or_create!)
+    theater_sources.map(&:theater)
   end
 
 end

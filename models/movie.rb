@@ -15,7 +15,7 @@ class Movie < ActiveRecord::Base
 
     # Check for tickets for unreleased movies.
     def check_for_newly_released_tickets
-      unreleased.map(&:check_for_tickets).flatten
+      unreleased.map(&:check_for_tickets).flatten.compact
     end
 
   end
@@ -27,21 +27,13 @@ class Movie < ActiveRecord::Base
   # Return accounts notified.
   def check_for_tickets
     twitter_accounts.select do |twitter_account|
-      theaters_selling = find_theaters_selling_at(twitter_account.zipcode)
+      theaters_selling = TicketSources.find_theaters_selling_at(self, twitter_account.zipcode)
       theaters_tracked_down = theaters_selling - twitter_account.theaters_not_tracking_for_movie(self)
       if theaters_tracked_down.any?
         twitter_account.notify_about_tickets!(self, theaters_tracked_down)
         true
       end
     end
-  end
-
-  # For each movie_source, find_theaters_selling_at zipcode.
-  # Return uniq list of theaters.
-  def find_theaters_selling_at(zipcode)
-    movie_sources.map do |movie_source|
-      movie_source.find_theaters_selling_at(zipcode)
-    end.flatten.uniq
   end
 
 end

@@ -12,4 +12,21 @@ describe TicketSources do
     TicketSources.find_theaters_near(zipcode)
   end
 
+  describe '.find_theaters_selling_at' do
+
+    let(:movie)   { FactoryGirl.build(:iron_lady, released_on: Date.tomorrow) }
+
+    it 'returns an array with uniq theaters' do
+      movie_sources = 2.times.map do
+        source = mock
+        source.expects(:find_theaters_selling_at).returns([1])
+        source
+      end
+      movie = mock
+      movie.expects(:movie_sources).returns(movie_sources)
+      TicketSources.find_theaters_selling_at(movie, 'zipcode').must_equal [1]
+    end
+
+  end
+
 end

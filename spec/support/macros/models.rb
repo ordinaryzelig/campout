@@ -7,6 +7,11 @@ module ModelMacros
     end
   end
 
+  # Stub Geocoder gem to return 0, 0 as coordinates.
+  def disable_geocoding
+    Geocoder.stubs(:coordinates).returns([0, 0])
+  end
+
 end
 
 MiniTest::Spec.send :include, ModelMacros

@@ -15,6 +15,12 @@ module StubbingMacros
     Feedzirra::Feed.expects(:fetch_and_parse).returns(feed)
   end
 
+  # Stub Geocoder so that it returns coordinates based on an integer counter.
+  # Distance between [0,0] and [1,1] is 97+ miles.
+  def stub_geocoder_with_counter
+    Geocoder.stubs(:coordinates).returns(*100.times.map { |i| [i, i] })
+  end
+
 end
 
 MiniTest::Spec.send :include, StubbingMacros

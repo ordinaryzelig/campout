@@ -98,7 +98,7 @@ class TwitterAccount < ActiveRecord::Base
   def find_theaters_and_confirm_or_deny_location
     theaters = TicketSources.find_theaters_near(zipcode)
     if theaters.any?
-      confirm_location_with theater_listings
+      confirm_location_with theaters
     else
       deny_theater_list
     end

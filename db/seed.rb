@@ -7,8 +7,11 @@
   {title: 'Ghost Rider 3D: Spirit of Vengeance',        movie_id: 123162, released_on: Date.civil(2012, 2, 16)},
   {title: 'The Iron Lady',                              movie_id: 116928, released_on: Date.civil(2012, 2, 01)},
 ].each do |atts|
-  MovieTicketsMovie.create!(atts)
+  movie_id = atts.delete(:movie_id)
+  movie = Movie.create!(atts)
+  MovieTickets::MovieSource.create!(movie: movie, external_id: movie_id)
 end
 
 # Create AMC theater.
-MovieTicketsTheater.create!({name: 'AMC Quail Springs Mall 24', house_id: 5902})
+theater = Theater.create!(name: 'AMC Quail Springs Mall 24', address: '2501 West Memorial Road, Oklahoma City, OK, 73134')
+MovieTickets::TheaterSource.create! theater: theater, external_id: 5902

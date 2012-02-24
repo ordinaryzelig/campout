@@ -12,7 +12,6 @@ describe MovieTickets::MovieSource do
       date_test_run = Date.civil(2012, 1, 20)
       Timecop.freeze(date_test_run) do
         VCR.use_cassette('movie_tickets/movies/ghost_rider') do
-          release_date = Date.civil(2012, 02, 16)
           theaters = MovieTickets::MovieSource.scour(
             movie_source: movie_source,
             zipcode:      10001,
@@ -28,7 +27,6 @@ describe MovieTickets::MovieSource do
       date_test_run = Date.civil(2012, 1, 20)
       Timecop.freeze(date_test_run) do
         VCR.use_cassette('movie_tickets/movies/ghost_rider') do
-          release_date = Date.civil(2012, 02, 16)
           theaters = MovieTickets::MovieSource.scour(
             movie_source: movie_source,
             zipcode:      10001,
@@ -41,9 +39,20 @@ describe MovieTickets::MovieSource do
 
   end
 
-  it '#find_theaters_selling_at uses scour to find theaters selling tickets for a movie_source' do
-    MovieTickets::MovieSource.expects(:scour).with(movie_source: movie_source, zipcode: 10001)
-    movie_source.find_theaters_selling_at(10001)
+  describe '#find_theaters_selling_at' do
+
+    it 'uses scour to find theaters selling tickets for a movie_source' do
+      MovieTickets::MovieSource.expects(:scour).with(movie_source: movie_source, zipcode: 10001).returns([])
+      movie_source.find_theaters_selling_at(10001)
+    end
+
+    it 'returns theaters' do
+      theater_source = FactoryGirl.create(:movie_tickets_amc)
+      MovieTickets::MovieSource.expects(:scour).returns([theater_source])
+      theaters = movie_source.find_theaters_selling_at(10001)
+      theaters.first.must_be_kind_of Theater
+    end
+
   end
 
 end
