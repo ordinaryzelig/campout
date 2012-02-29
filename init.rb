@@ -22,6 +22,3 @@ end
 
 # require models.
 Dir['./models/*.rb'].each { |f| require f }
-
-# TODO: move this to config.
-require './twitter'

@@ -41,4 +41,15 @@ describe MovieTickets::TheaterLocation do
 
   end
 
+  it '#parse_address parses wierd addresses' do
+    html = <<-END
+<span class="ft2">
+							Pier 54 at 13th St.<br />Pier 25 at North Moore St.<br />New York, NY&nbsp;10003<br />(212) 627-2020
+						</span>
+    END
+    doc = Nokogiri.HTML(html)
+    parsed = MovieTickets::TheaterLocation.send(:parse_address, doc)
+    parsed.must_equal 'Pier 54 at 13th St., Pier 25 at North Moore St., New York, NY 10003' # The space after 'NY' is a multi-byte char &nbsp;.
+  end
+
 end

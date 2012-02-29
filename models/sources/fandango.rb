@@ -12,6 +12,14 @@ module Fandango
       end
     end
 
+    # We're really just testing the gem here.
+    def diagnostics
+      feeds = movies_near(73132)
+      amc = feeds.detect { |feed| feed[:theater][:id] == 'aaktw' }
+      raise 'AMC Quail not found' unless amc
+      raise 'No movies at AMC Quail' unless amc[:movies].any?
+    end
+
   end
 
 end

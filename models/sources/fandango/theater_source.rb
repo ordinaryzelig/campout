@@ -37,17 +37,21 @@ class Fandango::TheaterSource < TheaterSource
   # Find theater using coordinates.
   # Create it if it doesn't exist.
   def find_or_create_theater!
-    existing = self.theater || ::Theater.find_by_coordinates(coordinates)
+    existing = self.theater || ::Theater.find_by_short_name_and_coordinates(short_name, coordinates)
     return existing if existing
     ::Theater.create! name: name, address: address, coordinates: coordinates
   end
 
   def coordinates
-    @coordinates ||= Geocoder.coordinates(address)
+    @coordinates ||= Coordinates.from_address(address)
   end
 
   def selling?(movie_source)
     movie_sources.include?(movie_source)
+  end
+
+  def short_name
+    name.to_theater_short_name
   end
 
 end

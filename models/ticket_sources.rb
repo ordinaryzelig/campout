@@ -25,5 +25,13 @@ module TicketSources
       end.flatten.uniq
     end
 
+    def diagnostics
+      all.each do |source|
+        print "#{source.name}..."
+        source.diagnostics
+        puts 'OK'
+      end
+    end
+
   end
 end

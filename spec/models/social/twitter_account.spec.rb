@@ -154,14 +154,15 @@ describe TwitterAccount do
   describe '#process_zipcode' do
 
     it 'assigns zipcode and calls #find_theaters_and_confirm_or_deny_location' do
+      disable_geocoding
       account = FactoryGirl.build(:redningja, zipcode: nil)
       account.expects(:find_theaters_and_confirm_or_deny_location)
       account.process_zipcode(73142)
     end
 
     it 'does nothing if zipcode not different' do
+      disable_geocoding
       account = FactoryGirl.create(:redningja, zipcode: 73142)
-      account.expects(:save).never
       account.expects(:find_theaters_and_confirm_or_deny_location).never
       account.process_zipcode(account.zipcode)
     end

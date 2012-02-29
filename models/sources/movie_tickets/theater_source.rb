@@ -2,7 +2,7 @@ class MovieTickets::TheaterSource < TheaterSource
 
   class << self
 
-    # Given zipcode, search site, parse, return theater listings.
+    # Given zipcode, search site, parse, return theater sources.
     def scour(zipcode)
       agent = Mechanize.new
       # Go to home page, submit search with zipcode.
@@ -14,9 +14,16 @@ class MovieTickets::TheaterSource < TheaterSource
       parse page.body
     end
 
+    # Search for theaters near 73142.
+    # Make sure it includes AMC Quail.
+    def diagnostics
+      theater_sources = MovieTickets::TheaterSource.scour(73142)
+      raise 'AMC not found' unless theater_sources.map(&:external_id).include?('5902')
+    end
+
     private
 
-    # Parse and return listing objects.
+    # Parse and return theater_source objects.
     def parse(html)
       doc = Nokogiri.HTML(html)
       ['#rw1', '#rw2'].map do |ul_id|

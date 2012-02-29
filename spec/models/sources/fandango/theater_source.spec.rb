@@ -56,10 +56,10 @@ describe Fandango::TheaterSource do
       Theater.count.must_equal 1
     end
 
-    it 'finds theater based on coordinates if it exists' do
+    it 'finds theater based on short name and coordinates if it exists' do
       theater = FactoryGirl.create(:amc)
       Geocoder.expects(:coordinates).with(theater.address).returns(theater.coordinates)
-      theater_source = Fandango::TheaterSource.new(external_id: 1, address: theater.address)
+      theater_source = Fandango::TheaterSource.new(external_id: 1, address: theater.address, name: theater.name)
       theater_source.find_or_create_theater!.must_equal theater
     end
 

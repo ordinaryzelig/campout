@@ -5,17 +5,19 @@ class MovieTickets::MovieSource < MovieSource
 
   class << self
 
-    # Check to see if theaters are parsing correctly.
-    def diagnostics(movie)
-      theaters = scour(movie: movie, zipcode: 73142)
-      raise "No theaters found for #{movie.title}" if theaters.empty?
-      theaters
-    end
-
     # Make request, parse, return TheaterSources.
     def scour(options)
       html = get '', query: query_options(options)
       parse html
+    end
+
+    # Get first movie from AMC Quail.
+    # Make sure it's selling tickets there.
+    def diagnostics
+      theater_location = MovieTickets::TheaterLocation.scour(5902, true)
+      movie_id = theater_location.first_movie_id
+      theater_sources = MovieTickets::MovieSource.scour(zipcode: 73142, date: Date.current, movie_id: movie_id)
+      raise "AMC not selling #{movie_id}" unless theater_sources.map(&:external_id).include?('5902')
     end
 
     private
@@ -43,11 +45,13 @@ class MovieTickets::MovieSource < MovieSource
         case key
         when :date
           hash[:ShowDate] = val.to_ShowDate
+        when :movie_id
+          hash[:movie_id] = val
         when :movie_source
           # Set both movie_id and ShowDate.
           movie_source = val
-          hash[:movie_id]  = movie_source.external_id
-          hash[:ShowDate]  = movie_source.released_on.to_ShowDate if movie_source.released_on
+          hash.merge! query_options(movie_id: movie_source.external_id)
+          hash.merge! query_options(date: movie_source.released_on) if movie_source.released_on
         when :zipcode
           hash[:SearchZip] = val
         else

@@ -2,14 +2,14 @@
 
 # Create some movies.
 [
-  {title: 'The Dark Knight Rises: The IMAX Experience', movie_id: 119747, released_on: Date.civil(2012, 7, 19)},
-  {title: 'The Dark Knight Rises',                      movie_id: 117274, released_on: Date.civil(2012, 7, 19)},
-  {title: 'Ghost Rider 3D: Spirit of Vengeance',        movie_id: 123162, released_on: Date.civil(2012, 2, 16)},
-  {title: 'The Iron Lady',                              movie_id: 116928, released_on: Date.civil(2012, 2, 01)},
+  {title: 'The Dark Knight Rises: The IMAX Experience', movie_tickets_movie_id: 119747, fandango_movie_id: '148958', released_on: Date.civil(2012, 7, 19)},
+  {title: 'The Dark Knight Rises',                      movie_tickets_movie_id: 117274, fandango_movie_id: '135740', released_on: Date.civil(2012, 7, 19)},
 ].each do |atts|
-  movie_id = atts.delete(:movie_id)
+  movie_tickets_movie_id = atts.delete(:movie_tickets_movie_id)
+  fandango_movie_id = atts.delete(:fandango_movie_id)
   movie = Movie.create!(atts)
-  MovieTickets::MovieSource.create!(movie: movie, external_id: movie_id)
+  MovieTickets::MovieSource.create!(movie: movie, external_id: movie_tickets_movie_id)
+  Fandango::MovieSource.create!(movie: movie, external_id: fandango_movie_id)
 end
 
 # Create AMC theater.

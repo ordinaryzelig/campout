@@ -20,6 +20,8 @@ describe Zipcode do
       Zipcode.extract_from_string('01234').must_equal '01234'
     end
 
+    it 'parses canadian postal codes'
+
   end
 
 end

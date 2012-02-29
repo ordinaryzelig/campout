@@ -4,28 +4,25 @@ class Theater < ActiveRecord::Base
 
   validates :name, presence: true
 
-  after_validation :geocode, unless: :geocoded?
+  after_validation :geocode, unless: :latitude
 
   geocoded_by :address
   include HasCoordinates
 
   class << self
 
-    # Use Geocoder to locate a theater.
-    # coordinates should be array of lat, long.
-    # Use very low radius. 0 doesn't seem to work.
-    def find_by_coordinates(coordinates)
-      near(coordinates, 0.000_000_001).first
+    # Find a theater within 10 miles and same short name.
+    # This is uesful because different ticket sources could have slightly different addresses and names.
+    def find_by_short_name_and_coordinates(short_name, coordinates)
+      near(coordinates, 10).detect do |theater|
+        theater.short_name == short_name
+      end
     end
 
   end
 
   def short_name
     @short_name ||= name.to_theater_short_name
-  end
-
-  def geocoded?
-    self.latitude.present?
   end
 
   # Set latitude and longitude.

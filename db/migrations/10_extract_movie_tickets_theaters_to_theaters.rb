@@ -8,33 +8,18 @@ class ExtractMovieTicketsTheatersToTheaters < ActiveRecord::Migration
       t.string  :country
       t.float   :latitude
       t.float   :longitude
-      t.integer :old_house_id, null: false
       t.timestamps
     end
     add_index :theaters, :country
     add_index :theaters, [:latitude, :longitude]
-    # Migrate movie_tickets_theaters data to theaters table.
-    execute <<-END
-      INSERT INTO theaters (name, old_house_id, created_at, updated_at)
-        SELECT name, house_id, created_at, updated_at
-        FROM movie_tickets_theaters
-    END
     # Rename movie_tickets_theaters to theater_sources.
     rename_table :movie_tickets_theaters, :theater_sources
+    # Empty theater_sources table.
+    execute 'DELETE from theater_sources'
     # Add theater_sources.type (STI) column.
     add_column :theater_sources, :type, :string
     # Add theater_id column to reference new theaters table.
     add_column :theater_sources, :theater_id, :integer
-    # Set all existing theater_sources type to 'MovieTickets::TheaterSource'
-    # Assign theater_id to matching theater.
-    execute <<-END
-      UPDATE theater_sources
-      SET
-        type = 'MovieTickets::TheaterSource',
-        theater_id = (SELECT theaters.id FROM theaters where theaters.old_house_id = theater_sources.house_id)
-    END
-    # Remove theaters.old_house_id columns.
-    remove_column :theaters, :old_house_id
     # Change some columns to not NULL.
     change_column :theater_sources, :type, :string, null: false
     change_column :theater_sources, :theater_id, :integer, null: false

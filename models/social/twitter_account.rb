@@ -8,9 +8,14 @@ class TwitterAccount < ActiveRecord::Base
   validates :screen_name, presence: true, uniqueness: true
   validates :followed, inclusion: {in: [true, false]}
 
+  after_validation :geocode, unless: :latitude
+
   scope :followed, proc { |bool| where(followed: bool) }
   scope :not_prompted_for_zipcode, where(prompted_for_zipcode_at: nil)
   scope :promptable_for_zipcode, followed(true).not_prompted_for_zipcode
+
+  geocoded_by :zipcode
+  include HasCoordinates
 
   class << self
 
@@ -96,11 +101,20 @@ class TwitterAccount < ActiveRecord::Base
   # Using zipcode, find theaters.
   # If theaters found, send DM confirmation, else send DM denial.
   def find_theaters_and_confirm_or_deny_location
-    theaters = TicketSources.find_theaters_near(zipcode)
-    if theaters.any?
-      confirm_location_with theaters
-    else
-      deny_theater_list
+    begin
+      TicketSources.find_theaters_near(zipcode)
+      theaters = Theater.near(coordinates, 15)
+      if theaters.any?
+        confirm_location_with theaters
+      else
+        deny_theater_list
+      end
+    rescue
+      if Campout.env.production?
+        Mailer.exception($!)
+      else
+        raise
+      end
     end
   end
 
@@ -116,8 +130,8 @@ class TwitterAccount < ActiveRecord::Base
   end
 
   # Send DM with closest theater (should be first) and instructions on how to change.
-  def confirm_location_with(theater_listings)
-    dm! ConfirmTheatersTrackedTweet.new(theater_listings)
+  def confirm_location_with(theaters)
+    dm! ConfirmTheatersTrackedTweet.new(theaters)
   end
 
   # Send DM denying any theaters near zipcode.

@@ -14,6 +14,7 @@ class Movie < ActiveRecord::Base
   class << self
 
     # Check for tickets for unreleased movies.
+    # Return accounts notified.
     def check_for_newly_released_tickets
       unreleased.map(&:check_for_tickets).flatten.compact
     end

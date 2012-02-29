@@ -25,32 +25,7 @@ end
 desc 'Check that parsing is working against all sources'
 task :diagnostics => 'db:connect' do
   mail_on_error do
-    print 'movietickets.com...'
-    movies = MovieTicketsTheater.diagnostics
-    print "found #{movies.size} movies..."
-    movie = movies.first
-    print "checking theaters for #{movie.title}..."
-    MovieTicketsMovie.diagnostics(movie)
-    puts 'OK'
-  end
-end
-
-desc 'Check for movie on specific day in zipcode'
-task :check, [:title, :zipcode] => 'db:connect' do |t, args|
-  mail_on_error do
-    title = args.title
-    zipcode = args.zipcode
-    movie = MovieTicketsMovie.find_by_title!(title)
-    theaters = movie.find_theaters_selling_at(zipcode)
-    if theaters.empty?
-      puts 'no go'
-    else
-      puts theaters.map(&:name)
-      if Campout.env.production?
-        Mailer.on_sale(movie, theaters)
-        puts 'email sent'
-      end
-    end
+    TicketSources.diagnostics
   end
 end
 
@@ -64,10 +39,10 @@ end
 desc 'check for ticket sales on all unreleased movies and live trackers'
 task 'scour' => 'db:connect' do
   mail_on_error do
-    accounts_notified = MovieTicketsMovie.check_for_newly_released_tickets
-    message = "#{accounts_notified.size} notified"
-    message += accounts_notified.map(&:zipcode).join("\n")
+    accounts_notified = Movie.check_for_newly_released_tickets
     if accounts_notified.any?
+      message = "#{accounts_notified.size} notified"
+      message += accounts_notified.map(&:zipcode).join("\n")
       Mailer.cron_progress(message)
       puts message
     end
@@ -78,11 +53,41 @@ desc 'Do some queries, get some numbers'
 task :stats => 'db:connect' do
   body = []
   body << "#{TwitterAccount.count} twitter accounts."
-  body << "#{MovieTicketsTheater.count} theaters."
-  body << "#{MovieTicketsTracker.count} trackers."
+  body << "#{Theater.count} theaters."
   body = body.join("\n")
   Mailer.stats(body)
   puts body
+end
+
+desc 'Geocode objects that need it'
+task :geocode => 'db:connect' do
+  mail_on_error do
+    Geocoder.loop_on_query_limit_exception do
+      ActiveRecord::Base.descendants.each do |model|
+        if model.geocoder_options
+          print "#{model}: "
+          to_geocode = model.not_geocoded
+          puts to_geocode.count
+          to_geocode.each(&:save!)
+        end
+      end
+    end
+  end
+end
+
+desc 'For each TwitterAccount, find or create theaters'
+task :find_or_create_theaters => 'db:connect' do
+  mail_on_error do
+    count = TwitterAccount.count
+    TwitterAccount.all.each_with_index do |account, idx|
+      next unless account.zipcode
+      puts "#{account.zipcode} (id: #{account.id}, #{idx + 1} of #{count})"
+      Geocoder.loop_on_query_limit_exception do
+        TicketSources.find_theaters_near(account.zipcode)
+      end
+      puts
+    end
+  end
 end
 
 # ====================================

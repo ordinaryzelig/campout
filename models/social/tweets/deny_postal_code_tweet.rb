@@ -4,7 +4,7 @@
 class DenyLocationTweet < TweetString
 
   def initialize
-    super "Sorry. I didn't understand your postal code (I'm a robot). Please send me a Direct Message with a valid postal code. e.g. 12345. (US only for now)"
+    super "Sorry. I didn't understand your postal code (I'm a robot). Please send me a Direct Message with a valid US postal code. e.g. 12345."
   end
 
 end

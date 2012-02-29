@@ -8,6 +8,12 @@ module MovieTickets
       end
     end
 
+    def diagnostics
+      MovieTickets::TheaterSource.diagnostics
+      MovieTickets::TheaterLocation.diagnostics
+      MovieTickets::MovieSource.diagnostics
+    end
+
   end
 
 end
