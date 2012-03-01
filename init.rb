@@ -20,5 +20,8 @@ require 'active_record'
   end
 end
 
+autoload :MovieSource, './models/movie_source'
+autoload :TheaterSource, './models/theater_source'
+
 # require models.
 Dir['./models/*.rb'].each { |f| require f }
