@@ -1,6 +1,5 @@
 ENV['RACK_ENV'] ||= 'development'
 
-require 'psych'
 require 'bundler/setup'
 Bundler.require :default, ENV['RACK_ENV']
 

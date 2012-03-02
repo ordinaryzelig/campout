@@ -1,3 +1,4 @@
+require 'psych'
 source :rubygems
 
 gem 'activerecord', '3.1.3'
