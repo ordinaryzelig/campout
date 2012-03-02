@@ -1,4 +1,3 @@
-raise RUBY_VERSION unless RUBY_VERSION == '1.9.2'
 source :rubygems
 
 gem 'activerecord', '3.1.3'
