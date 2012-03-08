@@ -1,9 +1,10 @@
 source :rubygems
 
+gem 'camping', '2.1.467'
+
 gem 'activerecord', '3.1.3'
 gem 'activesupport', '3.1.3'
 gem 'awesome_print'
-gem 'camping', '2.1.467'
 gem 'chronic', '0.6.6'
 gem 'fandango', '0.1.8'
 gem 'foreman', '0.40.0'

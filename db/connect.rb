@@ -1,3 +1,4 @@
 require './init'
-config = YAML.load(File.open('config/database.yml').read)[ENV['RACK_ENV']]
+require 'erb'
+config = YAML.load(ERB.new(File.read('config/database.yml')).result)[ENV['RACK_ENV']]
 ActiveRecord::Base.establish_connection(config)
