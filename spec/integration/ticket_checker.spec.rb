@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe 'Ticket checking workflow' do
 
+  before do
+    disable_geocoding
+  end
+
   scenario 'when user sends location' do
     it 'finds theaters nearby using all ticket sources' do
       # FIXME: This is cassette is big (almost 1MB).

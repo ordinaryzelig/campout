@@ -23,6 +23,7 @@ describe Movie do
     let(:account) { FactoryGirl.create(:redningja, zipcode: '12345', movies: [movie]) }
 
     before do
+      disable_geocoding
       account()
     end
 

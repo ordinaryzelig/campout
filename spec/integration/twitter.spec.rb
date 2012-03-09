@@ -59,7 +59,8 @@ describe 'Twitter workflow' do
     scenario 'user replies with DM with postal code, but no theaters found' do
       it 'Twitter client DMs user saying no theaters found and instructions to send another postal code' do
         VCR.use_cassette 'twitter/list_DMs_with_zipcodes_with_no_theaters' do
-          account = FactoryGirl.create(:redningja, zipcode: nil)
+          disable_geocoding
+          account = FactoryGirl.create(:redningja)
           TicketSources.expects(:find_theaters_near).returns([])
           DenyTheatersTrackedTweet.expects(:new)
           TwitterAccount.any_instance.expects(:dm!)
@@ -77,6 +78,7 @@ describe 'Twitter workflow' do
         VCR.use_cassette 'movie_tickets/movies/ghost_rider' do
           # Lots of setup.
           movie = FactoryGirl.create(:movie_tickets_ghost_rider).movie
+          disable_geocoding
           FactoryGirl.create(:redningja, movies: [movie], zipcode: 10001)
           theater_source = FactoryGirl.create(:movie_tickets_amc)
           theater = theater_source.theater
