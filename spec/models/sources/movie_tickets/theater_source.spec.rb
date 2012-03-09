@@ -19,7 +19,7 @@ describe MovieTickets::TheaterSource do
     it 'includes theaters that site does not sell tickets for' do
       VCR.use_cassette('movie_tickets/theaters/search_location_92010') do
         list = MovieTickets::TheaterSource.scour(92010)
-        list.size.must_equal 10
+        list.size.must_equal 11
         regal_oceanside = MovieTickets::TheaterSource.new(external_id: '6933')
         list.map(&:external_id).must_include regal_oceanside.external_id
       end

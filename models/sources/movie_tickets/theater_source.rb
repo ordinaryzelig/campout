@@ -26,9 +26,7 @@ class MovieTickets::TheaterSource < TheaterSource
     # Parse and return theater_source objects.
     def parse(html)
       doc = Nokogiri.HTML(html)
-      ['#rw1', '#rw2'].map do |ul_id|
-        doc.css("#{ul_id} li").map { |li| parse_li(li) }
-      end.flatten
+      doc.css("ul#tkdrow li").map { |li| parse_li(li) }
     end
 
     def parse_li(li)
