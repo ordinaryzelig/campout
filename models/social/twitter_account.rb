@@ -8,7 +8,7 @@ class TwitterAccount < ActiveRecord::Base
   validates :screen_name, presence: true, uniqueness: true
   validates :followed, inclusion: {in: [true, false]}
 
-  after_validation :geocode, unless: :latitude
+  after_validation :geocode, if: :zipcode_changed?
 
   scope :followed, proc { |bool| where(followed: bool) }
   scope :not_prompted_for_zipcode, where(prompted_for_zipcode_at: nil)
