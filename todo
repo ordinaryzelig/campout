@@ -1,7 +1,8 @@
 deployment
   twitter keys
-  sendgrid keys
   migrate
   schedule geocoder rake task
   find/create theaters near each twitter account zipcode
   convert old non-live trackers into new notifications
+
+  redirect campout to campout-cedar?

@@ -8,7 +8,9 @@ gem 'awesome_print'
 gem 'chronic', '0.6.6'
 gem 'fandango', '0.1.8'
 gem 'foreman', '0.40.0'
-gem 'geocoder', '1.1.0'
+# Waiting for newer version that includes fix for raising LimitExceeded Error.
+# https://github.com/alexreisner/geocoder/issues/187.
+gem 'geocoder', '1.1.0', path: 'vendor/gems/geocoder-1.1.0'
 gem 'haml', '3.1.4'
 gem 'httparty', '0.8.1'
 gem 'mechanize', '2.1'
