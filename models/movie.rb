@@ -9,7 +9,7 @@ class Movie < ActiveRecord::Base
   validates :title,       presence: true
   validates :released_on, presence: true
 
-  scope :unreleased, proc { where('released_on > ?', Date.today) }
+  scope :unreleased, proc { where('released_on > ?', Date.current) }
 
   class << self
 

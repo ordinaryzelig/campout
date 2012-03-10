@@ -3,14 +3,14 @@ require 'spec_helper'
 describe Movie do
 
   it '.unreleased scopes movies whose released_on is later than today' do
-    old_movie    = FactoryGirl.create(:movie, released_on: Date.yesterday, title: 'asdf')
-    today_movie  = FactoryGirl.create(:movie, released_on: Date.today,     title: 'asdf')
-    future_movie = FactoryGirl.create(:movie, released_on: Date.tomorrow,  title: 'asdf')
+    old_movie    = FactoryGirl.create(:movie, released_on: Date.current.yesterday, title: 'asdf')
+    today_movie  = FactoryGirl.create(:movie, released_on: Date.current,           title: 'asdf')
+    future_movie = FactoryGirl.create(:movie, released_on: Date.current.tomorrow,  title: 'asdf')
     Movie.unreleased.must_equal [future_movie]
   end
 
   it '.check_for_newly_released_tickets calls #check_for_tickets on each unreleased movie' do
-    movie = FactoryGirl.build(:movie, released_on: Date.tomorrow)
+    movie = FactoryGirl.build(:movie, released_on: Date.current.tomorrow)
     Movie.expects(:unreleased).returns([movie])
     Movie.any_instance.expects(:check_for_tickets)
     Movie.check_for_newly_released_tickets
@@ -18,7 +18,7 @@ describe Movie do
 
   describe '#check_for_tickets' do
 
-    let(:movie)   { FactoryGirl.create(:iron_lady, released_on: Date.tomorrow) }
+    let(:movie)   { FactoryGirl.create(:iron_lady, released_on: Date.current.tomorrow) }
     let(:theater) { Theater.new(name: 'amc') }
     let(:account) { FactoryGirl.create(:redningja, zipcode: '12345', movies: [movie]) }
 

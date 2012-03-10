@@ -5,7 +5,7 @@ describe Date do
   describe '#to_ShowDate' do
 
     it 'returns 0 for today' do
-      Date.today.to_ShowDate.must_equal 0
+      Date.current.to_ShowDate.must_equal 0
     end
 
     it 'returns 1 for tomorrow i.e. one day from now' do

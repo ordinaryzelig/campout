@@ -27,7 +27,7 @@ describe 'Ticket checking workflow' do
       VCR.use_cassette 'check_for_tickets_for_ghost_rider_near_73142' do
         stub_geocoder_with_counter
         # Setup.
-        movie = FactoryGirl.create(:ghost_rider, released_on: Date.tomorrow)
+        movie = FactoryGirl.create(:ghost_rider, released_on: Date.current.tomorrow)
         account = FactoryGirl.create(:redningja, zipcode: 73142, movies: [movie])
         FactoryGirl.create(:movie_tickets_ghost_rider, movie: movie)
         FactoryGirl.create(:fandango_ghost_rider, movie: movie)

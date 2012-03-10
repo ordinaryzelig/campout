@@ -14,7 +14,7 @@ describe TicketSources do
 
   describe '.find_theaters_selling_at' do
 
-    let(:movie)   { FactoryGirl.build(:iron_lady, released_on: Date.tomorrow) }
+    let(:movie)   { FactoryGirl.build(:iron_lady, released_on: Date.current.tomorrow) }
 
     it 'returns an array with uniq theaters' do
       movie_sources = 2.times.map do
