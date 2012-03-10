@@ -13,21 +13,36 @@ ActiveRecord::Base.extend Geocodable
 
 module Geocoder
 
-  # Keep yielding until done.
-  # If OverQueryLimitError raised, sleep for 1 second and try again.
-  def self.loop_on_query_limit_exception
-    until @done
-      begin
-        yield
-        @done = true
-      rescue Geocoder::OverQueryLimitError
-        puts 'sleeping 1 second...'
-        sleep(1)
+  LOOPS_ALLOWED = 20
+
+  class << self
+
+    # Keep yielding until done.
+    # If OverQueryLimitError raised, sleep for 1 second and try again.
+    def loop_on_query_limit_exception
+      loops = 0
+      done = false
+      until done
+        begin
+          exit_value = yield
+          done = true
+        rescue Geocoder::OverQueryLimitError
+          loops += 1
+          raise if loops > LOOPS_ALLOWED
+          pause
+        end
       end
+      exit_value
     end
-    # Reset for next call.
-    @done = false
-    true
+
+    private
+
+    def pause
+      return if Campout.env.test?
+      puts 'sleeping 1 second...'
+      sleep(1)
+    end
+
   end
 
 end
