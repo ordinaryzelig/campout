@@ -6,7 +6,7 @@ gem 'activerecord', '3.1.3'
 gem 'activesupport', '3.1.3'
 gem 'awesome_print'
 gem 'chronic', '0.6.6'
-gem 'fandango', '0.1.8'
+gem 'fandango', '0.1.9'
 gem 'foreman', '0.40.0'
 # Waiting for newer version that includes fix for raising LimitExceeded Error.
 # https://github.com/alexreisner/geocoder/issues/187.

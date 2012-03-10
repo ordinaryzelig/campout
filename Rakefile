@@ -41,7 +41,7 @@ task 'scour' => 'db:connect' do
   mail_on_error do
     accounts_notified = Movie.check_for_newly_released_tickets
     if accounts_notified.any?
-      message = "#{accounts_notified.size} notified"
+      message = "#{accounts_notified.size} notified\n"
       message += accounts_notified.map(&:zipcode).join("\n")
       Mailer.cron_progress(message)
       puts message
