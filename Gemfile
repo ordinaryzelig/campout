@@ -1,6 +1,7 @@
 source :rubygems
 
 gem 'camping', '2.1.467'
+gem 'pg'
 
 gem 'activerecord', '3.1.3'
 gem 'activesupport', '3.1.3'
@@ -21,10 +22,6 @@ gem 'scopes_for_associations', '0.1.5'
 gem 'state_machine', '1.1.1'
 gem 'tilt', '1.3.3'
 gem 'twitter', '2.0.2'
-
-group :production do
-  gem 'pg'
-end
 
 group :development do
   gem 'git_remote_branch'

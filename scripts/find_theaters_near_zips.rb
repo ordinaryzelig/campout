@@ -2,9 +2,7 @@ zips = File.open(__FILE__).read.split('__END__')[2].split.map(&:chomp)
 zips.each do |zip|
   next if zip[0] == '#'
   print "#{zip}: "
-  theaters = Geocoder.loop_on_query_limit_exception do
-    TicketSources.find_theaters_near(zip)
-  end
+  theaters = TicketSources.find_theaters_near(zip)
   puts theaters.size
   sleep(1)
 end

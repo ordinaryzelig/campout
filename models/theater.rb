@@ -12,10 +12,12 @@ class Theater < ActiveRecord::Base
   class << self
 
     # Find a theater within 10 miles and same short name.
+    # If coordinates are the same, that's ok too.
     # This is uesful because different ticket sources could have slightly different addresses and names.
     def find_by_short_name_and_coordinates(short_name, coordinates)
       near(coordinates, 10).detect do |theater|
-        theater.short_name == short_name
+        theater.coordinates == coordinates ||
+        theater.short_name.downcase == short_name.downcase
       end
     end
 
