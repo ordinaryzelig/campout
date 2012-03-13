@@ -22,11 +22,13 @@ class Fandango::MovieSource < MovieSource
   # If any theaters are selling for this movie,
   # find or create TheaterSource and return theaters,
   def find_theaters_selling_at(postal_code)
-    Fandango.movies_near(postal_code).each_with_object([]) do |feed_hash, theaters_selling|
-      theater_source = Fandango::TheaterSource.new_from_feed_entry(feed_hash)
-      if theater_source.selling?(self)
-        theater_source = theater_source.find_or_create!
-        theaters_selling << theater_source.theater
+    Fandango.loop_on_bad_response do
+      Fandango.movies_near(postal_code).each_with_object([]) do |feed_hash, theaters_selling|
+        theater_source = Fandango::TheaterSource.new_from_feed_entry(feed_hash)
+        if theater_source.selling?(self)
+          theater_source = theater_source.find_or_create!
+          theaters_selling << theater_source.theater
+        end
       end
     end
   end
