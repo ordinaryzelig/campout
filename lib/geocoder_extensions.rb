@@ -23,7 +23,7 @@ module Geocoder
         if Campout.env.test?
           0
         else
-          puts 'sleeping 1 second...'
+          puts 'sleeping #{SLEEP_SECONDS} second...'
           SLEEP_SECONDS
         end
       end
