@@ -60,6 +60,11 @@ describe Movie do
       accounts.must_equal [account]
     end
 
+    it 'only checks for TwitterAccounts that are trackable' do
+      TwitterAccount.expects(:trackable).returns([])
+      movie.check_for_tickets
+    end
+
   end
 
 end

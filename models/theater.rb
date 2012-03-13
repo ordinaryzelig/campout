@@ -1,6 +1,7 @@
 class Theater < ActiveRecord::Base
 
   has_many :theater_sources
+  has_many :ticket_notifications
 
   validates :name, presence: true
 

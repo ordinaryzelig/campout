@@ -13,6 +13,8 @@ class TwitterAccount < ActiveRecord::Base
   scope :followed, proc { |bool| where(followed: bool) }
   scope :not_prompted_for_zipcode, where(prompted_for_zipcode_at: nil)
   scope :promptable_for_zipcode, followed(true).not_prompted_for_zipcode
+  scope :with_zipcode, where('zipcode IS NOT NULL')
+  scope :trackable, followed(true).with_zipcode
 
   geocoded_by :zipcode
   include HasCoordinates
