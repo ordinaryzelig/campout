@@ -7,9 +7,9 @@ describe TicketSources do
   end
 
   it '.find_theaters_near calls .find_theaters_near on each theater source' do
-    zipcode = 1
-    TicketSources.all.each { |source| source.expects(:find_theaters_near).with(zipcode) }
-    TicketSources.find_theaters_near(zipcode)
+    postal_code = 1
+    TicketSources.all.each { |source| source.expects(:find_theaters_near).with(postal_code) }
+    TicketSources.find_theaters_near(postal_code)
   end
 
   describe '.find_theaters_selling_at' do
@@ -24,7 +24,7 @@ describe TicketSources do
       end
       movie = mock
       movie.expects(:movie_sources).returns(movie_sources)
-      TicketSources.find_theaters_selling_at(movie, 'zipcode').must_equal [1]
+      TicketSources.find_theaters_selling_at(movie, 'postal_code').must_equal [1]
     end
 
   end

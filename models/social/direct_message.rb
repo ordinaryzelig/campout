@@ -9,8 +9,8 @@ class Twitter::DirectMessage
     @twitter_account ||= TwitterAccount.find_by_user_id(sender.id)
   end
 
-  def extract_zipcode
-    Zipcode.extract_from_string(self.text)
+  def extract_postal_code
+    PostalCode.extract_from_string(self.text)
   end
 
 end

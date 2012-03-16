@@ -1,10 +1,10 @@
-# Compose a message saying no theaters were found near a given zipcode.
-# Include instructions to change zipcode.
+# Compose a message saying no theaters were found near a given postal_code.
+# Include instructions to change postal_code.
 
 class DenyTheatersTrackedTweet < TweetString
 
-  def initialize(zipcode)
-    super "Sorry. I couldn't find any theaters near #{zipcode}. Send me a Direct Message with another zipcode and I'll try again."
+  def initialize(postal_code)
+    super "Sorry. I couldn't find any theaters near #{postal_code}. Send me a Direct Message with another postal_code and I'll try again."
   end
 
 end

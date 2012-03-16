@@ -3,7 +3,7 @@
 class PromptForPostalCodeTweet < TweetString
 
   def initialize
-    super 'What is your zipcode? (I am a robot. Go to http://campout.heroku.com for more info.)'
+    super 'What is your postal_code? (I am a robot. Go to http://campout.heroku.com for more info.)'
   end
 
 end

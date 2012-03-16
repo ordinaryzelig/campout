@@ -8,15 +8,15 @@ class TwitterAccount < ActiveRecord::Base
   validates :screen_name, presence: true, uniqueness: true
   validates :followed, inclusion: {in: [true, false]}
 
-  after_validation :geocode, if: :zipcode_changed?
+  after_validation :geocode, if: :postal_code_changed?
 
   scope :followed, proc { |bool| where(followed: bool) }
-  scope :not_prompted_for_zipcode, where(prompted_for_zipcode_at: nil)
-  scope :promptable_for_zipcode, followed(true).not_prompted_for_zipcode
-  scope :with_zipcode, where('zipcode IS NOT NULL')
-  scope :trackable, followed(true).with_zipcode
+  scope :not_promted_for_postal_code, where(prompted_for_postal_code_at: nil)
+  scope :promptable_for_postal_code, followed(true).not_promted_for_postal_code
+  scope :with_postal_code, where('postal_code IS NOT NULL')
+  scope :trackable, followed(true).with_postal_code
 
-  geocoded_by :zipcode
+  geocoded_by :postal_code
   include HasCoordinates
 
   class << self
@@ -44,27 +44,27 @@ class TwitterAccount < ActiveRecord::Base
     end
 
     # Prompt each twitter account that we are following that has not yet been prompted.
-    def prompt_for_zipcodes
-      promptable_for_zipcode.each &:prompt_for_zipcode
+    def prompt_for_postal_codes
+      promptable_for_postal_code.each &:prompt_for_postal_code
     end
 
-    # List DMs, process each for zipcode.
-    # If zipcode successfully extracted, assign to twitter account if different.
-    # If zipcode cannot be processed, deny_zipcode.
-    # If zipcode extracted
+    # List DMs, process each for postal_code.
+    # If postal_code successfully extracted, assign to twitter account if different.
+    # If postal_code cannot be processed, deny_postal_code.
+    # If postal_code extracted
     # If theaters found, DM confirmation.
     # If no theaters found, DM no theaters found.
-    # Make sure to only find/assign theaters if zipcode is different
+    # Make sure to only find/assign theaters if postal_code is different
     # so we don't sound like a broken record.
-    def process_DMs_for_zipcodes
+    def process_DMs_for_postal_codes
       Twitter.direct_messages.each do |dm|
-        zipcode = dm.extract_zipcode
+        postal_code = dm.extract_postal_code
         dm.destroy
         twitter_account = dm.twitter_account
-        if zipcode
-          twitter_account.process_zipcode(zipcode)
+        if postal_code
+          twitter_account.process_postal_code(postal_code)
         else
-          twitter_account.deny_zipcode
+          twitter_account.deny_postal_code
         end
       end
     end
@@ -93,18 +93,18 @@ class TwitterAccount < ActiveRecord::Base
 
   end
 
-  # DM with instructions asking for zipcode,
+  # DM with instructions asking for postal_code,
   # mark as prompted.
-  def prompt_for_zipcode
+  def prompt_for_postal_code
     dm! PromptForPostalCodeTweet.new
-    update_attributes! prompted_for_zipcode_at: Time.now
+    update_attributes! prompted_for_postal_code_at: Time.now
   end
 
-  # Using zipcode, find theaters.
+  # Using postal_code, find theaters.
   # If theaters found, send DM confirmation, else send DM denial.
   def find_theaters_and_confirm_or_deny_location
     begin
-      TicketSources.find_theaters_near(zipcode)
+      TicketSources.find_theaters_near(postal_code)
       theaters = Theater.near(coordinates, 15)
       if theaters.any?
         confirm_location_with theaters
@@ -136,19 +136,19 @@ class TwitterAccount < ActiveRecord::Base
     dm! ConfirmTheatersTrackedTweet.new(theaters)
   end
 
-  # Send DM denying any theaters near zipcode.
+  # Send DM denying any theaters near postal_code.
   def deny_theater_list
-    dm! DenyTheatersTrackedTweet.new(zipcode)
+    dm! DenyTheatersTrackedTweet.new(postal_code)
   end
 
-  def deny_zipcode
-    dm! DenyLocationTweet.new
+  def deny_postal_code
+    dm! InvalidatePostalCodeTweet.new
   end
 
-  # Set zipcode. if different than before, find theaters and confirm/deny location.
-  def process_zipcode(zipcode)
-    self.zipcode = zipcode
-    if zipcode_changed?
+  # Set postal_code. if different than before, find theaters and confirm/deny location.
+  def process_postal_code(postal_code)
+    self.postal_code = postal_code
+    if postal_code_changed?
       save!
       find_theaters_and_confirm_or_deny_location
     end

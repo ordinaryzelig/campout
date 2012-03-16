@@ -6,7 +6,7 @@ describe MovieTickets::TheaterSource do
 
   describe '.scour' do
 
-    it 'searches site for location, determines zipcode, and parses and creates theaters' do
+    it 'searches site for location, determines postal_code, and parses and creates theaters' do
       VCR.use_cassette('movie_tickets/theaters/search_location_73142') do
         list = MovieTickets::TheaterSource.scour(73142)
         list.size.must_equal 12

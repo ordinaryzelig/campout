@@ -24,12 +24,12 @@ class Movie < ActiveRecord::Base
 
   # Gather all live trackers.
   # Group them by twitter account.
-  # For each twitter account, find theaters selling ticktes for this movie at twitter account's zipcode.
+  # For each twitter account, find theaters selling ticktes for this movie at twitter account's postal_code.
   # For theaters that are selling tickets and match tracker's theater, notify account and close corresponding tracker.
   # Return accounts notified.
   def check_for_tickets
     twitter_accounts.trackable.select do |twitter_account|
-      theaters_selling = TicketSources.find_theaters_selling_at(self, twitter_account.zipcode)
+      theaters_selling = TicketSources.find_theaters_selling_at(self, twitter_account.postal_code)
       theaters_tracked_down = theaters_selling - twitter_account.theaters_not_tracking_for_movie(self)
       if theaters_tracked_down.any?
         twitter_account.notify_about_tickets!(self, theaters_tracked_down)

@@ -14,7 +14,7 @@ describe MovieTickets::MovieSource do
         VCR.use_cassette('movie_tickets/movies/ghost_rider') do
           theaters = MovieTickets::MovieSource.scour(
             movie_source: movie_source,
-            zipcode:      10001,
+            postal_code:      10001,
           )
           theaters.size.must_equal 3
           theater = theaters.first
@@ -29,7 +29,7 @@ describe MovieTickets::MovieSource do
         VCR.use_cassette('movie_tickets/movies/ghost_rider') do
           theaters = MovieTickets::MovieSource.scour(
             movie_source: movie_source,
-            zipcode:      10001,
+            postal_code:      10001,
           )
           amc_loews = '134'
           theaters.map(&:external_id).must_include amc_loews
@@ -42,7 +42,7 @@ describe MovieTickets::MovieSource do
   describe '#find_theaters_selling_at' do
 
     it 'uses scour to find theaters selling tickets for a movie_source' do
-      MovieTickets::MovieSource.expects(:scour).with(movie_source: movie_source, zipcode: 10001).returns([])
+      MovieTickets::MovieSource.expects(:scour).with(movie_source: movie_source, postal_code: 10001).returns([])
       movie_source.find_theaters_selling_at(10001)
     end
 

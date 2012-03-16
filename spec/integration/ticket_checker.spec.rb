@@ -13,7 +13,7 @@ describe 'Ticket checking workflow' do
         stub_geocoder_with_counter
         account = FactoryGirl.build(:redningja)
         account.expects(:dm!)
-        account.process_zipcode(73142)
+        account.process_postal_code(73142)
         Theater.count.must_equal 23
         Fandango::TheaterSource.count.must_equal 11
         MovieTickets::TheaterSource.count.must_equal 12
@@ -28,7 +28,7 @@ describe 'Ticket checking workflow' do
         stub_geocoder_with_counter
         # Setup.
         movie = FactoryGirl.create(:ghost_rider, released_on: Date.current.tomorrow)
-        account = FactoryGirl.create(:redningja, zipcode: 73142, movies: [movie])
+        account = FactoryGirl.create(:redningja, postal_code: 73142, movies: [movie])
         FactoryGirl.create(:movie_tickets_ghost_rider, movie: movie)
         FactoryGirl.create(:fandango_ghost_rider, movie: movie)
         TwitterAccount.any_instance.expects(:dm!)

@@ -44,43 +44,43 @@ describe TwitterAccount do
 
   end
 
-  it '.promptable_for_zipcode scopes for TwitterAccounts that have not beem prompted for zipcode' do
-    account = FactoryGirl.create(:redningja, followed: true, prompted_for_zipcode_at: nil)
-    TwitterAccount.promptable_for_zipcode.count.must_equal 1
-    account.update_attribute :prompted_for_zipcode_at, Time.now
-    TwitterAccount.promptable_for_zipcode.count.must_equal 0
+  it '.promptable_for_postal_code scopes for TwitterAccounts that have not beem prompted for postal_code' do
+    account = FactoryGirl.create(:redningja, followed: true, prompted_for_postal_code_at: nil)
+    TwitterAccount.promptable_for_postal_code.count.must_equal 1
+    account.update_attribute :prompted_for_postal_code_at, Time.now
+    TwitterAccount.promptable_for_postal_code.count.must_equal 0
   end
 
-  describe '.prompt_for_zipcodes' do
+  describe '.prompt_for_postal_codes' do
 
-    it 'sends DMs to users who have not yet been prompted for their zipcode and marks them as prompted' do
-      FactoryGirl.create(:redningja, followed: true, prompted_for_zipcode_at: nil)
-      TwitterAccount.any_instance.expects(:prompt_for_zipcode)
-      TwitterAccount.prompt_for_zipcodes
+    it 'sends DMs to users who have not yet been prompted for their postal_code and marks them as prompted' do
+      FactoryGirl.create(:redningja, followed: true, prompted_for_postal_code_at: nil)
+      TwitterAccount.any_instance.expects(:prompt_for_postal_code)
+      TwitterAccount.prompt_for_postal_codes
     end
 
     it 'returns accounts prompted' do
       account = FactoryGirl.build(:redningja)
-      TwitterAccount.expects(:promptable_for_zipcode).returns([account])
-      account.expects(:prompt_for_zipcode)
-      accounts = TwitterAccount.prompt_for_zipcodes
+      TwitterAccount.expects(:promptable_for_postal_code).returns([account])
+      account.expects(:prompt_for_postal_code)
+      accounts = TwitterAccount.prompt_for_postal_codes
       accounts.must_equal [account]
     end
 
   end
 
-  it '#prompt_for_zipcode DMs account asking for zipcode and updates account prompted_for_zipcode_at' do
+  it '#prompt_for_postal_code DMs account asking for postal_code and updates account prompted_for_postal_code_at' do
     Timecop.freeze do
-      account = FactoryGirl.create(:redningja, prompted_for_zipcode_at: nil)
+      account = FactoryGirl.create(:redningja, prompted_for_postal_code_at: nil)
       PromptForPostalCodeTweet.expects(:new)
       account.expects(:dm!)
-      account.prompt_for_zipcode
-      account.reload.prompted_for_zipcode_at.must_equal Time.now
+      account.prompt_for_postal_code
+      account.reload.prompted_for_postal_code_at.must_equal Time.now
     end
   end
 
   it '#find_theaters_and_confirm_or_deny_location searches for theaters from each ticket source' do
-      account = FactoryGirl.build('redningja', zipcode: 73142)
+      account = FactoryGirl.build('redningja', postal_code: 73142)
       TicketSources.expects(:find_theaters_near).returns([])
       account.expects(:dm!)
       account.find_theaters_and_confirm_or_deny_location
@@ -95,17 +95,17 @@ describe TwitterAccount do
   end
 
   it '#deny_theater_list sends DM with message that no theaters were found' do
-    account = FactoryGirl.build(:redningja, zipcode: 10000)
-    DenyTheatersTrackedTweet.expects(:new).with(account.zipcode)
+    account = FactoryGirl.build(:redningja, postal_code: 10000)
+    DenyTheatersTrackedTweet.expects(:new).with(account.postal_code)
     account.expects(:dm!)
     account.deny_theater_list
   end
 
-  it '#deny_zipcode sends DM asking for valid zipcode' do
-    account = FactoryGirl.build(:redningja, zipcode: '1')
-    DenyLocationTweet.expects(:new)
+  it '#deny_postal_code sends DM asking for valid postal_code' do
+    account = FactoryGirl.build(:redningja, postal_code: '1')
+    InvalidatePostalCodeTweet.expects(:new)
     account.expects(:dm!)
-    account.deny_zipcode
+    account.deny_postal_code
   end
 
   describe '#notify_about_tickets!' do
@@ -130,41 +130,41 @@ describe TwitterAccount do
     account.send :dm!, message
   end
 
-  describe '.process_DMs_for_zipcodes' do
+  describe '.process_DMs_for_postal_codes' do
 
-    before { FactoryGirl.create(:redningja, zipcode: nil) }
+    before { FactoryGirl.create(:redningja, postal_code: nil) }
 
-    it 'extracts zipcode from DM, deletes DM, and processes zipcodes' do
-      VCR.use_cassette('twitter/list_DMs_with_redningja_zipcode') do
-        TwitterAccount.any_instance.expects(:process_zipcode)
+    it 'extracts postal_code from DM, deletes DM, and processes postal_codes' do
+      VCR.use_cassette('twitter/list_DMs_with_redningja_postal_code') do
+        TwitterAccount.any_instance.expects(:process_postal_code)
         Twitter::DirectMessage.any_instance.expects(:destroy)
-        TwitterAccount.process_DMs_for_zipcodes
+        TwitterAccount.process_DMs_for_postal_codes
       end
     end
 
-    it 'sends DM denying zipcode if zipcode cannot be extracted' do
-      VCR.use_cassette('twitter/list_DMs_with_bad_zipcodes') do
-        TwitterAccount.any_instance.expects(:deny_zipcode)
-        TwitterAccount.process_DMs_for_zipcodes
+    it 'sends DM denying postal_code if postal_code cannot be extracted' do
+      VCR.use_cassette('twitter/list_DMs_with_bad_postal_codes') do
+        TwitterAccount.any_instance.expects(:deny_postal_code)
+        TwitterAccount.process_DMs_for_postal_codes
       end
     end
 
   end
 
-  describe '#process_zipcode' do
+  describe '#process_postal_code' do
 
-    it 'assigns zipcode and calls #find_theaters_and_confirm_or_deny_location' do
+    it 'assigns postal_code and calls #find_theaters_and_confirm_or_deny_location' do
       disable_geocoding
-      account = FactoryGirl.build(:redningja, zipcode: nil)
+      account = FactoryGirl.build(:redningja, postal_code: nil)
       account.expects(:find_theaters_and_confirm_or_deny_location)
-      account.process_zipcode(73142)
+      account.process_postal_code(73142)
     end
 
-    it 'does nothing if zipcode not different' do
+    it 'does nothing if postal_code not different' do
       disable_geocoding
-      account = FactoryGirl.create(:redningja, zipcode: 73142)
+      account = FactoryGirl.create(:redningja, postal_code: 73142)
       account.expects(:find_theaters_and_confirm_or_deny_location).never
-      account.process_zipcode(account.zipcode)
+      account.process_postal_code(account.postal_code)
     end
 
   end

@@ -16,7 +16,7 @@ class MovieTickets::MovieSource < MovieSource
     def diagnostics
       theater_location = MovieTickets::TheaterLocation.scour(5902, true)
       movie_id = theater_location.first_movie_id
-      theater_sources = MovieTickets::MovieSource.scour(zipcode: 73142, date: Date.current, movie_id: movie_id)
+      theater_sources = MovieTickets::MovieSource.scour(postal_code: 73142, date: Date.current, movie_id: movie_id)
       raise "AMC not selling #{movie_id}" unless theater_sources.map(&:external_id).include?('5902')
     end
 
@@ -38,7 +38,7 @@ class MovieTickets::MovieSource < MovieSource
 
     # Construct options to use in HTTParty request query (i.e.g the ? part).
     # Options:
-    #   zipcode
+    #   postal_code
     #   movie_source: Converts to movie_id usin external_id and ShowDate using movie.released_on.
     def query_options(options)
       options.each_with_object({}) do |(key, val), hash|
@@ -52,7 +52,7 @@ class MovieTickets::MovieSource < MovieSource
           movie_source = val
           hash.merge! query_options(movie_id: movie_source.external_id)
           hash.merge! query_options(date: movie_source.released_on) if movie_source.released_on
-        when :zipcode
+        when :postal_code
           hash[:SearchZip] = val
         else
           raise "unknown option: #{key}"
@@ -62,10 +62,10 @@ class MovieTickets::MovieSource < MovieSource
 
   end
 
-  def find_theaters_selling_at(zipcode)
+  def find_theaters_selling_at(postal_code)
     theater_sources = self.class.scour(
       movie_source: self,
-      zipcode:      zipcode,
+      postal_code:      postal_code,
     )
     theater_sources.map!(&:find_or_create!)
     theater_sources.map(&:theater)

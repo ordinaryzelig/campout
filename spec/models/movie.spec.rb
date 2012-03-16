@@ -20,15 +20,15 @@ describe Movie do
 
     let(:movie)   { FactoryGirl.create(:iron_lady, released_on: Date.current.tomorrow) }
     let(:theater) { Theater.new(name: 'amc') }
-    let(:account) { FactoryGirl.create(:redningja, zipcode: '12345', movies: [movie]) }
+    let(:account) { FactoryGirl.create(:redningja, postal_code: '12345', movies: [movie]) }
 
     before do
       disable_geocoding
       account()
     end
 
-    it 'calls TicketSources.find_theaters_selling_at on each movie_source with account zipcode' do
-      TicketSources.expects(:find_theaters_selling_at).with(movie, account.zipcode).returns([])
+    it 'calls TicketSources.find_theaters_selling_at on each movie_source with account postal_code' do
+      TicketSources.expects(:find_theaters_selling_at).with(movie, account.postal_code).returns([])
       movie.check_for_tickets
     end
 

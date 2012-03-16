@@ -25,9 +25,9 @@ describe 'Twitter workflow' do
     it '@TDKRcampout asks for postal code' do
       VCR.use_cassette('twitter/DM_redningja_prompting_for_postal_code') do
         Timecop.freeze(Time.now) do
-          account = FactoryGirl.create(:redningja, followed: true, prompted_for_zipcode_at: nil)
-          TwitterAccount.prompt_for_zipcodes
-          account.reload.prompted_for_zipcode_at.must_equal Time.now
+          account = FactoryGirl.create(:redningja, followed: true, prompted_for_postal_code_at: nil)
+          TwitterAccount.prompt_for_postal_codes
+          account.reload.prompted_for_postal_code_at.must_equal Time.now
         end
       end
     end
@@ -37,34 +37,34 @@ describe 'Twitter workflow' do
 
     scenario 'user replies with DM with valid postal code' do
       it 'Twitter client processes DMs with postal codes, assigns postal code to user, DMs user with list of theaters that will be tracked, and deletes DM' do
-        VCR.use_cassette 'twitter/list_DMs_with_redningja_zipcode' do
-          account = FactoryGirl.create(:redningja, zipcode: nil)
-          TwitterAccount.any_instance.expects(:process_zipcode)
-          TwitterAccount.process_DMs_for_zipcodes
+        VCR.use_cassette 'twitter/list_DMs_with_redningja_postal_code' do
+          account = FactoryGirl.create(:redningja, postal_code: nil)
+          TwitterAccount.any_instance.expects(:process_postal_code)
+          TwitterAccount.process_DMs_for_postal_codes
         end
       end
     end
 
     scenario 'user replies with DM with invalid postal code' do
       it 'Twitter client DMs user saying postal code not recognized' do
-        VCR.use_cassette 'twitter/list_DMs_with_bad_zipcodes' do
-          account = FactoryGirl.create(:redningja, zipcode: nil)
-          DenyLocationTweet.expects(:new)
+        VCR.use_cassette 'twitter/list_DMs_with_bad_postal_codes' do
+          account = FactoryGirl.create(:redningja, postal_code: nil)
+          InvalidatePostalCodeTweet.expects(:new)
           TwitterAccount.any_instance.expects(:dm!)
-          TwitterAccount.process_DMs_for_zipcodes
+          TwitterAccount.process_DMs_for_postal_codes
         end
       end
     end
 
     scenario 'user replies with DM with postal code, but no theaters found' do
       it 'Twitter client DMs user saying no theaters found and instructions to send another postal code' do
-        VCR.use_cassette 'twitter/list_DMs_with_zipcodes_with_no_theaters' do
+        VCR.use_cassette 'twitter/list_DMs_with_postal_codes_with_no_theaters' do
           disable_geocoding
           account = FactoryGirl.create(:redningja)
           TicketSources.expects(:find_theaters_near).returns([])
           DenyTheatersTrackedTweet.expects(:new)
           TwitterAccount.any_instance.expects(:dm!)
-          TwitterAccount.process_DMs_for_zipcodes
+          TwitterAccount.process_DMs_for_postal_codes
         end
       end
     end
@@ -79,7 +79,7 @@ describe 'Twitter workflow' do
           # Lots of setup.
           movie = FactoryGirl.create(:movie_tickets_ghost_rider).movie
           disable_geocoding
-          FactoryGirl.create(:redningja, movies: [movie], zipcode: 10001)
+          FactoryGirl.create(:redningja, movies: [movie], postal_code: 10001)
           theater_source = FactoryGirl.create(:movie_tickets_amc)
           theater = theater_source.theater
           TicketSources.expects(:find_theaters_selling_at).returns([theater])

@@ -2,8 +2,8 @@ module MovieTickets
 
   class << self
 
-    def find_theaters_near(zipcode)
-      TheaterSource.scour(zipcode).map do |theater_source|
+    def find_theaters_near(postal_code)
+      TheaterSource.scour(postal_code).map do |theater_source|
         Geocoder.loop_on_query_limit_exception do
           theater_source.find_or_create!.theater
         end

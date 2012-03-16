@@ -2,13 +2,13 @@ class MovieTickets::TheaterSource < TheaterSource
 
   class << self
 
-    # Given zipcode, search site, parse, return theater sources.
-    def scour(zipcode)
+    # Given postal_code, search site, parse, return theater sources.
+    def scour(postal_code)
       agent = Mechanize.new
-      # Go to home page, submit search with zipcode.
+      # Go to home page, submit search with postal_code.
       home_page = agent.get 'http://www.movietickets.com'
       form = home_page.forms_with(action: 'http://www.movietickets.com/_search.asp').first
-      form.Szip = zipcode
+      form.Szip = postal_code
       page = form.submit
       # Parse result.
       parse page.body

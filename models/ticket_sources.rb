@@ -13,15 +13,15 @@ module TicketSources
       ]
     end
 
-    def find_theaters_near(zipcode)
-      all.map { |source| source.find_theaters_near(zipcode) }.flatten.uniq
+    def find_theaters_near(postal_code)
+      all.map { |source| source.find_theaters_near(postal_code) }.flatten.uniq
     end
 
-    # For each movie_source, find_theaters_selling_at zipcode.
+    # For each movie_source, find_theaters_selling_at postal_code.
     # Return uniq list of theaters.
-    def find_theaters_selling_at(movie, zipcode)
+    def find_theaters_selling_at(movie, postal_code)
       movie.movie_sources.map do |movie_source|
-        movie_source.find_theaters_selling_at(zipcode)
+        movie_source.find_theaters_selling_at(postal_code)
       end.flatten.uniq
     end
 
