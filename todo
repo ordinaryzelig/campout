@@ -8,3 +8,5 @@ Websites
     myvue.com
 
 check timezone diffs. could affect to_ShowDate when scouring, and with UK.
+
+in case we reach DM limit, create TicketNotification queue. close when successfully DMed.

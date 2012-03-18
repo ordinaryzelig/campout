@@ -40,6 +40,7 @@ describe 'Twitter workflow' do
         VCR.use_cassette 'twitter/list_DMs_with_redningja_postal_code' do
           account = FactoryGirl.create(:redningja, postal_code: nil)
           TwitterAccount.any_instance.expects(:process_postal_code)
+          Twitter::DirectMessage.any_instance.expects(:destroy)
           TwitterAccount.process_DMs_for_postal_codes
         end
       end

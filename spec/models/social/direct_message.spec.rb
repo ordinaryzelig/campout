@@ -18,4 +18,12 @@ describe Twitter::DirectMessage do
     end
   end
 
+  it 'validates postal code' do
+    VCR.use_cassette('twitter/list_DMs_with_bad_postal_codes') do
+      dm = Twitter.direct_messages.first
+      PostalCodeTweet.any_instance.expects(:valid?).returns(false)
+      dm.extract_postal_code.must_equal nil
+    end
+  end
+
 end

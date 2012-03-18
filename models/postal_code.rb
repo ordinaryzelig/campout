@@ -1,12 +1,18 @@
-module PostalCode
+class PostalCode
 
-  class << self
+  def initialize(obj)
+    @string = obj.to_s
+  end
 
-    # Just find 5 consecutive digits and return as integer.
-    def extract_from_string(string)
-      match_data = string.match(/(?<postal_code>\d{5})/)
-      match_data and match_data[:postal_code]
-    end
+  # Non-white space should contain either all numbers (US) or
+  # combination of letters and numbers (Canada, UK).
+  # These are not official regular expressions.
+  def valid?
+    !!(@string =~ /\d{5}|[a-z]+.*\d+/i)
+  end
+
+  def to_s
+    @string
   end
 
 end

@@ -145,6 +145,7 @@ describe TwitterAccount do
     it 'sends DM denying postal_code if postal_code cannot be extracted' do
       VCR.use_cassette('twitter/list_DMs_with_bad_postal_codes') do
         TwitterAccount.any_instance.expects(:deny_postal_code)
+        TwitterAccount.any_instance.expects(:process_postal_code).never
         TwitterAccount.process_DMs_for_postal_codes
       end
     end

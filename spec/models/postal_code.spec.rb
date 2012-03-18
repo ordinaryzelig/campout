@@ -2,25 +2,23 @@ require 'spec_helper'
 
 describe PostalCode do
 
-  describe '.extract_from_string' do
+  describe '#valid?' do
 
-    it 'extracts postal_code from string' do
-      PostalCode.extract_from_string('73142').must_equal '73142'
+    it 'returns true for a US zipcode' do
+      '73142'.must_be_valid_postal_code
     end
 
-    it 'extracts postal_code even with cruft' do
-      PostalCode.extract_from_string('asdf 73142 fdsa').must_equal '73142'
+    it 'returns true for a Canadian postal code' do
+      'k1a 0b1'.must_be_valid_postal_code
     end
 
-    it 'returns nil if not able to extract' do
-      PostalCode.extract_from_string('asdf').must_be_nil
+    it 'returns true for a UK postal code' do
+      'M1 1AA'.must_be_valid_postal_code
     end
 
-    it 'keeps leading 0s' do
-      PostalCode.extract_from_string('01234').must_equal '01234'
+    it 'returns false for string with no numbers' do
+      'password'.wont_be_valid_postal_code
     end
-
-    it 'parses canadian postal codes'
 
   end
 

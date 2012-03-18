@@ -1,16 +1,15 @@
 # String wrapper that limits length to 140 characters.
-
 class TweetString
 
-  CHARACTER_LIMIT = 140
+  attr_reader :character_limit
 
-  def initialize(string)
+  def initialize(string, options = {})
     @string = string.to_s
-    self
+    @character_limit = options[:character_limit] || 140
   end
 
   def valid?
-    num_chars_left >= 0
+    within_character_limit?
   end
 
   # If not valid?, raise exception.
@@ -34,7 +33,11 @@ class TweetString
   # Number of characters left before exceeding limit.
   # If limit already exceeded, return 0.
   def num_chars_left
-    CHARACTER_LIMIT - length
+    @character_limit - length
+  end
+
+  def within_character_limit?
+    num_chars_left >= 0
   end
 
   # Delegate missing methods to @string.
@@ -44,7 +47,7 @@ class TweetString
 
   class LimitExceeded < StandardError
     def initialize(string)
-      message = "#{CHARACTER_LIMIT} character limit exceeded: #{string.length} - '#{string}'"
+      message = "#{@character_limit} character limit exceeded: #{string.length} - '#{string}'"
       super message
     end
   end

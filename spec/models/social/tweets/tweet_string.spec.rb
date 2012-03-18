@@ -3,7 +3,7 @@ require 'spec_helper'
 describe TweetString do
 
   let(:tweet_string)         { TweetString.new('foo') }
-  let(:invalid_tweet_string) { TweetString.new('f' * (TweetString::CHARACTER_LIMIT + 1)) }
+  let(:invalid_tweet_string) { TweetString.new('f' * 141) }
 
   describe '#valid?' do
 
