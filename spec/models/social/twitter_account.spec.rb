@@ -175,4 +175,13 @@ describe TwitterAccount do
     account.theaters_not_tracking_for_movie(ticket_notification.movie).must_equal [ticket_notification.theater]
   end
 
+  it '#geocode_with_country_code assigns coordinates and country' do
+    VCR.use_cassette 'geocoder/73142' do
+      account = FactoryGirl.build(:redningja, postal_code: 73142, country_code: nil, latitude: nil, longitude: nil)
+      account.geocode_with_country_code
+      account.coordinates.must_equal [35.6131551, -97.6385368]
+      account.country_code.must_equal 'US'
+    end
+  end
+
 end

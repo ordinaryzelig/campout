@@ -1,0 +1,51 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://maps.googleapis.com:80/maps/api/geocode/json?address=73142&language=en&sensor=false
+    body: !!null 
+    headers:
+      accept-encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/json; charset=UTF-8
+      date:
+      - Sun, 18 Mar 2012 19:09:27 GMT
+      expires:
+      - Mon, 19 Mar 2012 19:09:27 GMT
+      cache-control:
+      - public, max-age=86400
+      server:
+      - mafe
+      x-xss-protection:
+      - 1; mode=block
+      x-frame-options:
+      - SAMEORIGIN
+    body: ! "{\n   \"results\" : [\n      {\n         \"address_components\" : [\n
+      \           {\n               \"long_name\" : \"73142\",\n               \"short_name\"
+      : \"73142\",\n               \"types\" : [ \"postal_code\" ]\n            },\n
+      \           {\n               \"long_name\" : \"Oklahoma City\",\n               \"short_name\"
+      : \"Oklahoma City\",\n               \"types\" : [ \"locality\", \"political\"
+      ]\n            },\n            {\n               \"long_name\" : \"Oklahoma\",\n
+      \              \"short_name\" : \"OK\",\n               \"types\" : [ \"administrative_area_level_1\",
+      \"political\" ]\n            },\n            {\n               \"long_name\"
+      : \"United States\",\n               \"short_name\" : \"US\",\n               \"types\"
+      : [ \"country\", \"political\" ]\n            }\n         ],\n         \"formatted_address\"
+      : \"Oklahoma City, OK 73142, USA\",\n         \"geometry\" : {\n            \"bounds\"
+      : {\n               \"northeast\" : {\n                  \"lat\" : 35.6397830,\n
+      \                 \"lng\" : -97.59998490\n               },\n               \"southwest\"
+      : {\n                  \"lat\" : 35.5899320,\n                  \"lng\" : -97.67468090000001\n
+      \              }\n            },\n            \"location\" : {\n               \"lat\"
+      : 35.61315510,\n               \"lng\" : -97.63853680\n            },\n            \"location_type\"
+      : \"APPROXIMATE\",\n            \"viewport\" : {\n               \"northeast\"
+      : {\n                  \"lat\" : 35.6397830,\n                  \"lng\" : -97.59998490\n
+      \              },\n               \"southwest\" : {\n                  \"lat\"
+      : 35.5899320,\n                  \"lng\" : -97.67468090000001\n               }\n
+      \           }\n         },\n         \"types\" : [ \"postal_code\" ]\n      }\n
+      \  ],\n   \"status\" : \"OK\"\n}\n"
+    http_version: '1.1'

@@ -8,7 +8,7 @@ class TwitterAccount < ActiveRecord::Base
   validates :screen_name, presence: true, uniqueness: true
   validates :followed, inclusion: {in: [true, false]}
 
-  after_validation :geocode, if: :postal_code_changed?
+  after_validation :geocode_with_country_code, if: :postal_code_changed?
 
   scope :followed, proc { |bool| where(followed: bool) }
   scope :not_promted_for_postal_code, where(prompted_for_postal_code_at: nil)
@@ -156,6 +156,13 @@ class TwitterAccount < ActiveRecord::Base
 
   def theaters_not_tracking_for_movie(movie)
     ticket_notifications.for(movie).includes(:theater).map(&:theater)
+  end
+
+  def geocode_with_country_code
+    geocoder_result = Geocoder.search(self.postal_code).first
+    self.latitude     = geocoder_result.latitude
+    self.longitude    = geocoder_result.longitude
+    self.country_code = geocoder_result.country_code
   end
 
   private

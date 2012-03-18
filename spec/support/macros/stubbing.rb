@@ -21,15 +21,13 @@ module StubbingMacros
     Geocoder.stubs(:coordinates).returns(*100.times.map { |i| [i, i] })
   end
 
-  # Stub Geocoder gem to return 0, 0 as coordinates.
+  # Stub Geocoder gem to return 0, 0 as coordinates and 'US' as country_code.
   def disable_geocoding
-    Geocoder.stubs(:coordinates).returns([0, 0])
-    # Stub geocode on models that call geocoded_by.
-    ActiveRecord::Base.descendants.each do |model|
-      if model._validation_callbacks.detect { |vc| vc.filter == :geocode }
-        model.any_instance.stubs(:geocode).returns([0, 0])
-      end
-    end
+    require 'geocoder/results/base'
+    stubbed_result = Geocoder::Result::Base.new({})
+    stubbed_result.stubs(:coordinates).returns([0.0, 0.0])
+    stubbed_result.stubs(:country_code).returns('US')
+    Geocoder.stubs(:search).returns([stubbed_result])
   end
 
 end
