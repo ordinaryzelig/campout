@@ -5,7 +5,7 @@ class InvalidatePostalCodeTweet < TweetString
 
   def initialize
     super <<-END
-Sorry. I didn't understand your postal code (I'm a robot). Please send only your US postal code (5 characters max). e.g. 12345.
+Sorry. I didn't understand your postal code (I'm a robot). Please send only your US or Canadian postal code. E.g. 12345 or V6T1Z2.
 END
   end
 
