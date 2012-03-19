@@ -6,12 +6,14 @@ module TicketSources
       Scope.new(country_code)
     end
 
-    def diagnostics
-      all.each do |source|
-        print "#{source.name}..."
-        source.diagnostics
-        puts 'OK'
-      end
+    # Just an array of all the ticket source modules.
+    # Not the same as Scope.all.
+    def all
+      [
+        CineWorld,
+        Fandango,
+        MovieTickets,
+      ]
     end
 
   end
@@ -24,12 +26,9 @@ module TicketSources
       @country_code = country_code
     end
 
+    # Return list of ticket sources scoped to country.
     def all
-      @all ||= [
-        CineWorld,
-        Fandango,
-        MovieTickets
-      ].select { |ticket_source| @country_code == :all ? true : ticket_source.serves_country_code?(@country_code) }
+      @all ||= TicketSources.all.select { |ticket_source| ticket_source.serves_country_code?(@country_code) }
     end
 
     def find_theaters_near(postal_code)

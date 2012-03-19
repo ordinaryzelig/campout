@@ -25,7 +25,11 @@ end
 desc 'Check that parsing is working against all sources'
 task :diagnostics => 'db:connect' do
   mail_on_error do
-    TicketSources.diagnostics
+    TicketSources.all.each do |source|
+      print "#{source.name}..."
+      source.diagnostics
+      puts 'OK'
+    end
   end
 end
 
