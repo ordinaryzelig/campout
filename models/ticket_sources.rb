@@ -56,6 +56,10 @@ module TicketSources
       @country_codes = country_codes
     end
 
+    def country_codes
+      @country_codes
+    end
+
   end
 
 end
