@@ -28,33 +28,33 @@ describe Movie do
     end
 
     it 'calls TicketSources.find_theaters_selling_at on each movie_source with account postal_code' do
-      TicketSources.expects(:find_theaters_selling_at).with(movie, account.postal_code).returns([])
+      TicketSources::Scope.any_instance.expects(:find_theaters_selling_at).with(movie, account.postal_code).returns([])
       movie.check_for_tickets
     end
 
     it 'notifies twitter account when theaters selling tickets' do
-      TicketSources.expects(:find_theaters_selling_at).returns([theater])
+      TicketSources::Scope.any_instance.expects(:find_theaters_selling_at).returns([theater])
       TwitterAccount.any_instance.expects(:theaters_not_tracking_for_movie).returns([])
       TwitterAccount.any_instance.expects(:notify_about_tickets!).with(movie, [theater])
       movie.check_for_tickets
     end
 
     it 'does not notify when no theaters selling tickets' do
-      TicketSources.expects(:find_theaters_selling_at).returns([])
+      TicketSources::Scope.any_instance.expects(:find_theaters_selling_at).returns([])
       TwitterAccount.any_instance.expects(:theaters_not_tracking_for_movie).returns([])
       TwitterAccount.any_instance.expects(:notify_about_tickets!).never
       movie.check_for_tickets
     end
 
     it 'does not notify when already notified about theater' do
-      TicketSources.expects(:find_theaters_selling_at).returns([theater])
+      TicketSources::Scope.any_instance.expects(:find_theaters_selling_at).returns([theater])
       TwitterAccount.any_instance.expects(:theaters_not_tracking_for_movie).returns([theater])
       TwitterAccount.any_instance.expects(:notify_about_tickets!).never
       movie.check_for_tickets
     end
 
     it 'returns array of accounts that were notified' do
-      TicketSources.expects(:find_theaters_selling_at).returns([theater])
+      TicketSources::Scope.any_instance.expects(:find_theaters_selling_at).returns([theater])
       TwitterAccount.any_instance.expects(:notify_about_tickets!)
       accounts = movie.check_for_tickets
       accounts.must_equal [account]

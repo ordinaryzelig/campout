@@ -81,7 +81,7 @@ describe TwitterAccount do
 
   it '#find_theaters_and_confirm_or_deny_location searches for theaters from each ticket source' do
       account = FactoryGirl.build('redningja', postal_code: 73142)
-      TicketSources.expects(:find_theaters_near).returns([])
+      TicketSources::Scope.any_instance.expects(:find_theaters_near).returns([])
       account.expects(:dm!)
       account.find_theaters_and_confirm_or_deny_location
   end

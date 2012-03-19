@@ -1,3 +1,7 @@
+deployment
+  migrate
+  assign US as country codes to any TwitterAccount with zipcode.
+
 Websites
   cananda
     cineplex.com

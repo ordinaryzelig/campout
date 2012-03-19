@@ -1,5 +1,9 @@
 module MovieTickets
 
+  extend TicketSources::CountryMethods
+
+  serves_country_codes 'US', 'CA'
+
   class << self
 
     def find_theaters_near(postal_code)

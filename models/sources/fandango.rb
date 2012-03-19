@@ -1,5 +1,9 @@
 module Fandango
 
+  extend TicketSources::CountryMethods
+
+  serves_country_codes 'US', 'CA'
+
   class << self
 
     # Use Fandango gem to find movies near postal_code.

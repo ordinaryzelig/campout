@@ -29,7 +29,7 @@ class Movie < ActiveRecord::Base
   # Return accounts notified.
   def check_for_tickets
     twitter_accounts.trackable.select do |twitter_account|
-      theaters_selling = TicketSources.find_theaters_selling_at(self, twitter_account.postal_code)
+      theaters_selling = TicketSources.for_country(twitter_account.country_code).find_theaters_selling_at(self, twitter_account.postal_code)
       theaters_tracked_down = theaters_selling - twitter_account.theaters_not_tracking_for_movie(self)
       if theaters_tracked_down.any?
         twitter_account.notify_about_tickets!(self, theaters_tracked_down)

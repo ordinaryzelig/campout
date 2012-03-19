@@ -7,6 +7,7 @@ class TwitterAccount < ActiveRecord::Base
   validates :user_id, presence: true, uniqueness: true
   validates :screen_name, presence: true, uniqueness: true
   validates :followed, inclusion: {in: [true, false]}
+  validates :country_code, inclusion: {in: ['US', 'CA', 'UK'], allow_blank: true}
 
   after_validation :geocode_with_country_code, if: :postal_code_changed?
 
@@ -104,7 +105,7 @@ class TwitterAccount < ActiveRecord::Base
   # If theaters found, send DM confirmation, else send DM denial.
   def find_theaters_and_confirm_or_deny_location
     begin
-      TicketSources.find_theaters_near(postal_code)
+      TicketSources.for_country(self.country_code).find_theaters_near(postal_code)
       theaters = Theater.near(coordinates, 15)
       if theaters.any?
         confirm_location_with theaters

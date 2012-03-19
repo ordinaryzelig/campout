@@ -62,7 +62,7 @@ describe 'Twitter workflow' do
         VCR.use_cassette 'twitter/list_DMs_with_postal_codes_with_no_theaters' do
           disable_geocoding
           account = FactoryGirl.create(:redningja)
-          TicketSources.expects(:find_theaters_near).returns([])
+          TicketSources::Scope.any_instance.expects(:find_theaters_near).returns([])
           DenyTheatersTrackedTweet.expects(:new)
           TwitterAccount.any_instance.expects(:dm!)
           TwitterAccount.process_DMs_for_postal_codes
@@ -83,7 +83,7 @@ describe 'Twitter workflow' do
           FactoryGirl.create(:redningja, movies: [movie], postal_code: 10001)
           theater_source = FactoryGirl.create(:movie_tickets_amc)
           theater = theater_source.theater
-          TicketSources.expects(:find_theaters_selling_at).returns([theater])
+          TicketSources::Scope.any_instance.expects(:find_theaters_selling_at).returns([theater])
           TicketsOnSaleTweet.expects(:new)
           TwitterAccount.any_instance.expects(:dm!)
           # The actual call.
