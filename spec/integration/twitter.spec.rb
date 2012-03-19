@@ -70,6 +70,19 @@ describe 'Twitter workflow' do
       end
     end
 
+    scenario 'user replies with DM with postal code for country not yet supported' do
+      it 'Twitter client DMs user saying country is not yet supported' do
+        VCR.use_cassette 'twitter/list_DMs_with_postal_code_in_unsupported_country' do
+          country_code = 'XY'
+          stub_geocoder 0.0, 0.0, country_code
+          account = FactoryGirl.create(:redningja, postal_code: nil)
+          UnsupportedCountryTweet.expects(:new).with(country_code)
+          TwitterAccount.any_instance.expects(:dm!)
+          TwitterAccount.process_DMs_for_postal_codes
+        end
+      end
+    end
+
   end
 
   scenario 'when tickets found at theater' do

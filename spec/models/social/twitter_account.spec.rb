@@ -168,6 +168,13 @@ describe TwitterAccount do
       account.process_postal_code(account.postal_code)
     end
 
+    it 'sends DM if country code is not supported' do
+      stub_geocoder 0.0, 0.0, 'XY'
+      account = FactoryGirl.build(:redningja, postal_code: nil)
+      account.expects(:send_unsupported_country_message)
+      account.process_postal_code('123')
+    end
+
   end
 
   it '#theaters_not_tracking_for_movie returns theaters that account has already been notified about' do
@@ -183,6 +190,13 @@ describe TwitterAccount do
       account.coordinates.must_equal [35.6131551, -97.6385368]
       account.country_code.must_equal 'US'
     end
+  end
+
+  it '#send_unsupported_country_message DMs twitter account saying country code is not supported' do
+    account = FactoryGirl.build(:redningja)
+    UnsupportedCountryTweet.expects(:new).with(account.country_code)
+    account.expects(:dm!)
+    account.send_unsupported_country_message
   end
 
 end

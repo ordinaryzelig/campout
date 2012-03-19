@@ -7,7 +7,6 @@ class TwitterAccount < ActiveRecord::Base
   validates :user_id, presence: true, uniqueness: true
   validates :screen_name, presence: true, uniqueness: true
   validates :followed, inclusion: {in: [true, false]}
-  validates :country_code, inclusion: {in: ['US', 'CA', 'UK'], allow_blank: true}
 
   after_validation :geocode_with_country_code, if: :postal_code_changed?
 
@@ -50,13 +49,7 @@ class TwitterAccount < ActiveRecord::Base
     end
 
     # List DMs, process each for postal_code.
-    # If postal_code successfully extracted, assign to twitter account if different.
     # If postal_code cannot be processed, deny_postal_code.
-    # If postal_code extracted
-    # If theaters found, DM confirmation.
-    # If no theaters found, DM no theaters found.
-    # Make sure to only find/assign theaters if postal_code is different
-    # so we don't sound like a broken record.
     def process_DMs_for_postal_codes
       Twitter.direct_messages.each do |dm|
         postal_code = dm.extract_postal_code
@@ -146,13 +139,22 @@ class TwitterAccount < ActiveRecord::Base
     dm! InvalidatePostalCodeTweet.new
   end
 
+  def send_unsupported_country_message
+    dm! UnsupportedCountryTweet.new(self.country_code)
+  end
+
   # Set postal_code. if different than before, find theaters and confirm/deny location.
   # Wrap argument in PostalCode object and convert to string to ensure whitespaces removed.
+  # Make sure to only find/assign theaters if postal_code is different so we don't sound like a broken record.
   def process_postal_code(postal_code)
     self.postal_code = PostalCode.new(postal_code.to_s).to_s
     if postal_code_changed?
       save!
-      find_theaters_and_confirm_or_deny_location
+      if in_supported_country?
+        find_theaters_and_confirm_or_deny_location
+      else
+        send_unsupported_country_message
+      end
     end
   end
 
@@ -165,6 +167,10 @@ class TwitterAccount < ActiveRecord::Base
     self.latitude     = geocoder_result.latitude
     self.longitude    = geocoder_result.longitude
     self.country_code = geocoder_result.country_code
+  end
+
+  def in_supported_country?
+    TicketSources.support_country_code?(self.country_code)
   end
 
   private

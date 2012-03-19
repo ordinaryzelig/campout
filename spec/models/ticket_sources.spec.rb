@@ -34,4 +34,12 @@ describe TicketSources do
     ticket_sources.must_equal [Fandango, MovieTickets]
   end
 
+  it 'supports certain countries' do
+    TicketSources.country_codes.must_equal ['US', 'CA']
+  end
+
+  it 'does not support certain countries' do
+    TicketSources.support_country_code?('UK').must_equal false
+  end
+
 end

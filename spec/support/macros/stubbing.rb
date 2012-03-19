@@ -23,10 +23,14 @@ module StubbingMacros
 
   # Stub Geocoder gem to return 0, 0 as coordinates and 'US' as country_code.
   def disable_geocoding
+    stub_geocoder 0.0, 0.0, 'US'
+  end
+
+  def stub_geocoder(latitude, longitude, country_code)
     require 'geocoder/results/base'
     stubbed_result = Geocoder::Result::Base.new({})
-    stubbed_result.stubs(:coordinates).returns([0.0, 0.0])
-    stubbed_result.stubs(:country_code).returns('US')
+    stubbed_result.stubs(:coordinates).returns([latitude, longitude])
+    stubbed_result.stubs(:country_code).returns(country_code)
     Geocoder.stubs(:search).returns([stubbed_result])
   end
 

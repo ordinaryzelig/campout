@@ -12,8 +12,11 @@ module MustBehaveLikeTicketSource
       ticket_source.must_respond_to(:diagnostics)
     end
 
-    it 'serves countries' do
-      ticket_source.country_codes.wont_be_empty
+    it 'supports countries' do
+      ticket_source.country_codes.must_be_kind_of Array
+      ticket_source.country_codes.each do |country_code|
+        ticket_source.supports_country_code?(country_code).must_equal true
+      end
     end
 
   end

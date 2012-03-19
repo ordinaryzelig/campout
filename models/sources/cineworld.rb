@@ -2,7 +2,7 @@ module CineWorld
 
   extend TicketSources::CountryMethods
 
-  serves_country_codes 'UK'
+  supports_country_codes # UK, eventually.
 
   class << self
 

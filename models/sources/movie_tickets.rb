@@ -2,7 +2,7 @@ module MovieTickets
 
   extend TicketSources::CountryMethods
 
-  serves_country_codes 'US', 'CA'
+  supports_country_codes 'US', 'CA'
 
   class << self
 

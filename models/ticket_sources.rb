@@ -16,6 +16,14 @@ module TicketSources
       ]
     end
 
+    def support_country_code?(country_code)
+      country_codes.include?(country_code)
+    end
+
+    def country_codes
+      @country_codes ||= all.map(&:country_codes).flatten.uniq
+    end
+
   end
 
   # Kind of like ActiveRecord::Scope.
@@ -28,7 +36,7 @@ module TicketSources
 
     # Return list of ticket sources scoped to country.
     def all
-      @all ||= TicketSources.all.select { |ticket_source| ticket_source.serves_country_code?(@country_code) }
+      @all ||= TicketSources.all.select { |ticket_source| ticket_source.supports_country_code?(@country_code) }
     end
 
     def find_theaters_near(postal_code)
@@ -47,12 +55,12 @@ module TicketSources
 
   module CountryMethods
 
-    def serves_country_code?(country_code)
+    def supports_country_code?(country_code)
       @country_codes.include?(country_code)
     end
 
-    # Define list of country codes this ticket source serves.
-    def serves_country_codes(*country_codes)
+    # Define list of country codes this ticket source supports.
+    def supports_country_codes(*country_codes)
       @country_codes = country_codes
     end
 
