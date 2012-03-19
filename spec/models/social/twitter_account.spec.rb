@@ -163,7 +163,7 @@ describe TwitterAccount do
 
     it 'does nothing if postal_code not different' do
       disable_geocoding
-      account = FactoryGirl.create(:redningja, postal_code: 73142)
+      account = FactoryGirl.create(:redningja, postal_code: '73142')
       account.expects(:find_theaters_and_confirm_or_deny_location).never
       account.process_postal_code(account.postal_code)
     end

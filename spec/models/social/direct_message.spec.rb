@@ -26,4 +26,14 @@ describe Twitter::DirectMessage do
     end
   end
 
+  it '#extract_postal_code returns PostalCode object if valid' do
+    VCR.use_cassette('twitter/list_DMs') do
+      redningja = FactoryGirl.create(:redningja)
+      dm = Twitter.direct_messages.first
+      postal_code = dm.extract_postal_code
+      postal_code.must_be_kind_of PostalCode
+      postal_code.must_be :valid?
+    end
+  end
+
 end

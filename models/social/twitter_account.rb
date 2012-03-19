@@ -147,8 +147,9 @@ class TwitterAccount < ActiveRecord::Base
   end
 
   # Set postal_code. if different than before, find theaters and confirm/deny location.
+  # Wrap argument in PostalCode object and convert to string to ensure whitespaces removed.
   def process_postal_code(postal_code)
-    self.postal_code = postal_code
+    self.postal_code = PostalCode.new(postal_code.to_s).to_s
     if postal_code_changed?
       save!
       find_theaters_and_confirm_or_deny_location

@@ -13,7 +13,7 @@ class Twitter::DirectMessage
   # If not valid, return nil.
   def extract_postal_code
     postal_code_tweet = PostalCodeTweet.new(self.text)
-    postal_code_tweet.valid? ? postal_code_tweet.to_s : nil
+    postal_code_tweet.valid? ? postal_code_tweet.postal_code : nil
   end
 
 end

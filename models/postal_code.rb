@@ -12,7 +12,7 @@ class PostalCode
   end
 
   def to_s
-    @string.gsub(' ', '')
+    @string.gsub(/\s/, '')
   end
 
   class << self
