@@ -12,7 +12,17 @@ class PostalCode
   end
 
   def to_s
-    @string
+    @string.gsub(' ', '')
+  end
+
+  class << self
+
+    # Assume postal code is last token in address.
+    def extract_from_address(address)
+      match = address.match(/(?<postal_code>\S+)$/)
+      new(match ? match[:postal_code] : nil)
+    end
+
   end
 
 end

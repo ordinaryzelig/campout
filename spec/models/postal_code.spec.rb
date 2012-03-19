@@ -22,4 +22,8 @@ describe PostalCode do
 
   end
 
+  it '.extract_from_address returns parsed PostalCode from Canadian address' do
+    PostalCode.extract_from_address('3215 Kingsway Vancouver, BC V6T1Z2').to_s.must_equal 'V6T1Z2'
+  end
+
 end
