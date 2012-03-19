@@ -42,7 +42,7 @@ task 'scour' => 'db:connect' do
     accounts_notified = Movie.check_for_newly_released_tickets
     if accounts_notified.any?
       message = "#{accounts_notified.size} notified\n"
-      message += accounts_notified.map(&:zipcode).join("\n")
+      message += accounts_notified.map(&:postal_code).join("\n")
       Mailer.cron_progress(message)
       puts message
     end
@@ -80,10 +80,10 @@ task :find_or_create_theaters => 'db:connect' do
   mail_on_error do
     count = TwitterAccount.count
     TwitterAccount.all.each_with_index do |account, idx|
-      next unless account.zipcode
-      puts "#{account.zipcode} (id: #{account.id}, #{idx + 1} of #{count})"
+      next unless account.postal_code
+      puts "#{account.postal_code} (id: #{account.id}, #{idx + 1} of #{count})"
       Geocoder.loop_on_query_limit_exception do
-        TicketSources.find_theaters_near(account.zipcode)
+        TicketSources.find_theaters_near(account.postal_code)
       end
       puts
     end

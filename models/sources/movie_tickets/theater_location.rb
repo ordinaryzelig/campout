@@ -48,8 +48,8 @@ class MovieTickets::TheaterLocation
     end
 
     def parse_address(doc)
-      *street, city_state_zip, phone_number = doc.at_css('.ft2').inner_html.strip.split('<br>')
-      [street, city_state_zip].flatten.join(', ')
+      *street, city_state_postal_code, phone_number = doc.at_css('.ft2').inner_html.strip.split('<br>')
+      [street, city_state_postal_code].flatten.join(', ')
     end
 
     # For diagnostics purposes, just grab the first movie's id and return new MovieTickets::MovieSource.

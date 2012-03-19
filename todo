@@ -1,6 +1,5 @@
 deployment
-  migrate
-  assign US as country codes to any TwitterAccount with zipcode.
+  update website
 
 Websites
   cananda
