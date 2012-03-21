@@ -10,6 +10,12 @@ Websites
     odeon.co.uk
     myvue.com
 
+Twitter accounts
+  http://www.ArkhamCity.co.uk/
+    https://twitter.com/#!/DarKnightRises (9,734 followers)
+    https://twitter.com/#!/BatmanUpdates  (3,871 followers)
+    https://twitter.com/#!/ArkhamCityCoUk (2,018 followers)
+
 check timezone diffs. could affect to_ShowDate when scouring, and with UK.
 
 in case we reach DM limit, create TicketNotification queue. close when successfully DMed.
