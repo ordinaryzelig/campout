@@ -73,4 +73,11 @@ describe MovieTickets::TheaterSource do
 
   end
 
+  it 'has language for every supported country code' do
+    language_countries = MovieTickets::TheaterSource::LANGUAGES
+    MovieTickets.country_codes.each do |country_code|
+      language_countries.must_include country_code
+    end
+  end
+
 end

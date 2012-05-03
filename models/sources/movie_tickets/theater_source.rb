@@ -5,7 +5,7 @@ class MovieTickets::TheaterSource < TheaterSource
     'US' => 0,
     #'CA' => 1,  # French Canadian.
     'CA' => 2,   # Canada.
-    'UK' => 3,   # UK.
+    'GB' => 3,   # UK, Great Britain.
     'IE' => 4,   # Ireland.
     'AR' => 5,   # Argentina.
     #'US' => 6,  # US Spanish.
@@ -49,10 +49,12 @@ class MovieTickets::TheaterSource < TheaterSource
     # Given postal_code and country_code, search site, parse, return theater sources.
     def scour(postal_code, country_code)
       case country_code
-      when 'US', 'UK'
+      when 'US', 'GB', 'CA'
         scour_by_form_submission(postal_code, country_code)
       when 'IE'
         scour_ireland(postal_code, country_code)
+      else
+        raise "Unknown country code: #{country_code}"
       end
     end
 

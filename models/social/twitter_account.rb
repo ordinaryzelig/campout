@@ -164,9 +164,11 @@ class TwitterAccount < ActiveRecord::Base
 
   def geocode_with_country_code
     geocoder_result = Geocoder.search(self.postal_code).first
-    self.latitude     = geocoder_result.latitude
-    self.longitude    = geocoder_result.longitude
-    self.country_code = geocoder_result.country_code
+    if geocoder_result
+      self.latitude     = geocoder_result.latitude
+      self.longitude    = geocoder_result.longitude
+      self.country_code = geocoder_result.country_code
+    end
   end
 
   def in_supported_country?

@@ -18,4 +18,10 @@ describe MovieTickets do
 
   end
 
+  it 'supports country codes' do
+    ['US', 'CA', 'IE', 'GB'].each do |country_code|
+      MovieTickets.supports_country_code?(country_code).must_equal true
+    end
+  end
+
 end
