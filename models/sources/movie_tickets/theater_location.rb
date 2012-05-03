@@ -1,4 +1,3 @@
-# encoding: utf-8
 # This model is only used to fetch location data for a theater given a house_id.
 # Not to be confused with TheaterSource, which is stored in DB.
 
@@ -27,7 +26,7 @@ class MovieTickets::TheaterLocation
     # Find address for AMC Quail.
     def diagnostics
       loc = scour 5902
-      address = '2501 West Memorial, Oklahoma City, OK 73134' # There's a multi-byte character after the 'OK'.
+      address = '2501 West Memorial, Oklahoma City, OK&#160;73134'
       raise "AMC address not parsing correctly: #{loc.address} expected to equal #{address}" unless loc.address == address
     end
 

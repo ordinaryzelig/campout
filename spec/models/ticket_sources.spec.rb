@@ -8,7 +8,7 @@ describe TicketSources do
 
   it '.find_theaters_near calls .find_theaters_near on each theater source' do
     postal_code = 1
-    TicketSources.for_country('US').all.each { |source| source.expects(:find_theaters_near).with(postal_code) }
+    TicketSources.for_country('US').all.each { |source| source.expects(:find_theaters_near).with(postal_code, 'US') }
     TicketSources.for_country('US').find_theaters_near(postal_code)
   end
 

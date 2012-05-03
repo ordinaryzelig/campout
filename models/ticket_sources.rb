@@ -40,7 +40,7 @@ module TicketSources
     end
 
     def find_theaters_near(postal_code)
-      all.map { |source| source.find_theaters_near(postal_code) }.flatten.uniq
+      all.map { |source| source.find_theaters_near(postal_code, @country_code) }.flatten.uniq
     end
 
     # For each movie_source, find_theaters_selling_at postal_code.

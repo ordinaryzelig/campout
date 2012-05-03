@@ -8,7 +8,7 @@ describe MovieTickets::TheaterSource do
 
     it 'searches site for location, determines postal_code, and parses and creates theaters' do
       VCR.use_cassette('movie_tickets/theaters/search_location_73142') do
-        list = MovieTickets::TheaterSource.scour(73142)
+        list = MovieTickets::TheaterSource.scour(73142, 'US')
         list.size.must_equal 12
         listing = list.first
         listing.theater.name.must_equal 'AMC Quail Springs Mall 24'
@@ -18,11 +18,35 @@ describe MovieTickets::TheaterSource do
 
     it 'includes theaters that site does not sell tickets for' do
       VCR.use_cassette('movie_tickets/theaters/search_location_92010') do
-        list = MovieTickets::TheaterSource.scour(92010)
+        list = MovieTickets::TheaterSource.scour(92010, 'US')
         list.size.must_equal 11
         regal_oceanside = MovieTickets::TheaterSource.new(external_id: '6933')
         list.map(&:external_id).must_include regal_oceanside.external_id
       end
+    end
+
+    describe 'by country' do
+
+      it 'searches UK site' do
+        VCR.use_cassette('movie_tickets/theaters/search_location_SE18XR') do
+          list = MovieTickets::TheaterSource.scour('SE1 8XR', 'UK')
+          list.size.must_equal 125
+          theater_source = list.first
+          theater_source.theater.name.must_equal 'Showcase Cinemas Newham'
+          theater_source.external_id.must_equal  '8507'
+        end
+      end
+
+      it 'searches Ireland site' do
+        VCR.use_cassette('movie_tickets/theaters/search_location_Dublin') do
+          list = MovieTickets::TheaterSource.scour('Dublin', 'IE')
+          list.size.must_equal 20
+          theater_source = list.first
+          theater_source.theater.name.must_equal 'Quayside Cinema Balbriggan'
+          theater_source.external_id.must_equal  '10306'
+        end
+      end
+
     end
 
   end
