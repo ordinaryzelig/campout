@@ -15,23 +15,25 @@ module StubbingMacros
     Feedzirra::Feed.expects(:fetch_and_parse).returns(feed)
   end
 
-  # Stub Geocoder so that it returns coordinates based on an integer counter.
-  # Distance between [0,0] and [1,1] is 97+ miles.
-  def stub_geocoder_with_counter
-    Geocoder.stubs(:coordinates).returns(*100.times.map { |i| [i, i] })
+  def stub_geocoder(latitude, longitude, country_code, postal_code)
+    search_result = mock_geocoder_search_result(latitude, longitude, country_code, postal_code)
+    Geocoder.stubs(:search).returns([search_result])
   end
 
-  # Stub Geocoder gem to return 0, 0 as coordinates and 'US' as country_code.
-  def disable_geocoding
-    stub_geocoder 0.0, 0.0, 'US'
-  end
-
-  def stub_geocoder(latitude, longitude, country_code)
+  def mock_geocoder_search_result(latitude, longitude, country_code, postal_code)
     require 'geocoder/results/base'
-    stubbed_result = Geocoder::Result::Base.new({})
-    stubbed_result.stubs(:coordinates).returns([latitude, longitude])
-    stubbed_result.stubs(:country_code).returns(country_code)
-    Geocoder.stubs(:search).returns([stubbed_result])
+    mocked_result = MiniTest::Mock.new
+    mocked_result.stubs(:latitude).returns(latitude)
+    mocked_result.stubs(:longitude).returns(longitude)
+    mocked_result.stubs(:coordinates).returns([latitude, longitude])
+    mocked_result.stubs(:country_code).returns(country_code)
+    mocked_result.stubs(:postal_code).returns(postal_code)
+    mocked_result
+  end
+
+  # Stub Geocoder that returns no results.
+  def stub_empty_geocoder
+    Geocoder.stubs(:search).returns([])
   end
 
 end

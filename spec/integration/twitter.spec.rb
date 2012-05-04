@@ -38,6 +38,7 @@ describe 'Twitter workflow' do
     scenario 'user replies with DM with valid postal code' do
       it 'Twitter client processes DMs with postal codes, assigns postal code to user, DMs user with list of theaters that will be tracked, and deletes DM' do
         VCR.use_cassette 'twitter/list_DMs_with_redningja_postal_code' do
+          stub_geocoder nil, nil, 'US', 73142
           account = FactoryGirl.create(:redningja, postal_code: nil)
           TwitterAccount.any_instance.expects(:process_postal_code)
           Twitter::DirectMessage.any_instance.expects(:destroy)
@@ -52,6 +53,7 @@ describe 'Twitter workflow' do
           account = FactoryGirl.create(:redningja, postal_code: nil)
           InvalidatePostalCodeTweet.expects(:new)
           TwitterAccount.any_instance.expects(:dm!)
+          stub_empty_geocoder
           TwitterAccount.process_DMs_for_postal_codes
         end
       end
@@ -60,7 +62,7 @@ describe 'Twitter workflow' do
     scenario 'user replies with DM with postal code, but no theaters found' do
       it 'Twitter client DMs user saying no theaters found and instructions to send another postal code' do
         VCR.use_cassette 'twitter/list_DMs_with_postal_codes_with_no_theaters' do
-          disable_geocoding
+          stub_geocoder nil, nil, 'US', 1
           account = FactoryGirl.create(:redningja)
           TicketSources::Scope.any_instance.expects(:find_theaters_near).returns([])
           DenyTheatersTrackedTweet.expects(:new)
@@ -74,7 +76,7 @@ describe 'Twitter workflow' do
       it 'Twitter client DMs user saying country is not yet supported' do
         VCR.use_cassette 'twitter/list_DMs_with_postal_code_in_unsupported_country' do
           country_code = 'XY'
-          stub_geocoder 0.0, 0.0, country_code
+          stub_geocoder nil, nil, country_code, 1
           account = FactoryGirl.create(:redningja, postal_code: nil)
           UnsupportedCountryTweet.expects(:new).with(country_code)
           TwitterAccount.any_instance.expects(:dm!)
@@ -92,7 +94,7 @@ describe 'Twitter workflow' do
         VCR.use_cassette 'movie_tickets/movies/ghost_rider' do
           # Lots of setup.
           movie = FactoryGirl.create(:movie_tickets_ghost_rider).movie
-          disable_geocoding
+          stub_empty_geocoder
           FactoryGirl.create(:redningja, movies: [movie], postal_code: 10001)
           theater_source = FactoryGirl.create(:movie_tickets_amc)
           theater = theater_source.theater

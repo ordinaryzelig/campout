@@ -1,20 +1,15 @@
 # Response from twitter account telling us their postal code.
-# Sent directly to Geocoder, so needs to be private.
-# To remain private, limit characters.
-# 8 characters should be enough for longest UK postal code with space.
-# http://en.wikipedia.org/wiki/UK_postal_code
+# Use Geocoder to determine postal code.
 class PostalCodeTweet < TweetString
 
-  def initialize(string)
-    super string, character_limit: 8
+  def postal_code
+    return @postal_code if @postal_code
+    search_result = Geocoder.search(self.to_s).first
+    @postal_code = search_result.postal_code if search_result
   end
 
   def valid?
-    super && postal_code.valid?
-  end
-
-  def postal_code
-    @postal_code ||= PostalCode.new(self.to_s)
+    !!postal_code
   end
 
 end

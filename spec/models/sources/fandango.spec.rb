@@ -6,7 +6,7 @@ describe Fandango do
 
   it '.find_theaters_near returns an array of theaters' do
     stub_fandango_feed 'movies_near_me_73142.rss'
-    disable_geocoding
+    stub_geocoder 0.0, 0.0, nil, nil
     # Stub so we only process 1 theater.
     feed_hash = Fandango.movies_near(73142).first
     Fandango.expects(:movies_near).returns([feed_hash])

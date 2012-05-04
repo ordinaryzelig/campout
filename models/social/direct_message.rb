@@ -9,11 +9,9 @@ class Twitter::DirectMessage
     @twitter_account ||= TwitterAccount.find_by_user_id(sender.id)
   end
 
-  # Assuming DM text is postal code, return validated postal code.
-  # If not valid, return nil.
+  # Assuming DM text is location, return geocoded postal code.
   def extract_postal_code
-    postal_code_tweet = PostalCodeTweet.new(self.text)
-    postal_code_tweet.valid? ? postal_code_tweet.postal_code : nil
+    PostalCodeTweet.new(self.text).postal_code
   end
 
 end

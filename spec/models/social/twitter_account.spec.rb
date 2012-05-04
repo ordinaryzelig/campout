@@ -132,10 +132,10 @@ describe TwitterAccount do
 
   describe '.process_DMs_for_postal_codes' do
 
-    before { FactoryGirl.create(:redningja, postal_code: nil) }
-
     it 'extracts postal_code from DM, deletes DM, and processes postal_codes' do
       VCR.use_cassette('twitter/list_DMs_with_redningja_postal_code') do
+        stub_geocoder nil, nil, 'US', 73142
+        FactoryGirl.create(:redningja, postal_code: nil)
         TwitterAccount.any_instance.expects(:process_postal_code)
         Twitter::DirectMessage.any_instance.expects(:destroy)
         TwitterAccount.process_DMs_for_postal_codes
@@ -144,6 +144,8 @@ describe TwitterAccount do
 
     it 'sends DM denying postal_code if postal_code cannot be extracted' do
       VCR.use_cassette('twitter/list_DMs_with_bad_postal_codes') do
+        stub_empty_geocoder
+        FactoryGirl.create(:redningja, postal_code: nil)
         TwitterAccount.any_instance.expects(:deny_postal_code)
         TwitterAccount.any_instance.expects(:process_postal_code).never
         TwitterAccount.process_DMs_for_postal_codes
@@ -155,21 +157,21 @@ describe TwitterAccount do
   describe '#process_postal_code' do
 
     it 'assigns postal_code and calls #find_theaters_and_confirm_or_deny_location' do
-      disable_geocoding
+      stub_geocoder nil, nil, 'US', 73142
       account = FactoryGirl.build(:redningja, postal_code: nil)
       account.expects(:find_theaters_and_confirm_or_deny_location)
       account.process_postal_code(73142)
     end
 
     it 'does nothing if postal_code not different' do
-      disable_geocoding
+      stub_empty_geocoder
       account = FactoryGirl.create(:redningja, postal_code: '73142')
       account.expects(:find_theaters_and_confirm_or_deny_location).never
       account.process_postal_code(account.postal_code)
     end
 
     it 'sends DM if country code is not supported' do
-      stub_geocoder 0.0, 0.0, 'XY'
+      stub_geocoder nil, nil, 'XY', nil
       account = FactoryGirl.build(:redningja, postal_code: nil)
       account.expects(:send_unsupported_country_message)
       account.process_postal_code('123')

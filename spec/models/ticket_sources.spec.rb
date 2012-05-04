@@ -35,7 +35,9 @@ describe TicketSources do
   end
 
   it 'supports certain countries' do
-    TicketSources.country_codes.must_equal ['US', 'CA']
+    ['US', 'CA', 'GB', 'IE'].each do |country_code|
+      TicketSources.country_codes.must_include country_code
+    end
   end
 
   it 'does not support certain countries' do

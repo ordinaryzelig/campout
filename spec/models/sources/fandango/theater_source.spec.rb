@@ -58,13 +58,13 @@ describe Fandango::TheaterSource do
 
     it 'finds theater based on short name and coordinates if it exists' do
       theater = FactoryGirl.create(:amc)
-      Geocoder.expects(:coordinates).with(theater.address).returns(theater.coordinates)
+      stub_geocoder(theater.latitude, theater.longitude, nil, nil)
       theater_source = Fandango::TheaterSource.new(external_id: 1, address: theater.address, name: theater.name)
       theater_source.find_or_create_theater!.must_equal theater
     end
 
     it 'creates new theater if there is none at coordinates' do
-      Geocoder.expects(:coordinates).returns([0, 0])
+      stub_geocoder 0, 0, nil, nil
       theater_source = Fandango::TheaterSource.new(external_id: 1, name: 'amc', address: '123')
       theater = theater_source.find_or_create_theater!
       theater.must_be :persisted?

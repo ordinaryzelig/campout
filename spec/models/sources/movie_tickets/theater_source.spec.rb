@@ -29,7 +29,7 @@ describe MovieTickets::TheaterSource do
 
       it 'searches UK site' do
         VCR.use_cassette('movie_tickets/theaters/search_location_SE18XR') do
-          list = MovieTickets::TheaterSource.scour('SE1 8XR', 'UK')
+          list = MovieTickets::TheaterSource.scour('SE1 8XR', 'GB')
           list.size.must_equal 125
           theater_source = list.first
           theater_source.theater.name.must_equal 'Showcase Cinemas Newham'
