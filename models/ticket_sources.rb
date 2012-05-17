@@ -10,7 +10,6 @@ module TicketSources
     # Not the same as Scope.all.
     def all
       [
-        CineWorld,
         Fandango,
         MovieTickets,
       ]
