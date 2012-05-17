@@ -26,8 +26,8 @@ class MovieTickets::TheaterLocation
     # Find address for AMC Quail.
     def diagnostics
       loc = scour 5902
-      address = '2501 West Memorial, Oklahoma City, OK&#160;73134'
-      raise "AMC address not parsing correctly: #{loc.address} expected to equal #{address}" unless loc.address == address
+      address = /2501 West Memorial, Oklahoma City, OK.*73134/
+      raise "AMC address not parsing correctly: #{loc.address} expected to equal #{address}" unless loc.address =~ address
     end
 
     private
