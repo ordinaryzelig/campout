@@ -29,7 +29,7 @@ GEM
     factory_girl (2.4.0)
       activesupport
     fakeweb (1.3.0)
-    fandango (0.2.0)
+    fandango (0.2.1)
       activesupport (>= 3.0.8, < 3.2.0)
       builder (>= 2.1.2)
       curb (~> 0.7.15)
@@ -49,8 +49,8 @@ GEM
       multi_json
       multi_xml
     i18n (0.6.0)
-    json (1.6.5)
-    loofah (1.2.0)
+    json (1.7.3)
+    loofah (1.2.1)
       nokogiri (>= 1.4.4)
     mail (2.4.1)
       i18n (>= 0.4.0)
@@ -119,7 +119,7 @@ DEPENDENCIES
   database_cleaner (= 0.7.1)
   factory_girl (= 2.4.0)
   fakeweb (= 1.3.0)
-  fandango (= 0.2.0)
+  fandango (= 0.2.1)
   geocoder (= 1.1.0)!
   git_remote_branch
   httparty (= 0.8.1)
