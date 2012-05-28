@@ -1,10 +1,9 @@
 source :rubygems
 
-gem 'activerecord', '3.1.3'
-gem 'activesupport', '3.1.3'
+gem 'activerecord', '3.2.3'
 gem 'awesome_print'
 gem 'chronic', '0.6.6'
-gem 'fandango', '0.2.1'
+gem 'fandango', '1.0.0'
 # Waiting for newer version that includes fix for raising LimitExceeded Error.
 # https://github.com/alexreisner/geocoder/issues/187.
 gem 'geocoder', '1.1.0', path: 'vendor/gems/geocoder-1.1.0'

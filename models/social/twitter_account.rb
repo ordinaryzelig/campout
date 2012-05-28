@@ -43,6 +43,13 @@ class TwitterAccount < ActiveRecord::Base
       end
     end
 
+    def unfollow_non_followers
+      followed_user_ids = followed(true).pluck(:user_id)
+      unfollowed_ids = followed_user_ids - follower_ids
+      where(user_id: unfollowed_ids).update_all(followed: false)
+      unfollowed_ids
+    end
+
     # Prompt each twitter account that we are following that has not yet been prompted.
     def prompt_for_postal_codes
       promptable_for_postal_code.each &:prompt_for_postal_code

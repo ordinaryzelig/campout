@@ -33,6 +33,18 @@ describe 'Twitter workflow' do
     end
   end
 
+  scenario 'after user unfollows @TDKRcampout' do
+    specify '@TDKRcampout unfollows user' do
+      VCR.use_cassette 'twitter/list_followers' do
+        FactoryGirl.create(:twitter_account, user_id: 0, followed: true, screen_name: 'bad PI')
+        TwitterAccount.followed(true).count.must_equal 1
+        unfollowed_accounts = TwitterAccount.unfollow_non_followers
+        unfollowed_accounts.size.must_equal 1
+        TwitterAccount.followed(true).count.must_equal 0
+      end
+    end
+  end
+
   scenario 'after prompted for postal code' do
 
     scenario 'user replies with DM with valid postal code' do
