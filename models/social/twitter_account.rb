@@ -37,16 +37,16 @@ class TwitterAccount < ActiveRecord::Base
     # Mark as followed.
     # Return accounts now followed.
     def follow_all_not_followed
-      followed(false).blocked(false).map do |twitter_account|
+      followed(false).blocked(false).select do |twitter_account|
         begin
           Twitter.follow(twitter_account.user_id)
         rescue Twitter::Error::Forbidden => ex
-          if ex.message =~ /blocked/
-            twitter_account.blocked!
-          end
+          twitter_account.blocked! if ex.message =~ /blocked/
+        rescue Twitter::Error::NotFound
+          twitter_account.destroy
+          next
         end
         twitter_account.update_attributes! followed: true
-        twitter_account
       end
     end
 

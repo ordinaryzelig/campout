@@ -50,6 +50,14 @@ describe TwitterAccount do
       TwitterAccount.follow_all_not_followed
     end
 
+    it 'destroys an account if Twitter::Error::NotFound raised' do
+      exception = Twitter::Error::NotFound.new('', {})
+      Twitter.stubs(:follow).raises(exception)
+      FactoryGirl.create(:redningja, followed: false)
+      TwitterAccount.follow_all_not_followed
+      TwitterAccount.count.must_equal 0
+    end
+
   end
 
   it '.promptable_for_postal_code scopes for TwitterAccounts that have not beem prompted for postal_code' do
