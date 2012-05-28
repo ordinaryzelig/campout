@@ -15,6 +15,7 @@ describe 'Twitter workflow' do
     it '@TDKRcampout follows account back' do
       VCR.use_cassette('twitter/follow_redningja') do
         account = FactoryGirl.create(:redningja, followed: false)
+        TwitterAccount.stubs(:follower_ids).returns([account.user_id])
         TwitterAccount.follow_all_not_followed
         account.reload.followed.must_equal true
       end

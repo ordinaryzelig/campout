@@ -24,9 +24,13 @@ describe TwitterAccount do
 
   describe '.follow_all_not_followed' do
 
+    before do
+      account = FactoryGirl.create(:redningja, followed: false)
+      TwitterAccount.stubs(:follower_ids).returns([account.user_id])
+    end
+
     it 'submits follow requests for any twitter accounts that are not currently followed' do
       VCR.use_cassette('twitter/follow_redningja') do
-        FactoryGirl.create(:redningja, followed: false)
         TwitterAccount.followed(false).count.must_equal 1
         TwitterAccount.follow_all_not_followed
         TwitterAccount.followed(false).count.must_equal 0
@@ -35,7 +39,6 @@ describe TwitterAccount do
 
     it 'returns accounts now followed' do
       VCR.use_cassette('twitter/follow_redningja') do
-        FactoryGirl.create(:redningja, followed: false)
         accounts = TwitterAccount.follow_all_not_followed
         accounts.size.must_equal 1
         accounts.first.must_be_kind_of TwitterAccount
@@ -45,7 +48,6 @@ describe TwitterAccount do
     it 'marks an account as blocked if blocked exception caught' do
       exception = Twitter::Error::Forbidden.new('blocked', {})
       Twitter.stubs(:follow).raises(exception)
-      FactoryGirl.create(:redningja, followed: false)
       TwitterAccount.any_instance.expects(:blocked!)
       TwitterAccount.follow_all_not_followed
     end
@@ -53,7 +55,6 @@ describe TwitterAccount do
     it 'destroys an account if Twitter::Error::NotFound raised' do
       exception = Twitter::Error::NotFound.new('', {})
       Twitter.stubs(:follow).raises(exception)
-      FactoryGirl.create(:redningja, followed: false)
       TwitterAccount.follow_all_not_followed
       TwitterAccount.count.must_equal 0
     end

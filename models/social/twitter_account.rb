@@ -37,7 +37,10 @@ class TwitterAccount < ActiveRecord::Base
     # Mark as followed.
     # Return accounts now followed.
     def follow_all_not_followed
-      followed(false).blocked(false).select do |twitter_account|
+      accounts = where(user_id: follower_ids).
+                 followed(false).
+                 blocked(false)
+      accounts.select do |twitter_account|
         begin
           Twitter.follow(twitter_account.user_id)
         rescue Twitter::Error::Forbidden => ex
