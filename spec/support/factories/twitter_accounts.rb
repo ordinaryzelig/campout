@@ -10,6 +10,7 @@ FactoryGirl.define do
       longitude    -97.6385368
       country_code 'US'
       followed     true
+      blocked      false
     end
 
   end

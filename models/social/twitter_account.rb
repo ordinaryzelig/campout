@@ -10,11 +10,12 @@ class TwitterAccount < ActiveRecord::Base
 
   after_validation :geocode_with_country_code, if: :postal_code_changed?
 
+  scope :blocked, proc  { |bool| where(blocked: bool) }
   scope :followed, proc { |bool| where(followed: bool) }
   scope :not_promted_for_postal_code, where(prompted_for_postal_code_at: nil)
   scope :promptable_for_postal_code, followed(true).not_promted_for_postal_code
   scope :with_postal_code, where('postal_code IS NOT NULL')
-  scope :trackable, followed(true).with_postal_code
+  scope :trackable, followed(true).blocked(false).with_postal_code
 
   geocoded_by :postal_code
   include HasCoordinates
@@ -36,8 +37,14 @@ class TwitterAccount < ActiveRecord::Base
     # Mark as followed.
     # Return accounts now followed.
     def follow_all_not_followed
-      followed(false).map do |twitter_account|
-        Twitter.follow(twitter_account.user_id)
+      followed(false).blocked(false).map do |twitter_account|
+        begin
+          Twitter.follow(twitter_account.user_id)
+        rescue Twitter::Error::Forbidden => ex
+          if ex.message =~ /blocked/
+            twitter_account.blocked!
+          end
+        end
         twitter_account.update_attributes! followed: true
         twitter_account
       end
@@ -179,6 +186,10 @@ class TwitterAccount < ActiveRecord::Base
 
   def in_supported_country?
     TicketSources.support_country_code?(self.country_code)
+  end
+
+  def blocked!
+    update_attributes!(blocked: true)
   end
 
   private

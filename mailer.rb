@@ -12,7 +12,7 @@ module Mailer
     def rake_exception(ex)
       Pony.mail(
         subject: "Campout failure: rake #{Rake.application.top_level_tasks.join(' ')}",
-        body: exception_body(ex),
+        html_body: exception_body(ex),
       )
     end
 
@@ -31,7 +31,7 @@ module Mailer
     private
 
     def exception_body(ex)
-      ([ex.class, ex.message] + ex.backtrace).join("\n")
+      ([ex.class, ex.message] + ex.backtrace).join("<br />")
     end
 
   end

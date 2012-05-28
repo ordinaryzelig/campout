@@ -42,6 +42,14 @@ describe TwitterAccount do
       end
     end
 
+    it 'marks an account as blocked if blocked exception caught' do
+      exception = Twitter::Error::Forbidden.new('blocked', {})
+      Twitter.stubs(:follow).raises(exception)
+      FactoryGirl.create(:redningja, followed: false)
+      TwitterAccount.any_instance.expects(:blocked!)
+      TwitterAccount.follow_all_not_followed
+    end
+
   end
 
   it '.promptable_for_postal_code scopes for TwitterAccounts that have not beem prompted for postal_code' do
@@ -199,6 +207,12 @@ describe TwitterAccount do
     UnsupportedCountryTweet.expects(:new).with(account.country_code)
     account.expects(:dm!)
     account.send_unsupported_country_message
+  end
+
+  specify '#blocked! marks an account as blocked' do
+    account = FactoryGirl.create(:redningja, blocked: false)
+    account.blocked!
+    account.blocked.must_equal true
   end
 
 end
