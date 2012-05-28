@@ -5,7 +5,7 @@ prompted_accounts = TwitterAccount.prompt_for_postal_codes
 processed_dms     = TwitterAccount.process_DMs_for_postal_codes
 
 puts "#{new_accounts.size} new accounts. #{TwitterAccount.count} total."
-puts "#{unfollowed_accounts.size} unfollowed accounts. #{TwitterAccount.followed(true).count} followed."
+puts "#{unfollowed_ids.size} unfollowed accounts. #{TwitterAccount.followed(true).count} followed."
 puts "#{new_followings.size} new followings."
 puts "#{prompted_accounts.size} prompts for postal codes"
 puts "#{processed_dms.size} DMs processed for postal codes"
