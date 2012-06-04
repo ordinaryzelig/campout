@@ -53,7 +53,7 @@ class MovieTickets::MovieSource < MovieSource
           hash.merge! query_options(movie_id: movie_source.external_id)
           hash.merge! query_options(date: movie_source.released_on) if movie_source.released_on
         when :postal_code
-          hash[:SearchZip] = val
+          hash[:SearchZip] = val.to_s.gsub(' ', '')
         else
           raise "unknown option: #{key}"
         end

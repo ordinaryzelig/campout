@@ -55,4 +55,9 @@ describe MovieTickets::MovieSource do
 
   end
 
+  specify '.query_options removes spaces from postal code' do
+    options = MovieTickets::MovieSource.send :query_options, postal_code: '1 2'
+    options[:SearchZip].must_equal '12'
+  end
+
 end
